@@ -1,0 +1,149 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage[utf8]{inputenc}
+\usepackage[french, provide=*]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,top=1cm,bottom=1.2cm,left=1cm,right=1cm,marginparwidth=1.75cm]{geometry}
+\usepackage{chngcntr} 
+\usepackage{comment}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{physics}
+\usepackage{xurl}
+\usepackage{siunitx}
+\usepackage[backend=biber, style=numeric, sorting=none]{biblatex}
+\addbibresource{references.bib}
+\usepackage{float}
+\usepackage[colorlinks = true]{hyperref}
+\title{Suivi du stage}
+\author{Adam Franchot--Fowler}
+\date{}
+\begin{document}
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{logo.png}
+\end{figure}
+\maketitle
+\section{semaine 1}
+\subsection{lundi}
+On uttilisera les notations suivantes et la convention d'einstein:
+\begin{align}
+    &\eta_{\rho,\nu} = \dv{\eta_{\rho}}{x^{mu}} \\
+    &\eta_{,j} = \dv{\eta}{x^j}\\
+    &\eta_{i,\mu \nu} = \frac{d^2\eta_i}{dx^{\mu}dx^{\nu}}
+\end{align}
+Ensuite on peut ecrire la denstité lagrangiene sous la forme quelquonque:
+\begin{equation}
+    \mathcal{L} = \mathcal{L}(\eta_{\rho}, \eta_{\rho,\nu}x^{\nu})
+\end{equation}
+ainsi le Lagrangien peut s'ecrire comme
+\begin{equation}
+    L = \int \mathcal{L} dx^i
+\end{equation}
+Et le principe d'Hamiltone (\( \delta S = \delta \int L dt = 0\) ) nous donne,
+\begin{equation}
+    \delta S = \delta \int \mathcal{L} dx^{\mu}= 0 
+\end{equation}
+ce qui donne
+\begin{equation}
+    \boxed{\dv{}{x^{\nu}}\Big(\pdv{\mathcal{L}}{\eta_{\rho,\nu}} \Big) - \pdv{\mathcal{L}}{\eta_{\rho}} = 0}
+\end{equation}
+On remarque finalment que $\eta$ est un champs quelquonque que l'on peut remplacer par n'importe qu'elle champs comme B ou E et A
+\subsection{mardi}
+Seminaire
+\subsection{mercredi}
+\subsubsection{Densite Lagrangienne relativiste de Maxwell}
+Le lagrangien de Maxwell est donné par
+\begin{equation}
+    \boxed{\mathcal{L} = -\frac{1}{4 \mu_0}F_{\mu\nu}F^{\mu\nu} - A_{\mu}J^{\mu}}
+\end{equation}
+\clearpage
+\subsubsection{Equations du mouvment du champs $\tilde{A}$}
+On uttilise la methode variationelle pour trouver les equations du mouvements,
+on pose
+\begin{align}
+    \delta \mathcal{L} (A_{\mu},A_{\rho,\mu}) &= \frac{-1}{4 \mu_0}\Big( \underbrace{\pdv{F_{\mu \nu}F^{\mu \nu}}{A_{\rho}} \delta A_{\rho}}_{=0}+\pdv{F_{\mu\nu}F^{\mu\nu}}{A_{\rho,\sigma}}\delta(A_{\rho,\sigma})\Big)\\
+    &= \frac{-1}{2 \mu_0} \pdv{F_{\mu\nu}}{A_{\rho , \sigma}}F^{\rho\sigma} \delta(A_{\rho,\sigma})\\
+    &= \frac{-1}{\mu_0}F^{\rho \sigma} \delta(A_{\rho,\sigma})\\
+    &=  \frac{1}{\mu_0}\Big( \partial_{\sigma}F^{\rho\sigma}\delta(A_{\rho})- \underbrace{\partial_{\sigma}\big(F^{\rho\sigma} \delta(A_{\rho})\big)}_{\text{Terme de bord nul apres integration}}\Big)
+\end{align}
+\begin{equation}
+    \boxed{\partial_{\mu}F^{\mu\nu} = -\mu_0 J^{\nu}}
+\end{equation}
+C'est exactment les equations de maxwell avec une source
+Et dans le vide sans courant on obtient
+\begin{equation}
+    \partial_{\mu}F^{\mu\nu} =0
+\end{equation}
+qu'on peut réecrire comment
+\begin{equation}
+    \partial_{\mu}\partial^{\mu}A^{\nu}+ \partial^{\nu}\partial_{\mu}A^{\nu}=0
+\end{equation}
+ou de façon plus compacte
+\begin{equation}
+    \boxed{\Box A^{\nu}+ \partial^{\nu}\partial_{\mu}A^{\nu}=0}
+\end{equation}
+Le second membre del'equation est un membre de jauge que l'on peut supprimer avec le jauge de coulomb
+ce qui donne
+\begin{equation}
+    \boxed{\Box A^{\nu}=0}
+\end{equation}
+\subsection{Jeudi}
+\subsubsection{revison}
+On definit les christofells par
+\begin{equation}
+    \Gamma_{\mu \nu}^{\lambda} = \frac{1}{2}g^{\lambda \sigma}(\partial_{\mu}g_{\nu \sigma}+\partial_{\nu}g_{\sigma \mu} - \partial_{\sigma}g_{\mu \nu})
+\end{equation}
+La dérivé covairante d'un d'un champs vectorielle$ V^{\nu}$ est
+\begin{equation}
+    \nabla_{\mu}V^{\nu}= \partial_{\mu}V^{\nu}+\Gamma^{\nu}_{\mu \sigma}V^{\sigma}
+\end{equation}
+Une courbe parametriser $x^{\mu}(\lambda)$ est une geodesique si elle respecte l'equaion suivante
+\begin{equation}
+    \dv[2]{x^{\mu}}{\lambda} + \Gamma^{\mu}_{\rho \sigma}\dv{x^{\rho}}{\lambda}\dv{x^{\sigma}}{\lambda}
+\end{equation}
+Enfin on defini le tenseur de Riemann comme (X,Y, et Z sont des champs vectorielles, et on a $\nabla_X = X^{\mu}\nabla_{\mu}$)
+\begin{align}
+    &R^{\rho}_{\sigma \mu \nu} = \partial_{\mu}\Gamma^{\rho}_{\nu \sigma}-\partial_{\nu}\Gamma^{\rho}_{\mu\sigma}+\Gamma^{\rho}_{\mu \lambda}\Gamma^{\lambda}_{\nu \sigma}-\Gamma^{\rho}_{\nu \lambda}\Gamma^{\lambda}_{\mu \sigma}\\
+    &R(X,Y)Z = \nabla_X \nabla_Y Z-\nabla_Y \nabla_X Z - \nabla_{[X,Y]}Z\\
+    &R^{\rho}_{\sigma\mu\nu}X^{\mu}Y^{\nu}Z^{\sigma} = X^{\lambda}\nabla_{\lambda}(Y^{\eta}\nabla_{\eta}Z^{\rho})-Y^{\lambda}\nabla_{\lambda}(X^{\eta}\nabla_{\eta}Z^{\rho})-(X^{\lambda\partial_{\lambda}}Y^{\eta}-Y^{\lambda}\partial_{\lambda}X^{\eta})\nabla_{\eta}Z^{\rho}
+\end{align}
+On peut deduire la relation
+\begin{equation}
+    \Gamma^{\mu}_{\mu \lambda} = \frac{1}{\sqrt{|g|}}\partial_{\lambda}\sqrt{|g|}
+\end{equation}
+And therefore the divergence can be writen as 
+\begin{equation}
+    \nabla_{\mu}V^{\mu}= \frac{1}{\sqrt{|g|}}\partial_{\mu}\Big(\sqrt{|g|}V^{\mu} \Big)
+\end{equation}
+equation de conservation del'energie
+\begin{equation}
+    \nabla_{\mu}\underbrace{T^{\mu \nu}}_{\text{tenseur energie implution}} = 0
+\end{equation}
+On defini le tenseur de Ricci comme 
+\begin{equation}
+    R_{\mu \nu} =R^{\lambda}_{\mu \lambda\nu}
+\end{equation}
+Tenseur symetrique par ailleur\\
+Et on peut aussi definir la courbure scalaire comme
+\begin{equation}
+    R = R^{\mu}_{\mu}= g^{\mu \nu}R_{\nu \mu}
+\end{equation}
+On defini le tensueur d'einstein par
+\begin{equation}
+    G_{ \mu \nu} = R_{\mu \nu} -\frac{1}{2}Rg_{\mu \nu}
+\end{equation}
+On peut ecrire
+\begin{equation}
+    \nabla^{\mu}G_{ \mu \nu} =0
+\end{equation}
+Les euqtions d'eisntein sont  
+\begin{align}
+    &G_{\mu \nu} = 8 \pi G T_{\mu \nu} \\
+    &R_{\mu \nu} -\frac{1}{2}Rg_{\mu \nu} = 8 \pi G T_{\mu \nu}
+    R_{\mu \nu =8 \pi G (T_{\mu \nu}}-\frac{1}{2}Tg_{\mu \nu}
+\end{align}
+En Rg comme en RR la theorie des champs et identique. c'est tres comlique par moment
+\end{document}
