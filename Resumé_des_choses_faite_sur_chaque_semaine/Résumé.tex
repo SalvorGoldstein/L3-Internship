@@ -30,7 +30,7 @@
 \subsection{lundi}
 On uttilisera les notations suivantes et la convention d'einstein:
 \begin{align}
-    &\eta_{\rho,\nu} = \dv{\eta_{\rho}}{x^{mu}} \\
+    &\eta_{\rho,\nu} = \dv{\eta_{\rho}}{x^{\nu}} \\
     &\eta_{,j} = \dv{\eta}{x^j}\\
     &\eta_{i,\mu \nu} = \frac{d^2\eta_i}{dx^{\mu}dx^{\nu}}
 \end{align}
@@ -146,4 +146,74 @@ Les euqtions d'eisntein sont
     R_{\mu \nu =8 \pi G (T_{\mu \nu}}-\frac{1}{2}Tg_{\mu \nu}
 \end{align}
 En Rg comme en RR la theorie des champs et identique. c'est tres comlique par moment
+\subsection{Vendredi}
+\subsubsection{Noncoordinats basis}
+On va crée une nouvelle base de vecteur qui sera dependant du poins dansns le manifold ou nous sommes mais
+qui nous permetra de  de passer de n'importe qu'elle metric a $Mink_4$ localment
+Pour cela onintroduit les vielbein (matrice de changment de base) de telle sorte que on a(un indice en latin sigifie la nouvelle base)
+\begin{align}
+    &\hat{e}_{\mu} = e_{\mu}^{a}\hat{e}_a\\
+    &\hat{e}_{a} = e_{a}^{\mu}\hat{e}_{\mu}\\
+    & g_{\mu \nu} = 
+\end{align}
+On doit ensuite changerplusieur chose a commencer par les sym
+\subsubsection{Debut des papiers scientifique}
+on commence par rpouver l'expresion de R qui est donnée
+\begin{align}
+    R&=g^{\nu \lambda}R^{\rho}_{\nu \rho \lambda}\\
+    &=g^{\nu \lambda}g^{\mu \rho}R_{\mu \nu \rho \lambda}\\
+    &=g^{\nu \lambda}g^{\mu \rho}R_{\mu \nu r s}V^{r}_{\rho}V^{s}_{\lambda}\\
+    &=V^{\mu r}V^{\nu s}R_{\mu \nu r s}
+\end{align}
+on a
+\begin{equation}
+    R_{\mu \nu r s} = \partial_{\mu}\omega_{\nu r s} + \omega_{\mu r}^{t}\omega_{\nu t s} - (\mu \leftrightarrow \nu)
+\end{equation}
+\section{semaine 2}
+\subsection{lundi}
+On prend laction de einstein dapate en 5D
+\begin{equation}
+    S = \frac{-1}{4 \kappa^2}\int dx^D\int \frac{dy^E}{\rho(E)}VR(\omega)
+\end{equation}
+puis apres manipulation va cherche rla meme action que dans le papier, on commence par l'ecrire de façon explicite
+\begin{equation}
+    S=\frac{-1}{4 \kappa^2}\int dx^D\int \frac{dy^E}{\rho(E)}V V^{\mu r} V^{\nu s}(\partial_{\mu}\omega_{\nu r s}+\omega_{\mu r}^t \omega_{\nu ts }-\partial_{\nu}\omega_{\mu r s}-\omega_{\nu r}^t \omega_{\mu ts })
+\end{equation}
+ensuite on a en faisant une ipp sur ces parties(on a fait le changment de base)
+\[\int dx^D\int \frac{dy^E}{\rho(E)}V\partial_{r}\omega_{s r s}\]
+on peut ecrire 
+\[  \Big[ \omega_{srs}V \Big]-\int dx^D\int \frac{dy^E}{\rho(E)}\partial_s (V )\omega_{srs}\]
+\begin{equation}
+    V V^{\mu r} V^{\nu s}(\partial_{\mu}\omega_{\nu r s}+ \partial_{\mu}\omega_{\nu r s})
+\end{equation}
+\[\omega_{\mu r s}= -\omega_{\mu s r}\]
+on fait une pause sur cette demo trop longue
+\clearpage
+\subsection{mardi} 
+Enfin post preuve on arrive a l'action: 
+\begin{equation}
+    S = \frac{-1}{4 \kappa^2}\int dx^D \int \frac{dy^E}{\rho(E)}V(\omega^{r}_{st}\omega^{st}_r+\omega^r_{rt}\omega^{s\, \, t}_{\, \, s})
+\end{equation}
+\subsection{mercredi}
+Notre theorie est invariante sous les transformations infinetesimal
+\[ x'^{\mu} \rightarrow x^{\mu} + \xi^{\mu}(x)  \]
+on  a l'equation que 
+\begin{equation}
+    \delta\hat{V}^{\hat{r}}_{\hat{\mu}} = \xi^{\hat{\rho}}\partial_{\hat{\rho}} \hat{V}^{\hat{r}}_{\hat{\mu}} + \partial_{\hat{\mu}}\xi^{\hat{\rho}}\hat{V}^{\hat{r}}_{\hat{\rho}} 
+\end{equation}
+bon maintenant applicon ça a chaque bout du vielbein.
+\begin{align*}
+    &\delta\hat{V}^{r}_{\mu}= \xi^{\rho}\partial_{\rho}(\delta^{\gamma})V^{r}_{\mu} + \delta^{\gamma}(\xi^{\rho}\partial_{\rho}V^{r}_{\mu} + \partial_{\mu}\xi^{\mu}V^{r}_{\mu}  )\\
+    &\delta\hat{V}^{r}_{\mu}=\delta(\delta^{\gamma}V^{r}_{\mu}) = \delta(\delta^{\gamma})V^{r}_{\mu} + \delta^{\gamma}\delta(V^{r}_{\mu})\\
+    &\delta\hat{V}^{a}_{\alpha}= \xi^{\rho}\partial_{\rho}\Phi^{a}_{\alpha}\\
+    &\delta\hat{V}^{a}_{\alpha}=\delta \Phi^{a}_{\alpha}\\
+    &\delta\hat{V}^{a}_{\mu}= 2\kappa(\xi^{\rho}(\partial_{\rho}A^{\alpha}_{\mu} \Phi^{a}_{\alpha} + A^{\alpha}_{\mu} \partial_{\rho}\Phi^{a}_{\alpha}) + \partial_{\mu}\xi^{\rho} A^{\alpha}_{\rho}\Phi^{a}_{\alpha}+\frac{\partial_{\mu}}{2 \kappa}\xi^{\alpha}\Phi^a_{\alpha})\\
+    &\delta\hat{V}^{a}_{\mu}=\delta(2\kappa A^{\alpha}_{\mu} \Phi^{a}_{\alpha}) = 2\kappa(\delta(A^{\alpha}_{\mu})\Phi^{a}_{\alpha} + A^{\alpha}_{\mu}\delta(\Phi^{a}_{\alpha}))
+\end{align*}
+De ceci on peut en un deduire qu'on a les bonnes transformations mais surtout que pour la transfo \( \xi^{\alpha} \) on a 
+\begin{align}
+    &\delta A^{\alpha}_{\mu} = \frac{\partial_{\mu}}{2 \kappa}\xi^{\alpha}\\
+    & \delta V^r_{\mu} = \delta \Phi_{\alpha}^a=0
+\end{align}
+On peut voir qu'il y a une liberté de jauge identique a celle de l'electromagnétisme pour a donc on est good
 \end{document}
