@@ -8,7 +8,7 @@
 \usepackage[a4paper,top=1cm,bottom=1.2cm,left=1cm,right=1cm,marginparwidth=1.75cm]{geometry}
 \usepackage{chngcntr} 
 \usepackage{comment}
-\usepackage{amsmath}
+\usepackage{mathtools}
 \usepackage{amssymb}
 \usepackage{physics}
 \usepackage{xurl}
@@ -216,4 +216,51 @@ De ceci on peut en un deduire qu'on a les bonnes transformations mais surtout qu
     & \delta V^r_{\mu} = \delta \Phi_{\alpha}^a=0
 \end{align}
 On peut voir qu'il y a une liberté de jauge identique a celle de l'electromagnétisme pour a donc on est good
+le vielbein est 
+\begin{equation}
+    \hat{V}^{\hat{r}}_{\hat\mu} = \begin{pmatrix} \delta^\gamma V^r_\mu & 2\kappa A^\alpha_\mu \Phi^a_\alpha \\ 0 & \Phi^a_\alpha \end{pmatrix}
+\end{equation}
+et le vielbein  inversé
+\begin{equation}
+    \hat{V}^{\hat{\mu}}_{\hat r} = \begin{pmatrix} \delta^{- \gamma} V^\mu_r & -2 \kappa \delta^{- \gamma}A^\alpha_r  \\ 0 & \Phi_a^\alpha \end{pmatrix}
+\end{equation}
+On part de la définition de la connexion de spin :
+\begin{equation}
+\hat{\omega}_{\hat{t}\hat{r}\hat{s}} = -\hat{\Omega}_{\hat{t}\hat{r},\hat{s}} + \hat{\Omega}_{\hat{r}\hat{s},\hat{t}} - \hat{\Omega}_{\hat{s}\hat{t},\hat{r}}
+\end{equation}
+avec
+\begin{equation}
+\hat{\Omega}_{\hat{r}\hat{s},\hat{t}} = \frac{1}{2}\left(\hat{V}^{\hat{\mu}}_{\hat{r}}\hat{V}^{\hat{\rho}}_{\hat{s}} - \hat{V}^{\hat{\mu}}_{\hat{s}}\hat{V}^{\hat{\rho}}_{\hat{r}}\right)\partial_{\hat{\rho}}\hat{V}_{\hat{\mu}\hat{t}}
+\end{equation}
+et les vielbeins
+\begin{equation}
+\hat{V}^{\hat{\mu}}_{\hat{r}} = \begin{pmatrix} \delta^{-\gamma}V^{\mu}_{r} & -2\kappa\delta^{-\gamma}A^{\alpha}_{r} \\ 0 & \Phi^{\alpha}_{a} \end{pmatrix}, \qquad \hat{V}^{\hat{r}}_{\hat{\mu}} = \begin{pmatrix} \delta^{\gamma}V^{r}_{\mu} & 2\kappa A^{\alpha}_{\mu}\Phi^{a}_{\alpha} \\ 0 & \Phi^{a}_{\alpha} \end{pmatrix}.
+\end{equation}
+ 
+Les indices $m,n,p$ sont des indices externes et $a,b,c$ des indices internes.
+ 
+\section{semaine 3}
+
+\subsection{mardi}
+nous devons calculer les $\Omega$ qui sont necessaire pour trouver les connnexions de spin. au total on va devoir calculer les $\Omega$ suivant
+\begin{align*}
+    &\Omega_{\hat p \hat m \hat n } = \frac{1}{2} \underbrace{\delta^{-3 \gamma}}_{  \mathclap{\text{La se serai bien si c'etait juste } -\gamma }}  ( V^{\mu}_p V^{\nu}_m -V^{\mu}_m V^{\nu}_p)(-\gamma \partial_{\nu}(\log{\delta})V_{\mu m} + \partial_{\nu}V_{\mu m }\\
+    &\Omega_{\hat p \hat m \hat a }= \kappa \delta^{-2 \gamma} F^{\alpha}_{pm}\Phi_{a \alpha} - \underbrace{\kappa \delta^{-2 \gamma}(V^{\mu}_m A^{\alpha}_p - V^{\rho}_p A^{\alpha}_m)\partial_{\nu}\Phi^{a}_{\alpha}}_{ \mathclap{\text{Se serait bien si c'etait nul mais je vois pas pourquoi ça le serait}}}\\
+    &\Omega_{\hat p \hat a \hat m }=0\\
+    &\Omega_{\hat a \hat m \hat p }=0\\
+    &\Omega_{\hat m \hat a \hat b }=-\frac{1}{2}\Phi^{\alpha }_a \delta^{- \gamma} V^{\nu}_m \partial_{\nu} \Phi_{ab}\\
+    &\Omega_{\hat a \hat m \hat b }= \frac{1}{2}\Phi^{\alpha }_a \delta^{- \gamma} V^{\nu}_m \partial_{\nu} \Phi_{ab} \\
+    &\Omega_{\hat b \hat a \hat m } = 0\\
+    &\Omega_{\hat a \hat b \hat c } = 0\\
+\end{align*}
+ensuite en suivant l'equation 5 du ... on obtient bien les equation 17
+récriture de la transformation $ x'^{\mu}  = x^{\mu} - \xi^{\mu}(x) $ avec la derivé de lie
+\begin{align}
+    &\delta \phi(x) = \xi ^ \mu \partial _ \mu \Phi (x) \\
+    &\delta U ^ \mu  = \xi ^ \rho \partial _ \rho U ^ \mu - (\partial _ \rho \xi ^ \mu) U ^\rho \\
+    &\delta  \omega _ \mu  = \xi ^ \rho \partial _ \rho \omega _\mu - (\partial _ \rho \xi ^ \mu) \omega _\rho \\
+    &\delta T ^ \mu _ \nu  = \xi ^ \rho  \partial _ \rho T ^ \mu _ \nu -(\partial _ \rho \xi ^ \mu ) T ^ \rho _ \nu + (\partial _ \nu \xi ^ \rho)T ^ \mu _ \nu 
+\end{align}
+densité lagrangienne d' un champs vectorielle et d' un champs scalaire
 \end{document}
+
