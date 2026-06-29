@@ -261,6 +261,133 @@ récriture de la transformation $ x'^{\mu}  = x^{\mu} - \xi^{\mu}(x) $ avec la d
     &\delta  \omega _ \mu  = \xi ^ \rho \partial _ \rho \omega _\mu - (\partial _ \rho \xi ^ \mu) \omega _\rho \\
     &\delta T ^ \mu _ \nu  = \xi ^ \rho  \partial _ \rho T ^ \mu _ \nu -(\partial _ \rho \xi ^ \mu ) T ^ \rho _ \nu + (\partial _ \nu \xi ^ \rho)T ^ \mu _ \nu 
 \end{align}
-densité lagrangienne d' un champs vectorielle et d' un champs scalaire
+\subsection{mercredi}
+on réecris la partie avec les connexions de spin de l'action
+\begin{align}
+    S &= \frac{-1}{4 \kappa^2}\int dx^D  \hat V(\omega^{ \hat r}_{\hat s \hat t}\omega^{\hat s \hat t}_{ \hat r}+\omega^{\hat r}_{\hat r \hat t}\omega^{ \hat s\, \, \hat t}_{\, \, \hat s})\\
+    & =\frac{-1}{4 \kappa^2}\int dx^D  \hat V(\omega^{a}_{bt}\omega^{bt}_a+\omega^{a}_{st}\omega^{st}_a+\omega^{r}_{bc}\omega^{bc}_r+\omega^{r}_{bt}\omega^{bt}_r+\omega^{r}_{sc}\omega^{sc}_r+\omega^{r}_{st}\omega^{st}_r+\omega^a_{at}\omega^{b\, \, t}_{\, \, b}+\omega^a_{at}\omega^{s\, \, t}_{\, \, s}+\omega^r_{rt}\omega^{b\, \, t}_{\, \, b}+\omega^r_{rc}\omega^{s\, \, c}_{\, \, s}+\omega^r_{rt}\omega^{s\, \, t}_{\, \, s})
+\end{align}
+\begin{equation}\frac{-1}{4 \kappa^2}\int dx^D  \hat V(\omega^{a}_{bt}\omega^{bt}_a+\omega^{a}_{st}\omega^{st}_a+\omega^{r}_{bc}\omega^{bc}_r+\omega^{r}_{bt}\omega^{bt}_r+\omega^{r}_{sc}\omega^{sc}_r+\omega^{r}_{st}\omega^{st}_r+\omega^a_{at}\omega^{b\, \, t}_{\, \, b}+\omega^a_{at}\omega^{s\, \, t}_{\, \, s}+\omega^r_{rt}\omega^{b\, \, t}_{\, \, b}+\omega^r_{rc}\omega^{s\, \, c}_{\, \, s}+\omega^r_{rt}\omega^{s\, \, t}_{\, \, s})
+    \omega^{b\, \, s}_{\, \, t} = \eta^{be} \eta^{so} \omega_{eto} = -\eta^{be} \eta^{so} \omega_{e o t} =  - \omega^{b s}_{\, \, \, \, t}
+\end{equation}
+
+
+\section{Semaine 4}
+\subsection{Lundi}
+Dans la réecirture de l'action precedente on remqraue que certain terme n'apparaisse pas dans le tableau de connexion que nous avons trouver precedemen cependant. on a une antisymetrie sur le dernier terme donc on peut réecrire les termes problematique sous une forme plus acceptable ce qui donne
+\begin{equation*}
+    \frac{-1}{4 \kappa^2}\int dx^D  \hat V( -\underbrace{\omega^{a}_{tb}\omega^{bt}_a}_{\mathclap{1}}+\underbrace{\omega^{a}_{st}\omega^{st}_a}_{\mathclap{2}}-\underbrace{\omega^{r}_{bc}\omega^{b \, \, \, c}_{\, \,r}}_{\mathclap{3}}-\underbrace{\omega^{r}_{tb}\omega^{bt}_r}_{\mathclap{4}}-\underbrace{\omega^{r}_{sc}\omega^{s \, \, \, c}_{r}}_{\mathclap{5}}+\underbrace{\omega^{r}_{st}\omega^{st}_r}_{\mathclap{6}}+\underbrace{\omega^a_{ta}\omega^{b\, \, \, t}_{\, \, b}}_{\mathclap{7}}-\underbrace{\omega^a_{ta}\omega^{s\, \, \, t}_{\, \, s}}_{\mathclap{8}}+\underbrace{\omega^r_{rt}\omega^{b\, \, \,t}_{\, \, b}}_{\mathclap{9}}+\underbrace{\omega^r_{rc}\omega^{s\, \, \,  c}_{\, \, s}}_{\mathclap{10}}+\underbrace{\omega^r_{rt}\omega^{s\, \, \, t}_{\, \, s}}_{\mathclap{11}})
+\end{equation*}
+on remarque que 2 et 4 avec un renomage judicieux ce simplifie:
+
+Ensuite il suffit de tout calculer:
+\underline{Pour 1 on a }
+
+\begin{align*}
+    &- \omega^{a}_{tb}\omega^{bt}_a = - \eta^{ad} \eta^{be}\eta^{tp} \omega{dtb} \omega_{epa} \\
+    & =  - \eta^{ad} \eta^{be}\eta^{tp}\frac{1}{4} \delta^{-2\gamma}(\Phi^\alpha_b \Phi^\beta_d V^\lambda_t \partial_\lambda h_{\alpha \beta} )(\Phi^{\alpha '}_a \Phi^{\beta '}_e V^{\rho}_p \partial_\rho h_{\alpha ' \beta '})\\
+    & = -\frac{1}{4} \delta^{-2\gamma} \Phi^\alpha_b \Phi^{\beta a}V^\lambda_t \partial_\lambda h_{\alpha \beta}\Phi^{\alpha'}_a \Phi^{\beta' b}V^{\rho t} \partial_\rho h_{\alpha ' \beta '} \\
+    & = -\frac{1}{4} \delta^{-2\gamma}  h^{\alpha \beta'} h^{\beta \alpha'} g^{\rho \lambda} \partial_\lambda h_{\alpha \beta}\Phi^{\alpha'}_a \Phi^{\beta' b}V^{\rho t} \partial_\rho h_{\alpha ' \beta '}\\
+    & =  -\frac{1}{4} \delta^{-2\gamma} g^{\rho \lambda} \partial_\lambda h_{\alpha \beta}\partial_\rho h^{\beta \alpha}\\
+    & =  \frac{1}{4} \delta^{-2\gamma} g^{\rho \lambda} \partial_\lambda h_{\alpha \beta}\partial_\rho h^{\alpha \beta}\\
+\end{align*}
+
+Apres calcul 3 est nul par antysimetrie des indices.
+
+\underline{pour 5 on a }
+
+
+\begin{align*}
+    & - \omega^{r}_{sc}\omega^{s \, \, \, c}_{r} = - \eta^{rp}\eta^{sm} \eta^{c f} \eta^{sm}\omega{psc} \omega_{mrf}\\
+    & = - \eta^{rp}\eta^{sm} \eta^{c f} \eta^{sm} \kappa^2 \delta^{-4 \gamma} F^{\alpha}_{ps}\Phi_{\alpha c}F^{\beta}_{mr}\Phi_{\beta f}\\
+    & = - \kappa^2 \delta^{-4 \gamma}F^{rm \alpha}F^{\beta}_{mr}\Phi_{\beta}^c \delta_{dc}\Phi^d_{\alpha }\\
+    & = \kappa^2 \delta^{-2 \gamma}F^{\mu \nu \alpha}F^{\beta}_{\mu  \nu}h_{\alpha \beta}
+\end{align*}
+
+\underline{pour la 6 on a }
+avec des manipulations similaire acellef aite en haut 
+\begin{equation*}
+    \delta^{-2 \gamma}(\omega^{r}_{st}\omega^{st}_r+ \gamma^{2}(1-D)g^{\lambda \rho}\partial_{\rho}\log{\delta}\partial_{\lambda}\log{\delta})
+\end{equation*}
+Les 4 suivantes sont nulles
+et la 11 donne 
+\begin{equation*}
+    \omega^r_{rt} \omega^{s \, \, \, t}_{\, \, s} = \delta^{-2 \gamma} \omega^r_{rt} \omega^{s \, \, \, t}_{\, \, s} 
+\end{equation*}
+puis on additione tout ce qui donne bien  l'action du 20
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \end{document}
+
 

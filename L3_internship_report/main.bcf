@@ -2373,6 +2373,11 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">references.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
+    <bcf:citekey order="1" intorder="1">scherk1979get</bcf:citekey>
+    <bcf:citekey order="2" intorder="1">einstein1915allgemeinen</bcf:citekey>
+    <bcf:citekey order="3" intorder="1">kaluza1921unitatsproblem</bcf:citekey>
+    <bcf:citekey order="4" intorder="1">freedman2012supergravity</bcf:citekey>
+    <bcf:citekey order="5" intorder="1">maharana1993noncompact</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">
@@ -2384,4 +2389,14 @@
     </bcf:sort>
   </bcf:sortingtemplate>
   <!-- DATALISTS -->
+  <bcf:datalist section="0"
+                name="none/global//global/global/global"
+                type="entry"
+                sortingtemplatename="none"
+                sortingnamekeytemplatename="global"
+                labelprefix=""
+                uniquenametemplatename="global"
+                labelalphanametemplatename="global"
+                namehashtemplatename="global">
+  </bcf:datalist>
 </bcf:controlfile>

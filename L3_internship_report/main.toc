@@ -1,2 +1,19 @@
-\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
-\contentsline {section}{\numberline {2}}{2}{section.2}%
+\contentsline {section}{Notation and abreviation }{1}{section*.2}%
+\contentsline {section}{\numberline {1}Introduction}{3}{section.1}%
+\contentsline {section}{\numberline {2}General relativity theoretical reminder}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}mathematical basis}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}spin connexion, vielbein and flatspace}{3}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Lagrangian field theory}{3}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Lagrangian density}{3}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}General exemple for scalar and vectorial fields}{3}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Reduction of hilbert-einstein Action in D+E dimension}{4}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Hypothesis}{4}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Rewriting the action}{4}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}vielbein anstazs and latin connexion}{4}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}finalisation}{4}{subsection.4.4}%
+\contentsline {section}{\numberline {5}reduction of the new fields}{4}{section.5}%
+\contentsline {subsection}{\numberline {5.1}scalar field reduction}{4}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Two form fiel reduction}{4}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Observation of new symmetry}{4}{section.6}%
+\contentsline {section}{\numberline {7}Conclusion}{4}{section.7}%
+\contentsline {section}{\numberline {A}lagrangian}{4}{appendix.A}%

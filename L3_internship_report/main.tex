@@ -4,7 +4,7 @@
 \usepackage{booktabs}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[a4paper,top=1cm,bottom=1.2cm,left=1cm,right=1cm,marginparwidth=1.75cm]{geometry}
+\usepackage[a4paper,top=1.5cm,bottom=1.5cm,left=1cm,right=1cm,marginparwidth=1.75cm]{geometry}
 \usepackage{chngcntr} 
 \usepackage{comment}
 \usepackage{mathtools}
@@ -13,13 +13,30 @@
 \usepackage{xurl}
 \usepackage{siunitx}
 \usepackage{float}
+\usepackage{stmaryrd}
 \usepackage[colorlinks = true]{hyperref}
+
+
+
 \usepackage[backend=biber, style=numeric, sorting=none]{biblatex}
 \addbibresource{references.bib}
+\usepackage{fancyhdr}
 
+\pagestyle{fancy}
+\fancyhf{} 
+\fancyhead[L]{\textit{Adam Franchot--Fowler}}
+\fancyhead[R]{\textit{Magistère de Physique Fondamentale de Paris-Saclay}}
+\fancyfoot[L]{\textit{Juin - Juillet 2026}}
+\fancyfoot[C]{\thepage}
+\fancyfoot[R]{\textit{Rapport de stage}}
+\renewcommand{\headrulewidth}{0.4pt} 
+\renewcommand{\footrulewidth}{0.4pt} 
+
+\newtheorem{definition}{Definition}
 
 
 \begin{document}
+\thispagestyle{empty}
 \begin{titlepage}
    \begin{center}
         
@@ -56,14 +73,148 @@
     \end{center}
 \end{titlepage}
 \restoregeometry
-\centerline{\huge {\textbf{Acknowledgments} } }
 
+
+\section*{Acknowledgment}
+
+\section*{Notations and abreviations}
+For the abreviations we wil use
+\begin{itemize}
+    \item GR for general relativity
+\end{itemize}
+We will during this intership use the vielbein formalism. We will use the same notation as in \cite{scherk1979get}
+which is
+\begin{itemize}
+    \item Greek hatted letter for curved indices $(\hat \mu , \hat \nu , \hat \rho , \dots)$
+    \item Latin hatted letter for flat indices $(\hat p , \hat m , \hat n , \dots)$
+    \item For space-time indices taking D values, late greek letters are used in the curved case $(\mu, \nu ,\rho , \dots)$ and Latin letters in the flat case (p, m, n)
+    \item For internal indices  taking E values, early Greek  letters in the curved case $(\alpha, \beta ,\gamma , \dots)$ and Latin letters in the flat case (a,b,c)
+\end{itemize}
+THe general coordinate $x^{ \hat\mu}$ will thereofre be made of space time coordinate $x^ \mu$ and internal coordinate $y^\alpha$. The flat lorenz
+\addcontentsline{toc}{section}{Notation and abreviation }
 \newpage
 
 \tableofcontents
-
+\clearpage
 \section{Introduction}
+Since the 19th-century unification of electricity and magnetism, 
+and the later development of classical and quantum field theory, 
+physicists have been looking for a single mathematical framework that could describe all fundamental interactions at once. 
+A lot of progress has been made for the electromagnetic, 
+weak and strong forces, which are now successfully unified in the Standard Model. Gravity, however, 
+remains the main stumbling block. Unlike the other forces, it resists quantization in a straightforward way, 
+and its description by General Relativity \cite{einstein1915allgemeinen} 
+sits completely apart from the quantum field-theoretic language we use for everything else.
+
+One of the earliest attempts to change this was proposed by Kaluza in 1921 
+\cite{kaluza1921unitatsproblem} and later refined by Klein:\\ 
+by adding one extra spatial dimension compactified on a small circle, 
+five-dimensional General Relativity naturally reduces to four-dimensional Einstein gravity coupled to electromagnetism. 
+Even if the original theory had problems, this Kaluza-Klein mechanism opened a whole new way of thinking about unification, 
+and it is now at the heart of modern approaches like supergravity \cite{freedman2012supergravity} and string theory.
+\section{General relativity theoretical reminder}
+Here you will find some GR reminder, which hopefully will make it easier to understand the mathematical foundation on which this internship was build
+\subsection{mathematical basis}
+\begin{definition}
+Let V be an R-vector space of dimension N, we define the tensor of order $(r,s) \in  \llbracket 0 ,1 \rrbracket^2$ on $V^{(r,s)} \overset{def}{=} V^{\otimes r} \otimes V^{\otimes s}$
+as a being a multilinear application on $ V^{\star r} \times V^{ s}$ to $\mathbb{R}$
+ \end{definition}
+
+\begin{definition}
+    We will call n-dimension ($n \in \mathbb{N}^*$) manifold every Hausdorff topological space $(\mathcal{M},\tau )$ localy homeomorphic to $\mathbb{R}^n)$
+\end{definition}
+\begin{definition}
+    Let $(\mathcal{M}, g)$ be a smooth manifold. A metric tensor is a symmetric, 
+    non-degenerate bilinear form $g_{\mu\nu}$ on the tangent space $T_p\mathcal{M}$ 
+    at each point $p \in \mathcal{M}$, such that
+    \begin{equation*}
+        ds^2 = g_{\mu\nu} dx^\mu dx^\nu
+    \end{equation*}
+    In General Relativity we use the signature $(-,+,+,+)$.
+\end{definition}
+\begin{definition}
+   In general in RG we use the christofells connexion as it is the sole one wich is mtreci and torsion free.\\
+   We define it as being
+   \begin{equation}
+    \\nabla_{\mu}V^{\nu}= \partial_{\mu}V^{\nu}+\Gamma^{\nu}_{\mu \sigma}V^{\sigma}
+   \end{equation} 
+   where the christofells symbols are
+   \begin{equation}
+    \Gamma_{\mu \nu}^{\lambda} = \frac{1}{2}g^{\lambda \sigma}(\partial_{\mu}g_{\nu \sigma}+\partial_{\nu}g_{\sigma \mu} - \partial_{\sigma}g_{\mu \nu})
+   \end{equation}
+\end{definition}
+
+\subsection{spin connexion, vielbein and flatspace}
 
 
-\section{}
+\section{Lagrangian field theory}
+\subsection{Lagrangian density}
+In field theory we will rewrite the lagrangian in this way
+\begin{equation}
+    L = \iiint \mathcal{L}(\eta_{\rho},\pdv{\eta_{\rho}}{x^{\nu}}) dx dy dz
+\end{equation}
+where $\mathcal{L} $ is the lagrangian density, but we will simply refer to it as the lagrangian.\\
+And so we can no write the action as being
+\begin{equation}
+    S = \int \mathcal{L} dx^\mu
+\end{equation}
+
+\subsection{General exemple for scalar and vectorial fields}
+There is classical forumlation for scalar and vectorial field and we will use their version without source as there are not that interssting in our endavour
+for vectorial field we have 
+\begin{equation}
+    \boxed{\mathcal{L} = - \frac{1}{2} \partial_\mu \Phi \partial^ \mu \Phi}
+\end{equation}
+and for a vectorial field we have
+\begin{equation}
+    \boxed{\mathcal{L} = - \frac{1}{}F_{\mu \nu}F^{\mu \nu}}
+\end{equation}
+where for the field A
+\begin{equation*}
+    F_{\mu \nu} = \partial_\mu A^ \nu - \partial_\nu A^ \mu
+\end{equation*}
+now in the futur we also need the lagrangian for RG wich will simply be einstein action,
+\begin{equation}
+    \boxed{\mathcal{L} = R}
+\end{equation}
+where R is ricci scalar
+and the lagrangian of a two form fields
+which is given in \cite{maharana1993noncompact} by 
+\begin{equation}
+    \boxed{\mathcal{L} = g^{ \hat \mu  \mu'} g^{\nu \nu'} g^{\rho \rho'} H_{ \mu \nu \rho}H_{ \mu'\nu' \rho'}}
+\end{equation}
+where for the two form $B_{\nu \rho}$ we have
+\begin{equation*}
+    H_{ \mu \nu \rho} = \partial_ \mu B_{\nu \rho} + cyc. perm
+\end{equation*}
+
+\section{Reduction of hilbert-einstein Action in D+E dimension}
+Here I will do a kalusa klein reduction. Basically we will suppose an universe in D+E dimension where D is 4 and we will try to see how on observater in D 
+will perceive the new dimension.
+\subsection{Hypothesis}
+We will consider that the fields don't depend on the internal variable of the world so for any field $\partial_\alpha A^{\hat \mu} = 0$
+\subsection{Rewriting the action}
+
+\subsection{vielbein anstazs and latin connexion}
+\subsection{finalisation}
+\section{reduction of the new fields}
+\subsection{scalar field reduction}
+\subsection{Two form fiel reduction}
+\section{Observation of new symmetry}
+ \section{Conclusion}
+ \printbibliography
+ \appendix
+ \section{lagrangian}
+ By using the principle of least action and the variational principle we can see that
+\begin{align*}
+    \delta S &= \delta \int \mathcal{L} dx^\mu \\
+    & = \delta \int \pdv{\mathcal{L}}{\eta_{\rho}} \delta \eta_{\rho} + \pdv{\mathcal{L}}{\partial_{\nu}\eta_{\rho}} \delta \partial_ \nu \eta_{\rho}  dx^\mu\\
+    & = \delta \int \pdv{\mathcal{L}}{\eta_{\rho}} \delta \eta_{\rho}- \partial_ \nu \pdv{\mathcal{L}}{\partial_{\nu}\eta_{\rho}} \delta  \eta_{\rho}  + \underbrace{\partial_ \nu \Big(\pdv{\mathcal{L}}{\partial_{\nu}\eta_{\rho}} \delta  \eta_{\rho}\Big)}_{\text{border terme equal to zero}}  dx^\mu\\
+    & = 0
+\end{align*}
+which gave the equation
+\begin{equation}
+    \boxed{\pdv{\mathcal{L}}{\eta_{\rho}} - \partial_ \nu \pdv{\mathcal{L}}{\partial_{\nu}\eta_{\rho}} = 0}
+\end{equation}
+which is in fact the equation of mouvement for the field
 \end{document}
