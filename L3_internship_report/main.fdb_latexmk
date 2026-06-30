@@ -1,13 +1,13 @@
 # Fdb version 4
-["biber main"] 0 "main.bcf" "main.bbl" "main" 1782664536.19414 -1
-  "main.bcf" 1782664535.89641 108128 de8c1a803df7c6f29bc9b2d0a5b9537f "pdflatex"
+["biber main"] 0 "main.bcf" "main.bbl" "main" 1782812813.2339 -1
+  "main.bcf" 1782812813.10119 108411 cc6b3345e3e0e6307a6f930d070fb8d1 "pdflatex"
   "references.bib" 1782380097.76103 1517 e218e24821c735909bf8b142b30352bb ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1782664531.63079 "/home/adam/Documents/study/L3-Internship/L3_internship_report/main.tex" "main.pdf" "main" 1782664536.19492 0
-  "/home/adam/Documents/study/L3-Internship/L3_internship_report/main.tex" 1782664522.38604 9772 dd4431599fdf68bf32813dad40514f74 ""
+["pdflatex"] 1782812811.39753 "/home/adam/Documents/study/L3-Internship/L3_internship_report/main.tex" "main.pdf" "main" 1782812813.23427 0
+  "/home/adam/Documents/study/L3-Internship/L3_internship_report/main.tex" 1782812811.12078 15457 bfa334df9edfc95ef8f7d2f7f5d1917b ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1775415801 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1775415801 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1775415801 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -38,6 +38,7 @@
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1775415801 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1775415801 36281 c355509802a035cadc5f15869451dcee ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1775415801 35752 024fb6c41858982481f6968b5fc26508 ""
+  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb" 1775415801 31809 8670ca339bf94e56da1fc21c80635e2a ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1775415801 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1775415801 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb" 1775415801 32915 7bf7720c61a5b3a7ff25b0964421c9b6 ""
@@ -147,12 +148,12 @@
   "Logo_Université_Paris-Saclay_(externe).png" 1782225690.70617 5345 580c261ff9267f8877558cd670d8c96e ""
   "images.png" 1782226379.14274 6353 f301dccf7c3a371417d1da7d689f048d ""
   "logo.png" 1782221304.18659 9046 6930bf134751b9536dd78628812410ee ""
-  "main.aux" 1782664535.88975 3480 36558e2980518d36ceac751061b6e482 "pdflatex"
-  "main.bbl" 1782475859.91431 5854 1ae3caadd12bf892909cd94a72b2e2ea "biber main"
-  "main.out" 1782664535.89308 3451 eb6dcbf33510359844673f633d03e317 "pdflatex"
-  "main.run.xml" 1782664535.90088 2305 63f269bfedf01fc607ba88db2e78a934 "pdflatex"
-  "main.tex" 1782664522.38604 9772 dd4431599fdf68bf32813dad40514f74 ""
-  "main.toc" 1782664535.90088 1621 6754696133ccacfad2f39a48093da8b0 "pdflatex"
+  "main.aux" 1782812813.09715 4071 439eadafb4edde21997fb066d7dfd141 "pdflatex"
+  "main.bbl" 1782809217.41659 7283 4dab1ab7c3cd4ef1762e9ed1e5ba3b0a "biber main"
+  "main.out" 1782812813.09715 3596 3018af3d8a9f6342e2204448d81ae730 "pdflatex"
+  "main.run.xml" 1782812813.10401 2305 52095dfad395b381e9a32937e764a41c "pdflatex"
+  "main.tex" 1782812811.12078 15457 bfa334df9edfc95ef8f7d2f7f5d1917b ""
+  "main.toc" 1782812813.10401 1647 e9a318a900e464dda9fe3d45f831216d "pdflatex"
   (generated)
   "main.aux"
   "main.bcf"

@@ -149,19 +149,23 @@ as a being a multilinear application on $ V^{\star r} \times V^{ s}$ to $\mathbb
 
 \section{Lagrangian field theory}
 \subsection{Lagrangian density}
-In field theory we will rewrite the lagrangian in this way
+In field theory, just as Newton's second law is "volumized" into the Navier-Stokes equations by distributing quantities over space, 
+we replace discrete degrees of freedom with continuous field densities defined at every point in spacetime.
+Therefore we will rewrite the Lagrangian as the integral over space of a new quantities called Lagrangian density, which will often refered to as just the Lagrangian.
+Thus we obtain this equation:
 \begin{equation}
     L = \iiint \mathcal{L}(\eta_{\rho},\pdv{\eta_{\rho}}{x^{\nu}}) dx dy dz
 \end{equation}
-where $\mathcal{L} $ is the lagrangian density, but we will simply refer to it as the lagrangian.\\
-And so we can no write the action as being
+Now using esintein convention we can rewritte the action in a new light :
 \begin{equation}
     S = \int \mathcal{L} dx^\mu
 \end{equation}
 
-\subsection{General exemple for scalar and vectorial fields}
-There is classical forumlation for scalar and vectorial field and we will use their version without source as there are not that interssting in our endavour
-for vectorial field we have 
+\subsection{General exemple for scalar and vectorial fields, and result for two forms}
+In field theory, the Lagrangian has a classical prescription for scalar and vector fields, but no general rule exists for other cases 
+each field type requires its own treatment. 
+For this work, only the scalar, vector, and two-form Lagrangians are needed, along with the metric, which is handled by Einstein's equations.\\
+So for a scalar field we have : 
 \begin{equation}
     \boxed{\mathcal{L} = - \frac{1}{2} \partial_\mu \Phi \partial^ \mu \Phi}
 \end{equation}
@@ -173,13 +177,13 @@ where for the field A
 \begin{equation*}
     F_{\mu \nu} = \partial_\mu A^ \nu - \partial_\nu A^ \mu
 \end{equation*}
-now in the futur we also need the lagrangian for RG wich will simply be einstein action,
-\begin{equation}
+In a vaccum the einstein equation give us
+\begin{equation*}
     \boxed{\mathcal{L} = R}
-\end{equation}
+\end{equation*}
 where R is ricci scalar
-and the lagrangian of a two form fields
-which is given in \cite{maharana1993noncompact} by 
+finally for the lagrangian of a two form fields
+whe will look in \cite{maharana1993noncompact} where it is given by the equation :  
 \begin{equation}
     \boxed{\mathcal{L} = g^{ \hat \mu  \mu'} g^{\nu \nu'} g^{\rho \rho'} H_{ \mu \nu \rho}H_{ \mu'\nu' \rho'}}
 \end{equation}
@@ -192,10 +196,78 @@ where for the two form $B_{\nu \rho}$ we have
 Here I will do a kalusa klein reduction. Basically we will suppose an universe in D+E dimension where D is 4 and we will try to see how on observater in D 
 will perceive the new dimension.
 \subsection{Hypothesis}
-We will consider that the fields don't depend on the internal variable of the world so for any field $\partial_\alpha A^{\hat \mu} = 0$
+We will consider that the fields don't depend on the internal variable of the world so for any field $\partial_\alpha A^{\hat \mu} = 0$. Another thing to note is that originally Kalusa did a reduction on $S^1$
+, but here we will no do that and we will do the reduction on a nondescript space, with E dimensions.
 \subsection{Rewriting the action}
-
+We began our journey with the classical einstein action; with the sole difference being that we are in D+E dimension so we we have as shown in \cite{scherk1979get}
+\begin{equation} \label{eq:8}
+    \boxed{S = \frac{-1}{\kappa^2}\int d x^D \int \frac{d y ^E}{\rho(E)} \hat V \hat R}
+\end{equation}
+where $\rho(E)$ is the parameter set to normalise \ref{eq:8} and is in practice the invariant volume of the internal space. and we have set $\kappa$ so that $\frac{\kappa^2}{4 \pi}$ is the usual newton constant.\\
+Now working with spin connexion formalism we can rewrite everything in a more understandable manner and we got the action. and get
+\begin{equation}
+    S = \frac{-1}{\kappa^2}\int d x^D \int \frac{d y ^E}{\rho(E)} \hat V (\hat \omega^{\hat r}_{ \, \, \hat s \hat t} \hat \omega^{\hat s \hat t}_{\, \, \, \,\hat r} + \hat \omega^{\hat r}_{\, \, \, \hat r \hat t}\hat \omega^{\hat s \, \, \, \,  \hat t}_{\, \, \,  \hat s})
+\end{equation}
+Where the spin connexion are given by 
+\begin{equation}
+    \hat \omega_{ \hat t \hat r \hat s} = - \hat \Omega_{\hat t \hat r \hat s} +\hat \Omega_{\hat r \hat s \hat t} - \hat \Omega_{\hat s \hat t \hat r}  
+\end{equation}
+and the $\hat \Omega$ are given by the inverse vielbein
+\begin{equation}
+    \hat \Omega_{\hat r \hat s \hat t} = \frac{1}{2}(\hat V^{\hat \mu}_{\hat  r} \hat V^{\hat \nu}_{\hat s}-\hat V^{\hat \mu}_{\hat  s} \hat V^{\hat \nu}_{\hat r})\partial_{\hat \nu} \hat V_{\hat \mu \hat t}
+\end{equation}
 \subsection{vielbein anstazs and latin connexion}
+Now le'ts begin the true work. Firstly as the information of the curved space metric is fully contained withint the vielbein we will do the anstaz of the solution on them.Furthermore according to \cite{scherk1979get}
+we can choose a  triangular parametrization thanks  to the local  lorentz  invariance in D+E dimension.
+So our anstazs will be 
+\begin{equation}
+   \boxed{ \hat V^{\hat r}_{\hat \mu} = \begin{pmatrix} \label{eq:12}
+        \delta^{\gamma} V^r _\nu &  2 \kappa A^{\alpha }_\nu \Phi^a_\alpha \\ 0 & \Phi^a_\alpha
+    \end{pmatrix}}
+\end{equation}
+In this formula  $\delta = det \Phi$ and $\gamma$ is a free paramater, corresponding to an arbitrary  Weyl transformation of the D dimensional vielbein. \\
+The vielbein in eq \ref{eq:12} has D dimensional vielbein (also called gravition), E vector fields $A^\alpha _ \mu$ and $E^2$, however the local lorentz invariance  in
+the internal  direction, only  $\frac{1}{2}E(E+1)$ of the scalars fields correspond to  propagating particules.\\
+Using the fact that the theory is invariant under the classical transformation $x'^\mu = x^\mu + \xi^mu(x)$  \cite{scherk1979get} which can be rewrtintten as being
+ \begin{equation}
+    \delta  \hat V^{\hat r}_{\hat \mu } = \xi^{\hat \rho}  \partial_{\hat \rho} \hat V^{\hat r}_{\hat \mu} + \partial_{\hat \mu} \xi^{\hat \rho} \hat V^{ \hat r}_{\hat \rho} 
+ \end{equation}
+Now we will apply this to eacg block of the vielbein to see if they respect some type of classical field
+so for the block $\hat V^r_\mu$
+\begin{align*}
+    \delta \hat V^r_\mu &=  \xi^{\hat \rho}  \partial_{\hat \rho} \hat V^{ r}_{ \mu} + \partial_{ \mu} \xi^{ \hat \rho} \hat V^{  r}_{\hat \rho} \\
+   &=  \xi^{\hat \rho}  \partial_{\hat \rho} \hat V^{ r}_{ \mu} + \partial_{ \mu} \xi^{ \nu} \hat V^{  r}_{\nu} + \underbrace{\partial_{ \mu } \xi^{  \alpha } \hat V^{  r}_{ \alpha }}_{\mathclap{\text{Ce terme est nul}}}\\
+   &=  \xi^{\hat \rho}  \partial_{\hat \rho}(\delta^{\gamma} V^{ r}_{ \mu} +  \delta^{\gamma} \partial_{ \mu} \xi^{ \nu} V^{  r}_{\nu} \\
+   &= \delta^{\gamma}(\xi^{\hat \rho}  \partial_{\hat \rho}V^{ r}_{ \mu} +  \partial_{ \mu} \xi^{ \nu} V^{  r}_{\nu} ) + \xi^{\hat \rho}  \partial_{\hat \rho}\delta^{\gamma} V^{ r}_{ \mu}
+\end{align*}
+Now we can redo this by this time using anither method 
+\begin{align*}
+    \delta \hat V^r_\mu &= \delta( \delta^\gamma V^r_\mu)\\
+    & = \delta (\delta^\gamma) V^r_\mu + \delta^\gamma  \delta (V^r_\mu)
+\end{align*}
+and by identification we can see that 
+\begin{equation*}
+    \delta V^r_\mu =  \xi^{\hat \rho}  \partial_{\hat \rho}V^{ r}_{ \mu} +  \partial_{ \mu} \xi^{ \nu} V^{  r}_{\nu} 
+\end{equation*}
+wich is exactly the same transformation as a vector with Lie derivative \cite{freedman2012supergravity}
+Now using the same method for the other block we get
+for the $\hat V^a_\alpha$
+\begin{equation*}
+    \delta \Phi^a_\alpha = \xi^\rho \partial_\rho \Phi^a_\alpha
+\end{equation*}
+wich is exactlty the transformation of a scalar field. Finnaly for the $V^a_\mu$ we got
+\begin{equation*}
+    A^\alpha_\mu= \xi^\rho\partial_\rho A^\alpha_\mu + \partial_\mu \xi^\rho A^\alpha_\rho + \frac{\partial_\mu \xi^\alpha}{2 \kappa}
+\end{equation*}
+wich is also the transformtion of a vector field plus a correction terme at the end.
+moreover another one might see is that if we variate $\epsilon^\alpha$ we got 
+\begin{subequations}\label{eq:10}
+\begin{align}
+&\delta V^r_\mu = \delta \Phi^a_\alpha = 0,\\
+&\delta A^\alpha_\mu = \dfrac{\partial_\mu \xi^\alpha}{2\kappa}.
+\end{align}
+\end{subequations}
+so 
 \subsection{finalisation}
 \section{reduction of the new fields}
 \subsection{scalar field reduction}

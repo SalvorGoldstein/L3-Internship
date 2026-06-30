@@ -19,6 +19,41 @@
 
 \refsection{0}
   \datalist[entry]{none/global//global/global/global}
+    \entry{scherk1979get}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=1d47a03255cbd272a6ff7d171dc16e7e}{%
+           family={Scherk},
+           familyi={S\bibinitperiod},
+           given={Joel},
+           giveni={J\bibinitperiod}}}%
+        {{hash=a21ee9458cd511176c2a40339112f381}{%
+           family={Schwarz},
+           familyi={S\bibinitperiod},
+           given={John\bibnamedelima H},
+           giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{863bbcf400700b666e96e847468a21ea}
+      \strng{fullhash}{863bbcf400700b666e96e847468a21ea}
+      \strng{fullhashraw}{863bbcf400700b666e96e847468a21ea}
+      \strng{bibnamehash}{863bbcf400700b666e96e847468a21ea}
+      \strng{authorbibnamehash}{863bbcf400700b666e96e847468a21ea}
+      \strng{authornamehash}{863bbcf400700b666e96e847468a21ea}
+      \strng{authorfullhash}{863bbcf400700b666e96e847468a21ea}
+      \strng{authorfullhashraw}{863bbcf400700b666e96e847468a21ea}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nuclear Physics B}
+      \field{title}{How to get masses from extra dimensions}
+      \field{volume}{153}
+      \field{year}{1979}
+      \field{pages}{61\bibrangedash 88}
+      \range{pages}{28}
+    \endentry
     \entry{einstein1915allgemeinen}{article}{}{}
       \name{author}{1}{}{%
         {{hash=3ebf53e52a3ce84f0ffb8553200a6a63}{%
@@ -38,8 +73,8 @@
       \strng{authornamehash}{3ebf53e52a3ce84f0ffb8553200a6a63}
       \strng{authorfullhash}{3ebf53e52a3ce84f0ffb8553200a6a63}
       \strng{authorfullhashraw}{3ebf53e52a3ce84f0ffb8553200a6a63}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Sitzungsber. preuss. Akad. Wiss}
@@ -66,8 +101,8 @@
       \strng{authornamehash}{8da94e12f1a7b6f0d2116ac728cc8d45}
       \strng{authorfullhash}{8da94e12f1a7b6f0d2116ac728cc8d45}
       \strng{authorfullhashraw}{8da94e12f1a7b6f0d2116ac728cc8d45}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Sitzungsber. Preuss. Akad. Wiss. Berlin (Math. Phys.)}
@@ -102,8 +137,8 @@
       \strng{authornamehash}{d0909eb0a985184d9d72fe5548076e9f}
       \strng{authorfullhash}{d0909eb0a985184d9d72fe5548076e9f}
       \strng{authorfullhashraw}{d0909eb0a985184d9d72fe5548076e9f}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Supergravity}
@@ -133,8 +168,8 @@
       \strng{authornamehash}{88d0dccffb817ba92521ed1154874c83}
       \strng{authorfullhash}{88d0dccffb817ba92521ed1154874c83}
       \strng{authorfullhashraw}{88d0dccffb817ba92521ed1154874c83}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Nuclear Physics B}
