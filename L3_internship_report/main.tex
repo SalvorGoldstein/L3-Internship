@@ -26,9 +26,9 @@
 \fancyhf{} 
 \fancyhead[L]{\textit{Adam Franchot--Fowler}}
 \fancyhead[R]{\textit{Magistère de Physique Fondamentale de Paris-Saclay}}
-\fancyfoot[L]{\textit{Juin - Juillet 2026}}
+\fancyfoot[L]{\textit{June - July 2026}}
 \fancyfoot[C]{\thepage}
-\fancyfoot[R]{\textit{Rapport de stage}}
+\fancyfoot[R]{\textit{internship report }}
 \renewcommand{\headrulewidth}{0.4pt} 
 \renewcommand{\footrulewidth}{0.4pt} 
 
@@ -51,24 +51,27 @@
         \vspace{1cm}
         \LARGE{Spatial dimension compactification in general relativity and duality symmetry}
           
-        \vspace{4 cm}
+        \vspace{3 cm}
         % \Large{\GroupName}
         \vspace{0.5cm}
         \large{Adam Franchot--Fowler}\\
         \large{\bfseries Internship carried out from 08/06/2026  to  24/07/2026}\\
         % \vfill
-        \vspace{8 cm}
-         
+        \vspace{1 cm}
+        {\includegraphics[width=0.35\textwidth]{reduction.png} \quad \quad}
+        \vspace{2.5 cm}
+
+
         \leftline{ \small { \textbf{Internship tutors :} M. Camille Eloy}}
         \leftline{ \small { \textbf{Referent teacher :} M. Stéphane Douin}}
-        \vspace{2 cm}
+        \vspace{1 cm}
         \leftline{\small { \textbf{\'Educational institution :} Université Paris-Saclay / Magistère de phyisque fondamentale d'Orsay}}
         \leftline{\small { \textbf{Internship host company :}Laboratoire de Physique (UMR CNRS 5672)ENS de Lyon 46, allée d’Italie F-69364 LYON CEDEX 07, FRANCE}}
         
         \noindent\rule[0.25\baselineskip]{\textwidth}{1pt}\\
         
-        {\includegraphics[width=0.375\textwidth]{logo.png}\quad}
-        {\includegraphics[width=0.3\textwidth]{Logo_Université_Paris-Saclay_(externe).png}\quad}\\
+        {\includegraphics[width=0.25\textwidth]{logo.png}\quad}
+        {\includegraphics[width=0.2\textwidth]{Logo_Université_Paris-Saclay_(externe).png}\quad}\\
       
     \end{center}
 \end{titlepage}
@@ -209,19 +212,19 @@ Now working with spin connexion formalism we can rewrite everything in a more un
     S = \frac{-1}{\kappa^2}\int d x^D \int \frac{d y ^E}{\rho(E)} \hat V (\hat \omega^{\hat r}_{ \, \, \hat s \hat t} \hat \omega^{\hat s \hat t}_{\, \, \, \,\hat r} + \hat \omega^{\hat r}_{\, \, \, \hat r \hat t}\hat \omega^{\hat s \, \, \, \,  \hat t}_{\, \, \,  \hat s})
 \end{equation}
 Where the spin connexion are given by 
-\begin{equation}
+\begin{equation} \label{eq:10}
     \hat \omega_{ \hat t \hat r \hat s} = - \hat \Omega_{\hat t \hat r \hat s} +\hat \Omega_{\hat r \hat s \hat t} - \hat \Omega_{\hat s \hat t \hat r}  
 \end{equation}
 and the $\hat \Omega$ are given by the inverse vielbein
-\begin{equation}
+\begin{equation} \label{eq:11}
     \hat \Omega_{\hat r \hat s \hat t} = \frac{1}{2}(\hat V^{\hat \mu}_{\hat  r} \hat V^{\hat \nu}_{\hat s}-\hat V^{\hat \mu}_{\hat  s} \hat V^{\hat \nu}_{\hat r})\partial_{\hat \nu} \hat V_{\hat \mu \hat t}
 \end{equation}
 \subsection{vielbein anstazs and latin connexion}
 Now le'ts begin the true work. Firstly as the information of the curved space metric is fully contained withint the vielbein we will do the anstaz of the solution on them.Furthermore according to \cite{scherk1979get}
 we can choose a  triangular parametrization thanks  to the local  lorentz  invariance in D+E dimension.
 So our anstazs will be 
-\begin{equation}
-   \boxed{ \hat V^{\hat r}_{\hat \mu} = \begin{pmatrix} \label{eq:12}
+\begin{equation} \label{eq:12}
+   \boxed{ \hat V^{\hat r}_{\hat \mu} = \begin{pmatrix} 
         \delta^{\gamma} V^r _\nu &  2 \kappa A^{\alpha }_\nu \Phi^a_\alpha \\ 0 & \Phi^a_\alpha
     \end{pmatrix}}
 \end{equation}
@@ -261,13 +264,76 @@ wich is exactlty the transformation of a scalar field. Finnaly for the $V^a_\mu$
 \end{equation*}
 wich is also the transformtion of a vector field plus a correction terme at the end.
 moreover another one might see is that if we variate $\epsilon^\alpha$ we got 
-\begin{subequations}\label{eq:10}
+\begin{subequations}\label{eq:14}
 \begin{align}
 &\delta V^r_\mu = \delta \Phi^a_\alpha = 0,\\
 &\delta A^\alpha_\mu = \dfrac{\partial_\mu \xi^\alpha}{2\kappa}.
 \end{align}
 \end{subequations}
-so 
+so what rest of the D-dimensional $\xi^\alpha$ restricted to y-independent  transformation is a set of E abelian Gauge invariance
+% # I don't know what to put for this part
+
+
+
+
+
+% ######################################"
+Now we need to calculate somme spin connexion to discover which one let's rewrite the action by block of non-hatted index that gave us
+
+\begin{equation}
+  \begin{aligned}
+S=&-\frac{1}{4\kappa^{2}}\int d^{D}x\int\frac{d^{E}y}{\rho(E)}\,\hat V\,\Big[\;
+\omega^{r}{}_{st}\omega^{st}{}_{r}
++\omega^{r}{}_{sc}\omega^{sc}{}_{r}
++\omega^{r}{}_{bt}\omega^{bt}{}_{r}
++\omega^{r}{}_{bc}\omega^{bc}{}_{r}
++\omega^{a}{}_{st}\omega^{st}{}_{a}
++\omega^{a}{}_{sc}\omega^{sc}{}_{a}
++\omega^{a}{}_{bt}\omega^{bt}{}_{a}
++\omega^{a}{}_{bc}\omega^{bc}{}_{a}\\
+&+\omega^{r}{}_{rt}\omega^{t}{}_{s}{}^{s}
++\omega^{r}{}_{rt}\omega^{t}{}_{b}{}^{b}
++\omega^{r}{}_{rc}\omega^{c}{}_{s}{}^{s}
++\omega^{r}{}_{rc}\omega^{c}{}_{b}{}^{b}
++\omega^{a}{}_{at}\omega^{t}{}_{s}{}^{s}
++\omega^{a}{}_{at}\omega^{t}{}_{b}{}^{b}
++\omega^{a}{}_{ac}\omega^{c}{}_{s}{}^{s}
++\omega^{a}{}_{ac}\omega^{c}{}_{b}{}^{b}
+\;\Big]
+\end{aligned}
+\end{equation}
+now to minimize the number of connexion we have to calculate we will use the fact that
+\begin{eqnarray}
+    \omega_{rst} = -\omega_{rts}
+\end{eqnarray}
+furthermore on can with any kind of updown index do the next manipulation
+\begin{equation*}
+    \omega_{rs}{}^{t} = \eta^{tn}\omega_{rsn} = - \eta^{tn}\omega_{rns} = - \omega_{r}{}^t{}_s
+\end{equation*}
+A neat trick wich can be done with that is to reduce to a maxim the number of connection we have to compute 
+so we rewrote the thing above as being
+\begin{equation}
+  \begin{aligned}
+S=&-\frac{1}{4\kappa^{2}}\int d^{D}x\int\frac{d^{E}y}{\rho(E)}\,\hat V\,\Big[\;
+\omega^{r}{}_{st}\omega^{st}{}_{r}
+\omega^{r}{}_{sc}\omega^{sc}{}_{r}
++\omega^{r}{}_{bt}\omega^{bt}{}_{r}
++\omega^{r}{}_{bc}\omega^{bc}{}_{r}
++\omega^{a}{}_{st}\omega^{st}{}_{a}
++\omega^{a}{}_{sc}\omega^{sc}{}_{a}
++\omega^{a}{}_{bt}\omega^{bt}{}_{a}
++\omega^{a}{}_{bc}\omega^{bc}{}_{a}\\
+&+\omega^{r}{}_{rt}\omega^{t}{}_{s}{}^{s}
++\omega^{r}{}_{rt}\omega^{t}{}_{b}{}^{b}
++\omega^{r}{}_{rc}\omega^{c}{}_{s}{}^{s}
++\omega^{r}{}_{rc}\omega^{c}{}_{b}{}^{b}
++\omega^{a}{}_{at}\omega^{t}{}_{s}{}^{s}
++\omega^{a}{}_{at}\omega^{t}{}_{b}{}^{b}
++\omega^{a}{}_{ac}\omega^{c}{}_{s}{}^{s}
++\omega^{a}{}_{ac}\omega^{c}{}_{b}{}^{b}
+\;\Big]
+\end{aligned}
+\end{equation}
 \subsection{finalisation}
 \section{reduction of the new fields}
 \subsection{scalar field reduction}
@@ -278,6 +344,8 @@ so
  \appendix
  \section{lagrangian}
  By using the principle of least action and the variational principle we can see that
+
+
 \begin{align*}
     \delta S &= \delta \int \mathcal{L} dx^\mu \\
     & = \delta \int \pdv{\mathcal{L}}{\eta_{\rho}} \delta \eta_{\rho} + \pdv{\mathcal{L}}{\partial_{\nu}\eta_{\rho}} \delta \partial_ \nu \eta_{\rho}  dx^\mu\\
