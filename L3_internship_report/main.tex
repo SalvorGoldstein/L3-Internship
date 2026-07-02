@@ -408,14 +408,17 @@ For $\hat \Omega_{pab}$:
     &= \frac{\delta^{-\gamma}}{2} \Phi^{ \alpha}_{a}  V^{ \nu}_{p}\partial_{ \nu}  \Phi_{\alpha b}\\
     &= \frac{\delta^{-\gamma}}{2} \Phi^{ \alpha}_{a}  V^{ \nu}_{p}\partial_{ \nu}( h_{\alpha \beta} \Phi^{\beta}_{ b})\\
     &= \frac{\delta^{-\gamma}}{2} \Phi^{ \alpha}_{a}  \Phi^{\beta}_{ b}V^{ \nu}_{p}\partial_{ \nu} h_{\alpha \beta}  +\frac{\delta^{-\gamma}}{2} \Phi^{ \alpha}_{a}  V^{ \nu}_{p}h_{\alpha \beta}\partial_{ \nu}  \Phi^{\beta}_{ b}\\
-    &= \frac{\delta^{-\gamma}}{2} \Phi^{ \alpha}_{a}  \Phi^{\beta}_{ b}V^{ \nu}_{p}\partial_{ \nu} h_{\alpha \beta}  +\frac{\delta^{-\gamma}}{2} \Phi^{ \alpha}_{a}  V^{ \nu}_{p}\Phi^c_\alpha \delta_{cd}\Phi^d_\beta  \partial_{ \nu}\Phi^{\beta}_{ b}\\
-    &= \frac{\delta^{-\gamma}}{2} \Phi^{ \alpha}_{a}  \Phi^{\beta}_{ b}V^{ \nu}_{p}\partial_{ \nu} h_{\alpha \beta}  +\frac{\delta^{-\gamma}}{2} \Phi^{ \beta}_{a}  V^{ \nu}_{p}  \partial_{ \nu}\Phi^{\beta}_{ b}\\
+    &= \frac{\delta^{-\gamma}}{2} \Phi^{ \alpha}_{a}  \Phi^{\beta}_{ b}V^{ \nu}_{p}\partial_{ \nu} h_{\alpha \beta}  +\frac{\delta^{-\gamma}}{2} \Phi_{\beta a}  V^{ \nu}_{p}\partial_{ \nu}  \Phi^{\beta}_{ b}\\
+    &= \frac{\delta^{-\gamma}}{2} \Phi^{ \alpha}_{a}  \Phi^{\beta}_{ b}V^{ \nu}_{p}\partial_{ \nu} h_{\alpha \beta}  +\frac{\delta^{-\gamma}}{2}   V^{ \nu}_{p}\partial_{ \nu} (\underbrace{\Phi_{\beta a} \Phi^{\beta}_{ b}}_{\mathclap{ =\delta_{ab} \text{i.e is constant} constant}}) - \Phi^{\beta}_{ b} V^{ \nu}_{p}\partial_{ \nu} \Phi_{\beta a} \\
+    &=\frac{\delta^{-\gamma}}{2} \Phi^{ \alpha}_{a}  \Phi^{\beta}_{ b}V^{ \nu}_{p}\partial_{ \nu} h_{\alpha \beta} - \Phi^{\beta}_{ b} V^{ \nu}_{p}\partial_{ \nu} \Phi_{\beta a} \\
+    &=
 \end{align*}
 For $\hat \Omega_{apb}$:
 \begin{align*}
     \hat \Omega_{apb} &= \frac{1}{2}(\hat V^{\hat \mu}_{  a} \hat V^{ \nu}_{p}-\hat V^{\hat \mu}_{p} \hat V^{ \nu}_{a})\partial_{ \nu} \hat V_{\hat \mu b}\\
     &= \frac{1}{2}\hat V^{\hat \mu}_{  a} \hat V^{ \nu}_{p}\partial_{ \nu} \hat V_{\hat \mu b}\\
-    &= \frac{1}{2}\hat V^{\alpha}_{  a} \hat V^{ \nu}_{p}\partial_{ \nu} \hat V_{\alpha}^b\\
+    &= \frac{1}{2}\hat V^{\alpha}_{  a} \hat V^{ \nu}_{p}\partial_{ \nu} \hat V_{\alpha b}\\
+    &= \frac{-\delta^{-\gamma}}{2} \Phi^{\alpha}_{  a}  V^{ \nu}_{p}\partial_{ \nu} \Phi_{\alpha b}\\
 \end{align*}
 For $\hat \Omega_{abp}$:
 \begin{align*}
@@ -433,8 +436,43 @@ The same holds for $\Omega_{abc}$. Using \eqref{eq:10}, we can then obtain the $
 &\hat \omega_{cab}  = 0
 \end{align}
 \end{subequations}
-where $F^{\alpha}_{\mu \nu} = \partial_\mu A^\alpha_\nu - \partial_\nu A^\alpha_\mu$. The gauge invariance of these expressions is then manifest.
+where $F^{\alpha}_{\mu \nu} = \partial_\mu A^\alpha_\nu - \partial_\nu A^\alpha_\mu$.\\ 
+The gauge invariance of these expressions is then manifest.
 \subsection{finalisation}
+Now that all this work has been done we can finally begin the computation of the action
+\begin{equation*}
+    \begin{aligned}
+    S = &\frac{-1}{4 \kappa^2}\int d x^D \int \frac{d y ^E}{\rho(E)} V \delta^{\gamma D +1}(
+    \frac{1}{4} \delta^{-2\gamma} g^{\rho \lambda} \partial_\lambda h_{\alpha \beta}\partial_\rho h^{\alpha \beta}
+    +\kappa^2 \delta^{-2 \gamma}F^{\mu \nu \alpha}F^{\beta}_{\mu  \nu}h_{\alpha \beta}+\\
+    &\delta^{-2 \gamma}(\omega^{r}_{st}\omega^{st}_r+ \gamma^{2}(2-D)g^{\lambda \rho}\partial_{\rho}\log{\delta}\partial_{\lambda}\log{\delta}) 
+    + \delta^{-2 \gamma}( \omega^r_{rt} \omega^{s \, \, \, t}_{\, \, s} ))
+\end{aligned}
+\end{equation*}
+
+or rewriten in a nicer way
+\begin{equation*}
+    \begin{aligned}
+    S = &\int d x^D \int \frac{d y ^E}{\rho(E)}V \delta^{\gamma D +1}( 
+    \frac{-1}{16} \delta^{-2\gamma} g^{\rho \lambda} \partial_\lambda h_{\alpha \beta}\partial_\rho h^{\alpha \beta}
+    +\frac{-1}{4}\delta^{-2 \gamma}F^{\mu \nu \alpha}F^{\beta}_{\mu  \nu}h_{\alpha \beta}+\\
+    &\frac{-1}{4 \kappa^2}\delta^{-2 \gamma}\gamma^{2}(2-D)g^{\lambda \rho}\partial_{\rho}\log{\delta}\partial_{\lambda}\log{\delta} 
+    + \frac{-1}{4 \kappa^2}\delta^{-2 \gamma}(\omega^{r}_{st}\omega^{st}_r +\omega^r_{rt} \omega^{s \, \, \, t}_{\, \, s}) )
+\end{aligned}
+\end{equation*}
+
+
+
+so now we can esaly identify $R$ the D-dimensoin einstein action and see the factor $\delta^{\gamma(D-2)+1}$ the good thing is that $\gamma$ is a free variable so I can just say that 
+\begin{equation*}
+    \begin{aligned}
+    S = &\int d x^D V \delta^{\gamma D +1}(
+    -\frac{1}{4 \kappa^2}R +\frac{-1}{4}\delta^{\frac{2}{D-2} }F^{\mu \nu \alpha}F^{\beta}_{\mu  \nu}h_{\alpha \beta}+\\
+    &-\frac{1}{16}  g^{\rho \lambda} \partial_\lambda h_{\alpha \beta}\partial_\rho h^{\alpha \beta}
+    +\frac{1}{4 \kappa^2 (D-2)}\gamma^{2}g^{\lambda \rho}\partial_{\rho}\log{\delta}\partial_{\lambda}\log{\delta} 
+    )
+\end{aligned}
+\end{equation*}
 
 \section{reduction of the new fields}
 \subsection{scalar field reduction}
