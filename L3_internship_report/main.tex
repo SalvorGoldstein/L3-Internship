@@ -475,7 +475,56 @@ so now we can esaly identify $R$ the D-dimensoin einstein action and see the fac
 \end{equation*}
 
 \section{reduction of the new fields}
+Now that we have seen the classical reduction of the esintein action an intersting exercise we can do is to add two new field namely the dilaton field and a second rank antysemtric tensor as done in \cite{maharana1993noncompact}
+We will once again follow the same path for the reduction nowing that for this part \cite{maharana1993noncompact} did follow the instruction og \cite{scherk1979get}. The main change in both paper is that \cite{maharana1993noncompact}
+choose $\gamma = 0 $ and  not $\gamma = - \frac{-1}{D-2}$, which as said earlier is just a choice who do not carrie a lot of importance. \cite{maharana1993noncompact} also chose to ignore the $\kappa$ which gave us a modified action in comparions to our last result. Finally contrary to \cite{scherk1979get}
+,\cite{maharana1993noncompact} didn"t choose the (+,-,-,-,-,...) signature for the tangeant space metric but (-,+,+,+,+,...), so there will be some change of singe in the action. 
+Once everything is took into account we get the new reduced action
+\begin{equation}
+    \boxed{
+    \begin{aligned}
+    S = &\int d x^D \sqrt{-g} (
+    R -\frac{1}{4}F^{\mu \nu \alpha}F^{\beta}_{\mu  \nu}h_{\alpha \beta}+\\
+    &- g^{\rho \lambda} \partial_\lambda h_{\alpha \beta}\partial_\rho h^{\alpha \beta}
+    -\frac{1}{2}g^{\lambda \rho}\partial_{\rho}\log{\delta}\partial_{\lambda}\log{\delta} 
+    )
+\end{aligned}}
+\end{equation}
+and of course we can't forget to rewrite the vielbein and the high dimension metric
+\begin{equation} \label{eq:12}
+    \hat V^{\hat r}_{\hat \mu} = \begin{pmatrix} 
+        V^r _\mu &   A^{\alpha }_\mu \Phi^a_\alpha \\ 0 & \Phi^a_\alpha
+    \end{pmatrix} \quad \text{and} \quad \hat V^{\hat r}_{\hat \mu} = \begin{pmatrix} 
+         V^\mu_r &  - A^{\alpha }_r \\ 0 & \Phi^\alpha_a
+    \end{pmatrix}
+\end{equation}
+and the metric 
+\begin{equation}
+    \hat g_{\hat \mu \hat \nu} = \begin{pmatrix}
+        g_{\mu \nu} + A^{\gamma}_{\mu}A_{\nu \lambda} &  A_{\mu \beta} \\  A_{\nu \alpha} &h_{\alpha \beta}
+    \end{pmatrix} \quad \text{and} \quad \hat g^{\hat \mu \hat \nu} = \begin{pmatrix}
+        g^{\mu \nu}  & - A^{\mu \beta} \\ - A^{\nu \alpha} &-h^{\alpha \beta}+ A^{\beta}_{\rho}A^{\rho \alpha}
+    \end{pmatrix}
+\end{equation}
+As a final step before begining we can see that 
+\begin{equation}
+    \sqrt{-g} =det \hat V^{\hat r}_{\hat \mu} = det  V^{ r}_{\mu} det \Phi^a_\alpha = \sqrt{-g}\sqrt{h}
+\end{equation}
 \subsection{scalar field reduction}
+Now let's add the dilaton field by modifying like this the original action
+\begin{equation} 
+    S =\int d x^D \int \frac{d y ^E}{\rho(E)} \sqrt{- \hat g} e^{- \hat \phi}(\hat R  + \hat g^{\hat \mu  \hat \nu } \partial_{\hat \mu}\hat\phi\partial_{\hat \nu}\hat\phi)
+\end{equation}
+We can then do what we did with the \cite{scherk1979get} and get  and other manipulation
+\begin{equation}
+    \begin{aligned}
+    S = &\int d x^D \sqrt{-g}\sqrt{h}e^{- \hat \phi} (
+    R -\frac{1}{4}F^{\mu \nu \alpha}F^{\beta}_{\mu  \nu}h_{\alpha \beta}+\\
+    &- g^{\rho \lambda} \partial_\lambda h_{\alpha \beta}\partial_\rho h^{\alpha \beta}
+    -\frac{1}{2}g^{\lambda \rho}\partial_{\rho}\log{\delta}\partial_{\lambda}\log{\delta} +\hat g^{\hat \mu  \hat \nu } \partial_{\hat \mu}\hat\phi\partial_{\hat \nu}\hat\phi)
+    )
+\end{aligned}
+\end{equation}
 \subsection{Two form fiel reduction}
 \section{Observation of new symmetry}
  \section{Conclusion}
