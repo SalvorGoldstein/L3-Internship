@@ -66,7 +66,7 @@
         \leftline{ \small { \textbf{Referent teacher :} M. Stéphane Douin}}
         \vspace{1 cm}
         \leftline{\small { \textbf{\'Educational institution :} Université Paris-Saclay / Magistère de phyisque fondamentale d'Orsay}}
-        \leftline{\small { \textbf{Internship host company :}Laboratoire de Physique (UMR CNRS 5672)ENS de Lyon 46, allée d’Italie F-69364 LYON CEDEX 07, FRANCE}}
+        \leftline{\small { \textbf{Internship host company :}Laboratoire de Physique (UMR CNRS 5672)ENS de Lyon}}
         
         \noindent\rule[0.25\baselineskip]{\textwidth}{1pt}\\
         
@@ -187,7 +187,7 @@ In a vaccum the einstein equation give us
 where R is ricci scalar
 finally for the lagrangian of a two form fields
 whe will look in \cite{maharana1993noncompact} where it is given by the equation :  
-\begin{equation}
+\begin{equation} \label{eq:7}
     \boxed{\mathcal{L} = g^{ \hat \mu  \mu'} g^{\nu \nu'} g^{\rho \rho'} H_{ \mu \nu \rho}H_{ \mu'\nu' \rho'}}
 \end{equation}
 where for the two form $B_{\nu \rho}$ we have
@@ -439,7 +439,7 @@ The same holds for $\Omega_{abc}$. Using \eqref{eq:10}, we can then obtain the $
 where $F^{\alpha}_{\mu \nu} = \partial_\mu A^\alpha_\nu - \partial_\nu A^\alpha_\mu$.\\ 
 The gauge invariance of these expressions is then manifest.
 \subsection{finalisation}
-Now that all this work has been done we can finally begin the computation of the action
+Now that all this work has been done we can finally begin the computation of the action which gave us
 \begin{equation*}
     \begin{aligned}
     S = &\frac{-1}{4 \kappa^2}\int d x^D \int \frac{d y ^E}{\rho(E)} V \delta^{\gamma D +1}(
@@ -463,16 +463,17 @@ or rewriten in a nicer way
 
 
 
-so now we can esaly identify $R$ the D-dimensoin einstein action and see the factor $\delta^{\gamma(D-2)+1}$ the good thing is that $\gamma$ is a free variable so I can just say that 
-\begin{equation*}
+so now we can identify $R$ the D-dimensoin einstein action and see the factor $\delta^{\gamma(D-2)+1}$ the good thing is that $\gamma$ is a free variable so I can just say that 
+\begin{equation}
+    \boxed{
     \begin{aligned}
-    S = &\int d x^D V \delta^{\gamma D +1}(
+    S = &\int d x^D V(
     -\frac{1}{4 \kappa^2}R +\frac{-1}{4}\delta^{\frac{2}{D-2} }F^{\mu \nu \alpha}F^{\beta}_{\mu  \nu}h_{\alpha \beta}+\\
     &-\frac{1}{16}  g^{\rho \lambda} \partial_\lambda h_{\alpha \beta}\partial_\rho h^{\alpha \beta}
     +\frac{1}{4 \kappa^2 (D-2)}\gamma^{2}g^{\lambda \rho}\partial_{\rho}\log{\delta}\partial_{\lambda}\log{\delta} 
     )
-\end{aligned}
-\end{equation*}
+\end{aligned}}
+\end{equation}
 
 \section{reduction of the new fields}
 Now that we have seen the classical reduction of the esintein action an intersting exercise we can do is to add two new field namely the dilaton field and a second rank antysemtric tensor as done in \cite{maharana1993noncompact}
@@ -483,7 +484,7 @@ Once everything is took into account we get the new reduced action
 \begin{equation}
     \boxed{
     \begin{aligned}
-    S = &\int d x^D \sqrt{-g} (
+    S = &\int d x^D \sqrt{-g}\delta (
     R -\frac{1}{4}F^{\mu \nu \alpha}F^{\beta}_{\mu  \nu}h_{\alpha \beta}+\\
     &- g^{\rho \lambda} \partial_\lambda h_{\alpha \beta}\partial_\rho h^{\alpha \beta}
     -\frac{1}{2}g^{\lambda \rho}\partial_{\rho}\log{\delta}\partial_{\lambda}\log{\delta} 
@@ -513,19 +514,63 @@ As a final step before begining we can see that
 \subsection{scalar field reduction}
 Now let's add the dilaton field by modifying like this the original action
 \begin{equation} 
-    S =\int d x^D \int \frac{d y ^E}{\rho(E)} \sqrt{- \hat g} e^{- \hat \phi}(\hat R  + \hat g^{\hat \mu  \hat \nu } \partial_{\hat \mu}\hat\phi\partial_{\hat \nu}\hat\phi)
+    S =\int d x^D \int \frac{d y ^E}{\rho(E)} \sqrt{- \hat g} e^{- \hat \phi}\delta(\hat R  + \hat g^{\hat \mu  \hat \nu } \partial_{\hat \mu}\hat\phi\partial_{\hat \nu}\hat\phi)
 \end{equation}
 We can then do what we did with the \cite{scherk1979get} and get  and other manipulation
 \begin{equation}
     \begin{aligned}
-    S = &\int d x^D \sqrt{-g}\sqrt{h}e^{- \hat \phi} (
+    S = &\int d x^D \sqrt{-g}\sqrt{h}e^{- \hat \phi} \delta(
     R -\frac{1}{4}F^{\mu \nu \alpha}F^{\beta}_{\mu  \nu}h_{\alpha \beta}+\\
     &- g^{\rho \lambda} \partial_\lambda h_{\alpha \beta}\partial_\rho h^{\alpha \beta}
-    -\frac{1}{2}g^{\lambda \rho}\partial_{\rho}\log{\delta}\partial_{\lambda}\log{\delta} +\hat g^{\hat \mu  \hat \nu } \partial_{\hat \mu}\hat\phi\partial_{\hat \nu}\hat\phi)
+    +\hat g^{\hat \mu  \hat \nu } \partial_{\hat \mu}\hat\phi\partial_{\hat \nu}\hat\phi)
     )
 \end{aligned}
 \end{equation}
 \subsection{Two form fiel reduction}
+For the two form we will reduce it apart from the two other field, this those not cause any problem as the action is in effect linear.\\
+We can rewrite \eqref{eq:7} as
+\begin{align*}
+    \mathcal{L_{\hat B}} &= \frac{-1}{12}(g^{ \hat \mu  \hat \mu'} g^{\hat \nu \hat \nu'} g^{\hat \rho  \hat \rho'} \hat H_{ \hat \mu \hat \nu \hat \rho} \hat H_{ \hat \mu' \hat \nu' \hat \rho'})\\
+    &=\frac{-1}{12} (\hat \eta^{ \hat r \hat r'} \hat \eta^{\hat s \hat s'} \hat \eta^{\hat t \hat t'} \hat H_{ \hat r \hat s \hat t} \hat H_{ \hat r'  \hat s' \hat t'})\\
+    &=\frac{-1}{12}(\hat H_{ \hat r \hat s\hat t}\hat H^{ \hat r \hat s \hat t})\\
+    &=\frac{-1}{12}(\hat H_{  r  s t}\hat H^{  r  s  t} + \hat H_{  r  s c}\hat H^{  r  s  c} + \hat H_{  r  b t}\hat H^{  r  b  t} + \hat H_{  r  b c}\hat H^{  r  b  c} + \hat H_{  a  s t}\hat H^{  a  s  t} + \hat H_{  a  s c}\hat H^{  a  s  c} + \hat H_{  a  b s}\hat H^{  a  b  s} + \hat H_{  a  b c}\hat H^{  a  b  c})
+\end{align*}
+however thanks to to the fact that $\hat B_{\hat \mu \hat \nu}$ is antysymetric one can easly show that this imply that $\hat H_{ \hat \mu \hat \nu \hat \rho}$ is antysemtric for any neighbor index. so we obtaint
+\begin{equation}
+    \mathcal{L}_{\hat B} =\frac{-1}{12} (\hat H_{  r  s t}\hat H^{  r  s  t} + 3\hat H_{  r  s c}\hat H^{  r  s  c} + 3\hat H_{  a  s c}\hat H^{  a  s  c} + \hat H_{  a  b c}\hat H^{  a  b  c})
+\end{equation}
+and finnaly the action of B is writen as
+\begin{equation} \label{eq:31}
+    \boxed{S_{\hat b } = - \int dx^D\sqrt{-g}e^{-\phi} \Big\lbrace  \frac{1}{12} H_{  \alpha  \beta \gamma} H^{  \alpha \beta \gamma  s  t} + \frac{1}{4} H_{  \mu   \alpha \beta} H^{  \mu   \alpha  \beta} + \frac{1}{4} H_{  \mu \nu \alpha } H^{  \mu  \nu  \alpha} + \frac{1}{12} H_{  \mu  \nu \rho}H^{  \mu  \nu  \rho} \Big\rbrace }
+\end{equation}
+You might have remarked that there is no more hat it is due to the fact that we have done a simple manipulation that I will show rigt there
+\begin{subequations}
+    \begin{align}
+        T^{\mu} &= V_r^\mu \hat V^r_{\hat \mu}\hat T^{\hat \mu} = \hat V^\alpha  \\
+        T^{\alpha} &= V_a^\alpha \hat V^a_{\hat \mu}\hat T^{\hat \mu}= \hat V^\alpha + A^{(1)\alpha}_\mu \hat V^\mu \\
+        T_{\mu} &= V_\mu^r \hat V_r^{\hat \mu}\hat T_{\hat \mu} = \hat V_\mu - A^{(1)\alpha}_\mu\hat V_\alpha\\
+        T_{\alpha} &= V_\alpha^a \hat V_a^{\hat \mu}\hat T_{\hat \mu} = \hat V_\alpha \\
+    \end{align}
+\end{subequations}
+so with that we obtaint \eqref{eq:31}\\
+Now we will compute each componant of non hated H in function of hated H\\
+to begin slowly as we have seen above $\hat B_{\alpha \beta} = B_{\alpha \beta} $ and if we use the y independence we get $H_{\alpha \beta \gamma} = 0$\\
+We continue with $H_{\mu \alpha \beta}$
+\begin{equation}
+    \begin{aligned}
+        H_{\mu \alpha \beta} &= V^r_\mu  \hat V^{\hat \mu}_r \hat H_{\hat \mu \alpha \beta }\\
+        & = \partial_\mu B_{\alpha \beta}
+    \end{aligned}
+\end{equation}
+those two were quite easy howver the next two are going to be more troublesome, but we are going to introduce new object
+Now for $H_{\mu \nu \beta}$
+\begin{equation}
+    \begin{aligned}
+        H_{\mu \alpha \beta} &= V^r_\mu V^s_\nu \hat V^{\hat \mu}_r \hat V^{\hat \nu}_s \hat H_{\hat \mu \hat \nu \alpha}\\
+        & = \hat H_{\mu \nu \alpha } -(A^{(1)\alpha}_\mu \hat H_{\alpha  \nu \rho}+A^{(1)\alpha}_\rho \hat H_{ \mu \alpha  \nu })
+    \end{aligned}
+    
+\end{equation}
 \section{Observation of new symmetry}
  \section{Conclusion}
  \printbibliography

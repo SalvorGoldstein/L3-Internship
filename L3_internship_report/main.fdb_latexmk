@@ -1,13 +1,13 @@
 # Fdb version 4
-["biber main"] 1783080328.61796 "main.bcf" "main.bbl" "main" 1783080800.41009 0
-  "main.bcf" 1783080800.23277 109008 506e169db83f7c0a9e0e78688008d60b "pdflatex"
+["biber main"] 0 "main.bcf" "main.bbl" "main" 1783516118.96408 -1
+  "main.bcf" 1783516118.81002 109008 506e169db83f7c0a9e0e78688008d60b "pdflatex"
   "references.bib" 1782380097.76103 1517 e218e24821c735909bf8b142b30352bb ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1783080798.11406 "/home/adam/Documents/study/L3-Internship/L3_internship_report/main.tex" "main.pdf" "main" 1783080800.41075 0
-  "/home/adam/Documents/study/L3-Internship/L3_internship_report/main.tex" 1783080797.84454 32300 06e1dfe1c02e2d3da1a8f40a7f840f1c ""
+["pdflatex"] 1783516116.62127 "/home/adam/Documents/study/L3-Internship/L3_internship_report/main.tex" "main.pdf" "main" 1783516118.96457 2
+  "/home/adam/Documents/study/L3-Internship/L3_internship_report/main.tex" 1783516113.59523 35634 429a7a16450eabe3de7673c9293fee38 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1775415801 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1775415801 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1775415801 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -149,12 +149,11 @@
   "Logo_Université_Paris-Saclay_(externe).png" 1782225690.70617 5345 580c261ff9267f8877558cd670d8c96e ""
   "images.png" 1782226379.14274 6353 f301dccf7c3a371417d1da7d689f048d ""
   "logo.png" 1782221304.18659 9046 6930bf134751b9536dd78628812410ee ""
-  "main.aux" 1783080800.22611 5401 440d8c916579bc65bdbccccb6b31b0bc "pdflatex"
+  "main.aux" 1783516118.80335 5580 0e5887a4ea366f3adc93f2e2e3601e5d "pdflatex"
   "main.bbl" 1783080329.69301 7283 4dab1ab7c3cd4ef1762e9ed1e5ba3b0a "biber main"
-  "main.out" 1783080800.22944 4039 adf3de0eee77724b54c3ba2a7d274129 "pdflatex"
-  "main.run.xml" 1783080800.23583 2305 52095dfad395b381e9a32937e764a41c "pdflatex"
-  "main.tex" 1783080797.84454 32300 06e1dfe1c02e2d3da1a8f40a7f840f1c ""
-  "main.toc" 1783080800.23583 1913 3ab69d3b63e564269310cb9a1bfd48c5 "pdflatex"
+  "main.out" 1783516118.80668 4039 adf3de0eee77724b54c3ba2a7d274129 "pdflatex"
+  "main.tex" 1783516113.59523 35634 429a7a16450eabe3de7673c9293fee38 ""
+  "main.toc" 1783516118.81239 1916 88326c41a06b7688a51da1183841b0d6 "pdflatex"
   "reduction.png" 1782826843.70525 606765 df6e51890f760f6127c8a76877b48b6a ""
   (generated)
   "main.aux"
