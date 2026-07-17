@@ -202,12 +202,12 @@ We assume that none of the fields depend on the internal coordinates, i.e. for a
 \subsection{Rewriting the action}
 We start from the usual Einstein-Hilbert action, the only difference being that we now work in $D+E$ dimensions. Following \cite{scherk1979get}, this gives
 \begin{equation} \label{eq:8}
-    \boxed{S = \frac{-1}{\kappa^2}\int d x^D \int \frac{d y ^E}{\rho(E)} \hat V \hat R}
+    \boxed{S = \frac{-1}{4\kappa^2}\int d x^D \int \frac{d y ^E}{\rho(E)} \hat V \hat R}
 \end{equation}
 where $\rho(E)$ is a normalisation factor introduced in \eqref{eq:8}, corresponding in practice to the invariant volume of the internal space; $\kappa$ is fixed such that $\kappa^2/4\pi$ is the usual Newton constant.\\
 Working instead with the spin-connexion formalism, the action can be rewritten in a more transparent form:
 \begin{equation}
-    S = \frac{-1}{\kappa^2}\int d x^D \int \frac{d y ^E}{\rho(E)} \hat V (\hat \omega^{\hat r}_{ \, \, \hat s \hat t} \hat \omega^{\hat s \hat t}_{\, \, \, \,\hat r} + \hat \omega^{\hat r}_{\, \, \, \hat r \hat t}\hat \omega^{\hat s \, \, \, \,  \hat t}_{\, \, \,  \hat s})
+        S = \frac{-1}{4\kappa^2}\int d x^D \int \frac{d y ^E}{\rho(E)} \hat V \big(\hat \omega^{\hat r}{}_{\hat s \hat t} \hat \omega^{\hat s \hat t}{}_{\hat r} + \hat \omega^{\hat r}{}_{ \hat r \hat t}\hat \omega^{\hat s }{}_{\hat s}{}^{\hat t}\big)
 \end{equation}
 where the spin connexion is given by
 \begin{equation} \label{eq:10}
@@ -314,20 +314,20 @@ This gives a convenient trick to reduce, as much as possible, the number of conn
 \boxed{
   \begin{aligned}
 S=&-\frac{1}{4\kappa^{2}}\int d^{D}x\int\frac{d^{E}y}{\rho(E)}\,\hat V\,\Big[\;
-\hat\omega^a{}_{b  c}\hat\omega^{bc}{}_a
-+\hat \omega^a{}_{b  t}\hat\omega^{bt}{}_a
+\hat\omega^a{}_{b  c}\hat \omega^{bc}{}_a
+-\hat \omega^a{}_{t  b}\hat \omega^{bt}{}_a
 +\hat\omega^a{}_{s  c}\hat\omega^{sc}{}_a
 +\hat\omega^a{}_{s  t}\hat\omega^{st}{}_a
 -\hat\omega^r{}_{b  c}\hat\omega^{b}{}_r{}^c
 -\hat\omega^r{}_{t  b}\hat\omega^{bt}{}_r
--\hat\omega^r{}_{s  c}\hat\omega^{cs}{}_r \\
-&+\hat\omega^r{}_{s  t}\hat\omega^{st}{}_r
+-\hat\omega^r{}_{s  c}\hat\omega^{s}{}_r{}^c \\
+&\hat\omega^r{}_{s  t}\hat\omega^{st}{}_r
 +\hat\omega^a{}_{ac}\hat\omega^b{}_b{}^c
 +\hat\omega^a{}_{ta}\hat\omega^b{}^t{}_b
 +\hat\omega^a{}_{ac}\hat\omega^s{}_s{}^c 
 -\hat\omega^a{}_{ta}\hat\omega^s{}_s{}^t
 +\hat\omega^r{}_{rc}\hat\omega^b{}_b{}^c
--\hat\omega^r{}_{rt}\hat\omega^b{}{}^t_b
+-\hat\omega^r{}_{rt}\hat\omega^b{}^t{}_b
 +\hat\omega^r{}_{rc}\hat\omega^s{}_s{}^c
 +\hat\omega^r{}_{rt}\hat\omega^s{}_s{}^t
 \;\Big]
@@ -441,11 +441,11 @@ The gauge invariance of these expressions is then manifest.
 Now that all this work has been done we can finally begin the computation of the action which gave us
 \begin{equation*}
     \begin{aligned}
-    S = &\frac{-1}{4 \kappa^2}\int d x^D \int \frac{d y ^E}{\rho(E)} V \delta^{\gamma D +1}(
+    S = &\frac{-1}{4 \kappa^2}\int d x^D \int \frac{d y ^E}{\rho(E)} V \delta^{\gamma D +1}\Big(
     \frac{1}{4} \delta^{-2\gamma} g^{\rho \lambda} \partial_\lambda h_{\alpha \beta}\partial_\rho h^{\alpha \beta}
-    +\kappa^2 \delta^{-2 \gamma}F^{\mu \nu \alpha}F^{\beta}_{\mu  \nu}h_{\alpha \beta}+\\
-    &\delta^{-2 \gamma}(\omega^{r}_{st}\omega^{st}_r+ \gamma^{2}(2-D)g^{\lambda \rho}\partial_{\rho}\log{\delta}\partial_{\lambda}\log{\delta}) 
-    + \delta^{-2 \gamma}( \omega^r_{rt} \omega^{s \, \, \, t}_{\, \, s} ))
+    +\kappa^2 \delta^{-4 \gamma}F^{\mu \nu \alpha}F^{\beta}_{\mu  \nu}h_{\alpha \beta}+\\
+    &\delta^{-2 \gamma}\big(\omega^{r}_{st}\omega^{st}_r+ \gamma^{2}(2-D)g^{\lambda \rho}\partial_{\rho}\log{\delta}\partial_{\lambda}\log{\delta}\big) 
+    + \delta^{-2 \gamma}\big( \omega^r_{rt} \omega^{s \, \, \, t}_{\, \, s} \big)\Big)
 \end{aligned}
 \end{equation*}
 
@@ -454,7 +454,7 @@ or rewriten in a nicer way
     \begin{aligned}
     S = &\int d x^D \int \frac{d y ^E}{\rho(E)}V \delta^{\gamma D +1}( 
     \frac{-1}{16} \delta^{-2\gamma} g^{\rho \lambda} \partial_\lambda h_{\alpha \beta}\partial_\rho h^{\alpha \beta}
-    +\frac{-1}{4}\delta^{-2 \gamma}F^{\mu \nu \alpha}F^{\beta}_{\mu  \nu}h_{\alpha \beta}+\\
+    +\frac{-1}{4}\delta^{-4 \gamma}F^{\mu \nu \alpha}F^{\beta}_{\mu  \nu}h_{\alpha \beta}+\\
     &\frac{-1}{4 \kappa^2}\delta^{-2 \gamma}\gamma^{2}(2-D)g^{\lambda \rho}\partial_{\rho}\log{\delta}\partial_{\lambda}\log{\delta} 
     + \frac{-1}{4 \kappa^2}\delta^{-2 \gamma}(\omega^{r}_{st}\omega^{st}_r +\omega^r_{rt} \omega^{s \, \, \, t}_{\, \, s}) )
 \end{aligned}
@@ -503,25 +503,31 @@ and the metric
         g^{\mu \nu}  & - A^{\mu \beta} \\ - A^{\nu \alpha} &-h^{\alpha \beta}+ A^{\beta}_{\rho}A^{\rho \alpha}
     \end{pmatrix}
 \end{equation}
-As a final step before begining we can see that 
-\begin{equation}
-    \sqrt{-g} =det \hat V^{\hat r}_{\hat \mu} = det  V^{ r}_{\mu} det \Phi^a_\alpha = \sqrt{-g}\sqrt{h}
-\end{equation}
 \subsection{scalar field reduction}
 Now let's add the dilaton field by modifying like this the original action
 \begin{equation} 
     S =\int d x^D \int \frac{d y ^E}{\rho(E)} \sqrt{- \hat g} e^{- \hat \phi}\delta(\hat R  + \hat g^{\hat \mu  \hat \nu } \partial_{\hat \mu}\hat\phi\partial_{\hat \nu}\hat\phi)
 \end{equation}
-We can then do what we did with the \cite{scherk1979get} and get  and other manipulation
+At this point we will try to retrieve as before the equation 7 of \cite{scherk1979get} however du to the presence of the $e^{\hat \phi}$ new termes appear in this equation and we now get
+\begin{equation}
+    S =\int d x^D \int \frac{d y ^E}{\rho(E)} \sqrt{- \hat g} e^{- \hat \phi}\delta( \hat \omega^{\hat r}{}_{\hat s \hat t} \hat \omega^{\hat s \hat t}{}_{\hat r} + \hat \omega^{\hat r}{}_{ \hat r \hat t}\hat \omega^{\hat s }{}_{\hat s}{}^{\hat t}+\hat g^{\hat \mu  \hat \nu } \partial_{\hat \mu}\hat\phi\partial_{\hat \nu}\hat\phi - 2 \hat g^{\hat \mu \hat \nu} \partial_{\hat \mu}log\delta\partial^{\hat \nu}\hat \Phi +\hat g^{\hat \mu \hat \nu}\partial_{\hat \mu}log\delta\partial^{\hat \nu} log\delta )
+\end{equation}
+However I was not able to do the calculatio  to get there in the time give for this internship so you will have to trust me on this one.\\
+And we can naturally do with the first tow termes the same acion as in \ref{subsubsec:4.3.1} so witch gave us the result
 \begin{equation}
     \begin{aligned}
-    S = &\int d x^D \sqrt{-g}\sqrt{h}e^{- \hat \phi} \delta(
+    S = &\int d x^D V e^{- \hat \phi} \delta(
     R -\frac{1}{4}F^{\mu \nu \alpha}F^{\beta}_{\mu  \nu}h_{\alpha \beta}+\\
     &- g^{\rho \lambda} \partial_\lambda h_{\alpha \beta}\partial_\rho h^{\alpha \beta}
-    +\hat g^{\hat \mu  \hat \nu } \partial_{\hat \mu}\hat\phi\partial_{\hat \nu}\hat\phi)
+    +\hat g^{\hat \mu  \hat \nu } \partial_{\hat \mu}\phi\partial_{\hat \nu}\phi)
     )
 \end{aligned}
 \end{equation}
+Where $\phi$ is a shifted dilaton and is written as 
+\begin{equation}
+    \phi = \hat \phi - \log{\delta}
+\end{equation}
+
 \subsection{Two form fiel reduction}
 \subsubsection{The reduction}
 For the two form we will reduce it apart from the two other field, this those not cause any problem as the action is in effect linear.\\
@@ -595,7 +601,7 @@ Where we decompose $\mathcal{L}$ as $\mathcal{L} = \mathcal{L}_1 + \mathcal{L}_2
 \begin{equation} \label{eq:38}
     \boxed{
     \begin{aligned}
-        \mathcal{L}_1 &= R +g^{\mu \nu}\partial_{\mu }\Phi \partial_{\nu} \Phi\\
+        \mathcal{L}_1 &= R +g^{\mu \nu}\partial_{\mu }\phi \partial_{\nu} \phi\\
         \mathcal{L}_2 &=\frac{1}{4}g^{\mu \nu }(\partial_\mu h_{\alpha \beta}\partial_\nu G^{\alpha \beta} - h^{\alpha \beta } h^{\gamma \delta}\partial_\mu B_{\alpha \gamma} \partial_\nu B_{\beta \delta})\\
         \mathcal{L}_3 &= -\frac{1}{4}g^{\mu \rho}g^{\nu \lambda}(h_{\alpha\beta}F^{(1)\alpha}_{\mu \nu}F^{(1)\beta}_{\rho \lambda}+h^{\alpha \beta}H_{\mu \nu \alpha}H_{\rho \lambda \beta })\\
         \mathcal{L}_4 &= -\frac{1}{12}H_{\mu \nu \rho} H^{\mu \nu \rho}
