@@ -1,0 +1,277 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,top=1.5cm,bottom=1.5cm,left=1cm,right=1cm,marginparwidth=1.75cm]{geometry}
+\usepackage{chngcntr} 
+\usepackage{comment}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{physics}
+\usepackage{xurl}
+\usepackage{siunitx}
+\usepackage{float}
+\usepackage{stmaryrd}
+\usepackage[colorlinks = true]{hyperref}
+
+
+
+\usepackage[backend=biber, style=phys, sorting=none]{biblatex}
+\addbibresource{references.bib}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{} 
+\fancyhead[L]{\textit{Adam Franchot-$\,$-Fowler}}
+\fancyhead[R]{\textit{Magistère de Physique Fondamentale de Paris-Saclay}}
+\fancyfoot[L]{\textit{June - July 2026}}
+\fancyfoot[C]{\thepage}
+\fancyfoot[R]{\textit{internship report }}
+\renewcommand{\headrulewidth}{0.4pt} 
+\renewcommand{\footrulewidth}{0.4pt} 
+
+\newtheorem{definition}{Definition}
+
+
+\begin{document}
+\thispagestyle{empty}
+\begin{titlepage}
+   \begin{center}
+        
+        {\includegraphics[width=0.09\textwidth]{Logo_LAB_PHY_COUL_02_TRANS.png} \quad \quad}{\includegraphics[width=0.3\textwidth]{images.png} \quad \quad}\\
+        
+
+        \noindent\rule[0.25\baselineskip]{\textwidth}{1pt}
+        
+        \vspace{1 cm} 
+
+
+        \vspace{1cm}
+        \LARGE{Dimensional reduction  in supergravity  and duality symmetries}
+    
+          
+        \vspace{3 cm}
+        % \Large{\GroupName}
+        \vspace{0.5cm}
+        \large{Adam Franchot--Fowler}\\
+        \large{\bfseries Internship carried out from 08/06/2026  to  24/07/2026}\\
+        % \vfill
+        \vspace{1 cm}
+        {\includegraphics[width=0.35\textwidth]{reduction.png} \quad \quad}
+        \vspace{2.5 cm}
+
+
+        \leftline{ \small { \textbf{Internship tutors :} M. Camille Eloy}}
+        \leftline{ \small { \textbf{Referent teacher :} M. Stéphane Douin}}
+        \vspace{1 cm}
+        \leftline{\small { \textbf{\'Educational institution :} Université Paris-Saclay / Magistère de phyisque fondamentale d'Orsay}}
+        \leftline{\small { \textbf{Internship host company :}Laboratoire de Physique (UMR CNRS 5672)ENS de Lyon}}
+        
+        \noindent\rule[0.25\baselineskip]{\textwidth}{1pt}\\
+        
+        {\includegraphics[width=0.25\textwidth]{logo.png}\quad}
+        {\includegraphics[width=0.2\textwidth]{Logo_Université_Paris-Saclay_(externe).png}\quad}\\
+      
+    \end{center}
+\end{titlepage}
+\restoregeometry
+
+
+\section*{Acknowledgment}
+
+\section*{Notations and abreviations}
+For the abreviations we wil use
+\begin{itemize}
+    \item GR for general relativity
+\end{itemize}
+We will during this intership use the vielbein formalism. We will use the same notation as in \cite{scherk1979get}
+which is
+\begin{itemize}
+    \item Greek hatted letter for curved indices $(\hat \mu , \hat \nu , \hat \rho , \dots)$
+    \item Latin hatted letter for flat indices $(\hat p , \hat m , \hat n , \dots)$
+    \item For space-time indices taking D values, late greek letters are used in the curved case $(\mu, \nu ,\rho , \dots)$ and Latin letters in the flat case (p, m, n)
+    \item For internal indices  taking E values, early Greek  letters in the curved case $(\alpha, \beta ,\gamma , \dots)$ and Latin letters in the flat case (a,b,c)
+\end{itemize}
+THe general coordinate $x^{ \hat\mu}$ will thereofre be made of space time coordinate $x^ \mu$ and internal coordinate $y^\alpha$. The flat lorenz
+\addcontentsline{toc}{section}{Notation and abreviation }
+\newpage
+
+\tableofcontents
+\clearpage
+\section{Introduction}
+Since the 19th-century unification of electricity and magnetism, 
+and the later development of classical and quantum field theory, 
+physicists have been looking for a single mathematical framework that could describe all fundamental interactions at once. 
+A lot of progress has been made for the electromagnetic, 
+weak and strong forces, which are now successfully unified in the Standard Model. Gravity, however, 
+remains the main stumbling block. Unlike the other forces, it resists quantization in a straightforward way, 
+and its description by General Relativity \cite{einstein1915allgemeinen} 
+sits completely apart from the quantum field-theoretic language we use for everything else.
+
+One of the earliest attempts to change this was proposed by Kaluza in 1921 
+\cite{kaluza1921unitatsproblem} and later refined by Klein:\\ 
+by adding one extra spatial dimension compactified on a small circle, 
+five-dimensional General Relativity naturally reduces to four-dimensional Einstein gravity coupled to electromagnetism. 
+Even if the original theory had problems, this Kaluza-Klein mechanism opened a whole new way of thinking about unification, 
+and it is now at the heart of modern approaches like supergravity \cite{freedman2012supergravity} and string theory.
+\section{Theorical tool}
+Here you will find some GR reminder, which hopefully will make it easier to understand the mathematical foundation on which this internship was build
+\subsection{Groupe and gaude transformation}
+
+
+\subsection{spin connexion, vielbein and flatspace}
+
+
+\section{Lagrangian field theory}
+\subsection{Lagrangian density}
+In field theory, just as Newton's second law is "volumized" into the Navier-Stokes equations by distributing quantities over space, 
+we replace discrete degrees of freedom with continuous field densities defined at every point in spacetime.
+Therefore we will rewrite the Lagrangian as the integral over space of a new quantities called Lagrangian density, which will often refered to as just the Lagrangian.
+Thus we obtain this equation:
+\begin{equation}
+    L = \iiint \mathcal{L}(\eta_{\rho},\pdv{\eta_{\rho}}{x^{\nu}}) dx dy dz
+\end{equation}
+Now using esintein convention we can rewritte the action in a new light :
+\begin{equation}
+    S = \int \mathcal{L} dx^\mu
+\end{equation}
+
+\subsection{General exemple for scalar and vectorial fields, and result for two forms}
+In field theory, the Lagrangian has a classical prescription for scalar and vector fields, but no general rule exists for other cases 
+each field type requires its own treatment. 
+For this work, only the scalar, vector, and two-form Lagrangians are needed, along with the metric, which is handled by Einstein's equations.\\
+So for a scalar field we have : 
+\begin{equation}
+    \boxed{\mathcal{L} = - \frac{1}{2} \partial_\mu \Phi \partial^ \mu \Phi}
+\end{equation}
+and for a vectorial field we have
+\begin{equation}
+    \boxed{\mathcal{L} = - \frac{1}{}F_{\mu \nu}F^{\mu \nu}}
+\end{equation}
+where for the field A
+\begin{equation*}
+    F_{\mu \nu} = \partial_\mu A^ \nu - \partial_\nu A^ \mu
+\end{equation*}
+In a vaccum the einstein equation give us
+\begin{equation*}
+    \boxed{\mathcal{L} = R}
+\end{equation*}
+where R is ricci scalar
+finally for the lagrangian of a two form fields
+whe will look in \cite{maharana1993noncompact} where it is given by the equation :  
+\begin{equation} \label{BLa}
+    \boxed{\mathcal{L} = \frac{1}{12} g^{ \hat \mu  \mu'} g^{\nu \nu'} g^{\rho \rho'} H_{ \mu \nu \rho}H_{ \mu'\nu' \rho'}}
+\end{equation}
+where for the two form $B_{\nu \rho}$ we have
+\begin{equation*}
+    H_{ \mu \nu \rho} = \partial_ \mu B_{\nu \rho} + cyc. perm
+\end{equation*}
+
+\section{Reduction of the NS-NS Action in D+E dimension}
+In this section we perform a Kaluza-Klein reduction. We consider a universe living in $D+E$ dimensions, with $D=4$, and we try to determine how an observer confined to the $D$-dimensional world perceives the extra dimensions.
+\subsection{Hypothesis}
+We assume that none of the fields depend on the internal coordinates, i.e. for any field $\partial_\alpha A^{\hat \mu} = 0$. This mean that the reduction will be done on a E-d torus.
+\subsection{Analysing the action}
+We start from the NS-NS action, which is 
+\begin{equation} \label{eq:8}
+    \boxed{S = \int d x^D \int \frac{d y ^E}{\rho(E)}\sqrt{- \hat g } e^{\hat \phi} (\hat R +  \hat g^{\hat \mu \hat \nu}\partial_{\hat \mu}\hat \phi \partial^{\hat \nu}\hat \phi - \frac{1}{12} g^{ \hat \mu  \mu'} g^{\nu \nu'} g^{\rho \rho'} H_{ \mu \nu \rho}H_{ \mu'\nu' \rho'})}
+\end{equation}
+where $\rho(E)$ is a normalisation factor introduced in \eqref{eq:8}, corresponding in practice to the invariant volume of the internal space.\\
+And where $\hat R$ is similar as the classical Hilbert-Einstein action but in $D+E$ dimension, $\hat \phi$ is a dilaton field and $- \frac{1}{12} H_{ \mu \nu \rho}H^{ \mu\nu \rho}$ is the  action of a two form.
+Finally as no field depend on internal component and knowing what $\rho(E)$ we can just simplify this integral.
+Now we will separate this action into 3 part one for each action so we have
+\begin{subequations}
+    \begin{align}
+        &S_{\hat g} = \int d x^D\sqrt{- \hat g } e^{-\hat \phi} \hat R\\
+        &S_{\hat \phi} =  \int d x^D \sqrt{- \hat g } e^{-\hat \phi} \hat g^{\hat \mu \hat \nu}\partial_{\hat \mu}\hat \phi \partial^{\hat \nu}\hat \phi\\
+        &S_{\hat \phi} =  \int d x^D \sqrt{- \hat g } e^{-\hat \phi} - \frac{1}{12} H_{ \mu \nu \rho}H^{ \mu\nu \rho}
+    \end{align}
+\end{subequations}
+Now using the fact that $\hat R$ can be written as
+\begin{equation*}
+    \hat R = \hat V^{\hat \mu \hat r} \hat V^{\hat \nu \hat s} \hat R_{\hat \mu \hat \nu \hat r \hat s}
+\end{equation*}
+where 
+\begin{equation*}
+    \hat R_{\hat \mu \hat \nu \hat r \hat s} =  \partial_{\hat \mu } \hat \omega_{\hat \nu \hat r \hat s}+ \hat \omega_{\hat\mu \hat r}{}^{\hat t}\omega_{\hat\nu \hat t \hat s} - (\mu \leftrightarrow \nu)
+\end{equation*}
+and the $\omega$ are defined By
+\begin{equation*}
+    \hat \omega_{trs } = - \hat\Omega_{\hat t\hat r \hat s} +\hat\Omega_{\hat r\hat s \hat t } -\hat\Omega_{\hat s\hat t \hat r}
+\end{equation*}
+and finally the $\Omega$ are defined thanks to the vielbein with
+\begin{equation*}
+    \hat\Omega_{\hat r\hat s \hat t } = \frac{1}{2}\hat (V^{\hat \mu}_{\hat r}\hat V^{\hat \nu}_{\hat s} -\hat V^{\hat \nu}_{\hat r} \hat V^{\hat \mu}_{\hat s})\partial_{\hat \nu} \hat V_{\hat \mu \hat r}
+\end{equation*}
+with all of that we are going to rewrite the action $S_{\hat g}$ in termes of $\hat \omega$
+\begin{equation}
+    \begin{aligned}
+        S_{\hat g} &= \int d x^D\hat V  e^{-\hat \phi} \hat R\\
+        &= \int d x^D\hat V  e^{-\hat \phi} \hat V^{\hat \mu \hat r} \hat V^{\hat \nu \hat s} \hat R_{\hat \mu \hat \nu \hat r \hat s}\\
+        &= \int d x^D\hat V  e^{-\hat \phi} \hat V^{\hat \mu \hat r} \hat V^{\hat \nu \hat s} (\partial_{\hat \mu } \hat \omega_{\hat \nu \hat r \hat s}+ \hat \omega_{\hat\mu \hat r}{}^{\hat t}\omega_{\hat\nu \hat t \hat s} -\partial_{\hat \nu } \hat \omega_{\hat \mu \hat r \hat s}- \hat \omega_{\hat\nu \hat r}{}^{\hat t}\omega_{\hat\mu \hat t \hat s})\\
+        &= \int d x^D\hat V e^{-\hat \phi} \hat V^{\hat \mu \hat r} \hat V^{\hat \nu \hat s} ([\partial_{\hat \mu } \hat \omega_{\hat \nu \hat r \hat s} -\partial_{\hat \nu } \hat \omega_{\hat \mu \hat r \hat s}]+ [\hat \omega_{\hat\mu \hat r}{}^{\hat t}\omega_{\hat\nu \hat t \hat s} - \hat \omega_{\hat\nu \hat r}{}^{\hat t}\omega_{\hat\mu \hat t \hat s}])\\
+        &= \int d x^D\{  2\hat V e^{-\hat \phi} \hat V^{\hat \mu \hat r} \hat V^{\hat \nu \hat s}\partial_{\hat \mu } \hat \omega_{\hat \nu \hat r \hat s}+ \hat V e^{-\hat \phi}[\hat \omega^{\hat r}{}_{\hat r}{}^{\hat t}\omega^{\hat s}{}_{\hat t \hat s} - \hat \omega^{\hat s}{}_{ \hat r}{}^{\hat t}\omega^{\hat r}{}_{ \hat t \hat s}] \}\\
+        &= \int d x^D\{  \hat V e^{-\hat \phi}[\hat \omega^{\hat r}{}_{\hat r}{}^{\hat t}\omega^{\hat s}{}_{\hat t \hat s} - \hat \omega^{\hat s}{}_{ \hat r}{}^{\hat t}\omega^{\hat r}{}_{ \hat t \hat s}]+\underbrace{\partial_{\hat \mu } (2\hat V e^{-\hat \phi} \hat V^{\hat \mu \hat r} \hat V^{\hat \nu \hat s}\hat \omega_{\hat \nu \hat r \hat s})}_{\mathclap{\text{Border terme which goes to zero}}}- 2 \hat \omega_{\hat \nu \hat r \hat s}\partial_{\hat \mu}(\hat V e^{-\hat \phi} \hat V^{\hat \mu \hat r} \hat V^{\hat \nu \hat s}) \}\\
+        &= \int d x^D\{  \hat V e^{-\hat \phi}[\hat \omega^{\hat r}{}_{\hat r}{}^{\hat t}\omega^{\hat s}{}_{\hat t \hat s} - \hat \omega^{\hat s}{}_{ \hat r}{}^{\hat t}\omega^{\hat r}{}_{ \hat t \hat s}]- 2 \hat \omega_{\hat \nu \hat r \hat s}\partial_{\hat \mu}(\hat V e^{-\hat \phi} \hat V^{\hat \mu \hat r} \hat V^{\hat \nu \hat s}) \}\\
+        &= \int d x^D\{  \hat V e^{-\hat \phi}[\hat \omega^{\hat r}{}_{\hat r}{}^{\hat t}\omega^{\hat s}{}_{\hat t \hat s} - \hat \omega^{\hat s}{}_{ \hat r}{}^{\hat t}\omega^{\hat r}{}_{ \hat t \hat s}]- 2\hat \omega_{\hat \nu \hat r \hat s}[\hat V e^{-\hat \phi} \hat V^{\hat \mu \hat r} \partial_{\hat \mu} \hat V^{\hat \nu \hat s} +\hat V e^{-\hat \phi}  \hat V^{\hat \nu \hat s} \partial_{\hat \mu}\hat V^{\hat \mu \hat r}+ e^{-\hat \phi} \hat V^{\hat \mu \hat r} \hat V^{\hat \nu \hat s} \partial_{\hat \mu}\hat V +\hat V  \hat V^{\hat \mu \hat r} \hat V^{\hat \nu \hat s} \partial_{\hat \mu}e^{-\hat \phi} ] \}\\
+        &= \int d x^D\hat V e^{-\hat \phi} \{  [\hat \omega^{\hat r}{}_{\hat r}{}^{\hat t}\omega^{\hat s}{}_{\hat t \hat s} - \hat \omega^{\hat s}{}_{ \hat r}{}^{\hat t}\omega^{\hat r}{}_{ \hat t \hat s}]- 2\hat \omega_{\hat \nu}{}^{\hat r \hat s}[\hat V^{\hat \mu}_{  \hat r} \hat V^{\hat \nu}_{ \hat s}V^{\hat \lambda }_{\hat t} \partial_{\hat \mu}\hat V^{\hat t}_{\hat \lambda}- \hat V^{\hat \mu}_{ \hat r} \hat V^{ \hat \nu}_{\hat t} \hat V^{ \hat \lambda}_{\hat s} \partial_{\hat \mu} \hat V^{ \hat t}_{\hat \lambda} -  \hat V^{\hat \nu}_{ \hat s} \hat V^{ \hat \mu}_{\hat t} \hat V^{ \hat \lambda}_{\hat r} \partial_{\hat \mu} \hat V^{ \hat t}_{\hat \lambda}-  \hat V^{\hat \mu}_{ \hat r} \hat V^{\hat \nu}_{ \hat s} \partial_{\hat \mu}\hat \phi ] \}\\ 
+        &= \int d x^D\hat V e^{-\hat \phi} \{  [\hat \omega^{\hat r}{}_{\hat r}{}^{\hat t}\omega^{\hat s}{}_{\hat t \hat s} - \hat \omega^{\hat s}{}_{ \hat r}{}^{\hat t}\omega^{\hat r}{}_{ \hat t \hat s}]- 2\hat \omega_{\hat s}{}^{\hat r \hat s}[\hat V^{\hat \mu}_{  \hat r} \hat V^{\hat \lambda }_{\hat t} \partial_{\hat \mu}\hat V^{\hat t}_{\hat \lambda} -   \hat V^{ \hat \mu}_{\hat t} \hat V^{ \hat \lambda}_{\hat r} \partial_{\hat \mu} \hat V^{ \hat t}_{\hat \lambda}-  \hat V^{\hat \mu}_{ \hat r}\partial_{\hat \mu}\hat \phi ] + 2\hat \omega_{\hat t}{}^{\hat r \hat s} \hat V^{\hat \mu}_{ \hat r} \hat V^{ \hat \lambda}_{\hat s} \partial_{\hat \mu} \hat V^{ \hat t}_{\hat \lambda} \}\\
+        &= \int d x^D\hat V e^{-\hat \phi} \{  [\hat \omega^{\hat r}{}_{\hat r}{}^{\hat t}\omega^{\hat s}{}_{\hat t \hat s} - \hat \omega^{\hat s}{}_{ \hat r}{}^{\hat t}\omega^{\hat r}{}_{ \hat t \hat s}]- 2\hat \omega_{\hat s}{}^{\hat r \hat s}[2 \hat \Omega_{ \hat t \hat r}{}^{\hat t}-  \hat V^{\hat \mu}_{ \hat r}\partial_{\hat \mu}\hat \phi ] + 2\hat \omega_{\hat t}{}^{\hat r \hat s} \hat V^{\hat \mu}_{ \hat r} \hat V^{ \hat \lambda}_{\hat s} \partial_{\hat \mu} \hat V^{ \hat t}_{\hat \lambda} \}\\
+        &= \int d x^D\hat V e^{-\hat \phi} \{  [\hat \omega^{\hat r}{}_{\hat r}{}^{\hat t}\omega^{\hat s}{}_{\hat t \hat s} - \hat \omega^{\hat s}{}_{ \hat r}{}^{\hat t}\omega^{\hat r}{}_{ \hat t \hat s}]+ 2\hat \omega_{\hat s}{}^{\hat r \hat s}[2 \hat \omega_{ \hat t \hat r}{}^{\hat t}+  \hat V^{\hat \mu}_{ \hat r}\partial_{\hat \mu}\hat \phi ] + 2\hat \omega_{\hat t}{}^{\hat r \hat s} \Omega_{ \hat r \hat s}{}^{\hat t}\}\\
+        &= \int d x^D\hat V e^{-\hat \phi} \{  [\hat \omega^{\hat r}{}_{\hat r}{}^{\hat t}\omega^{\hat s}{}_{\hat t \hat s} - \hat \omega^{\hat s}{}_{ \hat r}{}^{\hat t}\omega^{\hat r}{}_{ \hat t \hat s}]+ 2\hat \omega_{\hat s}{}^{\hat r \hat s}[2 \hat \omega_{ \hat t \hat r}{}^{\hat t}+  \hat V^{\hat \mu}_{ \hat r}\partial_{\hat \mu}\hat \phi ] - \hat \omega_{\hat t}{}^{\hat r \hat s}( \omega_{ \hat s}{}^{ \hat t}{}_{\hat r}+ \hat \omega^{\hat t}{}_{\hat  r \hat s })\}\\
+        &= \int d x^D\hat V e^{-\hat \phi} \{  \hat \omega^{\hat s}{}_{\hat s}{}^{\hat t}\omega^{\hat r}{}_{\hat r \hat t} + \hat \omega^{\hat s \hat t}{}_{ \hat r}\omega^{\hat r}{}_{  \hat s \hat t }+ 2\hat \omega_{\hat s}{}^{\hat r \hat s}\hat V^{\hat \mu}_{ \hat r}\partial_{\hat \mu}\hat \phi \}\\
+    \end{aligned}
+\end{equation}
+\section{symmetries observation}
+ \section{Conclusion}
+ 
+ \printbibliography
+ \appendix
+ \section{lagrangian}
+ By using the principle of least action and the variational principle we can see that
+
+
+\begin{align*}
+    \delta S &= \delta \int \mathcal{L} dx^\mu \\
+    & = \delta \int \pdv{\mathcal{L}}{\eta_{\rho}} \delta \eta_{\rho} + \pdv{\mathcal{L}}{\partial_{\nu}\eta_{\rho}} \delta \partial_ \nu \eta_{\rho}  dx^\mu\\
+    & = \delta \int \pdv{\mathcal{L}}{\eta_{\rho}} \delta \eta_{\rho}- \partial_ \nu \pdv{\mathcal{L}}{\partial_{\nu}\eta_{\rho}} \delta  \eta_{\rho}  + \underbrace{\partial_ \nu \Big(\pdv{\mathcal{L}}{\partial_{\nu}\eta_{\rho}} \delta  \eta_{\rho}\Big)}_{\mathclap{\text{border terme equal to zero}}}  dx^\mu\\
+    & = 0
+\end{align*}
+which gave the equation
+\begin{equation}
+    \boxed{\pdv{\mathcal{L}}{\eta_{\rho}} - \partial_ \nu \pdv{\mathcal{L}}{\partial_{\nu}\eta_{\rho}} = 0}
+\end{equation}
+which is in fact the equation of mouvement for the field
+\section{General relativty 101}
+\begin{definition}
+Let V be an R-vector space of dimension N, we define the tensor of order $(r,s) \in  \llbracket 0 ,1 \rrbracket^2$ on $V^{(r,s)} \overset{def}{=} V^{\otimes r} \otimes V^{\otimes s}$
+as a being a multilinear application on $ V^{\star r} \times V^{ s}$ to $\mathbb{R}$
+ \end{definition}
+
+\begin{definition}
+    We will call n-dimension ($n \in \mathbb{N}^*$) manifold every Hausdorff topological space $(\mathcal{M},\tau )$ localy homeomorphic to $\mathbb{R}^n)$
+\end{definition}
+\begin{definition}
+    Let $(\mathcal{M}, g)$ be a smooth manifold. A metric tensor is a symmetric, 
+    non-degenerate bilinear form $g_{\mu\nu}$ on the tangent space $T_p\mathcal{M}$ 
+    at each point $p \in \mathcal{M}$, such that
+    \begin{equation*}
+        ds^2 = g_{\mu\nu} dx^\mu dx^\nu
+    \end{equation*}
+    In General Relativity we use the signature $(-,+,+,+)$.
+\end{definition}
+\begin{definition}
+   In general in RG we use the christofells connexion as it is the sole one wich is mtreci and torsion free.\\
+   We define it as being
+   \begin{equation}
+    \\nabla_{\mu}V^{\nu}= \partial_{\mu}V^{\nu}+\Gamma^{\nu}_{\mu \sigma}V^{\sigma}
+   \end{equation} 
+   where the christofells symbols are
+   \begin{equation}
+    \Gamma_{\mu \nu}^{\lambda} = \frac{1}{2}g^{\lambda \sigma}(\partial_{\mu}g_{\nu \sigma}+\partial_{\nu}g_{\sigma \mu} - \partial_{\sigma}g_{\mu \nu})
+   \end{equation}
+\end{definition}
+
+\end{document}

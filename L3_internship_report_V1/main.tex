@@ -49,7 +49,8 @@
 
 
         \vspace{1cm}
-        \LARGE{Spatial dimension compactification in general relativity and duality symmetry}
+        \LARGE{Dimensional reduction  in supergravity  and duality symmetries}
+    
           
         \vspace{3 cm}
         % \Large{\GroupName}
@@ -207,8 +208,12 @@ We start from the usual Einstein-Hilbert action, the only difference being that 
 where $\rho(E)$ is a normalisation factor introduced in \eqref{eq:8}, corresponding in practice to the invariant volume of the internal space; $\kappa$ is fixed such that $\kappa^2/4\pi$ is the usual Newton constant.\\
 Working instead with the spin-connexion formalism, the action can be rewritten in a more transparent form:
 \begin{equation}
-        S = \frac{-1}{4\kappa^2}\int d x^D \int \frac{d y ^E}{\rho(E)} \hat V \big(\hat \omega^{\hat r}{}_{\hat s \hat t} \hat \omega^{\hat s \hat t}{}_{\hat r} + \hat \omega^{\hat r}{}_{ \hat r \hat t}\hat \omega^{\hat s }{}_{\hat s}{}^{\hat t}\big)
-\end{equation}
+    \begin{aligned}
+        S &= \frac{-1}{4\kappa^2}\int d x^D \int \frac{d y ^E}{\rho(E)} \hat V \hat V^{\hat \mu \hat r}\hat V^{\hat \nu \hat s} \hat R_{\hat \mu \hat \nu \hat r \hat s}\\
+        &= \frac{-1}{4\kappa^2}\int d x^D \int \frac{d y ^E}{\rho(E)} \hat V \hat V^{\hat \mu \hat r}\hat V^{\hat \nu \hat s}(\partial_{\hat \nu} \hat \omega_{\hat \nu \hat r \hat s} + \hat \omega_{\hat \mu \hat t \hat s} \hat \omega_{\hat \nu \hat t \hat s}-\partial_{\hat \nu} \hat \omega_{\hat \nu \hat r \hat s} - \hat \omega_{\hat \mu \hat t \hat s} \hat \omega_{\hat \nu \hat t \hat s})\\
+        &=\frac{-1}{4\kappa^2}\int d x^D \int \frac{d y ^E}{\rho(E)} \hat V \big(\hat \omega^{\hat r}{}_{\hat s \hat t} \hat \omega^{\hat s \hat t}{}_{\hat r} + \hat \omega^{\hat r}{}_{ \hat r \hat t}\hat \omega^{\hat s }{}_{\hat s}{}^{\hat t}\big)\\
+    \end{aligned}
+    \end{equation}
 where the spin connexion is given by
 \begin{equation} \label{eq:10}
     \hat \omega_{ \hat t \hat r \hat s} = - \hat \Omega_{\hat t \hat r \hat s} +\hat \Omega_{\hat r \hat s \hat t} - \hat \Omega_{\hat s \hat t \hat r}  
