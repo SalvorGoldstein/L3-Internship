@@ -1,13 +1,13 @@
 # Fdb version 4
-["biber main"] 0 "main.bcf" "main.bbl" "main" 1784635588.45046 -1
-  "main.bcf" 1784635588.30284 108652 662741fd3b7b55783531bfd744608188 "pdflatex"
+["biber main"] 1784635878.04002 "main.bcf" "main.bbl" "main" 1784635883.02898 0
+  "main.bcf" 1784635882.85927 108652 662741fd3b7b55783531bfd744608188 "pdflatex"
   "references.bib" 1782380097.76103 1517 e218e24821c735909bf8b142b30352bb ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1784635586.5047 "/home/adam/Documents/study/L3-Internship/L3_internship_report_V2/main.tex" "main.pdf" "main" 1784635588.4509 0
-  "/home/adam/Documents/study/L3-Internship/L3_internship_report_V2/main.tex" 1784635586.21534 18603 c9115fbed28d77248284c2eb8dd94358 ""
+["pdflatex"] 1784635880.92014 "/home/adam/Documents/study/L3-Internship/L3_internship_report_V2/main.tex" "main.pdf" "main" 1784635883.02942 0
+  "/home/adam/Documents/study/L3-Internship/L3_internship_report_V2/main.tex" 1784635877.69581 18603 c9115fbed28d77248284c2eb8dd94358 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1775415801 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1775415801 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1775415801 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -151,12 +151,12 @@
   "Logo_Université_Paris-Saclay_(externe).png" 1782225690.70617 5345 580c261ff9267f8877558cd670d8c96e ""
   "images.png" 1782226379.14274 6353 f301dccf7c3a371417d1da7d689f048d ""
   "logo.png" 1782221304.18659 9046 6930bf134751b9536dd78628812410ee ""
-  "main.aux" 1784635588.29872 3185 c3e9d259971e1d65a2e5f2cc74cdc453 "pdflatex"
-  "main.bbl" 1784621312.14043 7283 4dab1ab7c3cd4ef1762e9ed1e5ba3b0a "biber main"
-  "main.out" 1784635588.29872 2714 0dcf7429019aa8f02fa3be3dd9d08a98 "pdflatex"
-  "main.run.xml" 1784635588.3052 2430 b29f292c3d282b44810cacf5f1fb7029 "pdflatex"
-  "main.tex" 1784635586.21534 18603 c9115fbed28d77248284c2eb8dd94358 ""
-  "main.toc" 1784635588.3052 1261 f45ecac08f4c07d1aba35c9dbf701de7 "pdflatex"
+  "main.aux" 1784635882.85594 3185 c3e9d259971e1d65a2e5f2cc74cdc453 "pdflatex"
+  "main.bbl" 1784635879.01921 7283 4dab1ab7c3cd4ef1762e9ed1e5ba3b0a "biber main"
+  "main.out" 1784635882.85927 2714 0dcf7429019aa8f02fa3be3dd9d08a98 "pdflatex"
+  "main.run.xml" 1784635882.8646 2430 b29f292c3d282b44810cacf5f1fb7029 "pdflatex"
+  "main.tex" 1784635877.69581 18603 c9115fbed28d77248284c2eb8dd94358 ""
+  "main.toc" 1784635882.8646 1261 f45ecac08f4c07d1aba35c9dbf701de7 "pdflatex"
   "reduction.png" 1782826843.70525 606765 df6e51890f760f6127c8a76877b48b6a ""
   (generated)
   "main.aux"
