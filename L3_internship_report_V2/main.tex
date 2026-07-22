@@ -123,11 +123,82 @@ In general relativity we often encounter horrible metrics such as the Kerr-Newma
 \begin{equation}
     g_{\mu \nu} V^{\mu}_{a}V^{\nu}_b = \eta_{ab}
 \end{equation}
-where g is the original metrcis and $\eta$ is the Minkowski metric.
+where g is the original metrcis and $\eta$ is the Minkowski metric.\\
+We call this basis the vielbein. In this basis we will use the Minkowski metric to raise and lower indices.
+Of course we can define the dual of the vielbein otherwise called the inverse vielbein with
+\begin{equation}
+    V^{a}_{\nu}V^{\nu}_b = \delta^a_b
+\end{equation}
+and of course that mean that we can go back with to the original metric with
+\begin{equation}
+    g_{\mu \nu}  = \eta_{ab}V^{a}_{\mu}V^{b}_\nu
+\end{equation}
+Of course we can aloso change the basis any random vector, form or tensor with this, the method is to simply do
+\begin{align}
+    &T^a  =  V^a_\mu T^\mu \\
+    &T_a =   V^\mu_a T_\mu  \\
+    &T^a_b = V^a_\mu V^\nu_b T^\mu_\nu
+\end{align}
+Now in this internship we will not be in four dimensions, but rather in 4 time-space dimension, with E supplementarie space dimensions. And to pass from 4 + E total dimension to the other thing we use the vielbein in 4+E dimension the the 4 dimensions vielbein like this:
+\begin{subequations} \label{lowdimv}
+    \begin{align}
+        T^{\mu} &= V_r^\mu \hat V^r_{\hat \mu}\hat T^{\hat \mu} \\
+        T^{\alpha} &= V_a^\alpha \hat V^a_{\hat \mu}\hat T^{\hat \mu}\\
+        T_{\mu} &= V_\mu^r \hat V_r^{\hat \mu}\hat T_{\hat \mu}\\
+        T_{\alpha} &= V_\alpha^a \hat V_a^{\hat \mu}\hat T_{\hat \mu} \\
+    \end{align}
+\end{subequations}
+Now of course other cange need to happen to the classical transformation for this to work, such as the classical christofells connexion which does not work anymore in this context
+so we introduce the spin(or latin) connexion whith
+\begin{equation}
+    \nabla_\mu X^a_b = \partial_\mu X^a_b + \omega_\mu{}^a{}_c X^c_b - \omega_\mu{}^c{}_b X^a_c
+\end{equation}
+Of course we can still make link with the levi-civita conexion with the equations
+\begin{align}
+    &\Gamma_{\mu \lambda}^{\nu} = V^{\nu}_a \partial_\mu V^a_\lambda + V^\nu_aV^b_\lambda  \omega_\mu{}^a{}_b,\\
+    &\omega_\mu{}^a{}_b = V^a_\nu V^\lambda_b \Gamma_{\mu \lambda}^{\nu} - V^\lambda_b \partial_\mu V^a_\lambda,
+\end{align}
+With those relation we can do prove the anti-symetrie of the last two index of the spin connexion
+\begin{equation}
+    \begin{aligned}
+        \nabla_\mu \eta_{ab} &= \partial_\mu X_{ab} - \omega_\mu{}^a{}_c \eta_{cb} - \omega_\mu{}^c{}_b \eta_{ac} \\
+        &=  - \omega_{\mu a b } - \omega_{\mu b a}\\
+        & = 0
+    \end{aligned}
+\end{equation}
+so in effect we have 
+\begin{equation} \label{antisymlat}
+    - \omega_{\mu a b }= \omega_{\mu b a}
+\end{equation}
 \subsection{Groupe and gaude transformation}
-
-
-
+Now we will look at both the gauge liberty of the theory and the symetrie of the O(E,E) group and it's action on different object.
+so firstly the different gauge invarince we will encounter in this internship are $x'^{\mu} = x^\mu + \xi^\mu(x)$,\\ and $B_{\mu \nu} \rightarrow B_{\mu \nu} + \partial_mu \Lambda^{(2)}_\nu$
+for the first one we can refer to the \cite{freedman2012supergravity} and use the Lie derivative to establish how different object will transorm:
+\begin{align} \label{xitransfo}
+    &\delta \phi(x) = \xi ^ \mu \partial _ \mu \Phi (x) \\
+    &\delta U ^ \mu  = \xi ^ \rho \partial _ \rho U ^ \mu - (\partial _ \rho \xi ^ \mu) U ^\rho \\
+    &\delta  \omega _ \mu  = \xi ^ \rho \partial _ \rho \omega _\mu + (\partial _ \rho \xi ^ \mu) \omega _\rho \\
+    &\delta T ^ \mu _ \nu  = \xi ^ \rho  \partial _ \rho T ^ \mu _ \nu -(\partial _ \rho \xi ^ \mu ) T ^ \rho _ \nu + (\partial _ \nu \xi ^ \rho)T ^ \mu _ \nu 
+\end{align}
+Now we will look at the action of the O(E,E) group, but firstly, let's define what is the O(E,E) group:
+\begin{definition}
+    Any matrices M is in O(E,E) if it is a square $E\times E$ matrices and if for the matrices
+    \begin{equation*} \label{def:O(E,E)}
+        \zeta = \begin{pmatrix}
+            0 & 1 \\ 1 & 0
+        \end{pmatrix}
+    \end{equation*}
+    We can use this matrices as a metric for the groupe O(E,E) as it has d -1 eigenvalues and d 1 eigenvalues, in  a basis rotated from the one  with diagonal metric.\\ 
+    the matrices M verify
+    \begin{equation*}
+        \boxed{M^T \zeta M = \zeta }
+    \end{equation*}
+\end{definition}
+Now the question is how does this group act on a vector , a tensor a form or other things. We have
+\begin{align}
+    &M^{\mu \nu} \rightarrow  M^{\mu \nu} + \Psi^\mu_\lambda M^{\lambda \gamma} \Psi^\nu_\gamma \\
+    &A^\mu \rightarrow  A^\mu + \Psi^\mu_\nu A^\nu
+\end{align}
 
 
 \section{Lagrangian field theory}
@@ -555,20 +626,7 @@ Where we decompose $\mathcal{L}$ as $\mathcal{L} = \mathcal{L}_1 + \mathcal{L}_2
 Now for this part we are going to explore a very important part of physics research nowaday which is symetrie. In our context it will allow us to make equivalence between multpiple theory as whole. 
 But firstly we have to see the obvious symetrie that we have seen in the non-reduced version of the Action which is the SL(E,R).
 But what will interss us in the reduction is that it does not create nor destroy any symetrie and if we observe a new symetrie in the reduced form that mean that we have effectively discoverd a new symtrie in the unreduced forme.
-and following the \cite{maharana1993noncompact} we observe an O(E,E) symetrie. let's define it and then observe if it is true so the definition.\\
-\begin{definition}
-    Any matrices M is in O(E,E) if it is a square $E\times E$ matrices and if for the matrices
-    \begin{equation*}
-        \zeta = \begin{pmatrix}
-            0 & 1 \\ 1 &0
-        \end{pmatrix}
-    \end{equation*}
-    We can use this matrices as a metric for the groupe O(E,E) as it has d -1 eigenvalues and d 1 eigenvalues, in  a basis rotated from the one  with diagonal metric.\\ 
-    the matrices M verify
-    \begin{equation*}
-        \boxed{M^T \zeta M = \zeta }
-    \end{equation*}
-\end{definition}
+and following the \cite{maharana1993noncompact} we observe an O(E,E) symetrie (defined here \ref{def:O(E,E)}.\\
 We will now define a new matrices M which is 
 \begin{equation}
     M = \begin{pmatrix}
