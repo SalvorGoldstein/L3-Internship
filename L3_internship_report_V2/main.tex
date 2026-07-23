@@ -82,13 +82,10 @@
 \section*{Acknowledgment}
 
 \section*{Notations and abreviations}
-For the abreviations we wil use
-\begin{itemize}
-    \item GR for general relativity
-\end{itemize}
+
 We will during this intership use the vielbein formalism. We will use the same notation as in \cite{scherk1979get}
 which is
-\begin{itemize}
+\begin{itemize} \label{notation}
     \item Greek hatted letter for curved indices $(\hat \mu , \hat \nu , \hat \rho , \dots)$
     \item Latin hatted letter for flat indices $(\hat p , \hat m , \hat n , \dots)$
     \item For space-time indices taking D values, late greek letters are used in the curved case $(\mu, \nu ,\rho , \dots)$ and Latin letters in the flat case (p, m, n)
@@ -119,22 +116,22 @@ and it is now at the heart of modern approaches like supergravity \cite{freedman
 \section{Theorical tool} \label{tt}
 Here you will find some GR reminder, which hopefully will make it easier to understand the mathematical foundation on which this internship was build
 \subsection{spin connexion, vielbein and flatspace} \label{spinconnexionvielbeinandflatspace}
-In general relativity we often encounter horrible metrics such as the Kerr-Newman metric. A good idea we can have is to then work in an orthonormal basis $\{e^a_\mu \}$, which follow:
-\begin{equation}
+In general relativity we often encounter difficult to handle metrics such as the Kerr-Newman metric. A good idea we can have is to then work in an orthonormal basis $\{e^a_\mu \}$, which follow:
+\begin{equation} \label{vieldef}
     g_{\mu \nu} V^{\mu}_{a}V^{\nu}_b = \eta_{ab}
 \end{equation}
-where g is the original metrcis and $\eta$ is the Minkowski metric.\\
+where g is the original metric and $\eta$ is the Minkowski metric.\\
 We call this basis the vielbein. In this basis we will use the Minkowski metric to raise and lower indices.
 Of course we can define the dual of the vielbein otherwise called the inverse vielbein with
-\begin{equation}
+\begin{equation} \label{inversviel}
     V^{a}_{\nu}V^{\nu}_b = \delta^a_b
 \end{equation}
 and of course that mean that we can go back with to the original metric with
-\begin{equation}
+\begin{equation} \label{toflatmet}
     g_{\mu \nu}  = \eta_{ab}V^{a}_{\mu}V^{b}_\nu
 \end{equation}
-Of course we can aloso change the basis any random vector, form or tensor with this, the method is to simply do
-\begin{align}
+Of course we can also change the basis any random vector, form or tensor with this, the method is to simply do
+\begin{align} \label{changeofbasis}
     &T^a  =  V^a_\mu T^\mu \\
     &T_a =   V^\mu_a T_\mu  \\
     &T^a_b = V^a_\mu V^\nu_b T^\mu_\nu
@@ -142,19 +139,19 @@ Of course we can aloso change the basis any random vector, form or tensor with t
 Now in this internship we will not be in four dimensions, but rather in 4 time-space dimension, with E supplementarie space dimensions. And to pass from 4 + E total dimension to the other thing we use the vielbein in 4+E dimension the the 4 dimensions vielbein like this:
 \begin{subequations} \label{lowdimv}
     \begin{align}
-        T^{\mu} &= V_r^\mu \hat V^r_{\hat \mu}\hat T^{\hat \mu} \\
-        T^{\alpha} &= V_a^\alpha \hat V^a_{\hat \mu}\hat T^{\hat \mu}\\
-        T_{\mu} &= V_\mu^r \hat V_r^{\hat \mu}\hat T_{\hat \mu}\\
-        T_{\alpha} &= V_\alpha^a \hat V_a^{\hat \mu}\hat T_{\hat \mu} \\
+        T^{\mu} &= V_r^\mu \hat V^r_{\hat \mu}\hat T^{\hat \mu} \\ \label{scalartrans}
+        T^{\alpha} &= V_a^\alpha \hat V^a_{\hat \mu}\hat T^{\hat \mu}\\ \label{vectortrans}
+        T_{\mu} &= V_\mu^r \hat V_r^{\hat \mu}\hat T_{\hat \mu}\\  \label{formtrans}
+        T_{\alpha} &= V_\alpha^a \hat V_a^{\hat \mu}\hat T_{\hat \mu} \\  \label{tenstrans}
     \end{align}
 \end{subequations}
 Now of course other cange need to happen to the classical transformation for this to work, such as the classical christofells connexion which does not work anymore in this context
 so we introduce the spin(or latin) connexion whith
-\begin{equation}
+\begin{equation} \label{spinconnexion}
     \nabla_\mu X^a_b = \partial_\mu X^a_b + \omega_\mu{}^a{}_c X^c_b - \omega_\mu{}^c{}_b X^a_c
 \end{equation}
 Of course we can still make link with the levi-civita conexion with the equations
-\begin{align}
+\begin{align} \label{linkbetwinleviandlatin}
     &\Gamma_{\mu \lambda}^{\nu} = V^{\nu}_a \partial_\mu V^a_\lambda + V^\nu_aV^b_\lambda  \omega_\mu{}^a{}_b,\\
     &\omega_\mu{}^a{}_b = V^a_\nu V^\lambda_b \Gamma_{\mu \lambda}^{\nu} - V^\lambda_b \partial_\mu V^a_\lambda,
 \end{align}
@@ -170,7 +167,7 @@ so in effect we have
 \begin{equation} \label{antisymlat}
     - \omega_{\mu a b }= \omega_{\mu b a}
 \end{equation}
-\subsection{Groupe and gaude transformation}
+\subsection{Groupe and gaude transformation} \label{gaugeandgroupe}
 Now we will look at both the gauge liberty of the theory and the symetrie of the O(E,E) group and it's action on different object.
 so firstly the different gauge invarince we will encounter in this internship are $x'^{\mu} = x^\mu + \xi^\mu(x)$,\\ and $B_{\mu \nu} \rightarrow B_{\mu \nu} + \partial_mu \Lambda^{(2)}_\nu$
 for the first one we can refer to the \cite{freedman2012supergravity} and use the Lie derivative to establish how different object will transorm:
@@ -181,9 +178,9 @@ for the first one we can refer to the \cite{freedman2012supergravity} and use th
     &\delta T ^ \mu _ \nu  = \xi ^ \rho  \partial _ \rho T ^ \mu _ \nu -(\partial _ \rho \xi ^ \mu ) T ^ \rho _ \nu + (\partial _ \nu \xi ^ \rho)T ^ \mu _ \nu 
 \end{align}
 Now we will look at the action of the O(E,E) group, but firstly, let's define what is the O(E,E) group:
-\begin{definition}
+\begin{definition} \label{O(E,E)def}
     Any matrices M is in O(E,E) if it is a square $E\times E$ matrices and if for the matrices
-    \begin{equation*} \label{def:O(E,E)}
+    \begin{equation*}
         \zeta = \begin{pmatrix}
             0 & 1 \\ 1 & 0
         \end{pmatrix}
@@ -195,7 +192,7 @@ Now we will look at the action of the O(E,E) group, but firstly, let's define wh
     \end{equation*}
 \end{definition}
 Now the question is how does this group act on a vector , a tensor a form or other things. We have
-\begin{align}
+\begin{align} \label{O(E,E)action}
     &M^{\mu \nu} \rightarrow  M^{\mu \nu} + \Psi^\mu_\lambda M^{\lambda \gamma} \Psi^\nu_\gamma \\
     &A^\mu \rightarrow  A^\mu + \Psi^\mu_\nu A^\nu
 \end{align}
@@ -207,11 +204,11 @@ In field theory, just as Newton's second law is "volumized" into the Navier-Stok
 we replace discrete degrees of freedom with continuous field densities defined at every point in spacetime.
 Therefore we will rewrite the Lagrangian as the integral over space of a new quantities called Lagrangian density, which will often refered to as just the Lagrangian.
 Thus we obtain this equation:
-\begin{equation}
+\begin{equation} \label{densitylagrandef}
     L = \iiint \mathcal{L}(\eta_{\rho},\pdv{\eta_{\rho}}{x^{\nu}}) dx dy dz
 \end{equation}
 Now using esintein convention we can rewritte the action in a new light :
-\begin{equation}
+\begin{equation} \label{actiondensitylag}
     S = \int \mathcal{L} dx^\mu
 \end{equation}
 
@@ -220,11 +217,11 @@ In field theory, the Lagrangian has a classical prescription for scalar and vect
 each field type requires its own treatment. 
 For this work, only the scalar, vector, and two-form Lagrangians are needed, along with the metric, which is handled by Einstein's equations.\\
 So for a scalar field we have : 
-\begin{equation}
+\begin{equation} \label{scalafield}
     \boxed{\mathcal{L} = - \frac{1}{2} \partial_\mu \Phi \partial^ \mu \Phi}
 \end{equation}
 and for a vectorial field we have
-\begin{equation}
+\begin{equation}\label{vectorialfield}
     \boxed{\mathcal{L} = - \frac{1}{}F_{\mu \nu}F^{\mu \nu}}
 \end{equation}
 where for the field A
@@ -232,13 +229,13 @@ where for the field A
     F_{\mu \nu} = \partial_\mu A^ \nu - \partial_\nu A^ \mu
 \end{equation*}
 In a vaccum the einstein equation give us
-\begin{equation*}
+\begin{equation*} \label{einsteinaction}
     \boxed{\mathcal{L} = R}
 \end{equation*}
 where R is ricci scalar
 finally for the lagrangian of a two form fields
 whe will look in \cite{maharana1993noncompact} where it is given by the equation :  
-\begin{equation} \label{BLa}
+\begin{equation} \label{Baction}
     \boxed{\mathcal{L} = \frac{1}{12} g^{ \hat \mu  \mu'} g^{\nu \nu'} g^{\rho \rho'} H_{ \mu \nu \rho}H_{ \mu'\nu' \rho'}}
 \end{equation}
 where for the two form $B_{\nu \rho}$ we have
@@ -252,34 +249,34 @@ In this section we perform a Kaluza-Klein reduction. We consider a universe livi
 We assume that none of the fields depend on the internal coordinates, i.e. for any field $\partial_\alpha A^{\hat \mu} = 0$. This mean that the reduction will be done on a E-d torus.
 \subsection{Rewriting the action}
 We start from the NS-NS action, which is 
-\begin{equation} \label{eq:8}
+\begin{equation} \label{NS-NSaction}
     \boxed{S = \int d x^D \int \frac{d y ^E}{\rho(E)}\sqrt{- \hat g } e^{\hat \phi} (\hat R +  \hat g^{\hat \mu \hat \nu}\partial_{\hat \mu}\hat \phi \partial^{\hat \nu}\hat \phi - \frac{1}{12} g^{ \hat \mu  \mu'} g^{\nu \nu'} g^{\rho \rho'} H_{ \mu \nu \rho}H_{ \mu'\nu' \rho'})}
 \end{equation}
-where $\rho(E)$ is a normalisation factor introduced in \eqref{eq:8}, corresponding in practice to the invariant volume of the internal space.\\
+where $\rho(E)$ is a normalisation factor, corresponding in practice to the invariant volume of the internal space.\\
 And where $\hat R$ is similar as the classical Hilbert-Einstein action but in $D+E$ dimension, $\hat \phi$ is a dilaton field and $- \frac{1}{12} H_{ \mu \nu \rho}H^{ \mu\nu \rho}$ is the  action of a two form.
 Finally as no field depend on internal component and knowing what $\rho(E)$ we can just simplify this integral.
 Now we will separate this action into 3 part one for each action so we have
 \begin{subequations}
     \begin{align}
-        &S_{\hat g} = \int d x^D\sqrt{- \hat g } e^{-\hat \phi} \hat R\\
-        &S_{\hat \phi} =  \int d x^D \sqrt{- \hat g } e^{-\hat \phi} \hat g^{\hat \mu \hat \nu}\partial_{\hat \mu}\hat \phi \partial^{\hat \nu}\hat \phi\\
-        &S_{\hat \phi} =  \int d x^D \sqrt{- \hat g } e^{-\hat \phi} - \frac{1}{12} H_{ \mu \nu \rho}H^{ \mu\nu \rho}
+        &S_{\hat g} = \int d x^D\sqrt{- \hat g } e^{-\hat \phi} \hat R \label{Sg}\\ 
+        &S_{\hat \phi} =  \int d x^D \sqrt{- \hat g } e^{-\hat \phi} \hat g^{\hat \mu \hat \nu}\partial_{\hat \mu}\hat \phi \partial^{\hat \nu}\hat \phi \label{Sphi}\\ 
+        &S_{\hat B} =  \int d x^D \sqrt{- \hat g } e^{-\hat \phi} - \frac{1}{12} H_{ \mu \nu \rho}H^{ \mu\nu \rho} \label{SB}
     \end{align}
 \end{subequations}
 Now using the fact that $\hat R$ can be written as
-\begin{equation*}
+\begin{equation*} \label{Ricciexp}
     \hat R = \hat V^{\hat \mu \hat r} \hat V^{\hat \nu \hat s} \hat R_{\hat \mu \hat \nu \hat r \hat s}
 \end{equation*}
 where 
-\begin{equation*}
+\begin{equation*} \label{expriemann}
     \hat R_{\hat \mu \hat \nu \hat r \hat s} =  \partial_{\hat \mu } \hat \omega_{\hat \nu \hat r \hat s}+ \hat \omega_{\hat\mu \hat r}{}^{\hat t}\omega_{\hat\nu \hat t \hat s} - (\mu \leftrightarrow \nu)
 \end{equation*}
 and the $\omega$ are defined By
-\begin{equation*}
+\begin{equation*} \label{expomega}
     \hat \omega_{trs } = - \hat\Omega_{\hat t\hat r \hat s} +\hat\Omega_{\hat r\hat s \hat t } -\hat\Omega_{\hat s\hat t \hat r}
 \end{equation*}
 and finally the $\Omega$ are defined thanks to the vielbein with
-\begin{equation*}
+\begin{equation*}\label{expOmega}
     \hat\Omega_{\hat r\hat s \hat t } = \frac{1}{2}\hat (V^{\hat \mu}_{\hat r}\hat V^{\hat \nu}_{\hat s} -\hat V^{\hat \nu}_{\hat r} \hat V^{\hat \mu}_{\hat s})\partial_{\hat \nu} \hat V_{\hat \mu \hat r}
 \end{equation*}
 with all of that we are going to rewrite the action $S_{\hat g}$ in termes of $\hat \omega$
@@ -301,23 +298,23 @@ with all of that we are going to rewrite the action $S_{\hat g}$ in termes of $\
         &= \int d x^D\hat V e^{-\hat \phi} \{  \hat \omega^{\hat s}{}_{\hat s}{}^{\hat t}\omega^{\hat r}{}_{\hat r \hat t} + \hat \omega^{\hat s \hat t}{}_{ \hat r}\omega^{\hat r}{}_{  \hat s \hat t }+ 2\hat \omega_{\hat s}{}^{\hat r \hat s}\hat V^{\hat \mu}_{ \hat r}\partial_{\hat \mu}\hat \phi \}\\
     \end{aligned}
 \end{equation}
-\subsection{Vielbein Anstaz}
+\subsection{Vielbein Anstaz} \label{part:vielbeinanstaz}
 Now that we have explicitely written the action in terme of either latin connexion and or the two other fields, what we hate to do is to suppose an anstaz for the vielbein. Why the vielbein and not the metric you may ask? Because as stated in  \ref{spinconnexionvielbeinandflatspace},
 all the information of the metric can be contained within the vielbein, and has we primarly work with them for the action, it is easier to do an anstaz on them. Now we will do the same anzasts as in the \cite{scherk1979get},
 however we will consider that $\gamma $ they use is null since the begining, and we will use the the same parameter number as in \cite{maharana1993noncompact}. Finally thank to the local lorentz invariance we can choose a triangular paremtrisation giving us
-\begin{equation}
+\begin{equation} \label{vielbeinanstaz}
     \boxed{\hat V^{\hat r}_{\hat \mu} =\begin{pmatrix}
     V^{r}_{\mu} & A^{(1)\beta }_{\mu} \Phi^{a}_{\beta} \\ 0 & \Phi^{a}_\alpha
     \end{pmatrix}   }
 \end{equation}
-Now still using what we learned in part \ref{spinconnexionvielbeinandflatspace} we can compute the inverse vielbein and then the metric and then the inverse metric that gave us
-\begin{equation}
+Now still using \eqref{inversviel} we can compute the inverse vielbein and then the metric and then the inverse metric that gave us
+\begin{equation} \label{expinverseviel}
     \hat V^{\hat r}_{\hat \mu} = \begin{pmatrix} 
-         V^\mu_r &  -\delta^{ - \gamma} A^{\alpha }_r \\ 0 & \Phi^\alpha_a
+         V^\mu_r &  - A^{\alpha }_r \\ 0 & \Phi^\alpha_a
     \end{pmatrix},
 \end{equation}
 for the inverse vielbein, and
-\begin{equation}
+\begin{equation} \label{expmetric}
     \hat g_{\hat \mu \hat \nu} = \begin{pmatrix}
         g_{\mu \nu} - A^{\gamma}_{\mu}A_{\nu \lambda} & - A_{\mu \beta} \\  A_{\nu \alpha} &-h_{\alpha \beta}
     \end{pmatrix}, \text{ and }
@@ -326,22 +323,22 @@ for the inverse vielbein, and
     \end{pmatrix},
 \end{equation}
 for the metric\\
-Now that we have made this anstaz an intersting things to do is to verify what does object are by using the classical transformation $x'^{ \hat \mu} = x^{ \hat \mu} +\xi^{\mu}(x)$ and then using what we saw in  part that with the Lie derivate we can rewrote this transformation as being
-Using the fact that the theory is invariant under the classical transformation $x'^\mu = x^\mu + \xi^\mu(x)$ \cite{scherk1979get}, which can be rewritten as
+Now that we have made this anstaz an intersting things to do is to verify what does object are by using the classical transformation $x'^{ \hat \mu} = x^{ \hat \mu} +\xi^{\mu}(x)$ and then using what we saw in  part \ref{gaugeandgroupe} that with the Lie derivate we can rewrote this transformation as being
+Using the fact that the theory is invariant under the classical transformation $x'^\mu = x^\mu + \xi^\mu(x)$ \cite{scherk1979get}, which can be rewritten with \eqref{xitransfo} as 
  \begin{equation}
     \delta  \hat V^{\hat r}_{\hat \mu } = \xi^{\hat \rho}  \partial_{\hat \rho} \hat V^{\hat r}_{\hat \mu} + \partial_{\hat \mu} \xi^{\hat \rho} \hat V^{ \hat r}_{\hat \rho} 
  \end{equation}
- we now apply this transformation to each block of the vielbein, in order to see whether it corresponds to some familiar type of field. Let us start with the block $\hat V^r_\mu$:
+ we now apply this transformation to each block of the vielbein, in order to see whether it corresponds to some familiar type of field still thanks to \eqref{xitransfo} . Let us start with the block $\hat V^r_\mu$:
 \begin{align*}
     \delta \hat V^r_\mu &=  \xi^{\hat \rho}  \partial_{\hat \rho} \hat V^{ r}_{ \mu} + \partial_{ \mu} \xi^{ \hat \rho} \hat V^{  r}_{\hat \rho} \\
    &=  \xi^{\hat \rho}  \partial_{\hat \rho} \hat V^{ r}_{ \mu} + \partial_{ \mu} \xi^{ \nu} \hat V^{  r}_{\nu} + \underbrace{\partial_{ \mu } \xi^{  \alpha } \hat V^{  r}_{ \alpha }}_{\mathclap{\text{this is null}}}\\
-   &=  \xi^{\hat \rho}  \partial_{\hat \rho}(\delta^{\gamma} V^{ r}_{ \mu} +  \delta^{\gamma} \partial_{ \mu} \xi^{ \nu} V^{  r}_{\nu} \\
-   &= \delta^{\gamma}(\xi^{\hat \rho}  \partial_{\hat \rho}V^{ r}_{ \mu} +  \partial_{ \mu} \xi^{ \nu} V^{  r}_{\nu} ) + \xi^{\hat \rho}  \partial_{\hat \rho}\delta^{\gamma} V^{ r}_{ \mu}
+   &=  \xi^{\hat \rho}  \partial_{\hat \rho}( V^{ r}_{ \mu} +  \partial_{ \mu} \xi^{ \nu} V^{  r}_{\nu} \\
+   &= (\xi^{\hat \rho}  \partial_{\hat \rho}V^{ r}_{ \mu} +  \partial_{ \mu} \xi^{ \nu} V^{  r}_{\nu} ) + \xi^{\hat \rho}  \partial_{\hat \rho} V^{ r}_{ \mu}
 \end{align*}
 We can also redo this computation using a different method:
 \begin{align*}
-    \delta \hat V^r_\mu &= \delta( \delta^\gamma V^r_\mu)\\
-    & = \delta (\delta^\gamma) V^r_\mu + \delta^\gamma  \delta (V^r_\mu)
+    \delta \hat V^r_\mu &= \delta(  V^r_\mu)\\
+    & =    \delta (V^r_\mu)
 \end{align*}
 and by identification we find
 \begin{equation*}
@@ -356,14 +353,14 @@ which is exactly the transformation law of a scalar field. Finally, for $A^\alph
     A^\alpha_\mu= \xi^\rho\partial_\rho A^\alpha_\mu + \partial_\mu \xi^\rho A^\alpha_\rho + \frac{\partial_\mu \xi^\alpha}{2 \kappa}
 \end{equation*}
 which corresponds to the transformation law of a vector field, up to an extra correction term. One may further note that, restricting to $\xi^\alpha$ only, we obtain
-\begin{subequations}\label{eq:14}
+\begin{subequations}
 \begin{align}
 &\delta V^r_\mu = \delta \Phi^a_\alpha = 0,\\
 &\delta A^\alpha_\mu = \frac{\partial_\mu \xi^\alpha}{2\kappa}.
 \end{align}
 \end{subequations}
 so that what remains of the $D$-dimensional diffeomorphisms, once restricted to $\xi^\alpha$ independent of the internal coordinates $y$, corresponds to a set of $E$ abelian gauge symmetries.
-So now we can precisely describe the componant of the vielbein with in this expression, $\delta = \det\Phi$. The vielbein in \eqref{eq:12} thus contains the $D$-dimensional vielbein (i.e. the graviton), $E$ vector fields $A^\alpha_\mu$, and $E^2$ scalar fields $\Phi^a_\alpha$. However, because of the local Lorentz invariance in the internal directions, only $\frac{1}{2}E(E+1)$ of these scalars actually correspond to propagating degrees of freedom.
+The vielbein in \eqref{vielbeinanstaz} thus contains the $D$-dimensional vielbein (i.e. the graviton), $E$ vector fields $A^\alpha_\mu$, and $E^2$ scalar fields $\Phi^a_\alpha$. However, because of the local Lorentz invariance in the internal directions, only $\frac{1}{2}E(E+1)$ of these scalars actually correspond to propagating degrees of freedom. We also introduce $\delta = det \Phi$ 
 \subsection{Ricci scalar reduction}
 Now that we better know the tool  we will use, We can begin the calculation. For a starter we will do the Einstein action in D+E dimension twiked by the addition of the dilation.\\
 Firstly let's begin by expending completly the $S_{\hat g}$, this will show us that we technically have to compute 8 $\omega$, however thanks to the antisymetrie og the last to index we can reduce that to 6.
@@ -413,46 +410,27 @@ One can also check that computing these six components only requires the followi
     \hat \Omega_{abm},\\
     &\hat \Omega_{abc},
 \end{align*}
-Using \eqref{eq:10}, \eqref{eq:11} and \eqref{eq:12}, we can now set out a clear strategy: first compute $\hat V^{\hat \mu}_{\hat r}$ and $\hat V_{\hat \mu\hat r}$, then the $\Omega$'s, and finally the $\omega$'s. The inverse vielbein is easy to obtain, since
-\begin{equation*}
-    \hat V_{\hat \mu}^{\hat s}\hat V^{\hat \mu}_{\hat r} = \delta^{\hat r}_{\hat s}
-\end{equation*}
-so that
-\begin{equation}
-    \hat V^{\hat r}_{\hat \mu} = \begin{pmatrix} 
-        \delta^{ - \gamma} V^\mu_r &  -2 \kappa\delta^{ - \gamma} A^{\alpha }_r \\ 0 & \Phi^\alpha_a
-    \end{pmatrix}
-\end{equation}
-Similarly, for $\hat V_{\hat \mu\hat r}$, using
-\begin{equation*}
-    \hat V^{\hat \mu}_{\hat r} \hat V_{\hat \mu\hat s}= \eta_{ \hat r \hat s}
-\end{equation*}
-we obtain
-\begin{equation}
-    \hat V_{\hat \mu \hat s} = \begin{pmatrix} 
-        \delta^\gamma V_{\mu s } & 2 \kappa A^\alpha_\mu \Phi_{\alpha a } \\ 0 & \Phi_{\alpha a }
-    \end{pmatrix}
-\end{equation}
-Let us now turn to the computation of the $\Omega$'s themselves. Starting with $\hat \Omega_{pmn}$:
+Using \eqref{expinverseviel}, \eqref{expomega} and \eqref{expOmega}, we can now set out a clear strategy: first the $\Omega$'s, and then the $\omega$'s.
+Now let's begin the computation of the $\Omega$'s. Starting with $\hat \Omega_{pmn}$:
 \begin{align*}
     \hat \Omega_{pmn} &= \frac{1}{2}(\hat V^{\hat \mu}_{  p} \hat V^{ \nu}_{m}-\hat V^{\hat \mu}_{m} \hat V^{ \nu}_{p})\partial_{ \nu} \hat V_{\hat \mu n}\\
     &= \frac{1}{2}(\hat V^{ \mu}_{  p} \hat V^{ \nu}_{m}-\hat V^{ \mu}_{m} \hat V^{ \nu}_{p})\partial_{ \nu} \hat V_{ \mu n}\\
     &= \frac{1}{2}(\hat V^{ \mu}_{  p} \hat V^{ \nu}_{m}-\hat V^{ \mu}_{m} \hat V^{ \nu}_{p})\partial_{ \nu} \hat V_{ \mu n}\\
-    &= \frac{\delta^{-2 \gamma}}{2}(V^{ \mu}_{  p} V^{ \nu}_{m}- V^{ \mu}_{m} V^{ \nu}_{p})\partial_{ \nu} (\delta^{\gamma} V_{ \mu n})\\
-    &= \frac{\delta^{-2 \gamma}}{2}(V^{ \mu}_{  p} V^{ \nu}_{m}- V^{ \mu}_{m} V^{ \nu}_{p})(\partial_{ \nu} (\delta^{\gamma}) V_{ \mu n} + \delta^{\gamma}\partial_{ \nu}( V_{ \mu n}))\\
-    &= \frac{\delta^{-2 \gamma}}{2}(V^{ \mu}_{  p} V^{ \nu}_{m}- V^{ \mu}_{m} V^{ \nu}_{p})( \gamma \partial_{ \nu}(\delta) \delta^{\gamma-1} V_{ \mu n} + \delta^{\gamma}\partial_{ \nu}( V_{ \mu n}))\\
-    &= \frac{\delta^{- \gamma}}{2}(V^{ \mu}_{  p} V^{ \nu}_{m}- V^{ \mu}_{m} V^{ \nu}_{p})( \gamma \partial_{ \nu}(\delta) \delta^{-1} V_{ \mu n} + \partial_{ \nu}( V_{ \mu n}))\\
-    &= \frac{\delta^{- \gamma}}{2}(V^{ \mu}_{  p} V^{ \nu}_{m}- V^{ \mu}_{m} V^{ \nu}_{p})( \gamma \partial_{ \nu}(\log{\delta}) V_{ \mu n} + \partial_{ \nu}( V_{ \mu n}))\\
+    &= \frac{1}{2}(V^{ \mu}_{  p} V^{ \nu}_{m}- V^{ \mu}_{m} V^{ \nu}_{p})\partial_{ \nu} ( V_{ \mu n})\\
+    &= \frac{1}{2}(V^{ \mu}_{  p} V^{ \nu}_{m}- V^{ \mu}_{m} V^{ \nu}_{p})\partial_{ \nu}( V_{ \mu n})\\
+    &= \frac{1}{2}(V^{ \mu}_{  p} V^{ \nu}_{m}- V^{ \mu}_{m} V^{ \nu}_{p})\partial_{ \nu}( V_{ \mu n})\\
+    &= \frac{1}{2}(V^{ \mu}_{  p} V^{ \nu}_{m}- V^{ \mu}_{m} V^{ \nu}_{p})\partial_{ \nu}( V_{ \mu n})\\
+    &= \frac{1}{2}(V^{ \mu}_{  p} V^{ \nu}_{m}- V^{ \mu}_{m} V^{ \nu}_{p})\partial_{ \nu}( V_{ \mu n})\\
 \end{align*}
 For $\hat \Omega_{pma}$, we find:
 \begin{align*}
     \hat \Omega_{pma} &= \frac{1}{2}(\hat V^{\hat \mu}_{  p} \hat V^{ \nu}_{m}-\hat V^{\hat \mu}_{m} \hat V^{ \nu}_{p})\partial_{ \nu} \hat V_{\hat \mu a}\\
-    &= -\kappa \delta^{-2\gamma}( V^{\mu}_{  p}  V^{ \nu}_{m}-  V^{ \mu}_{m} V^{ \nu}_{p})\partial_{ \nu} (A^{\alpha}_{\mu}\Phi_{a\alpha}) + \kappa \delta^{-\gamma}( A^\alpha_p V^{ \nu}_{m}- \hat A^{\alpha}_{m} V^{ \nu}_{p})\partial_{ \nu} (\Phi_{a\alpha})\\
-    &= -\kappa \delta^{-2 \gamma} (V^{ \mu}_{  p}  V^{ \nu}_{m}- V^{ \mu}_{m}  V^{ \nu}_{p})(\partial_{ \nu} (A^{\alpha}_{\mu})\Phi_{a\alpha}+\partial_{ \nu}(\Phi_{a\alpha})A^{\alpha}_{\mu}) + \kappa \delta^{-\gamma}( A^\alpha_p V^{ \nu}_{m}- \hat A^{\alpha}_{m} V^{ \nu}_{p})\partial_{ \nu} (\Phi_{a\alpha}) \\
-    &= -\kappa \delta^{-2 \gamma} (V^{ \mu}_{  p}  V^{ \nu}_{m}- V^{ \mu}_{m}  V^{ \nu}_{p})(\partial_{ \nu} (A^{\alpha}_{\mu})\Phi_{a\alpha}+\partial_{ \nu}(\Phi_{a\alpha})A^{\alpha}_{\mu}) + (A^\alpha_p V^{ \nu}_{m}- \hat A^{\alpha}_{m} V^{ \nu}_{p})\partial_{ \nu} (\Phi_{a\alpha}) \\
-    &= -\kappa \delta^{-2 \gamma} (V^{ \mu}_{  p}  V^{ \nu}_{m}- V^{ \mu}_{m}  V^{ \nu}_{p})\partial_{ \nu} (A^{\alpha}_{\mu})\Phi_{a\alpha}\\
-    &= \kappa \delta^{-2 \gamma} (F^\alpha{}_{pm}\Phi_{a\alpha}- \partial_\nu(V^{ \mu}_{  p}  V^{ \nu}_{m})A^{\alpha}_{\mu}\Phi_{a\alpha}+ \partial_\nu(V^{ \nu}_{  p}  V^{ \mu}_{m})A^{\alpha}_{\mu}\Phi_{a\alpha})\\
-    &= \kappa \delta^{-2 \gamma} F^\alpha{}_{pm}\Phi_{a\alpha}
+    &= -( V^{\mu}_{  p}  V^{ \nu}_{m}-  V^{ \mu}_{m} V^{ \nu}_{p})\partial_{ \nu} (A^{\alpha}_{\mu}\Phi_{a\alpha}) + ( A^\alpha_p V^{ \nu}_{m}- \hat A^{\alpha}_{m} V^{ \nu}_{p})\partial_{ \nu} (\Phi_{a\alpha})\\
+    &= - (V^{ \mu}_{  p}  V^{ \nu}_{m}- V^{ \mu}_{m}  V^{ \nu}_{p})(\partial_{ \nu} (A^{\alpha}_{\mu})\Phi_{a\alpha}+\partial_{ \nu}(\Phi_{a\alpha})A^{\alpha}_{\mu}) + \kappa 1( A^\alpha_p V^{ \nu}_{m}- \hat A^{\alpha}_{m} V^{ \nu}_{p})\partial_{ \nu} (\Phi_{a\alpha}) \\
+    &= - (V^{ \mu}_{  p}  V^{ \nu}_{m}- V^{ \mu}_{m}  V^{ \nu}_{p})(\partial_{ \nu} (A^{\alpha}_{\mu})\Phi_{a\alpha}+\partial_{ \nu}(\Phi_{a\alpha})A^{\alpha}_{\mu}) + (A^\alpha_p V^{ \nu}_{m}- \hat A^{\alpha}_{m} V^{ \nu}_{p})\partial_{ \nu} (\Phi_{a\alpha}) \\
+    &= - (V^{ \mu}_{  p}  V^{ \nu}_{m}- V^{ \mu}_{m}  V^{ \nu}_{p})\partial_{ \nu} (A^{\alpha}_{\mu})\Phi_{a\alpha}\\
+    &=  (F^\alpha{}_{pm}\Phi_{a\alpha}- \partial_\nu(V^{ \mu}_{  p}  V^{ \nu}_{m})A^{\alpha}_{\mu}\Phi_{a\alpha}+ \partial_\nu(V^{ \nu}_{  p}  V^{ \mu}_{m})A^{\alpha}_{\mu}\Phi_{a\alpha})\\
+    &=  F^\alpha{}_{pm}\Phi_{a\alpha}
 \end{align*}
 For $\hat \Omega_{pam}$:
 \begin{align*}
@@ -464,20 +442,20 @@ The same result holds for $\hat \Omega_{apm}$.\\
 For $\hat \Omega_{pab}$:
 \begin{align*}
     \hat \Omega_{pab} &= \frac{1}{2}(\hat V^{\hat \mu}_{  p} \hat V^{ \nu}_{a}-\hat V^{\hat \mu}_{a} \hat V^{ \nu}_{p})\partial_{ \nu} \hat V_{\hat \mu b}\\
-    &= \frac{-\delta^{-\gamma}}{2}\hat V^{\hat \mu}_{a}  V^{ \nu}_{p}\partial_{ \nu} \hat V_{\hat \mu b}\\
-    &= \frac{\delta^{-\gamma}}{2} \Phi^{ \alpha}_{a}  V^{ \nu}_{p}\partial_{ \nu}  \Phi_{\alpha b}\\
-    &= \frac{\delta^{-\gamma}}{2} \Phi^{ \alpha}_{a}  V^{ \nu}_{p}\partial_{ \nu}( h_{\alpha \beta} \Phi^{\beta}_{ b})\\
-    &= \frac{\delta^{-\gamma}}{2} \Phi^{ \alpha}_{a}  \Phi^{\beta}_{ b}V^{ \nu}_{p}\partial_{ \nu} h_{\alpha \beta}  +\frac{\delta^{-\gamma}}{2} \Phi^{ \alpha}_{a}  V^{ \nu}_{p}h_{\alpha \beta}\partial_{ \nu}  \Phi^{\beta}_{ b}\\
-    &= \frac{\delta^{-\gamma}}{2} \Phi^{ \alpha}_{a}  \Phi^{\beta}_{ b}V^{ \nu}_{p}\partial_{ \nu} h_{\alpha \beta}  +\frac{\delta^{-\gamma}}{2} \Phi_{\beta a}  V^{ \nu}_{p}\partial_{ \nu}  \Phi^{\beta}_{ b}\\
-    &= \frac{\delta^{-\gamma}}{2} \Phi^{ \alpha}_{a}  \Phi^{\beta}_{ b}V^{ \nu}_{p}\partial_{ \nu} h_{\alpha \beta}  +\frac{\delta^{-\gamma}}{2}   V^{ \nu}_{p}\partial_{ \nu} (\underbrace{\Phi_{\beta a} \Phi^{\beta}_{ b}}_{\mathclap{ =\delta_{ab} \text{i.e is constant} constant}}) - \Phi^{\beta}_{ b} V^{ \nu}_{p}\partial_{ \nu} \Phi_{\beta a} \\
-    &=\frac{\delta^{-\gamma}}{2} \Phi^{ \alpha}_{a}  \Phi^{\beta}_{ b}V^{ \nu}_{p}\partial_{ \nu} h_{\alpha \beta} - \Phi^{\beta}_{ b} V^{ \nu}_{p}\partial_{ \nu} \Phi_{\beta a} 
+    &= \frac{-1}{2}\hat V^{\hat \mu}_{a}  V^{ \nu}_{p}\partial_{ \nu} \hat V_{\hat \mu b}\\
+    &= \frac{1}{2} \Phi^{ \alpha}_{a}  V^{ \nu}_{p}\partial_{ \nu}  \Phi_{\alpha b}\\
+    &= \frac{1}{2} \Phi^{ \alpha}_{a}  V^{ \nu}_{p}\partial_{ \nu}( h_{\alpha \beta} \Phi^{\beta}_{ b})\\
+    &= \frac{1}{2} \Phi^{ \alpha}_{a}  \Phi^{\beta}_{ b}V^{ \nu}_{p}\partial_{ \nu} h_{\alpha \beta}  +\frac{1}{2} \Phi^{ \alpha}_{a}  V^{ \nu}_{p}h_{\alpha \beta}\partial_{ \nu}  \Phi^{\beta}_{ b}\\
+    &= \frac{1}{2} \Phi^{ \alpha}_{a}  \Phi^{\beta}_{ b}V^{ \nu}_{p}\partial_{ \nu} h_{\alpha \beta}  +\frac{1}{2} \Phi_{\beta a}  V^{ \nu}_{p}\partial_{ \nu}  \Phi^{\beta}_{ b}\\
+    &= \frac{1}{2} \Phi^{ \alpha}_{a}  \Phi^{\beta}_{ b}V^{ \nu}_{p}\partial_{ \nu} h_{\alpha \beta}  +\frac{1}{2}   V^{ \nu}_{p}\partial_{ \nu} (\underbrace{\Phi_{\beta a} \Phi^{\beta}_{ b}}_{\mathclap{ =\delta_{ab} \text{i.e is constant} constant}}) - \Phi^{\beta}_{ b} V^{ \nu}_{p}\partial_{ \nu} \Phi_{\beta a} \\
+    &=\frac{1}{2} \Phi^{ \alpha}_{a}  \Phi^{\beta}_{ b}V^{ \nu}_{p}\partial_{ \nu} h_{\alpha \beta} - \Phi^{\beta}_{ b} V^{ \nu}_{p}\partial_{ \nu} \Phi_{\beta a} 
 \end{align*}
 For $\hat \Omega_{apb}$:
 \begin{align*}
     \hat \Omega_{apb} &= \frac{1}{2}(\hat V^{\hat \mu}_{  a} \hat V^{ \nu}_{p}-\hat V^{\hat \mu}_{p} \hat V^{ \nu}_{a})\partial_{ \nu} \hat V_{\hat \mu b}\\
     &= \frac{1}{2}\hat V^{\hat \mu}_{  a} \hat V^{ \nu}_{p}\partial_{ \nu} \hat V_{\hat \mu b}\\
     &= \frac{1}{2}\hat V^{\alpha}_{  a} \hat V^{ \nu}_{p}\partial_{ \nu} \hat V_{\alpha b}\\
-    &= \frac{-\delta^{-\gamma}}{2} \Phi^{\alpha}_{  a}  V^{ \nu}_{p}\partial_{ \nu} \Phi_{\alpha b}\\
+    &= \frac{-1}{2} \Phi^{\alpha}_{  a}  V^{ \nu}_{p}\partial_{ \nu} \Phi_{\alpha b}\\
 \end{align*}
 For $\hat \Omega_{abp}$:
 \begin{align*}
@@ -488,10 +466,10 @@ The same holds for $\Omega_{abc}$. Using \eqref{eq:10}, we can then obtain the $
 
 \begin{subequations}
 \begin{align}
-&\hat\omega_{pmn} = \delta^{-\gamma}[\omega_{pmn}+ \gamma(\eta_{pm}V^{\lambda}_n-\eta_{pn}V^{\lambda}_m)\partial_{\lambda}],\\
-&\hat \omega_{pma} = \kappa \delta^{-2 \gamma}F^{\alpha}_{pm}\Phi_{\alpha a},\\
-&\hat\omega_{pab} = \frac{1}{2}\delta^{-\gamma}\Phi^\alpha_aV^\mu_p\partial_\mu\Phi_{\alpha \beta} - (a \leftrightarrow b),\\
-&\hat\omega_{cmn} = -\kappa \delta^{-2 \gamma}F^{\alpha}_{mn}\Phi_{\alpha c},\\
+&\hat\omega_{pmn} = \omega_{pmn},\\
+&\hat \omega_{pma} = F^{\alpha}_{pm}\Phi_{\alpha a},\\
+&\hat\omega_{pab} = \frac{1}{2}\Phi^\alpha_aV^\mu_p\partial_\mu\Phi_{\alpha \beta} - (a \leftrightarrow b),\\
+&\hat\omega_{cmn} = - F^{\alpha}_{mn}\Phi_{\alpha c},\\
 &\hat \omega_{cab}  = 0
 \end{align}
 \end{subequations}
@@ -534,7 +512,7 @@ wich gave us
 \subsection{Two form fiel reduction}
 \subsubsection{The reduction}
 For the two form we will reduce it apart from the two other field, this those not cause any problem as the action is in effect linear.\\
-We can rewrite \eqref{eq:7} as
+We can rewrite \eqref{Baction} as
 \begin{align*}
     \mathcal{L_{\hat B}} &= \frac{-1}{12}(g^{ \hat \mu  \hat \mu'} g^{\hat \nu \hat \nu'} g^{\hat \rho  \hat \rho'} \hat H_{ \hat \mu \hat \nu \hat \rho} \hat H_{ \hat \mu' \hat \nu' \hat \rho'})\\
     &=\frac{-1}{12} (\hat \eta^{ \hat r \hat r'} \hat \eta^{\hat s \hat s'} \hat \eta^{\hat t \hat t'} \hat H_{ \hat r \hat s \hat t} \hat H_{ \hat r'  \hat s' \hat t'})\\
@@ -546,11 +524,11 @@ however thanks to to the fact that $\hat B_{\hat \mu \hat \nu}$ is antysymetric 
     \mathcal{L}_{\hat B} =\frac{-1}{12} (\hat H_{  r  s t}\hat H^{  r  s  t} + 3\hat H_{  r  s c}\hat H^{  r  s  c} + 3\hat H_{  a  s c}\hat H^{  a  s  c} + \hat H_{  a  b c}\hat H^{  a  b  c})
 \end{equation}
 and finnaly the action of B is writen as
-\begin{equation} \label{eq:31}
+\begin{equation} \label{Bactionexpa}
     \boxed{S_{\hat b } = - \int dx^D\sqrt{-g}e^{-\phi} \Big\lbrace  \frac{1}{12} H_{  \alpha  \beta \gamma} H^{  \alpha \beta \gamma  s  t} + \frac{1}{4} H_{  \mu   \alpha \beta} H^{  \mu   \alpha  \beta} + \frac{1}{4} H_{  \mu \nu \alpha } H^{  \mu  \nu  \alpha} + \frac{1}{12} H_{  \mu  \nu \rho}H^{  \mu  \nu  \rho} \Big\rbrace }
 \end{equation}
-THe absence if hat is due to what we so in part \ref{tt} \\
-so with that we obtaint\eqref{eq:31}\\
+Te absence if hat is due to what we so in equation \eqref{lowdimv} \\
+so with that we obtaint\eqref{Bactionexpa}\\
 Now we will compute each componant of non hated H in function of hated H\\
 to begin slowly as we have seen above $\hat B_{\alpha \beta} = B_{\alpha \beta} $ and if we use the y independence we get $H_{\alpha \beta \gamma} = 0$\\
 We continue with $H_{\mu \alpha \beta}$
@@ -587,9 +565,9 @@ where
 \begin{equation}
     B_{\mu \nu } = \hat B_{\mu \nu} +\frac{1}{2}A^{(1)\alpha}_\mu A^{(2)}_{\nu \alpha}-\frac{1}{2}A^{(1)\alpha}_\nu A^{(2)}_{\mu \alpha} -A^{(1)\alpha}_\mu B_{\alpha \beta }A^{(2)\beta}_{\nu }
 \end{equation}
-\subsubsection{Observation of gauge}
-Now as in part \ref{subsubsec:4.3.1} we are going to observe the gauge rule to be sure that every object transorm as it should
-so let's begin with $A^{2}$ which should transform with the lie derivative and under the new transformations of $B_{\mu \nu} \rightarrow B_{\mu \nu} + \partial_mu \Lambda_\nu$, so let's begin
+\subsubsection{Observation of gauge} 
+Now as in part \ref{part:vielbeinanstaz} we are going to observe the gauge rule to be sure that every object transorm as it should
+so let's begin with $A^{(2)}$ which should transform with the lie derivative and under the new transformations of $B_{\mu \nu} \rightarrow B_{\mu \nu} + \partial_mu \Lambda_\nu$, so let's begin
 with $A^{(2)}_{\mu \alpha}$
 \begin{equation}
     \begin{aligned}
