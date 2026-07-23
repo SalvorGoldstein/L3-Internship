@@ -82,7 +82,8 @@
 \section*{Acknowledgment}
 
 \section*{Notations and abreviations}
-During this intership we will use the vielbein formalism, and the same notation as in \cite{scherk1979get}
+
+We will during this intership use the vielbein formalism. We will use the same notation as in \cite{scherk1979get}
 which is
 \begin{itemize} \label{notation}
     \item Greek hatted letter for curved indices $(\hat \mu , \hat \nu , \hat \rho , \dots)$
@@ -112,87 +113,6 @@ by adding one extra spatial dimension compactified on a small circle,
 five-dimensional General Relativity naturally reduces to four-dimensional Einstein gravity coupled to electromagnetism. 
 Even if the original theory had problems, this Kaluza-Klein mechanism opened a whole new way of thinking about unification, 
 and it is now at the heart of modern approaches like supergravity \cite{freedman2012supergravity} and string theory.
-
-\section{Theorical tool} \label{tt}
-Here you will find some GR reminder, which hopefully will make it easier to understand the mathematical foundation on which this internship was build
-\subsection{spin connexion, vielbein and flatspace} \label{spinconnexionvielbeinandflatspace}
-In general relativity we often encounter difficult to handle metrics such as the Kerr-Newman metric. A good idea we can have is to then work in an orthonormal basis $\{e^a_\mu \}$, which follow:
-\begin{equation} \label{vieldef}
-    g_{\mu \nu} V^{\mu}_{a}V^{\nu}_b = \eta_{ab}
-\end{equation}
-where g is the original metric and $\eta$ is the Minkowski metric.\\
-We call this basis the vielbein. In this basis we will use the Minkowski metric to raise and lower indices.
-Of course we can define the dual of the vielbein otherwise called the inverse vielbein with
-\begin{equation} \label{inversviel}
-    V^{a}_{\nu}V^{\nu}_b = \delta^a_b
-\end{equation}
-and of course that mean that we can go back with to the original metric with
-\begin{equation} \label{toflatmet}
-    g_{\mu \nu}  = \eta_{ab}V^{a}_{\mu}V^{b}_\nu
-\end{equation}
-Of course we can also change the basis any random vector, form or tensor with this, the method is to simply do
-\begin{align} \label{changeofbasis}
-    &T^a  =  V^a_\mu T^\mu \\
-    &T_a =   V^\mu_a T_\mu  \\
-    &T^a_b = V^a_\mu V^\nu_b T^\mu_\nu
-\end{align}
-Now in this internship we will not be in four dimensions, but rather in 4 time-space dimension, with E supplementarie space dimensions. And to pass from 4 + E total dimension to the other thing we use the vielbein in 4+E dimension the the 4 dimensions vielbein like this:
-\begin{subequations} \label{lowdimv}
-    \begin{align}
-        T^{\mu} &= V_r^\mu \hat V^r_{\hat \mu}\hat T^{\hat \mu} \\ \label{scalartrans}
-        T^{\alpha} &= V_a^\alpha \hat V^a_{\hat \mu}\hat T^{\hat \mu}\\ \label{vectortrans}
-        T_{\mu} &= V_\mu^r \hat V_r^{\hat \mu}\hat T_{\hat \mu}\\  \label{formtrans}
-        T_{\alpha} &= V_\alpha^a \hat V_a^{\hat \mu}\hat T_{\hat \mu} \\  \label{tenstrans}
-    \end{align}
-\end{subequations}
-Now of course other cange need to happen to the classical transformation for this to work, such as the classical christofells connexion which does not work anymore in this context
-so we introduce the spin(or latin) connexion whith
-\begin{equation} \label{spinconnexion}
-    \nabla_\mu X^a_b = \partial_\mu X^a_b + \omega_\mu{}^a{}_c X^c_b - \omega_\mu{}^c{}_b X^a_c
-\end{equation}
-Of course we can still make link with the levi-civita conexion with the equations
-\begin{align} \label{linkbetwinleviandlatin}
-    &\Gamma_{\mu \lambda}^{\nu} = V^{\nu}_a \partial_\mu V^a_\lambda + V^\nu_aV^b_\lambda  \omega_\mu{}^a{}_b,\\
-    &\omega_\mu{}^a{}_b = V^a_\nu V^\lambda_b \Gamma_{\mu \lambda}^{\nu} - V^\lambda_b \partial_\mu V^a_\lambda,
-\end{align}
-With those relation we can do prove the anti-symetrie of the last two index of the spin connexion
-\begin{equation}
-    \begin{aligned}
-        \nabla_\mu \eta_{ab} &= \partial_\mu X_{ab} - \omega_\mu{}^a{}_c \eta_{cb} - \omega_\mu{}^c{}_b \eta_{ac} \\
-        &=  - \omega_{\mu a b } - \omega_{\mu b a}\\
-        & = 0
-    \end{aligned}
-\end{equation}
-so in effect we have 
-\begin{equation} \label{antisymlat}
-    - \omega_{\mu a b }= \omega_{\mu b a}
-\end{equation}
-\subsection{Gauge transformation} \label{gaugeandgroupe}
-Now we will look at both the gauge liberty of the theory and the symetrie of the O(E,E) group and it's action on different object.
-so firstly the different gauge invarince we will encounter in this internship are $x'^{\mu} = x^\mu + \xi^\mu(x)$,\\ and $B_{\mu \nu} \rightarrow B_{\mu \nu} + \partial_mu \Lambda^{(2)}_\nu$
-for the first one we can refer to the \cite{freedman2012supergravity} and use the Lie derivative to establish how different object will transorm:
-
-Now we will look at the action of the O(E,E) group, but firstly, let's define what is the O(E,E) group:
-\begin{definition} \label{O(E,E)def}
-    Any matrices M is in O(E,E) if it is a square $E\times E$ matrices and if for the matrices
-    \begin{equation*}
-        \zeta = \begin{pmatrix}
-            0 & 1 \\ 1 & 0
-        \end{pmatrix}
-    \end{equation*}
-    We can use this matrices as a metric for the groupe O(E,E) as it has d -1 eigenvalues and d 1 eigenvalues, in  a basis rotated from the one  with diagonal metric.\\ 
-    the matrices M verify
-    \begin{equation*}
-        \boxed{M^T \zeta M = \zeta }
-    \end{equation*}
-\end{definition}
-Now the question is how does this group act on a vector , a tensor a form or other things. We have
-\begin{align} \label{O(E,E)action}
-    &M^{\mu \nu} \rightarrow  M^{\mu \nu} + \Psi^\mu_\lambda M^{\lambda \gamma} \Psi^\nu_\gamma \\
-    &A^\mu \rightarrow  A^\mu + \Psi^\mu_\nu A^\nu
-\end{align}
-
-
 \section{Lagrangian field theory}
 \subsection{Lagrangian density}
 In field theory, just as Newton's second law is "volumized" into the Navier-Stokes equations by distributing quantities over space, 
@@ -237,27 +157,30 @@ where for the two form $B_{\nu \rho}$ we have
 \begin{equation*}
     H_{ \mu \nu \rho} = \partial_ \mu B_{\nu \rho} + cyc. perm
 \end{equation*}
-
 \section{NS-NS Action Of supergravity}
-In this section we perform a Kaluza-Klein reduction. We consider a universe living in $D+E$ dimensions, with $D=4$, and we try to determine how an observer confined to the $D$-dimensional world perceives the extra dimensions.
-\subsection{Hypothesis}
-We assume that none of the fields depend on the internal coordinates, i.e. for any field $\partial_\alpha A^{\hat \mu} = 0$. This mean that the reduction will be done on a E-d torus.
-\subsection{Rewriting the action}
-We start from the NS-NS action, which is 
+In this section we perform a Kaluza-Klein reduction on the NS-NS action which is
 \begin{equation} \label{NS-NSaction}
     \boxed{S = \int d x^D \int \frac{d y ^E}{\rho(E)}\sqrt{- \hat g } e^{\hat \phi} (\hat R +  \hat g^{\hat \mu \hat \nu}\partial_{\hat \mu}\hat \phi \partial^{\hat \nu}\hat \phi - \frac{1}{12} g^{ \hat \mu  \mu'} g^{\nu \nu'} g^{\rho \rho'} H_{ \mu \nu \rho}H_{ \mu'\nu' \rho'})}
-\end{equation}
+\end{equation} 
 where $\rho(E)$ is a normalisation factor, corresponding in practice to the invariant volume of the internal space.\\
 And where $\hat R$ is similar as the classical Hilbert-Einstein action but in $D+E$ dimension, $\hat \phi$ is a dilaton field and $- \frac{1}{12} H_{ \mu \nu \rho}H^{ \mu\nu \rho}$ is the  action of a two form.
 Finally as no field depend on internal component and knowing what $\rho(E)$ we can just simplify this integral.
 Now we will separate this action into 3 part one for each action so we have
+We consider an universe in $D+E$ dimensions, with $D=4$, our goal will be to determine how an observer confined to the $D$-dimensional world perceives the extra dimensions.
+\subsection{Hypothesis}
+We assume that none of the fields depend on the internal coordinates, i.e. for any field $\partial_\alpha A^{\hat \mu} = 0$. This mean that the reduction will be done on a E-d torus.
+\subsection{different part of the action}
+We can separate the action into two main componant one being the gravitional part with the dilaton and the otherone being the two forms part so we have:
 \begin{subequations}
     \begin{align}
-        &S_{\hat g} = \int d x^D\sqrt{- \hat g } e^{-\hat \phi} \hat R \label{Sg}\\ 
-        &S_{\hat \phi} =  \int d x^D \sqrt{- \hat g } e^{-\hat \phi} \hat g^{\hat \mu \hat \nu}\partial_{\hat \mu}\hat \phi \partial^{\hat \nu}\hat \phi \label{Sphi}\\ 
-        &S_{\hat B} =  \int d x^D \sqrt{- \hat g } e^{-\hat \phi} - \frac{1}{12} H_{ \mu \nu \rho}H^{ \mu\nu \rho} \label{SB}
+        &S_{\hat g} = \int d x^D\sqrt{- \hat g } e^{-\hat \phi} \hat  [R +\hat g^{\hat \mu \hat \nu}\partial_{\hat \mu}\hat \phi \partial^{\hat \nu}\hat \phi]\label{Sg},\\ 
+        &S_{\hat B} =  \int d x^D \sqrt{- \hat g } e^{-\hat \phi} - \frac{1}{12} H_{ \mu \nu \rho}H^{ \mu\nu \rho}, \label{SB}
     \end{align}
 \end{subequations}
+\section{gravitional action reduction}
+We will begin with the gravitional part of the NS-NS action.
+\subsection{Rewriting the action}
+For this part we don't need the $\hat g^{\hat \mu \hat \nu}\partial_{\hat \mu}\hat \phi \partial^{\hat \nu}\hat \phi$ part of the action so we will fully ignore it.
 Now using the fact that $\hat R$ can be written as
 \begin{equation*} \label{Ricciexp}
     \hat R = \hat V^{\hat \mu \hat r} \hat V^{\hat \nu \hat s} \hat R_{\hat \mu \hat \nu \hat r \hat s}
@@ -279,17 +202,10 @@ with all of that we are going to rewrite the action $S_{\hat g}$ in termes of $\
     \begin{aligned}
         S_{\hat g} &= \int d x^D\hat V  e^{-\hat \phi} \hat R\\
         &= \int d x^D\hat V  e^{-\hat \phi} \hat V^{\hat \mu \hat r} \hat V^{\hat \nu \hat s} \hat R_{\hat \mu \hat \nu \hat r \hat s}\\
-        &= \int d x^D\hat V  e^{-\hat \phi} \hat V^{\hat \mu \hat r} \hat V^{\hat \nu \hat s} (\partial_{\hat \mu } \hat \omega_{\hat \nu \hat r \hat s}+ \hat \omega_{\hat\mu \hat r}{}^{\hat t}\omega_{\hat\nu \hat t \hat s} -\partial_{\hat \nu } \hat \omega_{\hat \mu \hat r \hat s}- \hat \omega_{\hat\nu \hat r}{}^{\hat t}\omega_{\hat\mu \hat t \hat s})\\
         &= \int d x^D\hat V e^{-\hat \phi} \hat V^{\hat \mu \hat r} \hat V^{\hat \nu \hat s} ([\partial_{\hat \mu } \hat \omega_{\hat \nu \hat r \hat s} -\partial_{\hat \nu } \hat \omega_{\hat \mu \hat r \hat s}]+ [\hat \omega_{\hat\mu \hat r}{}^{\hat t}\omega_{\hat\nu \hat t \hat s} - \hat \omega_{\hat\nu \hat r}{}^{\hat t}\omega_{\hat\mu \hat t \hat s}])\\
         &= \int d x^D\{  2\hat V e^{-\hat \phi} \hat V^{\hat \mu \hat r} \hat V^{\hat \nu \hat s}\partial_{\hat \mu } \hat \omega_{\hat \nu \hat r \hat s}+ \hat V e^{-\hat \phi}[\hat \omega^{\hat r}{}_{\hat r}{}^{\hat t}\omega^{\hat s}{}_{\hat t \hat s} - \hat \omega^{\hat s}{}_{ \hat r}{}^{\hat t}\omega^{\hat r}{}_{ \hat t \hat s}] \}\\
-        &= \int d x^D\{  \hat V e^{-\hat \phi}[\hat \omega^{\hat r}{}_{\hat r}{}^{\hat t}\omega^{\hat s}{}_{\hat t \hat s} - \hat \omega^{\hat s}{}_{ \hat r}{}^{\hat t}\omega^{\hat r}{}_{ \hat t \hat s}]+\underbrace{\partial_{\hat \mu } (2\hat V e^{-\hat \phi} \hat V^{\hat \mu \hat r} \hat V^{\hat \nu \hat s}\hat \omega_{\hat \nu \hat r \hat s})}_{\mathclap{\text{Border terme which goes to zero}}}- 2 \hat \omega_{\hat \nu \hat r \hat s}\partial_{\hat \mu}(\hat V e^{-\hat \phi} \hat V^{\hat \mu \hat r} \hat V^{\hat \nu \hat s}) \}\\
         &= \int d x^D\{  \hat V e^{-\hat \phi}[\hat \omega^{\hat r}{}_{\hat r}{}^{\hat t}\omega^{\hat s}{}_{\hat t \hat s} - \hat \omega^{\hat s}{}_{ \hat r}{}^{\hat t}\omega^{\hat r}{}_{ \hat t \hat s}]- 2 \hat \omega_{\hat \nu \hat r \hat s}\partial_{\hat \mu}(\hat V e^{-\hat \phi} \hat V^{\hat \mu \hat r} \hat V^{\hat \nu \hat s}) \}\\
         &= \int d x^D\{  \hat V e^{-\hat \phi}[\hat \omega^{\hat r}{}_{\hat r}{}^{\hat t}\omega^{\hat s}{}_{\hat t \hat s} - \hat \omega^{\hat s}{}_{ \hat r}{}^{\hat t}\omega^{\hat r}{}_{ \hat t \hat s}]- 2\hat \omega_{\hat \nu \hat r \hat s}[\hat V e^{-\hat \phi} \hat V^{\hat \mu \hat r} \partial_{\hat \mu} \hat V^{\hat \nu \hat s} +\hat V e^{-\hat \phi}  \hat V^{\hat \nu \hat s} \partial_{\hat \mu}\hat V^{\hat \mu \hat r}+ e^{-\hat \phi} \hat V^{\hat \mu \hat r} \hat V^{\hat \nu \hat s} \partial_{\hat \mu}\hat V +\hat V  \hat V^{\hat \mu \hat r} \hat V^{\hat \nu \hat s} \partial_{\hat \mu}e^{-\hat \phi} ] \}\\
-        &= \int d x^D\hat V e^{-\hat \phi} \{  [\hat \omega^{\hat r}{}_{\hat r}{}^{\hat t}\omega^{\hat s}{}_{\hat t \hat s} - \hat \omega^{\hat s}{}_{ \hat r}{}^{\hat t}\omega^{\hat r}{}_{ \hat t \hat s}]- 2\hat \omega_{\hat \nu}{}^{\hat r \hat s}[\hat V^{\hat \mu}_{  \hat r} \hat V^{\hat \nu}_{ \hat s}V^{\hat \lambda }_{\hat t} \partial_{\hat \mu}\hat V^{\hat t}_{\hat \lambda}- \hat V^{\hat \mu}_{ \hat r} \hat V^{ \hat \nu}_{\hat t} \hat V^{ \hat \lambda}_{\hat s} \partial_{\hat \mu} \hat V^{ \hat t}_{\hat \lambda} -  \hat V^{\hat \nu}_{ \hat s} \hat V^{ \hat \mu}_{\hat t} \hat V^{ \hat \lambda}_{\hat r} \partial_{\hat \mu} \hat V^{ \hat t}_{\hat \lambda}-  \hat V^{\hat \mu}_{ \hat r} \hat V^{\hat \nu}_{ \hat s} \partial_{\hat \mu}\hat \phi ] \}\\ 
-        &= \int d x^D\hat V e^{-\hat \phi} \{  [\hat \omega^{\hat r}{}_{\hat r}{}^{\hat t}\omega^{\hat s}{}_{\hat t \hat s} - \hat \omega^{\hat s}{}_{ \hat r}{}^{\hat t}\omega^{\hat r}{}_{ \hat t \hat s}]- 2\hat \omega_{\hat s}{}^{\hat r \hat s}[\hat V^{\hat \mu}_{  \hat r} \hat V^{\hat \lambda }_{\hat t} \partial_{\hat \mu}\hat V^{\hat t}_{\hat \lambda} -   \hat V^{ \hat \mu}_{\hat t} \hat V^{ \hat \lambda}_{\hat r} \partial_{\hat \mu} \hat V^{ \hat t}_{\hat \lambda}-  \hat V^{\hat \mu}_{ \hat r}\partial_{\hat \mu}\hat \phi ] + 2\hat \omega_{\hat t}{}^{\hat r \hat s} \hat V^{\hat \mu}_{ \hat r} \hat V^{ \hat \lambda}_{\hat s} \partial_{\hat \mu} \hat V^{ \hat t}_{\hat \lambda} \}\\
-        &= \int d x^D\hat V e^{-\hat \phi} \{  [\hat \omega^{\hat r}{}_{\hat r}{}^{\hat t}\omega^{\hat s}{}_{\hat t \hat s} - \hat \omega^{\hat s}{}_{ \hat r}{}^{\hat t}\omega^{\hat r}{}_{ \hat t \hat s}]- 2\hat \omega_{\hat s}{}^{\hat r \hat s}[2 \hat \Omega_{ \hat t \hat r}{}^{\hat t}-  \hat V^{\hat \mu}_{ \hat r}\partial_{\hat \mu}\hat \phi ] + 2\hat \omega_{\hat t}{}^{\hat r \hat s} \hat V^{\hat \mu}_{ \hat r} \hat V^{ \hat \lambda}_{\hat s} \partial_{\hat \mu} \hat V^{ \hat t}_{\hat \lambda} \}\\
-        &= \int d x^D\hat V e^{-\hat \phi} \{  [\hat \omega^{\hat r}{}_{\hat r}{}^{\hat t}\omega^{\hat s}{}_{\hat t \hat s} - \hat \omega^{\hat s}{}_{ \hat r}{}^{\hat t}\omega^{\hat r}{}_{ \hat t \hat s}]+ 2\hat \omega_{\hat s}{}^{\hat r \hat s}[2 \hat \omega_{ \hat t \hat r}{}^{\hat t}+  \hat V^{\hat \mu}_{ \hat r}\partial_{\hat \mu}\hat \phi ] + 2\hat \omega_{\hat t}{}^{\hat r \hat s} \Omega_{ \hat r \hat s}{}^{\hat t}\}\\
-        &= \int d x^D\hat V e^{-\hat \phi} \{  [\hat \omega^{\hat r}{}_{\hat r}{}^{\hat t}\omega^{\hat s}{}_{\hat t \hat s} - \hat \omega^{\hat s}{}_{ \hat r}{}^{\hat t}\omega^{\hat r}{}_{ \hat t \hat s}]+ 2\hat \omega_{\hat s}{}^{\hat r \hat s}[2 \hat \omega_{ \hat t \hat r}{}^{\hat t}+  \hat V^{\hat \mu}_{ \hat r}\partial_{\hat \mu}\hat \phi ] - \hat \omega_{\hat t}{}^{\hat r \hat s}( \omega_{ \hat s}{}^{ \hat t}{}_{\hat r}+ \hat \omega^{\hat t}{}_{\hat  r \hat s })\}\\
         &= \int d x^D\hat V e^{-\hat \phi} \{  \hat \omega^{\hat s}{}_{\hat s}{}^{\hat t}\omega^{\hat r}{}_{\hat r \hat t} + \hat \omega^{\hat s \hat t}{}_{ \hat r}\omega^{\hat r}{}_{  \hat s \hat t }+ 2\hat \omega_{\hat s}{}^{\hat r \hat s}\hat V^{\hat \mu}_{ \hat r}\partial_{\hat \mu}\hat \phi \}\\
     \end{aligned}
 \end{equation}
@@ -318,46 +234,40 @@ for the inverse vielbein, and
     \end{pmatrix},
 \end{equation}
 for the metric\\
-Now that we have made this anstaz an intersting things to do is to verify what does object are by using the classical transformation $x'^{ \hat \mu} = x^{ \hat \mu} +\xi^{\mu}(x)$ and then using what we saw in  part \ref{gaugeandgroupe} that with the Lie derivate we can rewrote this transformation as being
-Using the fact that the theory is invariant under the classical transformation $x'^\mu = x^\mu + \xi^\mu(x)$ \cite{scherk1979get}, which can be rewritten with \eqref{xitransfo} as 
- \begin{equation}
-    \delta  \hat V^{\hat r}_{\hat \mu } = \xi^{\hat \rho}  \partial_{\hat \rho} \hat V^{\hat r}_{\hat \mu} + \partial_{\hat \mu} \xi^{\hat \rho} \hat V^{ \hat r}_{\hat \rho} 
- \end{equation}
- we now apply this transformation to each block of the vielbein, in order to see whether it corresponds to some familiar type of field still thanks to \eqref{xitransfo} . Let us start with the block $\hat V^r_\mu$:
+\subsection{Gauge observation}
+Now that we have done the anstaz, we would like to know what each object are, for that we can use the classical gauge transformation $x'^\mu = x^\mu + \xi^\mu(x)$, and use the fact that it can be easly rewriten as a Lie derivative.
+ Indeed we already know of different object transform under Lie derivative so we would easily be able indentify what each object are.\\
+ So firstly let's list every known transformation:
+ \begin{align} \label{xitransfo}
+    &\delta \phi(x) = \xi ^ \mu \partial _ \mu \Phi (x), \\
+    &\delta U ^ \mu  = \xi ^ \rho \partial _ \rho U ^ \mu - (\partial _ \rho \xi ^ \mu) U ^\rho, \\
+    &\delta  \omega _ \mu  = \xi ^ \rho \partial _ \rho \omega _\mu + (\partial _ \rho \xi ^ \mu) \omega _\rho, \\
+    &\delta T ^ \mu _ \nu  = \xi ^ \rho  \partial _ \rho T ^ \mu _ \nu -(\partial _ \rho \xi ^ \mu ) T ^ \rho _ \nu + (\partial _ \nu \xi ^ \rho)T ^ \mu _ \nu, 
+\end{align} 
+we now apply the form transformation to each block of the vielbein, in order to see whether it corresponds to some familiar type of field still thanks to \eqref{xitransfo} . Let us start with the block $\hat V^r_\mu$:
 \begin{align*}
-    \delta \hat V^r_\mu &=  \xi^{\hat \rho}  \partial_{\hat \rho} \hat V^{ r}_{ \mu} + \partial_{ \mu} \xi^{ \hat \rho} \hat V^{  r}_{\hat \rho} \\
-   &=  \xi^{\hat \rho}  \partial_{\hat \rho} \hat V^{ r}_{ \mu} + \partial_{ \mu} \xi^{ \nu} \hat V^{  r}_{\nu} + \underbrace{\partial_{ \mu } \xi^{  \alpha } \hat V^{  r}_{ \alpha }}_{\mathclap{\text{this is null}}}\\
-   &=  \xi^{\hat \rho}  \partial_{\hat \rho}( V^{ r}_{ \mu} +  \partial_{ \mu} \xi^{ \nu} V^{  r}_{\nu} \\
-   &= (\xi^{\hat \rho}  \partial_{\hat \rho}V^{ r}_{ \mu} +  \partial_{ \mu} \xi^{ \nu} V^{  r}_{\nu} ) + \xi^{\hat \rho}  \partial_{\hat \rho} V^{ r}_{ \mu}
+    \delta \hat V^r_\mu &= \delta V^r_\mu=  \xi^{\hat \rho}  \partial_{\hat \rho} \hat V^{ r}_{ \mu} + \partial_{ \mu} \xi^{ \hat \rho} \hat V^{  r}_{\hat \rho} \\
+   &=  \xi^{\hat \rho}  \partial_{\hat \rho} \hat V^{ r}_{ \mu} + \partial_{ \mu} \xi^{ \hat \nu} \hat V^{  r}_{\hat \nu}\\
+   &=  \xi^{ \rho}  \partial_{ \rho}  V^{ r}_{ \mu} + \partial_{ \mu} \xi^{  \nu}  V^{  r}_{ \nu}\\
 \end{align*}
-We can also redo this computation using a different method:
-\begin{align*}
-    \delta \hat V^r_\mu &= \delta(  V^r_\mu)\\
-    & =    \delta (V^r_\mu)
-\end{align*}
-and by identification we find
-\begin{equation*}
-    \delta V^r_\mu =  \xi^{\hat \rho}  \partial_{\hat \rho}V^{ r}_{ \mu} +  \partial_{ \mu} \xi^{ \nu} V^{  r}_{\nu} 
-\end{equation*}
 which is exactly the transformation law of a vector field under a Lie derivative \cite{freedman2012supergravity}. Applying the same method to the other blocks, we obtain, for $\Phi^a_\alpha$:
 \begin{equation*}
     \delta \Phi^a_\alpha = \xi^\rho \partial_\rho \Phi^a_\alpha
 \end{equation*}
 which is exactly the transformation law of a scalar field. Finally, for $A^\alpha_\mu$ we obtain:
 \begin{equation*}
-    A^\alpha_\mu= \xi^\rho\partial_\rho A^\alpha_\mu + \partial_\mu \xi^\rho A^\alpha_\rho + \frac{\partial_\mu \xi^\alpha}{2 \kappa}
+    A^\alpha_\mu= \xi^\rho\partial_\rho A^\alpha_\mu + \partial_\mu \xi^\rho A^\alpha_\rho +\partial_\mu \xi^\alpha
 \end{equation*}
 which corresponds to the transformation law of a vector field, up to an extra correction term. One may further note that, restricting to $\xi^\alpha$ only, we obtain
 \begin{subequations}
 \begin{align}
 &\delta V^r_\mu = \delta \Phi^a_\alpha = 0,\\
-&\delta A^\alpha_\mu = \frac{\partial_\mu \xi^\alpha}{2\kappa}.
+&\delta A^\alpha_\mu = \partial_\mu \xi^\alpha.
 \end{align}
 \end{subequations}
 so that what remains of the $D$-dimensional diffeomorphisms, once restricted to $\xi^\alpha$ independent of the internal coordinates $y$, corresponds to a set of $E$ abelian gauge symmetries.
 The vielbein in \eqref{vielbeinanstaz} thus contains the $D$-dimensional vielbein (i.e. the graviton), $E$ vector fields $A^\alpha_\mu$, and $E^2$ scalar fields $\Phi^a_\alpha$. However, because of the local Lorentz invariance in the internal directions, only $\frac{1}{2}E(E+1)$ of these scalars actually correspond to propagating degrees of freedom. We also introduce $\delta = det \Phi$ 
-
-\section{Ricci scalar reduction}
+\subsection{Ricci scalar reduction}
 Now that we better know the tool  we will use, We can begin the calculation. For a starter we will do the Einstein action in D+E dimension twiked by the addition of the dilation.\\
 Firstly let's begin by expending completly the $S_{\hat g}$, this will show us that we technically have to compute 8 $\omega$, however thanks to the antisymetrie og the last to index we can reduce that to 6.
 So the action is
@@ -497,13 +407,13 @@ We then introduce the shifted dilaton as
 \end{equation}
 wich gave us
 \begin{equation}
+\boxed{
     \begin{aligned}
     S = &\int d x^D V e^{- \phi}(
     R -\frac{1}{4}F^{\mu \nu \alpha}F^{\beta}_{\mu  \nu}h_{\alpha \beta}+\\
     &- g^{\rho \lambda} \partial_\lambda h_{\alpha \beta}\partial_\rho h^{\alpha \beta}
     +\hat g^{\hat \mu  \hat \nu } \partial_{\hat \mu}\phi\partial_{\hat \nu}\phi)
-    )
-\end{aligned}
+\end{aligned}}
 \end{equation} 
 \section{Two form fiel reduction}
 \subsection{The reduction}
@@ -586,21 +496,34 @@ To recap we have the complete reduced action in the form
 \begin{equation}
     S =  \int dx^D \sqrt(-g)e^{-\phi} \mathcal{L}
 \end{equation}
-Where we decompose $\mathcal{L}$ as $\mathcal{L} = \mathcal{L}_1 + \mathcal{L}_2 + \mathcal{L}_3 +\mathcal{L}_4$, and we pose
+Where we decompose $S$ as $S =  S_1 + \S_2 + S_3 +S_4$, and we pose
 \begin{equation} \label{eq:38}
     \boxed{
     \begin{aligned}
-        \mathcal{L}_1 &= R +g^{\mu \nu}\partial_{\mu }\phi \partial_{\nu} \phi\\
-        \mathcal{L}_2 &=\frac{1}{4}g^{\mu \nu }(\partial_\mu h_{\alpha \beta}\partial_\nu G^{\alpha \beta} - h^{\alpha \beta } h^{\gamma \delta}\partial_\mu B_{\alpha \gamma} \partial_\nu B_{\beta \delta})\\
-        \mathcal{L}_3 &= -\frac{1}{4}g^{\mu \rho}g^{\nu \lambda}(h_{\alpha\beta}F^{(1)\alpha}_{\mu \nu}F^{(1)\beta}_{\rho \lambda}+h^{\alpha \beta}H_{\mu \nu \alpha}H_{\rho \lambda \beta })\\
-        \mathcal{L}_4 &= -\frac{1}{12}H_{\mu \nu \rho} H^{\mu \nu \rho}
+        S_1 &= R +g^{\mu \nu}\partial_{\mu }\phi \partial_{\nu} \phi\\
+        S_2 &=\frac{1}{4}g^{\mu \nu }(\partial_\mu h_{\alpha \beta}\partial_\nu G^{\alpha \beta} - h^{\alpha \beta } h^{\gamma \delta}\partial_\mu B_{\alpha \gamma} \partial_\nu B_{\beta \delta})\\
+        S_3 &= -\frac{1}{4}g^{\mu \rho}g^{\nu \lambda}(h_{\alpha\beta}F^{(1)\alpha}_{\mu \nu}F^{(1)\beta}_{\rho \lambda}+h^{\alpha \beta}H_{\mu \nu \alpha}H_{\rho \lambda \beta })\\
+        S_4 &= -\frac{1}{12}H_{\mu \nu \rho} H^{\mu \nu \rho}
     \end{aligned}}
 \end{equation}
-\section{symmetries observation}
+\section{Observation of new symmetry}
 Now for this part we are going to explore a very important part of physics research nowaday which is symetrie. In our context it will allow us to make equivalence between multpiple theory as whole. 
 But firstly we have to see the obvious symetrie that we have seen in the non-reduced version of the Action which is the SL(E,R).
 But what will interss us in the reduction is that it does not create nor destroy any symetrie and if we observe a new symetrie in the reduced form that mean that we have effectively discoverd a new symtrie in the unreduced forme.
-and following the \cite{maharana1993noncompact} we observe an O(E,E) symetrie (defined here \ref{def:O(E,E)}.\\
+and following the \cite{maharana1993noncompact} we observe an O(E,E) symetrie. let's define it and then observe if it is true so the definition.\\
+\begin{definition}
+    Any matrices M is in O(E,E) if it is a square $E\times E$ matrices and if for the matrices
+    \begin{equation*}
+        \zeta = \begin{pmatrix}
+            0 & 1 \\ 0 &1
+        \end{pmatrix}
+    \end{equation*}
+    We can use this matrices as a metric for the groupe O(E,E) as it has d -1 eigenvalues and d 1 eigenvalues, in  a basis rotated from the one  with diagonal metric.\\ 
+    the matrices M verify
+    \begin{equation*}
+        \boxed{M^T \zeta M = \zeta }
+    \end{equation*}
+\end{definition}
 We will now define a new matrices M which is 
 \begin{equation}
     M = \begin{pmatrix}
