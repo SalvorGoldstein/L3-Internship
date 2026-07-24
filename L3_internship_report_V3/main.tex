@@ -441,7 +441,15 @@ and finnaly the action of B is writen as
 \begin{equation} \label{Bactionexpa}
     \boxed{S_{\hat b } = - \int dx^D\sqrt{-g}e^{-\phi} \Big\lbrace  \frac{1}{12} H_{  \alpha  \beta \gamma} H^{  \alpha \beta \gamma  s  t} + \frac{1}{4} H_{  \mu   \alpha \beta} H^{  \mu   \alpha  \beta} + \frac{1}{4} H_{  \mu \nu \alpha } H^{  \mu  \nu  \alpha} + \frac{1}{12} H_{  \mu  \nu \rho}H^{  \mu  \nu  \rho} \Big\rbrace }
 \end{equation}
-Te absence if hat is due to what we so in equation \eqref{lowdimv} \\
+Te absence if hat is due to the fact that we define low dimensional form as being:
+\begin{subequations} \label{lowdimv}
+    \begin{align}
+        T^{\mu} &= V_r^\mu \hat V^r_{\hat \mu}\hat T^{\hat \mu} \\ \label{scalartrans}
+        T^{\alpha} &= V_a^\alpha \hat V^a_{\hat \mu}\hat T^{\hat \mu}\\ \label{vectortrans}
+        T_{\mu} &= V_\mu^r \hat V_r^{\hat \mu}\hat T_{\hat \mu}\\  \label{formtrans}
+        T_{\alpha} &= V_\alpha^a \hat V_a^{\hat \mu}\hat T_{\hat \mu} \\  \label{tenstrans}
+    \end{align}
+\end{subequations}
 so with that we obtaint\eqref{Bactionexpa}\\
 Now we will compute each componant of non hated H in function of hated H\\
 to begin slowly as we have seen above $\hat B_{\alpha \beta} = B_{\alpha \beta} $ and if we use the y independence we get $H_{\alpha \beta \gamma} = 0$\\
@@ -496,25 +504,26 @@ with $A^{(2)}_{\mu \alpha}$
 so we have the right transformation for this object\\
 Doing the same thing with $B_{\mu \nu}$ we come under the transformation 
 \begin{equation}
-    \delta B_{\mu \nu} = \frac{1}{2}(\Lambda^{(1)\alpha}F^{(2)}_{\mu \nu \alpha} + \lambda^{(2)}_{\alpha}F^{(1)\alpha}_{\mu \nu})
+    \delta B_{\mu \nu} = \frac{1}{2}(\Lambda^{(1)\alpha}F^{(2)}_{\mu \nu \alpha} + \lambda^{(2)}_{\alpha}F^{(1)\alpha}_{\mu \nu}),
 \end{equation}
 wich is exactly the good terme to compensate the addional term for the transformation of $H_{\mu \nu \rho}$
 \section{Complete reduced action}
 To recap we have the complete reduced action in the form
 \begin{equation}
-    S =  \int dx^D \sqrt(-g)e^{-\phi} \mathcal{L}
+    S =  \int dx^D Ve^{-\phi} \mathcal{L},
 \end{equation}
 Where we decompose $S$ as $S =  S_1 + \S_2 + S_3 +S_4$, and we pose
 \begin{equation} \label{eq:38}
     \boxed{
     \begin{aligned}
-        S_1 &= R +g^{\mu \nu}\partial_{\mu }\phi \partial_{\nu} \phi\\
-        S_2 &=\frac{1}{4}g^{\mu \nu }(\partial_\mu h_{\alpha \beta}\partial_\nu G^{\alpha \beta} - h^{\alpha \beta } h^{\gamma \delta}\partial_\mu B_{\alpha \gamma} \partial_\nu B_{\beta \delta})\\
-        S_3 &= -\frac{1}{4}g^{\mu \rho}g^{\nu \lambda}(h_{\alpha\beta}F^{(1)\alpha}_{\mu \nu}F^{(1)\beta}_{\rho \lambda}+h^{\alpha \beta}H_{\mu \nu \alpha}H_{\rho \lambda \beta })\\
-        S_4 &= -\frac{1}{12}H_{\mu \nu \rho} H^{\mu \nu \rho}
+        S_1 &=\int dx^D Ve^{-\phi}(R +g^{\mu \nu}\partial_{\mu }\phi \partial_{\nu} \phi),\\
+        S_2 &=\int dx^D Ve^{-\phi}(\frac{1}{4}g^{\mu \nu }(\partial_\mu h_{\alpha \beta}\partial_\nu G^{\alpha \beta} - h^{\alpha \beta } h^{\gamma \delta}\partial_\mu B_{\alpha \gamma} \partial_\nu B_{\beta \delta})),\\
+        S_3 &= \int dx^DVe^{-\phi}(-\frac{1}{4}g^{\mu \rho}g^{\nu \lambda}(h_{\alpha\beta}F^{(1)\alpha}_{\mu \nu}F^{(1)\beta}_{\rho \lambda}+h^{\alpha \beta}H_{\mu \nu \alpha}H_{\rho \lambda \beta })),\\
+        S_4 &=\int dx^D Ve^{-\phi}(-\frac{1}{12}H_{\mu \nu \rho} H^{\mu \nu \rho}).
     \end{aligned}}
 \end{equation}
 \section{Observation of new symmetry}
+\subsection{O(E,E) group presentation}
 Now for this part we are going to explore a very important part of physics research nowaday which is symetrie. In our context it will allow us to make equivalence between multpiple theory as whole. 
 But firstly we have to see the obvious symetrie that we have seen in the non-reduced version of the Action which is the SL(E,R).
 But what will interss us in the reduction is that it does not create nor destroy any symetrie and if we observe a new symetrie in the reduced form that mean that we have effectively discoverd a new symtrie in the unreduced forme.
@@ -523,7 +532,7 @@ and following the \cite{maharana1993noncompact} we observe an O(E,E) symetrie. l
     Any matrices M is in O(E,E) if it is a square $E\times E$ matrices and if for the matrices
     \begin{equation*}
         \zeta = \begin{pmatrix}
-            0 & 1 \\ 0 &1
+            0 & 1 \\ 1 &0
         \end{pmatrix}
     \end{equation*}
     We can use this matrices as a metric for the groupe O(E,E) as it has d -1 eigenvalues and d 1 eigenvalues, in  a basis rotated from the one  with diagonal metric.\\ 
@@ -532,6 +541,16 @@ and following the \cite{maharana1993noncompact} we observe an O(E,E) symetrie. l
         \boxed{M^T \zeta M = \zeta }
     \end{equation*}
 \end{definition}
+Now we will consider that the action of the group on anything that does not have internal index is null so for the metric and $\phi$ we have
+\begin{align}
+    &g_{\mu \nu} \rightarrow g_{\mu \nu},\\
+    &\phi \rightarrow \phi
+\end{align}
+It is worth noting that for $\phi$ the whole thing is invariant however each componant ($\hat \phi$, and $\frac{1}{2}log(h)$) on there one are not invariant to $O(E,E)$ group, which is why 
+we needed to creatz the shifted dilaton.\\
+We also need to define the action of the groupe on the two form, and for $A^{(2)}$, when they have internal index, so we have:
+
+\subsection{Observation of the group}
 We will now define a new matrices M which is 
 \begin{equation}
     M = \begin{pmatrix}
@@ -548,26 +567,32 @@ Of course we will verify that this true
 \end{equation*}
 so we confirm that $M \in O(E,E)$
 Now that we have that in mind let's retook \eqref{eq:38} and verify that each $\mathcal{L}$ is infact O(E,E) invariant \\
-For $\mathcal{L}_1$ the invzriance is obvious as $g_{\mu \nu}$ and $ \Phi$ are  both invariant. Nonwithsandaning we ought to remamber that for $\Phi$ each terms in it are note on there self invariant only.\\
+For $S_1$ the invariance is obvious as $g_{\mu \nu}$ and $ \Phi$ are  both invariant. Nonwithsandaning we ought to remamber that for $\Phi$ each terms in it are note on there self invariant only.\\
 Now the \cite{maharana1993noncompact} propose a new tactics to observe the invariance of $\mathcal{L}_2$ which is to rewrite everything in matricial terms.
 we the obtain
 \begin{equation*}
-    \mathcal{L}_2 = \frac{1}{4}tr(\partial_{\mu}h^{-1}\partial^{\mu}h + h^{-1}\partial_\mu Bh^{-1}\partial^{\mu}B)
+    S_2 = \frac{1}{4}tr(\partial_{\mu}h^{-1}\partial^{\mu}h + h^{-1}\partial_\mu Bh^{-1}\partial^{\mu}B)
 \end{equation*}
 And now we are going to do a few manipulation
 \begin{equation}
     \begin{aligned}
-   \mathcal{L}_2 &= \frac{1}{4}tr(\partial_{\mu}h^{-1}\partial^{\mu}h + h^{-1}\partial_\mu Bh^{-1}\partial^{\mu}B)\\
+   S_2 &= \frac{1}{4}tr(\partial_{\mu}h^{-1}\partial^{\mu}h + h^{-1}\partial_\mu Bh^{-1}\partial^{\mu}B)\\
 &=\frac{1}{8}tr\Big(2\partial_\mu h\partial^\mu h^{-1}+2h^{-1}\partial_\mu B h^{-1}\partial^\mu B\Big)\\
 &=\frac{1}{8}tr\Big(2\partial_\mu h\partial^\mu h^{-1}-2\partial_\mu(Bh^{-1}B)\partial^\mu h^{-1}+\partial_\mu(Bh^{-1})\partial^\mu(Bh^{-1})+\partial_\mu(h^{-1}B)\partial^\mu(h^{-1}B)\Big)\\
 &=\frac{1}{8}tr\Big(\partial_\mu(h-Bh^{-1}B)\partial^\mu h^{-1}+\partial_\mu(Bh^{-1})\partial^\mu(Bh^{-1})+\partial_\mu(h^{-1}B)\partial^\mu(h^{-1}B)+\partial^\mu h^{-1}\partial_\mu(h-Bh^{-1}B)\Big)\\
-&=\frac{1}{8}tr(\partial_\mu M^{-1}\partial^\mu M)
+&=\frac{1}{8}tr(\partial_\mu M^{-1}\partial^\mu M),
     \end{aligned}
 \end{equation}
+The O(E,E) then become manifest as M transformation under a global O(E,E)  transformation is
+\begin{equation*}
+    M \rightarrow \Omega M \Omega^T,
+\end{equation*} 
+where $\Omega \in O(E,E)$.
+
 Now we are going to rewrite $\mathcal{L}_3$ by developing the H partial to get
 \begin{equation}
     \begin{aligned}
-    \mathcal{L}_3 &= -\frac{1}{4}[F^{(1)\alpha}_{\mu \nu }h_{\alpha \beta}F^{(1)\mu \nu \beta}+ (F^{(2)}_{\mu\nu \alpha}-B_{\alpha \gamma}F^{(1)\gamma}_{\mu \nu})h^{\alpha \beta}(F^{(2)\mu \nu}_{\beta}-B_{\beta \delta}F^{(1)\mu \nu \delta})]\\
+    S_3 &= -\frac{1}{4}[F^{(1)\alpha}_{\mu \nu }h_{\alpha \beta}F^{(1)\mu \nu \beta}+ (F^{(2)}_{\mu\nu \alpha}-B_{\alpha \gamma}F^{(1)\gamma}_{\mu \nu})h^{\alpha \beta}(F^{(2)\mu \nu}_{\beta}-B_{\beta \delta}F^{(1)\mu \nu \delta})]\\
     &=-\frac{1}{4} \mathcal{F}^i_{\mu \nu}(M^{-1})_{ij} \mathcal{F}^{\mu \nu j}
     \end{aligned}
 \end{equation}
@@ -576,7 +601,7 @@ Where $\mathcal{F}^i_{\mu \nu}$ is the 2E-component vector of field strengths
     \mathcal{F}^i_{\mu \nu} = \begin{pmatrix} F^{(1)\alpha}_{\mu \nu} \\F^{(2)}_{\mu \nu \alpha} \end{pmatrix} = \partial_\mu \mathcal{A}^i_\nu - \partial_\nu \mathcal{A}^i_\mu
 \end{equation}
 Now the O(E,E) invariance is visible if we consider that the vector fields  transform linealy  to the vector representation  of O(E,E), i.e., $\mathcal{A}^i_\mu \rightarrow  \Omega^i_j \mathcal{A}^j_\mu$
-And finnaly we go to $\mathcal{L}_4$ firstly let's rewrite $H_{\mu \nu \rho}$
+And finnaly we go to $S_4$ firstly let's rewrite $H_{\mu \nu \rho}$
 \begin{equation}
     \begin{aligned}
     H_{\mu \nu \rho} &=\partial_\mu B_{\nu \rho} -\frac{1}{2}(A^{(1)\alpha}_\mu F^{(2)}_{\nu \rho \alpha} + A^{(2)}_{\mu \alpha }F^{(1)}_{\nu \rho}) 
@@ -593,8 +618,6 @@ This demonstrates that the action hides a non-trivial symmetry, providing a usef
  \appendix
  \section{lagrangian}
  By using the principle of least action and the variational principle we can see that
-
-
 \begin{align*}
     \delta S &= \delta \int \mathcal{L} dx^\mu \\
     & = \delta \int \pdv{\mathcal{L}}{\eta_{\rho}} \delta \eta_{\rho} + \pdv{\mathcal{L}}{\partial_{\nu}\eta_{\rho}} \delta \partial_ \nu \eta_{\rho}  dx^\mu\\
@@ -610,7 +633,6 @@ which is in fact the equation of mouvement for the field\section{General relativ
 Let V be an R-vector space of dimension N, we define the tensor of order $(r,s) \in  \llbracket 0 ,1 \rrbracket^2$ on $V^{(r,s)} \overset{def}{=} V^{\otimes r} \otimes V^{\otimes s}$
 as a being a multilinear application on $ V^{\star r} \times V^{ s}$ to $\mathbb{R}$
  \end{definition}
-
 \begin{definition}
     We will call n-dimension ($n \in \mathbb{N}^*$) manifold every Hausdorff topological space $(\mathcal{M},\tau )$ localy homeomorphic to $\mathbb{R}^n)$
 \end{definition}
