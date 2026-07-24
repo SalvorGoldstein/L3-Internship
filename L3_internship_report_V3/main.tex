@@ -103,25 +103,18 @@ and the later development of classical and quantum field theory,
 physicists have been looking for a single mathematical framework that could describe all fundamental interactions at once. 
 A lot of progress has been made for the electromagnetic, 
 weak and strong forces, which are now successfully unified in the Standard Model. Gravity, however, 
-remains the main stumbling block. Unlike the other forces, it resists quantization in a straightforward way, 
-and its description by General Relativity \cite{einstein1915allgemeinen} 
-sits completely apart from the quantum field-theoretic language we use for everything else.
-One of the earliest attempts to change this was proposed by Kaluza in 1921 
-\cite{kaluza1921unitatsproblem} and later refined by Klein:\\ 
-by adding one extra spatial dimension compactified on a small circle, 
-five-dimensional General Relativity naturally reduces to four-dimensional Einstein gravity coupled to electromagnetism. 
-Even if the original theory had experimental failure, this Kaluza-Klein mechanism opened a whole new way of thinking about unification, 
-and it is now at the heart of modern approaches like supergravity \cite{freedman2012supergravity} and string theory.\\
-Another important part of physics since the begining as been the discovery of symetrie, indeed thanks to symetrie we can greatly reduce the level of difficulty of some theory, and
-in other field we can even show that some multiple therory describe infact the same universe, but with a slightly diffenrent description, this has played a big part in string theory,
- and super gravity, or any advanced theory.\\
- In this internship we will begin by describing what is a field theory to seek how to describe the different action of the field we will be using, after that we will
-  to follow the step of kaluza and klein by doing a dimensional reduction from D+E dimension to 4 dimension, However we will note juste use the classical Einstein action,
-  but the NS-NS action of super gravity which basically add to new field, we will do this by using the vielbein formalism as it is useful for the descriptionof fermion even here we will solely try to describe bosonics fields,
-then we will see that even if in high dimension only the SL(E,E) dimension is detectable without to much work, that when we go into law dimension another O(E,E) symetrie will apear, and 
-that mean that a lot of other theory are in fact equivalent to the one we are using.
+remains the main stumbling block. Indeed its description by General Relativity \cite{einstein1915allgemeinen} 
+sits completely apart from the quantum field-theoretic language we use for everything other force.
+A theory to solve this issue is to add a new symetrie to our universe, the super-symetrie. In practice this mean that we suppose a symetrie betwen fermion ,and boson. However this
+symetrie come at the cost of our four dimensional universe, as it need the existense of supplementarie dimension to be possible. This new approaches is called super gravity.\\
+In this internship we will begin by describing what is a field theory to seek how to describe the different action of the field we will be using, after that we will
+to follow the step of \cite{scherk1979get} by doing a dimensional reduction from D+E dimension to 4 dimension. However following the step \cite{maharana1993noncompact} of we will not juste use the classical Einstein action,
+but the NS-NS action of super gravity which basically add two new field. We will do this by using the vielbein formalism as it is useful for the description of fermion even here we will solely try to describe bosonics fields.
+Then we will see that even if in high dimension only the SL(E,E) dimension is detectable without to much work, that when we go into law dimension another O(E,E) symetrie will apear, and 
+that mean that a lot of other theory are in fact equivalent to the one we are using.\\
+Finally will suppose that none of the field depend on the internal coordinate, therefor any field we will have $\partial_\alpha A^{\hat \mu} =0$
 
-\section{Lagrangian field theory}
+\section{Lagrangian field theory}kaluza and klein
 \subsection{Lagrangian density}
 In field theory, just as Newton's second law is "volumized" into the Navier-Stokes equations by distributing quantities over space, 
 we replace discrete degrees of freedom with continuous field densities defined at every point in spacetime.
@@ -136,8 +129,7 @@ Now using esintein convention we can rewritte the action in a new light :
 \end{equation}
 
 \subsection{General exemple for scalar and vectorial fields, and result for two forms}
-In field theory, the Lagrangian has a classical prescription for scalar and vector fields, but no general rule exists for other cases 
-each field type requires its own treatment. 
+In field theory, the Lagrangian has a classical description any field (often the simpliest).
 For this work, only the scalar, vector, and two-form Lagrangians are needed, along with the metric, which is handled by Einstein's equations.\\
 So for a scalar field we have : 
 \begin{equation} \label{scalafield}
@@ -165,8 +157,8 @@ where for the two form $B_{\nu \rho}$ we have
 \begin{equation*}
     H_{ \mu \nu \rho} = \partial_ \mu B_{\nu \rho} + cyc. perm
 \end{equation*}
-\section{NS-NS Action Of supergravity}
-In this section we perform a Kaluza-Klein reduction on the NS-NS action which is
+\subsection{NS-NS Action Of supergravity}
+With those object we can effectively create the NS-NS action which has this form: 
 \begin{equation} \label{NS-NSaction}
     \boxed{S = \int d x^D \int \frac{d y ^E}{\rho(E)}\sqrt{- \hat g } e^{\hat \phi} (\hat R +  \hat g^{\hat \mu \hat \nu}\partial_{\hat \mu}\hat \phi \partial^{\hat \nu}\hat \phi - \frac{1}{12} g^{ \hat \mu  \mu'} g^{\nu \nu'} g^{\rho \rho'} H_{ \mu \nu \rho}H_{ \mu'\nu' \rho'})}
 \end{equation} 
@@ -174,9 +166,8 @@ where $\rho(E)$ is a normalisation factor, corresponding in practice to the inva
 And where $\hat R$ is similar as the classical Hilbert-Einstein action but in $D+E$ dimension, $\hat \phi$ is a dilaton field and $- \frac{1}{12} H_{ \mu \nu \rho}H^{ \mu\nu \rho}$ is the  action of a two form.
 Finally as no field depend on internal component and knowing what $\rho(E)$ we can just simplify this integral.
 Now we will separate this action into 3 part one for each action so we have
-We consider an universe in $D+E$ dimensions, with $D=4$, our goal will be to determine how an observer confined to the $D$-dimensional world perceives the extra dimensions.
-\subsection{Hypothesis}
-We assume that none of the fields depend on the internal coordinates, i.e. for any field $\partial_\alpha A^{\hat \mu} = 0$. This mean that the reduction will be done on a E-d torus.
+Now that we have this action in $D+E$ dimension we need to in the same way as in the \cite{scherk1979get} reduce it, which basically mean look on how would a D dimensional observer
+would perceives those extra dimension.
 \subsection{different part of the action}
 We can separate the action into two main componant one being the gravitional part with the dilaton and the otherone being the two forms part so we have:
 \begin{subequations}
@@ -242,7 +233,7 @@ for the inverse vielbein, and
     \end{pmatrix},
 \end{equation}
 for the metric\\
-\subsection{Gauge observation}
+\subsection{Gauge observation} \label{part:gaugeviel}
 Now that we have done the anstaz, we would like to know what each object are, for that we can use the classical gauge transformation $x'^\mu = x^\mu + \xi^\mu(x)$, and use the fact that it can be easly rewriten as a Lie derivative.
  Indeed we already know of different object transform under Lie derivative so we would easily be able indentify what each object are.\\
  So firstly let's list every known transformation:
@@ -376,7 +367,7 @@ For $\hat \Omega_{abp}$:
     \hat \Omega_{abp} &= \frac{1}{2}(\hat V^{\hat \mu}_{  a} \hat V^{ \nu}_{b}-\hat V^{\hat \mu}_{b} \hat V^{ \nu}_{a})\partial_{ \nu} \hat V_{\hat \mu p}\\
     &= 0
 \end{align*}
-The same holds for $\Omega_{abc}$. Using \eqref{eq:10}, we can then obtain the $\omega$'s straightforwardly:
+The same holds for $\Omega_{abc}$. Using \eqref{vielbeinanstaz}, we can then obtain the $\omega$'s:
 
 \begin{subequations}
 \begin{align}
@@ -473,7 +464,15 @@ Now for $H_{\mu \nu \beta}$
         &= F^{(2)}_{\mu \nu \alpha } - \hat B_{ \alpha \beta }F^{(1)\beta}_{\mu \nu}
     \end{aligned}
 \end{equation}
-and finnaly for $H_{\mu \nu \rho}$ we are just going to use the exam same technic as before which gave us 
+where
+\begin{equation*}
+    F^{(2)}_{\mu \nu \alpha} = \partial_\mu A_{\nu \alpha} -\partial_\nu A_{\mu \alpha},
+\end{equation*}
+and 
+\begin{equation*}
+    A^{(2)}_{\mu \alpha} =\hat B_{\mu \alpha} + B_{\alpha \beta} A^{(1)\beta}_\mu.
+\end{equation*}
+Finnaly for $H_{\mu \nu \rho}$ we are just going to use the exam same technic as before which gave us 
 \begin{equation}
     \begin{aligned}
         H_{\mu \nu \rho} &=V^r_\mu V^s_\nu V^t_\rho  \hat V^{\hat \mu}_r \hat V^{\hat \nu}_s \hat V^{\hat \rho}_t \hat H_{\hat \mu \hat \nu \hat \rho}\\
@@ -487,8 +486,8 @@ where
 \begin{equation}
     B_{\mu \nu } = \hat B_{\mu \nu} +\frac{1}{2}A^{(1)\alpha}_\mu A^{(2)}_{\nu \alpha}-\frac{1}{2}A^{(1)\alpha}_\nu A^{(2)}_{\mu \alpha} -A^{(1)\alpha}_\mu B_{\alpha \beta }A^{(2)\beta}_{\nu }
 \end{equation}
-\subsection{Observation of gauge} 
-Now as in part \ref{part:vielbeinanstaz} we are going to observe the gauge rule to be sure that every object transorm as it should
+\subsection{Observation of gauge} \label{part:Bgauge}
+Now as in part \ref{part:gaugeviel} we are going to observe the gauge rule to be sure that every object transorm as it should
 so let's begin with $A^{(2)}$ which should transform with the lie derivative and under the new transformations of $B_{\mu \nu} \rightarrow B_{\mu \nu} + \partial_mu \Lambda_\nu$, so let's begin
 with $A^{(2)}_{\mu \alpha}$
 \begin{equation}
@@ -525,9 +524,10 @@ Where we decompose $S$ as $S =  S_1 + \S_2 + S_3 +S_4$, and we pose
 \section{Observation of new symmetry}
 \subsection{O(E,E) group presentation}
 Now for this part we are going to explore a very important part of physics research nowaday which is symetrie. In our context it will allow us to make equivalence between multpiple theory as whole. 
-But firstly we have to see the obvious symetrie that we have seen in the non-reduced version of the Action which is the SL(E,R).
-But what will interss us in the reduction is that it does not create nor destroy any symetrie and if we observe a new symetrie in the reduced form that mean that we have effectively discoverd a new symtrie in the unreduced forme.
-and following the \cite{maharana1993noncompact} we observe an O(E,E) symetrie. let's define it and then observe if it is true so the definition.\\
+In the first place we can that we can we have an $SL(E,R)$ symetrie, which is every matrix $E\times E$ matrix with determinant of one. There other symetrie that we can see for exemple the fact that,
+B only appear within a derivative mean that we can add a constant to it however we want, and as shown earlier in part \ref{part:Bgauge}, and in \ref{part:gaugeviel}, we have some gauge freedom that we can use as we please.
+However, all those symetrie are manifest in high dimensional, what will interess us in the reduction is that it does not create nor destroy any symetrie and if we observe a new symetrie in the reduced form that mean that we have effectively discoverd a new symterie in the unreduced forme.
+and following the \cite{maharana1993noncompact} we observe an O(E,E) symetrie
 \begin{definition}
     Any matrices M is in O(E,E) if it is a square $E\times E$ matrices and if for the matrices
     \begin{equation*}
@@ -541,15 +541,6 @@ and following the \cite{maharana1993noncompact} we observe an O(E,E) symetrie. l
         \boxed{M^T \zeta M = \zeta }
     \end{equation*}
 \end{definition}
-Now we will consider that the action of the group on anything that does not have internal index is null so for the metric and $\phi$ we have
-\begin{align}
-    &g_{\mu \nu} \rightarrow g_{\mu \nu},\\
-    &\phi \rightarrow \phi
-\end{align}
-It is worth noting that for $\phi$ the whole thing is invariant however each componant ($\hat \phi$, and $\frac{1}{2}log(h)$) on there one are not invariant to $O(E,E)$ group, which is why 
-we needed to creatz the shifted dilaton.\\
-We also need to define the action of the groupe on the two form, and for $A^{(2)}$, when they have internal index, so we have:
-
 \subsection{Observation of the group}
 We will now define a new matrices M which is 
 \begin{equation}
@@ -557,21 +548,10 @@ We will now define a new matrices M which is
         h^{-1} & -h^{-1}B \\Bh^{-1} & h-Bh^{-1}B
     \end{pmatrix}
 \end{equation}
-Of course we will verify that this true
+We will now try to rewrite the action in function of M to make in easier to see. $S_1$ is a lost cause as neither g or $\phi$ are contained within M, so let's being, with $S_2$, which
+can be rewriten in a matrical form :
 \begin{equation*}
-    \begin{aligned}
-        M^{T}\zeta M &= \begin{pmatrix} h^{-1} & B h^{-1} \\ - h^{-1} B & h-Bh^{-1}B\end{pmatrix} \begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix}\begin{pmatrix}    h^{-1} & -h^{-1}B \\Bh^{-1} & h-Bh^{-1}B\end{pmatrix}\\
-        & =\begin{pmatrix}B h^{-1}   &h^{-1}  \\h-Bh^{-1}B   &- h^{-1} B \end{pmatrix} \begin{pmatrix}    h^{-1} & -h^{-1}B \\Bh^{-1} & h-Bh^{-1}B\end{pmatrix}\\
-        &= \begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix} = \zeta
-    \end{aligned}
-\end{equation*}
-so we confirm that $M \in O(E,E)$
-Now that we have that in mind let's retook \eqref{eq:38} and verify that each $\mathcal{L}$ is infact O(E,E) invariant \\
-For $S_1$ the invariance is obvious as $g_{\mu \nu}$ and $ \Phi$ are  both invariant. Nonwithsandaning we ought to remamber that for $\Phi$ each terms in it are note on there self invariant only.\\
-Now the \cite{maharana1993noncompact} propose a new tactics to observe the invariance of $\mathcal{L}_2$ which is to rewrite everything in matricial terms.
-we the obtain
-\begin{equation*}
-    S_2 = \frac{1}{4}tr(\partial_{\mu}h^{-1}\partial^{\mu}h + h^{-1}\partial_\mu Bh^{-1}\partial^{\mu}B)
+    S_2 = \frac{1}{4}tr(\partial_{\mu}h^{-1}\partial^{\mu}h + h^{-1}\partial_\mu Bh^{-1}\partial^{\mu}B),
 \end{equation*}
 And now we are going to do a few manipulation
 \begin{equation}
@@ -580,16 +560,11 @@ And now we are going to do a few manipulation
 &=\frac{1}{8}tr\Big(2\partial_\mu h\partial^\mu h^{-1}+2h^{-1}\partial_\mu B h^{-1}\partial^\mu B\Big)\\
 &=\frac{1}{8}tr\Big(2\partial_\mu h\partial^\mu h^{-1}-2\partial_\mu(Bh^{-1}B)\partial^\mu h^{-1}+\partial_\mu(Bh^{-1})\partial^\mu(Bh^{-1})+\partial_\mu(h^{-1}B)\partial^\mu(h^{-1}B)\Big)\\
 &=\frac{1}{8}tr\Big(\partial_\mu(h-Bh^{-1}B)\partial^\mu h^{-1}+\partial_\mu(Bh^{-1})\partial^\mu(Bh^{-1})+\partial_\mu(h^{-1}B)\partial^\mu(h^{-1}B)+\partial^\mu h^{-1}\partial_\mu(h-Bh^{-1}B)\Big)\\
-&=\frac{1}{8}tr(\partial_\mu M^{-1}\partial^\mu M),
+& = \frac{1}{8}tr(\partial_\mu M^{-1}\partial^\mu M)
     \end{aligned}
 \end{equation}
-The O(E,E) then become manifest as M transformation under a global O(E,E)  transformation is
-\begin{equation*}
-    M \rightarrow \Omega M \Omega^T,
-\end{equation*} 
-where $\Omega \in O(E,E)$.
 
-Now we are going to rewrite $\mathcal{L}_3$ by developing the H partial to get
+Now we are going to rewrite $S_3$ by developing the H partial to get
 \begin{equation}
     \begin{aligned}
     S_3 &= -\frac{1}{4}[F^{(1)\alpha}_{\mu \nu }h_{\alpha \beta}F^{(1)\mu \nu \beta}+ (F^{(2)}_{\mu\nu \alpha}-B_{\alpha \gamma}F^{(1)\gamma}_{\mu \nu})h^{\alpha \beta}(F^{(2)\mu \nu}_{\beta}-B_{\beta \delta}F^{(1)\mu \nu \delta})]\\
@@ -600,7 +575,6 @@ Where $\mathcal{F}^i_{\mu \nu}$ is the 2E-component vector of field strengths
 \begin{equation}
     \mathcal{F}^i_{\mu \nu} = \begin{pmatrix} F^{(1)\alpha}_{\mu \nu} \\F^{(2)}_{\mu \nu \alpha} \end{pmatrix} = \partial_\mu \mathcal{A}^i_\nu - \partial_\nu \mathcal{A}^i_\mu
 \end{equation}
-Now the O(E,E) invariance is visible if we consider that the vector fields  transform linealy  to the vector representation  of O(E,E), i.e., $\mathcal{A}^i_\mu \rightarrow  \Omega^i_j \mathcal{A}^j_\mu$
 And finnaly we go to $S_4$ firstly let's rewrite $H_{\mu \nu \rho}$
 \begin{equation}
     \begin{aligned}
@@ -610,6 +584,37 @@ And finnaly we go to $S_4$ firstly let's rewrite $H_{\mu \nu \rho}$
         &= \partial_\mu B_{\nu \rho} -\frac{1}{2} \mathcal{A}^i_\mu \zeta_{ij} \mathcal{F}^j_{\nu \rho} + (cyc. perms)
       \end{aligned}
 \end{equation}
+We can now rewrite the complete action in terms of M, that gave us:
+\begin{equation}
+    \begin{aligned}
+    S = &\int dx^D Ve^{-\phi}[R +g^{\mu \nu}\partial_{\mu }\phi \partial_{\nu} \phi + \frac{1}{8}tr(\partial_\mu M^{-1}\partial^\mu M)
+    -\frac{1}{4} \mathcal{F}^i_{\mu \nu}(M^{-1})_{ij} \mathcal{F}^{\mu \nu j}  \\
+    &- \frac{1}{12}(\partial_\mu B_{\nu \rho} -\frac{1}{2} \mathcal{A}^i_\mu \zeta_{ij} \mathcal{F}^j_{\nu \rho} + (cyc. perms))(\partial^\mu B^{\nu \rho} -\frac{1}{2} \mathcal{A}^{i\mu} \zeta_{ij} \mathcal{F}^{j\nu \rho} + (cyc. perms))]
+    \end{aligned}
+\end{equation}
+We will know studie the effect of the $0(E,E)$ group on this action, firstly as it only act on the internal index, so the action of the group on the different part of the 
+are
+\begin{align}
+    &g_{\mu \nu} \rightarrow g_{\mu \nu},\\
+    &\phi \rightarrow \phi
+\end{align}
+It is worth noting that for $\phi$ the whole thing is invariant however each componant ($\hat \phi$, and $\frac{1}{2}log(h)$) on there one are not invariant to $O(E,E)$ group, which is why 
+we needed to creatz the shifted dilaton.\\
+We also need to define the action of the groupe on the two form, and for $A^{(2)}$, when they have internal index, so we have:
+\begin{align}
+    &A^i \rightarrow \Omega^i_j A^j \\
+    &M_{ij} \rightarrow \Omega^l_i M_{lk}\Omega^k_j
+\end{align}
+Here $\Omega \in O(E,E)$. Finnaly we can show that $M \in O(E,E)$ Indeed
+\begin{equation*}
+    \begin{aligned}
+        M^{T}\zeta M &= \begin{pmatrix} h^{-1} & B h^{-1} \\ - h^{-1} B & h-Bh^{-1}B\end{pmatrix} \begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix}\begin{pmatrix}    h^{-1} & -h^{-1}B \\Bh^{-1} & h-Bh^{-1}B\end{pmatrix}\\
+        & =\begin{pmatrix}B h^{-1}   &h^{-1}  \\h-Bh^{-1}B   &- h^{-1} B \end{pmatrix} \begin{pmatrix}    h^{-1} & -h^{-1}B \\Bh^{-1} & h-Bh^{-1}B\end{pmatrix}\\
+        &= \begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix} = \zeta
+    \end{aligned}
+\end{equation*}
+Which mean that under 
+
 Now as $\Omega^T \zeta \Omega = \zeta$ the seconds thermes is O(E,E) invariant. And the for the first terme is invariant if we require that $B_{\nu \rho}$ does not transfrom.
 This demonstrates that the action hides a non-trivial symmetry, providing a useful framework for comparing equivalent theories.
  \section{Conclusion}
