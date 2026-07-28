@@ -511,7 +511,7 @@ To recap we have the complete reduced action in the form
 \begin{equation}
     S =  \int dx^D Ve^{-\phi} \mathcal{L},
 \end{equation}
-Where we decompose $S$ as $S =  S_1 + \S_2 + S_3 +S_4$, and we pose
+Where we decompose $S$ as $S =  S_1 + S_2 + S_3 +S_4$, and we pose
 \begin{equation} \label{eq:38}
     \boxed{
     \begin{aligned}
@@ -541,7 +541,7 @@ and following the \cite{maharana1993noncompact} we observe an O(E,E) symetrie
         \boxed{M^T \zeta M = \zeta }
     \end{equation*}
 \end{definition}
-\subsection{Observation of the group}
+\subsection{Rewriting of the reduced action}
 We will now define a new matrices M which is 
 \begin{equation}
     M = \begin{pmatrix}
@@ -592,6 +592,8 @@ We can now rewrite the complete action in terms of M, that gave us:
     &- \frac{1}{12}(\partial_\mu B_{\nu \rho} -\frac{1}{2} \mathcal{A}^i_\mu \zeta_{ij} \mathcal{F}^j_{\nu \rho} + (cyc. perms))(\partial^\mu B^{\nu \rho} -\frac{1}{2} \mathcal{A}^{i\mu} \zeta_{ij} \mathcal{F}^{j\nu \rho} + (cyc. perms))]
     \end{aligned}
 \end{equation}
+
+\subsection{Action invariance under O(E,E)}
 We will know studie the effect of the $0(E,E)$ group on this action, firstly as it only act on the internal index, so the action of the group on the different part of the 
 are
 \begin{align}
@@ -601,22 +603,37 @@ are
 It is worth noting that for $\phi$ the whole thing is invariant however each componant ($\hat \phi$, and $\frac{1}{2}log(h)$) on there one are not invariant to $O(E,E)$ group, which is why 
 we needed to creatz the shifted dilaton.\\
 We also need to define the action of the groupe on the two form, and for $A^{(2)}$, when they have internal index, so we have:
-\begin{align}
+\begin{align} \label{O(E,E)action}
     &A^i \rightarrow \Omega^i_j A^j \\
     &M_{ij} \rightarrow \Omega^l_i M_{lk}\Omega^k_j
 \end{align}
-Here $\Omega \in O(E,E)$. Finnaly we can show that $M \in O(E,E)$ Indeed
+Here $\Omega \in O(E,E)$. We now show that $M \in O(E,E)$:
 \begin{equation*}
     \begin{aligned}
         M^{T}\zeta M &= \begin{pmatrix} h^{-1} & B h^{-1} \\ - h^{-1} B & h-Bh^{-1}B\end{pmatrix} \begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix}\begin{pmatrix}    h^{-1} & -h^{-1}B \\Bh^{-1} & h-Bh^{-1}B\end{pmatrix}\\
         & =\begin{pmatrix}B h^{-1}   &h^{-1}  \\h-Bh^{-1}B   &- h^{-1} B \end{pmatrix} \begin{pmatrix}    h^{-1} & -h^{-1}B \\Bh^{-1} & h-Bh^{-1}B\end{pmatrix}\\
-        &= \begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix} = \zeta
+        &= \begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix} = \zeta,
     \end{aligned}
 \end{equation*}
-Which mean that under 
-
+we can now verify that every part of the action is invariant under the action O(E,E)
+For $S_1$ the invariance is manifest as nothing depend on the internal space.
+For $S_2$ we can use the ciclearisation of the trace and the action of O(E,E) on M which is with $\Omega \in O(E,E)$
+\begin{equation*}
+    M \rightarrow \Omega M \Omega^T
+\end{equation*}
+to make the invariance of $O(E,E)$ more visible.
+In $S_3$ the technic 
 Now as $\Omega^T \zeta \Omega = \zeta$ the seconds thermes is O(E,E) invariant. And the for the first terme is invariant if we require that $B_{\nu \rho}$ does not transfrom.
 This demonstrates that the action hides a non-trivial symmetry, providing a useful framework for comparing equivalent theories.
+For $S_3$ we have using \eqref{O(E,E)action}
+\begin{align}
+    S_{3'} &= -\frac{1}{4} \mathcal{F}^i_{\mu \nu} \Omega^l_i \Omega^i_n (M^{-1})_{ij} \Omega^j_m  \Omega^k_j\mathcal{F}^{\mu \nu j} \\
+    &=-\frac{1}{4} \mathcal{F}^i_{\mu \nu}  \Omega^k_j\eta_{kn} \Omega^i_n (M^{-1})_{ij} \Omega^j_m  \eta_{ml} \Omega^l_i\mathcal{F}^{\mu \nu j}\\
+    &=-\frac{1}{4} \mathcal{F}^i_{\mu \nu}  \eta_{ji} (M^{-1})_{ij}  \eta_{ij} \mathcal{F}^{\mu \nu j}\\
+    &=-\frac{1}{4} \mathcal{F}^i_{\mu \nu}  (M^{-1})_{ij} \mathcal{F}^{\mu \nu j}\\
+    &= S_3
+\end{align}
+WE can redo this for $S_4$ and get the same result. We have then proven that the whole action is O(E,E) invariant.This demonstrates that the action hides a non-trivial symmetry, providing a useful framework for comparing equivalent theories.
  \section{Conclusion}
  
  \printbibliography
