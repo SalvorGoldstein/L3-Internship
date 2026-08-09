@@ -105,16 +105,17 @@ A lot of progress has been made for the electromagnetic,
 weak and strong forces, which are now successfully unified in the Standard Model. Gravity, however, 
 remains the main stumbling block. Indeed its description by General Relativity \cite{einstein1915allgemeinen} 
 sits completely apart from the quantum field-theoretic language we use for everything other force.
-A theory to solve this issue is to add a new symetrie to our universe, the super-symetrie. In practice this mean that we suppose a symetrie betwen fermion ,and boson. However this
-symetrie come at the cost of our four dimensional universe, as it need the existense of supplementarie dimension to be possible. This new approaches is called super gravity.\\
+A theory to solve this issue is to add a new symmetry to our universe, the super-symmetry. This new symmetry is mainly used in two theory, the first one is supergravity which as the name
+suggest is a theory which try to use the principle of super-symmetry with general relativity. The other big theory is the Superstring theory which try to do the same thing as the last one but with string theory.
+An advantage of the first one over the later  is that supergravity does not demand suplementary dimension, which Superstring demands. Here we will do an amalgation of both, we will add more dimensino while not going to close to the string theory.
 In this internship we will begin by describing what is a field theory to seek how to describe the different action of the field we will be using, after that we will
 to follow the step of \cite{scherk1979get} by doing a dimensional reduction from D+E dimension to 4 dimension. However following the step \cite{maharana1993noncompact} of we will not juste use the classical Einstein action,
 but the NS-NS action of super gravity which basically add two new field. We will do this by using the vielbein formalism as it is useful for the description of fermion even here we will solely try to describe bosonics fields.
-Then we will see that even if in high dimension only the SL(E,E) dimension is detectable without to much work, that when we go into law dimension another O(E,E) symetrie will apear, and 
+Then we will see that even if in high dimension only the SL(E,E) dimension is detectable without to much work, that when we go into law dimension another O(E,E) symmetry will apear, and 
 that mean that a lot of other theory are in fact equivalent to the one we are using.\\
 Finally will suppose that none of the field depend on the internal coordinate, therefor any field we will have $\partial_\alpha A^{\hat \mu} =0$
-
-\section{Lagrangian field theory}kaluza and klein
+\section{vielbein formalism}
+\section{Lagrangian field theory}
 \subsection{Lagrangian density}
 In field theory, just as Newton's second law is "volumized" into the Navier-Stokes equations by distributing quantities over space, 
 we replace discrete degrees of freedom with continuous field densities defined at every point in spacetime.
@@ -268,7 +269,7 @@ so that what remains of the $D$-dimensional diffeomorphisms, once restricted to 
 The vielbein in \eqref{vielbeinanstaz} thus contains the $D$-dimensional vielbein (i.e. the graviton), $E$ vector fields $A^\alpha_\mu$, and $E^2$ scalar fields $\Phi^a_\alpha$. However, because of the local Lorentz invariance in the internal directions, only $\frac{1}{2}E(E+1)$ of these scalars actually correspond to propagating degrees of freedom. We also introduce $\delta = det \Phi$ 
 \subsection{Ricci scalar reduction}
 Now that we better know the tool  we will use, We can begin the calculation. For a starter we will do the Einstein action in D+E dimension twiked by the addition of the dilation.\\
-Firstly let's begin by expending completly the $S_{\hat g}$, this will show us that we technically have to compute 8 $\omega$, however thanks to the antisymetrie og the last to index we can reduce that to 6.
+Firstly let's begin by expending completly the $S_{\hat g}$, this will show us that we technically have to compute 8 $\omega$, however thanks to the antisymmetry og the last to index we can reduce that to 6.
 So the action is
 \begin{equation} \label{Sdexp}
 \boxed{
@@ -419,8 +420,10 @@ wich gave us
 For the two form we will reduce it apart from the two other field, this those not cause any problem as the action is in effect linear.\\
 We can rewrite \eqref{Baction} as
 \begin{align*}
-    \mathcal{L_{\hat B}} &= \frac{-1}{12}(g^{ \hat \mu  \hat \mu'} g^{\hat \nu \hat \nu'} g^{\hat \rho  \hat \rho'} \hat H_{ \hat \mu \hat \nu \hat \rho} \hat H_{ \hat \mu' \hat \nu' \hat \rho'})\\
-    &=\frac{-1}{12} (\hat \eta^{ \hat r \hat r'} \hat \eta^{\hat s \hat s'} \hat \eta^{\hat t \hat t'} \hat H_{ \hat r \hat s \hat t} \hat H_{ \hat r'  \hat s' \hat t'})\\
+    \mathcal{L_{\hat B}} &= \frac{-1}{12} \hat H_{ \hat \mu \hat \nu \hat \rho} \hat H^{ \hat \mu \hat \nu \hat \rho}\\
+    \intertext{here we use the trans}
+    &=\frac{-1}{12} \hat H_{ \hat r \hat s \hat t}  \hat V^{\hat r}_{\hat \mu} \hat V^{\hat s}_{\hat \nu} \hat V^{\hat t}_{\hat \rho} \hat H^{ \hat \mu \hat \nu \hat \rho}\\
+  
     &=\frac{-1}{12}(\hat H_{ \hat r \hat s\hat t}\hat H^{ \hat r \hat s \hat t})\\
     &=\frac{-1}{12}(\hat H_{  r  s t}\hat H^{  r  s  t} + \hat H_{  r  s c}\hat H^{  r  s  c} + \hat H_{  r  b t}\hat H^{  r  b  t} + \hat H_{  r  b c}\hat H^{  r  b  c} + \hat H_{  a  s t}\hat H^{  a  s  t} + \hat H_{  a  s c}\hat H^{  a  s  c} + \hat H_{  a  b s}\hat H^{  a  b  s} + \hat H_{  a  b c}\hat H^{  a  b  c})
 \end{align*}
@@ -523,11 +526,11 @@ Where we decompose $S$ as $S =  S_1 + S_2 + S_3 +S_4$, and we pose
 \end{equation}
 \section{Observation of new symmetry}
 \subsection{O(E,E) group presentation}
-Now for this part we are going to explore a very important part of physics research nowaday which is symetrie. In our context it will allow us to make equivalence between multpiple theory as whole. 
-In the first place we can that we can we have an $SL(E,R)$ symetrie, which is every matrix $E\times E$ matrix with determinant of one. There other symetrie that we can see for exemple the fact that,
+Now for this part we are going to explore a very important part of physics research nowaday which is symmetry. In our context it will allow us to make equivalence between multpiple theory as whole. 
+In the first place we can that we can we have an $SL(E,R)$ symmetry, which is every matrix $E\times E$ matrix with determinant of one. There other symmetry that we can see for exemple the fact that,
 B only appear within a derivative mean that we can add a constant to it however we want, and as shown earlier in part \ref{part:Bgauge}, and in \ref{part:gaugeviel}, we have some gauge freedom that we can use as we please.
-However, all those symetrie are manifest in high dimensional, what will interess us in the reduction is that it does not create nor destroy any symetrie and if we observe a new symetrie in the reduced form that mean that we have effectively discoverd a new symterie in the unreduced forme.
-and following the \cite{maharana1993noncompact} we observe an O(E,E) symetrie
+However, all those symmetry are manifest in high dimensional, what will interess us in the reduction is that it does not create nor destroy any symmetry and if we observe a new symmetry in the reduced form that mean that we have effectively discoverd a new symterie in the unreduced forme.
+and following the \cite{maharana1993noncompact} we observe an O(E,E) symmetry
 \begin{definition}
     Any matrices M is in O(E,E) if it is a square $E\times E$ matrices and if for the matrices
     \begin{equation*}
@@ -637,11 +640,63 @@ WE can redo this for $S_4$ and get the same result. We have then proven that the
  \section{Conclusion}
  During this intership we have shown two inportants things, firtly that if we take an universe with $4+E$ dimension, the reduced action in 4 dimensions is going to be the classical
  Einstein action, coupled with the maxwell action. After that we have shown that if we use the NS-NS action, there was already in high dimension an SL(E,R) invariance, but that under the reduced Action
- appear the O(E,E) symetrie wich allow us to make equivalence between multiple theory. \\
- Now if we had to extend this project to be more complete is to do general kuluza-klein reduction with a depence to the internal space \cite{scherk1979get}. We could also search for more general hidden symetrie
+ appear the O(E,E) symmetry wich allow us to make equivalence between multiple theory. \\
+ Now if we had to extend this project to be more complete is to do general kuluza-klein reduction with a depence to the internal space \cite{scherk1979get}. We could also search for more general hidden symmetry
  like the $O(E,E+n)$ \cite{maharana1993noncompact}.
  \printbibliography
  \appendix
+ \section{spin connexion, vielbein and flatspace} \label{spinconnexionvielbeinandflatspace}
+In general relativity we often encounter difficult to handle metrics such as the Kerr-Newman metric. A good idea we can have is to then work in an orthonormal basis $\{e^a_\mu \}$, which follow:
+\begin{equation} \label{vieldef}
+    g_{\mu \nu} V^{\mu}_{a}V^{\nu}_b = \eta_{ab}
+\end{equation}
+where g is the original metric and $\eta$ is the Minkowski metric.\\
+We call this basis the vielbein. In this basis we will use the Minkowski metric to raise and lower indices.
+Of course we can define the dual of the vielbein otherwise called the inverse vielbein with
+\begin{equation} \label{inversviel}
+    V^{a}_{\nu}V^{\nu}_b = \delta^a_b
+\end{equation}
+and of course that mean that we can go back with to the original metric with
+\begin{equation} \label{toflatmet}
+    g_{\mu \nu}  = \eta_{ab}V^{a}_{\mu}V^{b}_\nu
+\end{equation}
+Of course we can also change the basis any random vector, form or tensor with this, the method is to simply do
+\begin{align} \label{changeofbasis}
+    &T^a  =  V^a_\mu T^\mu \\
+    &T_a =   V^\mu_a T_\mu  \\
+    &T^a_b = V^a_\mu V^\nu_b T^\mu_\nu
+\end{align}
+Now in this internship we will not be in four dimensions, but rather in 4 time-space dimension, with E supplementarie space dimensions. And to pass from 4 + E total dimension to the other thing we use the vielbein in 4+E dimension the the 4 dimensions vielbein like this:
+\begin{subequations} \label{lowdimv}
+    \begin{align}
+        T^{\mu} &= V_r^\mu \hat V^r_{\hat \mu}\hat T^{\hat \mu} \\ \label{scalartrans}
+        T^{\alpha} &= V_a^\alpha \hat V^a_{\hat \mu}\hat T^{\hat \mu}\\ \label{vectortrans}
+        T_{\mu} &= V_\mu^r \hat V_r^{\hat \mu}\hat T_{\hat \mu}\\  \label{formtrans}
+        T_{\alpha} &= V_\alpha^a \hat V_a^{\hat \mu}\hat T_{\hat \mu} \\  \label{tenstrans}
+    \end{align}
+\end{subequations}
+Now of course other cange need to happen to the classical transformation for this to work, such as the classical christofells connexion which does not work anymore in this context
+so we introduce the spin(or latin) connexion whith
+\begin{equation} \label{spinconnexion}
+    \nabla_\mu X^a_b = \partial_\mu X^a_b + \omega_\mu{}^a{}_c X^c_b - \omega_\mu{}^c{}_b X^a_c
+\end{equation}
+Of course we can still make link with the levi-civita conexion with the equations
+\begin{align} \label{linkbetwinleviandlatin}
+    &\Gamma_{\mu \lambda}^{\nu} = V^{\nu}_a \partial_\mu V^a_\lambda + V^\nu_aV^b_\lambda  \omega_\mu{}^a{}_b,\\
+    &\omega_\mu{}^a{}_b = V^a_\nu V^\lambda_b \Gamma_{\mu \lambda}^{\nu} - V^\lambda_b \partial_\mu V^a_\lambda,
+\end{align}
+With those relation we can do prove the anti-symetrie of the last two index of the spin connexion
+\begin{equation}
+    \begin{aligned}
+        \nabla_\mu \eta_{ab} &= \partial_\mu X_{ab} - \omega_\mu{}^a{}_c \eta_{cb} - \omega_\mu{}^c{}_b \eta_{ac} \\
+        &=  - \omega_{\mu a b } - \omega_{\mu b a}\\
+        & = 0
+    \end{aligned}
+\end{equation}
+so in effect we have 
+\begin{equation} \label{antisymlat}
+    - \omega_{\mu a b }= \omega_{\mu b a}
+\end{equation}
  \section{lagrangian}
  By using the principle of least action and the variational principle we can see that
 \begin{align*}
