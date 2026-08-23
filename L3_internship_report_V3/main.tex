@@ -14,9 +14,12 @@
 \usepackage{siunitx}
 \usepackage{float}
 \usepackage{stmaryrd}
+\usepackage{todonotes}
 \usepackage[colorlinks = true]{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathmorphing,arrows.meta}
 
-
+\setlength{\marginparwidth}{2cm}
 
 \usepackage[backend=biber, style=phys, sorting=none]{biblatex}
 \addbibresource{references.bib}
@@ -82,16 +85,13 @@
 \section*{Acknowledgment}
 
 \section*{Notations and abreviations}
-
-We will during this intership use the vielbein formalism. We will use the same notation as in \cite{scherk1979get}
-which is
+For quick reference, we summarize here the index conventions used throughout this report, following \cite{scherk1979get}; their motivation is explained in Section~\ref{spinconnexionvielbeinandflatspace}.
 \begin{itemize} \label{notation}
     \item Greek hatted letter for curved indices $(\hat \mu , \hat \nu , \hat \rho , \dots)$
     \item Latin hatted letter for flat indices $(\hat p , \hat m , \hat n , \dots)$
     \item For space-time indices taking D values, late greek letters are used in the curved case $(\mu, \nu ,\rho , \dots)$ and Latin letters in the flat case (p, m, n)
     \item For internal indices  taking E values, early Greek  letters in the curved case $(\alpha, \beta ,\gamma , \dots)$ and Latin letters in the flat case (a,b,c)
 \end{itemize}
-THe general coordinate $x^{ \hat\mu}$ will thereofre be made of space time coordinate $x^ \mu$ and internal coordinate $y^\alpha$. The flat lorenz
 \addcontentsline{toc}{section}{Notation and abreviation }
 \newpage
 
@@ -114,21 +114,199 @@ but the NS-NS action of super gravity which basically add two new field. We will
 Then we will see that even if in high dimension only the SL(E,E) dimension is detectable without to much work, that when we go into law dimension another O(E,E) symmetry will apear, and 
 that mean that a lot of other theory are in fact equivalent to the one we are using.\\
 Finally will suppose that none of the field depend on the internal coordinate, therefor any field we will have $\partial_\alpha A^{\hat \mu} =0$
-\section{vielbein formalism}
+\section{vielbein formalism} \label{spinconnexionvielbeinandflatspace}
+Throughout this internship we will use the vielbein formalism, following the same notation as in \cite{scherk1979get} (summarized on page~\pageref{notation}): hatted Greek letters $(\hat \mu , \hat \nu , \hat \rho , \dots)$ denote curved indices and hatted Latin letters $(\hat p , \hat m , \hat n , \dots)$ denote flat indices; among these, the $D$ space-time directions are labelled by late Greek letters $(\mu, \nu, \rho, \dots)$ in the curved case and late Latin letters (p, m, n) in the flat case, while the $E$ internal directions are labelled by early Greek letters $(\alpha, \beta, \gamma, \dots)$ in the curved case and early Latin letters (a, b, c) in the flat case. The general coordinate $x^{\hat \mu}$ is therefore made of a space-time coordinate $x^\mu$ and an internal coordinate $y^\alpha$. The flat Lorentz indices are precisely the ones on which the vielbein formalism, introduced below, lets us use the flat Minkowski metric $\eta_{ab}$ to raise and lower indices, in place of the curved metric $g_{\mu \nu}$.\\
+In general relativity we often encounter difficult to handle metrics such as the Kerr-Newman metric. A good idea we can have is to then work in an orthonormal basis $\{e^a_\mu \}$, which follow:
+\begin{equation} \label{vieldef}
+    g_{\mu \nu} V^{\mu}_{a}V^{\nu}_b = \eta_{ab}
+\end{equation}
+where g is the original metric and $\eta$ is the Minkowski metric.\\
+We call this basis the vielbein. In this basis, indices are raised and lowered using the Minkowski metric.
+The dual basis, also called the inverse vielbein, is defined by
+\begin{equation} \label{inversviel}
+    V^{a}_{\nu}V^{\nu}_b = \delta^a_b.
+\end{equation}
+Consequently, the curved metric can be reconstructed from the vielbein:
+\begin{equation} \label{toflatmet}
+    g_{\mu \nu} = \eta_{ab}V^{a}_{\mu}V^{b}_\nu.
+\end{equation}
+
+The vielbein also allows us to transform vectors, covectors, and tensors between curved and flat indices:
+\begin{align} \label{changeofbasis}
+    T^a &= V^a_\mu T^\mu, \\
+    T_a &= V^\mu_a T_\mu, \\
+    T^a_b &= V^a_\mu V^\nu_b T^\mu_\nu.
+\end{align}
+The introduction of flat indices requires a corresponding modification of the usual transformation law. In particular, the Christoffel connection must be replaced by the spin connection, defined by
+\begin{equation} \label{spinconnexion}
+    \nabla_\mu X^a_b =
+    \partial_\mu X^a_b
+    + \omega_\mu{}^a{}_c X^c_b
+    - \omega_\mu{}^c{}_b X^a_c.
+\end{equation}
+The spin connection remains related to the Levi--Civita connection through
+\begin{align} \label{linkbetwinleviandlatin}
+    \Gamma_{\mu \lambda}^{\nu}
+    &= V^{\nu}_a \partial_\mu V^a_\lambda
+    + V^\nu_aV^b_\lambda \omega_\mu{}^a{}_b,\\
+    \omega_\mu{}^a{}_b
+    &= V^a_\nu V^\lambda_b \Gamma_{\mu \lambda}^{\nu}
+    - V^\lambda_b \partial_\mu V^a_\lambda.
+\end{align}
+With those relation we can do prove the anti-symetrie of the last two index of the spin connexion
+\begin{equation}
+    \begin{aligned}
+        \nabla_\mu \eta_{ab} &= \partial_\mu X_{ab} - \omega_\mu{}^a{}_c \eta_{cb} - \omega_\mu{}^c{}_b \eta_{ac} \\
+        &=  - \omega_{\mu a b } - \omega_{\mu b a}\\
+        & = 0
+    \end{aligned}
+\end{equation}
+so in effect we have 
+\begin{equation} \label{antisymlat}
+    - \omega_{\mu a b }= \omega_{\mu b a}
+\end{equation}
 \section{Lagrangian field theory}
 \subsection{Lagrangian density}
-In field theory, just as Newton's second law is "volumized" into the Navier-Stokes equations by distributing quantities over space, 
-we replace discrete degrees of freedom with continuous field densities defined at every point in spacetime.
-Therefore we will rewrite the Lagrangian as the integral over space of a new quantities called Lagrangian density, which will often refered to as just the Lagrangian.
-Thus we obtain this equation:
+In this internship we are going to use the lagrangian field theory to describe the object we are going to use. The main  interest of this framework is that we can work with an infinite number of freedom degree.
+Now to better understand what we are going to do, let's start from a simple case in 1D which we will then generalise to $ND$. The "simple" exemple is going to be an infitely log elastic rod that which has small
+longitudinal vibrations. We can model that with a system composed of discrete point with equal mass, connected by springs of natural length $a$, as shown in Figure~\ref{fig:latticechain}. The point $i$ is displaced from its equilibrium position by a quantity $\eta_i$.
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+      spring/.style={decorate, decoration={coil, aspect=0.5, segment length=4pt, amplitude=3pt, pre length=2pt, post length=2pt}},
+      dot/.style={circle, fill=black, inner sep=1.6pt},
+      >=Latex
+    ]
+
+    % ---- vertical positions ----
+    \def\ytop{2.2}
+    \def\ybot{0}
+
+    % ---- equilibrium mass positions ----
+    \def\xa{0}
+    \def\xb{4.5}
+    \def\xc{9}
+
+    % ================= TOP ROW: in equilibrium =================
+    \draw[spring] (-1.7,\ytop) -- (\xa,\ytop);
+    \draw[spring] (\xa,\ytop) -- (\xb,\ytop);
+    \draw[spring] (\xb,\ytop) -- (\xc,\ytop);
+    \draw[spring] (\xc,\ytop) -- (10.7,\ytop);
+
+    \node[dot] (A) at (\xa,\ytop) {};
+    \node[dot] (B) at (\xb,\ytop) {};
+    \node[dot] (C) at (\xc,\ytop) {};
+
+    % spacing labels "a"
+    \draw[<->] (\xa,{\ytop+0.55}) -- (\xb,{\ytop+0.55}) node[midway,above,font=\itshape] {$a$};
+    \draw[<->] (\xb,{\ytop+0.55}) -- (\xc,{\ytop+0.55}) node[midway,above,font=\itshape] {$a$};
+
+    \node[anchor=west, align=left] at (11,\ytop) {In\\ equilibrium};
+
+    % ================= BOTTOM ROW: displaced =================
+    \def\da{0.6}
+    \def\db{1.1}
+    \def\dc{0.85}
+
+    \draw[spring] (-1.7,\ybot) -- ({\xa+\da},\ybot);
+    \draw[spring] ({\xa+\da},\ybot) -- ({\xb+\db},\ybot);
+    \draw[spring] ({\xb+\db},\ybot) -- ({\xc+\dc},\ybot);
+    \draw[spring] ({\xc+\dc},\ybot) -- (10.7,\ybot);
+
+    \node[dot] (A2) at ({\xa+\da},\ybot) {};
+    \node[dot] (B2) at ({\xb+\db},\ybot) {};
+    \node[dot] (C2) at ({\xc+\dc},\ybot) {};
+
+    \node[anchor=west, align=left] at (11,\ybot) {Displaced\\ from\\ equilibrium};
+
+    % ================= dashed reference lines + eta arrows =================
+    \draw[dashed] (A) -- (\xa,-1.4);
+    \draw[dashed] (B) -- (\xb,-1.4);
+    \draw[dashed] (C) -- (\xc,-1.4);
+
+    \draw[<->] (\xa,-1.1) -- ({\xa+\da},-1.1);
+    \node[below] at ({(\xa+\xa+\da)/2},-1.4) {$\eta_{i-1}$};
+
+    \draw[<->] (\xb,-1.1) -- ({\xb+\db},-1.1);
+    \node[below] at ({(\xb+\xb+\db)/2},-1.4) {$\eta_{i}$};
+
+    \draw[<->] (\xc,-1.1) -- ({\xc+\dc},-1.1);
+    \node[below] at ({(\xc+\xc+\dc)/2},-1.4) {$\eta_{i+1}$};
+
+    \end{tikzpicture}
+    \caption{A discrete chain of equal masses connected by springs of natural length $a$. Top: the chain at equilibrium. Bottom: the chain displaced from equilibrium, with $\eta_i$ the displacement of mass $i$.}
+    \label{fig:latticechain}
+\end{figure}
+We can then obtain the potential and the kinetic energy with
+\begin{subequations}
+    \begin{align}
+        V &= \frac{1}{2}\sum_i m\dot{\eta}_i^2\\
+        T & = \frac{1}{2}\sum_i k(\eta_{i+1} - \eta_i)^2
+    \end{align}
+\end{subequations}
+and now we can write the lagrangian of the system. Which is
+\begin{equation*}
+    L = T - V \frac{1}{2} \sum_i m \dot{\eta}_i^2 - k(\eta_{i+1} - \eta_i)^2
+\end{equation*}
+Wich can be rewritten as being
+\begin{equation}
+    L = T - V \frac{1}{2} \sum_i a\big[ \frac{m}{a}\dot{\eta}_i^2 - ak(\frac{\eta_{i+1} - \eta_i}{a})^2 \big] = \sum_i aL_i
+\end{equation}
+With that we have
+\begin{equation*}
+    \frac{m}{a} \ddot{\eta}_i^2 -ka \Big(\frac{\eta_{i+1} - \eta_i}{a}\Big)^2 + ka \Big(\frac{\eta_{i} - \eta_{i-1}}{a}\Big)^2 =0
+\end{equation*}
+As the mouvement equation for each $\eta_i$.
+If we pass to the limit $a\rightarrow 0$. We can see that $\frac{m}{a}\rightarrow \mu$ which is the mass per unit of length.
+The limit of ka is far less evident and we have to use Hooke's law as we have an elastic rod.
+Where we have that the extension of the rod per unit length is proportional to the force or extension applicated to the rod, thus the relation is
+\begin{equation}
+    F= Y \xi
+\end{equation}
+where $\xi$ is the elongation per unit length and Y is Young's modulus. Now we can write $\xi = \frac{\eta_{i+1} - \eta_i}{a} $. The force necessary to
+stretch the spring by this amount is
+\begin{equation*}
+    F = k(\eta_{i+1} - \eta_i) = ka (\frac{\eta_{i+1} - \eta_i}{a}) = ka \xi
+\end{equation*}
+which mean that ka is the young modulus of the continuous rod. As we go from the discrete to the continious case, the integer i identifying 
+the particular mass point becomes the continious position coordinate x. We now have $\eta(x)$ instead of $\eta_i$.
+Furthermore as agoes to zero we have that
+\begin{equation*}
+    \frac{\eta_{i+1} - \eta_i}{a} = \frac{\eta(x+a) - \eta(x)}{a} \rightarrow \dv{\eta}{x}
+\end{equation*}
+as a whas palying the role of dx approach zero we have that the sum we had earlier transform into an integral over the length of the rod and the Lagrangian
+becomme
+\begin{equation}
+    L = \frac{1}{2} \int \Big[ \mu \dot{\eta}^2 - Y(\dv{\eta}{x})^2 \Big] dx
+\end{equation}
+In the limit $a _rightarrow 0$ we have that the last two terms of the motion equation become
+\begin{equation*}
+    \lim_{a \rightarrow 0} - \frac{Y}{a} \Big[ \dv{\eta}{x}_x - \dv{\eta}{x}_{x-a} \Big]
+\end{equation*}
+which is in effect a second derivative of $\eta$. Hence, the equation of motion for the countionous case is
+\begin{equation}
+    \mu \dv[2]{\eta}{t} - Y \dv[2]{\eta}{x} = 0
+\end{equation}
+which is the waveequation in one dimension with the propagating velocity
+\begin{equation*}
+    v = \sqrt{\frac{Y}{\mu}}
+\end{equation*}
+And so we have the d'Alembert equation.\\
+now we can see that if we have an infinite number of point there is not an infinite amount of Lagrange equation but merely one.
+This also mean that we can here write the lagrangian as being.
+\begin{equation*}
+    L = \int\mathcal{L} dx
+\end{equation*}
+where here L is the Lagrangian per unit of length, however we can generalise that to ND and have that
+the lagrangian can be writen as being
 \begin{equation} \label{densitylagrandef}
-    L = \iiint \mathcal{L}(\eta_{\rho},\pdv{\eta_{\rho}}{x^{\nu}}) dx dy dz
+    L = \iiint \mathcal{L}(\eta_{\rho},\pdv{\eta_{\rho}}{x^{\nu}}) dx^N
 \end{equation}
 Now using esintein convention we can rewritte the action in a new light :
 \begin{equation} \label{actiondensitylag}
     S = \int \mathcal{L} dx^\mu
 \end{equation}
-
+As a finale note one can see that both the Variational method and the Lagrange equation will work the same as before the transformation.
 \subsection{General exemple for scalar and vectorial fields, and result for two forms}
 In field theory, the Lagrangian has a classical description any field (often the simpliest).
 For this work, only the scalar, vector, and two-form Lagrangians are needed, along with the metric, which is handled by Einstein's equations.\\
@@ -136,19 +314,21 @@ So for a scalar field we have :
 \begin{equation} \label{scalafield}
     \boxed{\mathcal{L} = - \frac{1}{2} \partial_\mu \Phi \partial^ \mu \Phi}
 \end{equation}
+which give us $\square \Phi =0$ for the equation of motion.\\
 and for a vectorial field we have
 \begin{equation}\label{vectorialfield}
-    \boxed{\mathcal{L} = - \frac{1}{}F_{\mu \nu}F^{\mu \nu}}
+    \boxed{\mathcal{L} = - \frac{1}{4}F_{\mu \nu}F^{\mu \nu}}
 \end{equation}
 where for the field A
 \begin{equation*}
     F_{\mu \nu} = \partial_\mu A^ \nu - \partial_\nu A^ \mu
 \end{equation*}
+The equation of motion is going to be $\partial_\mu F^{\mu \nu} = 0$, which is exactly the Maxwells equations.
 In a vaccum the einstein equation give us
 \begin{equation*} \label{einsteinaction}
     \boxed{\mathcal{L} = R}
 \end{equation*}
-where R is ricci scalar
+where R is ricci scalar, and the equation of motion is exaclty einstein equation.\\
 finally for the lagrangian of a two form fields
 whe will look in \cite{maharana1993noncompact} where it is given by the equation :  
 \begin{equation} \label{Baction}
@@ -158,6 +338,7 @@ where for the two form $B_{\nu \rho}$ we have
 \begin{equation*}
     H_{ \mu \nu \rho} = \partial_ \mu B_{\nu \rho} + cyc. perm
 \end{equation*}
+and the equation of motion is $\partial_\mu H^{\mu \nu\rho} = 0$
 \subsection{NS-NS Action Of supergravity}
 With those object we can effectively create the NS-NS action which has this form: 
 \begin{equation} \label{NS-NSaction}
@@ -198,17 +379,16 @@ and finally the $\Omega$ are defined thanks to the vielbein with
     \hat\Omega_{\hat r\hat s \hat t } = \frac{1}{2}\hat (V^{\hat \mu}_{\hat r}\hat V^{\hat \nu}_{\hat s} -\hat V^{\hat \nu}_{\hat r} \hat V^{\hat \mu}_{\hat s})\partial_{\hat \nu} \hat V_{\hat \mu \hat r}
 \end{equation*}
 with all of that we are going to rewrite the action $S_{\hat g}$ in termes of $\hat \omega$
-\begin{equation}
-    \begin{aligned}
-        S_{\hat g} &= \int d x^D\hat V  e^{-\hat \phi} \hat R\\
-        &= \int d x^D\hat V  e^{-\hat \phi} \hat V^{\hat \mu \hat r} \hat V^{\hat \nu \hat s} \hat R_{\hat \mu \hat \nu \hat r \hat s}\\
-        &= \int d x^D\hat V e^{-\hat \phi} \hat V^{\hat \mu \hat r} \hat V^{\hat \nu \hat s} ([\partial_{\hat \mu } \hat \omega_{\hat \nu \hat r \hat s} -\partial_{\hat \nu } \hat \omega_{\hat \mu \hat r \hat s}]+ [\hat \omega_{\hat\mu \hat r}{}^{\hat t}\omega_{\hat\nu \hat t \hat s} - \hat \omega_{\hat\nu \hat r}{}^{\hat t}\omega_{\hat\mu \hat t \hat s}])\\
-        &= \int d x^D\{  2\hat V e^{-\hat \phi} \hat V^{\hat \mu \hat r} \hat V^{\hat \nu \hat s}\partial_{\hat \mu } \hat \omega_{\hat \nu \hat r \hat s}+ \hat V e^{-\hat \phi}[\hat \omega^{\hat r}{}_{\hat r}{}^{\hat t}\omega^{\hat s}{}_{\hat t \hat s} - \hat \omega^{\hat s}{}_{ \hat r}{}^{\hat t}\omega^{\hat r}{}_{ \hat t \hat s}] \}\\
-        &= \int d x^D\{  \hat V e^{-\hat \phi}[\hat \omega^{\hat r}{}_{\hat r}{}^{\hat t}\omega^{\hat s}{}_{\hat t \hat s} - \hat \omega^{\hat s}{}_{ \hat r}{}^{\hat t}\omega^{\hat r}{}_{ \hat t \hat s}]- 2 \hat \omega_{\hat \nu \hat r \hat s}\partial_{\hat \mu}(\hat V e^{-\hat \phi} \hat V^{\hat \mu \hat r} \hat V^{\hat \nu \hat s}) \}\\
-        &= \int d x^D\{  \hat V e^{-\hat \phi}[\hat \omega^{\hat r}{}_{\hat r}{}^{\hat t}\omega^{\hat s}{}_{\hat t \hat s} - \hat \omega^{\hat s}{}_{ \hat r}{}^{\hat t}\omega^{\hat r}{}_{ \hat t \hat s}]- 2\hat \omega_{\hat \nu \hat r \hat s}[\hat V e^{-\hat \phi} \hat V^{\hat \mu \hat r} \partial_{\hat \mu} \hat V^{\hat \nu \hat s} +\hat V e^{-\hat \phi}  \hat V^{\hat \nu \hat s} \partial_{\hat \mu}\hat V^{\hat \mu \hat r}+ e^{-\hat \phi} \hat V^{\hat \mu \hat r} \hat V^{\hat \nu \hat s} \partial_{\hat \mu}\hat V +\hat V  \hat V^{\hat \mu \hat r} \hat V^{\hat \nu \hat s} \partial_{\hat \mu}e^{-\hat \phi} ] \}\\
-        &= \int d x^D\hat V e^{-\hat \phi} \{  \hat \omega^{\hat s}{}_{\hat s}{}^{\hat t}\omega^{\hat r}{}_{\hat r \hat t} + \hat \omega^{\hat s \hat t}{}_{ \hat r}\omega^{\hat r}{}_{  \hat s \hat t }+ 2\hat \omega_{\hat s}{}^{\hat r \hat s}\hat V^{\hat \mu}_{ \hat r}\partial_{\hat \mu}\hat \phi \}\\
-    \end{aligned}
-\end{equation}
+\begin{align}
+    S_{\hat g} &= \int d x^D\hat V  e^{-\hat \phi} \hat R \nonumber \\
+    &= \int d x^D\hat V  e^{-\hat \phi} \hat V^{\hat \mu \hat r} \hat V^{\hat \nu \hat s} \hat R_{\hat \mu \hat \nu \hat r \hat s} \nonumber \\
+    &= \int d x^D\hat V e^{-\hat \phi} \hat V^{\hat \mu \hat r} \hat V^{\hat \nu \hat s} \left([\partial_{\hat \mu } \hat \omega_{\hat \nu \hat r \hat s} -\partial_{\hat \nu } \hat \omega_{\hat \mu \hat r \hat s}]+ [\hat \omega_{\hat\mu \hat r}{}^{\hat t}\omega_{\hat\nu \hat t \hat s} - \hat \omega_{\hat\nu \hat r}{}^{\hat t}\omega_{\hat\mu \hat t \hat s}]\right) \nonumber\\
+    &\text{Integrate the first two terms by parts; drop the resulting boundary term.} \nonumber \\
+    &= \int d x^D\{  \hat V e^{-\hat \phi}[\hat \omega^{\hat r}{}_{\hat r}{}^{\hat t}\omega^{\hat s}{}_{\hat t \hat s} - \hat \omega^{\hat s}{}_{ \hat r}{}^{\hat t}\omega^{\hat r}{}_{ \hat t \hat s}]- 2\hat \omega_{\hat \nu \hat r \hat s}[\hat V e^{-\hat \phi} \hat V^{\hat \mu \hat r} \partial_{\hat \mu} \hat V^{\hat \nu \hat s} +\hat V e^{-\hat \phi}
+    \hat V^{\hat \nu \hat s} \partial_{\hat \mu}\hat V^{\hat \mu \hat r}+ e^{-\hat \phi} \hat V^{\hat \mu \hat r} \hat V^{\hat \nu \hat s} \partial_{\hat \mu}\hat V +\hat V  \hat V^{\hat \mu \hat r} \hat V^{\hat \nu \hat s} \partial_{\hat \mu}e^{-\hat \phi} ] \} \nonumber \\
+    &\text{Use the rule of raising and lowering index and the  equation above to simplify.} \nonumber \\
+    &= \int d x^D\hat V e^{-\hat \phi} \{  \hat \omega^{\hat s}{}_{\hat s}{}^{\hat t}\omega^{\hat r}{}_{\hat r \hat t} + \hat \omega^{\hat s \hat t}{}_{ \hat r}\omega^{\hat r}{}_{  \hat s \hat t }+ 2\hat \omega_{\hat s}{}^{\hat r \hat s}\hat V^{\hat \mu}_{ \hat r}\partial_{\hat \mu}\hat \phi \}
+\end{align}
 \subsection{Vielbein Anstaz} \label{part:vielbeinanstaz}
 Now that we have explicitely written the action in terme of either latin connexion and or the two other fields, what we hate to do is to suppose an anstaz for the vielbein. Why the vielbein and not the metric you may ask? Because as stated in  \ref{spinconnexionvielbeinandflatspace},
 all the information of the metric can be contained within the vielbein, and has we primarly work with them for the action, it is easier to do an anstaz on them. Now we will do the same anzasts as in the \cite{scherk1979get},
@@ -221,16 +401,16 @@ however we will consider that $\gamma $ they use is null since the begining, and
 Now still using \eqref{inversviel} we can compute the inverse vielbein and then the metric and then the inverse metric that gave us
 \begin{equation} \label{expinverseviel}
     \hat V^{\hat r}_{\hat \mu} = \begin{pmatrix} 
-         V^\mu_r &  - A^{\alpha }_r \\ 0 & \Phi^\alpha_a
+         V^\mu_r &  - A^{(1)\alpha }_r \\ 0 & \Phi^\alpha_a
     \end{pmatrix},
 \end{equation}
 for the inverse vielbein, and
 \begin{equation} \label{expmetric}
     \hat g_{\hat \mu \hat \nu} = \begin{pmatrix}
-        g_{\mu \nu} - A^{\gamma}_{\mu}A_{\nu \lambda} & - A_{\mu \beta} \\  A_{\nu \alpha} &-h_{\alpha \beta}
+        g_{\mu \nu} - A^{\gamma}_{\mu}A^{(1)}_{\nu \lambda} & - A^{(1)}_{\mu \beta} \\  A^{(1)}_{\nu \alpha} &-h_{\alpha \beta}
     \end{pmatrix}, \text{ and }
     \hat g^{\hat \mu \hat \nu} = \begin{pmatrix}
-        g^{\mu \nu}  & - A^{\mu \beta} \\ - A^{\nu \alpha} &-h^{\alpha \beta}+ A^{\beta}_{\rho}A^{\rho \alpha}
+        g^{\mu \nu}  & - A^{ (1)\mu \beta} \\ - A^{(1)\nu \alpha} &-h^{\alpha \beta}+ A^{(1)\beta}_{\rho}A^{\rho \alpha}
     \end{pmatrix},
 \end{equation}
 for the metric\\
@@ -256,17 +436,17 @@ which is exactly the transformation law of a vector field under a Lie derivative
 \end{equation*}
 which is exactly the transformation law of a scalar field. Finally, for $A^\alpha_\mu$ we obtain:
 \begin{equation*}
-    A^\alpha_\mu= \xi^\rho\partial_\rho A^\alpha_\mu + \partial_\mu \xi^\rho A^\alpha_\rho +\partial_\mu \xi^\alpha
+    A^{(1)\alpha}_\mu= \xi^\rho\partial_\rho A^{(1)\alpha}_\mu + \partial_\mu \xi^\rho A^{(1)\alpha}_\rho +\partial_\mu \xi^\alpha
 \end{equation*}
 which corresponds to the transformation law of a vector field, up to an extra correction term. One may further note that, restricting to $\xi^\alpha$ only, we obtain
 \begin{subequations}
 \begin{align}
 &\delta V^r_\mu = \delta \Phi^a_\alpha = 0,\\
-&\delta A^\alpha_\mu = \partial_\mu \xi^\alpha.
+&\delta A^{(1)\alpha}_\mu = \partial_\mu \xi^\alpha.
 \end{align}
 \end{subequations}
 so that what remains of the $D$-dimensional diffeomorphisms, once restricted to $\xi^\alpha$ independent of the internal coordinates $y$, corresponds to a set of $E$ abelian gauge symmetries.
-The vielbein in \eqref{vielbeinanstaz} thus contains the $D$-dimensional vielbein (i.e. the graviton), $E$ vector fields $A^\alpha_\mu$, and $E^2$ scalar fields $\Phi^a_\alpha$. However, because of the local Lorentz invariance in the internal directions, only $\frac{1}{2}E(E+1)$ of these scalars actually correspond to propagating degrees of freedom. We also introduce $\delta = det \Phi$ 
+The vielbein in \eqref{vielbeinanstaz} thus contains the $D$-dimensional vielbein (i.e. the graviton), $E$ vector fields $A^{(1)\alpha}_\mu$, and $E^2$ scalar fields $\Phi^a_\alpha$. However, because of the local Lorentz invariance in the internal directions, only $\frac{1}{2}E(E+1)$ of these scalars actually correspond to propagating degrees of freedom. We also introduce $\delta = det \Phi$ 
 \subsection{Ricci scalar reduction}
 Now that we better know the tool  we will use, We can begin the calculation. For a starter we will do the Einstein action in D+E dimension twiked by the addition of the dilation.\\
 Firstly let's begin by expending completly the $S_{\hat g}$, this will show us that we technically have to compute 8 $\omega$, however thanks to the antisymmetry og the last to index we can reduce that to 6.
@@ -331,11 +511,11 @@ Now let's begin the computation of the $\Omega$'s. Starting with $\hat \Omega_{p
 For $\hat \Omega_{pma}$, we find:
 \begin{align*}
     \hat \Omega_{pma} &= \frac{1}{2}(\hat V^{\hat \mu}_{  p} \hat V^{ \nu}_{m}-\hat V^{\hat \mu}_{m} \hat V^{ \nu}_{p})\partial_{ \nu} \hat V_{\hat \mu a}\\
-    &= -( V^{\mu}_{  p}  V^{ \nu}_{m}-  V^{ \mu}_{m} V^{ \nu}_{p})\partial_{ \nu} (A^{\alpha}_{\mu}\Phi_{a\alpha}) + ( A^\alpha_p V^{ \nu}_{m}- \hat A^{\alpha}_{m} V^{ \nu}_{p})\partial_{ \nu} (\Phi_{a\alpha})\\
-    &= - (V^{ \mu}_{  p}  V^{ \nu}_{m}- V^{ \mu}_{m}  V^{ \nu}_{p})(\partial_{ \nu} (A^{\alpha}_{\mu})\Phi_{a\alpha}+\partial_{ \nu}(\Phi_{a\alpha})A^{\alpha}_{\mu}) + \kappa 1( A^\alpha_p V^{ \nu}_{m}- \hat A^{\alpha}_{m} V^{ \nu}_{p})\partial_{ \nu} (\Phi_{a\alpha}) \\
-    &= - (V^{ \mu}_{  p}  V^{ \nu}_{m}- V^{ \mu}_{m}  V^{ \nu}_{p})(\partial_{ \nu} (A^{\alpha}_{\mu})\Phi_{a\alpha}+\partial_{ \nu}(\Phi_{a\alpha})A^{\alpha}_{\mu}) + (A^\alpha_p V^{ \nu}_{m}- \hat A^{\alpha}_{m} V^{ \nu}_{p})\partial_{ \nu} (\Phi_{a\alpha}) \\
-    &= - (V^{ \mu}_{  p}  V^{ \nu}_{m}- V^{ \mu}_{m}  V^{ \nu}_{p})\partial_{ \nu} (A^{\alpha}_{\mu})\Phi_{a\alpha}\\
-    &=  (F^\alpha{}_{pm}\Phi_{a\alpha}- \partial_\nu(V^{ \mu}_{  p}  V^{ \nu}_{m})A^{\alpha}_{\mu}\Phi_{a\alpha}+ \partial_\nu(V^{ \nu}_{  p}  V^{ \mu}_{m})A^{\alpha}_{\mu}\Phi_{a\alpha})\\
+    &= -( V^{\mu}_{  p}  V^{ \nu}_{m}-  V^{ \mu}_{m} V^{ \nu}_{p})\partial_{ \nu} (A^{(1)\alpha}_{\mu}\Phi_{a\alpha}) + ( A^{(1)\alpha}_p V^{ \nu}_{m}- \hat A^{(1)\alpha}_{m} V^{ \nu}_{p})\partial_{ \nu} (\Phi_{a\alpha})\\
+    &= - (V^{ \mu}_{  p}  V^{ \nu}_{m}- V^{ \mu}_{m}  V^{ \nu}_{p})(\partial_{ \nu} (A^{(1)\alpha}_{\mu})\Phi_{a\alpha}+\partial_{ \nu}(\Phi_{a\alpha})A^{(1)\alpha}_{\mu}) + \kappa 1( A^{(1)\alpha}_p V^{ \nu}_{m}- \hat A^{(1)\alpha}_{m} V^{ \nu}_{p})\partial_{ \nu} (\Phi_{a\alpha}) \\
+    &= - (V^{ \mu}_{  p}  V^{ \nu}_{m}- V^{ \mu}_{m}  V^{ \nu}_{p})(\partial_{ \nu} (A^{(1)\alpha}_{\mu})\Phi_{a\alpha}+\partial_{ \nu}(\Phi_{a\alpha})A^{\alpha}_{\mu}) + (A^{(1)\alpha}_p V^{ \nu}_{m}- \hat A^{(1)\alpha}_{m} V^{ \nu}_{p})\partial_{ \nu} (\Phi_{a\alpha}) \\
+    &= - (V^{ \mu}_{  p}  V^{ \nu}_{m}- V^{ \mu}_{m}  V^{ \nu}_{p})\partial_{ \nu} (A^{(1)\alpha}_{\mu})\Phi_{a\alpha}\\
+    &=  (F^\alpha{}_{pm}\Phi_{a\alpha}- \partial_\nu(V^{ \mu}_{  p}  V^{ \nu}_{m})A^{(1)\alpha}_{\mu}\Phi_{a\alpha}+ \partial_\nu(V^{ \nu}_{  p}  V^{ \mu}_{m})A^{(1)\alpha}_{\mu}\Phi_{a\alpha})\\
     &=  F^\alpha{}_{pm}\Phi_{a\alpha}
 \end{align*}
 For $\hat \Omega_{pam}$:
@@ -421,10 +601,10 @@ For the two form we will reduce it apart from the two other field, this those no
 We can rewrite \eqref{Baction} as
 \begin{align*}
     \mathcal{L_{\hat B}} &= \frac{-1}{12} \hat H_{ \hat \mu \hat \nu \hat \rho} \hat H^{ \hat \mu \hat \nu \hat \rho}\\
-    \intertext{here we use the trans}
+    \intertext{here we use \eqref{changeofbasis} to be able to pass the lower index H to the flatspace basis and then we reuse them to do the change of basis to the higher index }
     &=\frac{-1}{12} \hat H_{ \hat r \hat s \hat t}  \hat V^{\hat r}_{\hat \mu} \hat V^{\hat s}_{\hat \nu} \hat V^{\hat t}_{\hat \rho} \hat H^{ \hat \mu \hat \nu \hat \rho}\\
-  
     &=\frac{-1}{12}(\hat H_{ \hat r \hat s\hat t}\hat H^{ \hat r \hat s \hat t})\\
+    \intertext{We then develop the term, with the internal space and space time }
     &=\frac{-1}{12}(\hat H_{  r  s t}\hat H^{  r  s  t} + \hat H_{  r  s c}\hat H^{  r  s  c} + \hat H_{  r  b t}\hat H^{  r  b  t} + \hat H_{  r  b c}\hat H^{  r  b  c} + \hat H_{  a  s t}\hat H^{  a  s  t} + \hat H_{  a  s c}\hat H^{  a  s  c} + \hat H_{  a  b s}\hat H^{  a  b  s} + \hat H_{  a  b c}\hat H^{  a  b  c})
 \end{align*}
 however thanks to to the fact that $\hat B_{\hat \mu \hat \nu}$ is antysymetric one can easly show that this imply that $\hat H_{ \hat \mu \hat \nu \hat \rho}$ is antysemtric for any neighbor index. so we obtaint
@@ -645,58 +825,6 @@ WE can redo this for $S_4$ and get the same result. We have then proven that the
  like the $O(E,E+n)$ \cite{maharana1993noncompact}.
  \printbibliography
  \appendix
- \section{spin connexion, vielbein and flatspace} \label{spinconnexionvielbeinandflatspace}
-In general relativity we often encounter difficult to handle metrics such as the Kerr-Newman metric. A good idea we can have is to then work in an orthonormal basis $\{e^a_\mu \}$, which follow:
-\begin{equation} \label{vieldef}
-    g_{\mu \nu} V^{\mu}_{a}V^{\nu}_b = \eta_{ab}
-\end{equation}
-where g is the original metric and $\eta$ is the Minkowski metric.\\
-We call this basis the vielbein. In this basis we will use the Minkowski metric to raise and lower indices.
-Of course we can define the dual of the vielbein otherwise called the inverse vielbein with
-\begin{equation} \label{inversviel}
-    V^{a}_{\nu}V^{\nu}_b = \delta^a_b
-\end{equation}
-and of course that mean that we can go back with to the original metric with
-\begin{equation} \label{toflatmet}
-    g_{\mu \nu}  = \eta_{ab}V^{a}_{\mu}V^{b}_\nu
-\end{equation}
-Of course we can also change the basis any random vector, form or tensor with this, the method is to simply do
-\begin{align} \label{changeofbasis}
-    &T^a  =  V^a_\mu T^\mu \\
-    &T_a =   V^\mu_a T_\mu  \\
-    &T^a_b = V^a_\mu V^\nu_b T^\mu_\nu
-\end{align}
-Now in this internship we will not be in four dimensions, but rather in 4 time-space dimension, with E supplementarie space dimensions. And to pass from 4 + E total dimension to the other thing we use the vielbein in 4+E dimension the the 4 dimensions vielbein like this:
-\begin{subequations} \label{lowdimv}
-    \begin{align}
-        T^{\mu} &= V_r^\mu \hat V^r_{\hat \mu}\hat T^{\hat \mu} \\ \label{scalartrans}
-        T^{\alpha} &= V_a^\alpha \hat V^a_{\hat \mu}\hat T^{\hat \mu}\\ \label{vectortrans}
-        T_{\mu} &= V_\mu^r \hat V_r^{\hat \mu}\hat T_{\hat \mu}\\  \label{formtrans}
-        T_{\alpha} &= V_\alpha^a \hat V_a^{\hat \mu}\hat T_{\hat \mu} \\  \label{tenstrans}
-    \end{align}
-\end{subequations}
-Now of course other cange need to happen to the classical transformation for this to work, such as the classical christofells connexion which does not work anymore in this context
-so we introduce the spin(or latin) connexion whith
-\begin{equation} \label{spinconnexion}
-    \nabla_\mu X^a_b = \partial_\mu X^a_b + \omega_\mu{}^a{}_c X^c_b - \omega_\mu{}^c{}_b X^a_c
-\end{equation}
-Of course we can still make link with the levi-civita conexion with the equations
-\begin{align} \label{linkbetwinleviandlatin}
-    &\Gamma_{\mu \lambda}^{\nu} = V^{\nu}_a \partial_\mu V^a_\lambda + V^\nu_aV^b_\lambda  \omega_\mu{}^a{}_b,\\
-    &\omega_\mu{}^a{}_b = V^a_\nu V^\lambda_b \Gamma_{\mu \lambda}^{\nu} - V^\lambda_b \partial_\mu V^a_\lambda,
-\end{align}
-With those relation we can do prove the anti-symetrie of the last two index of the spin connexion
-\begin{equation}
-    \begin{aligned}
-        \nabla_\mu \eta_{ab} &= \partial_\mu X_{ab} - \omega_\mu{}^a{}_c \eta_{cb} - \omega_\mu{}^c{}_b \eta_{ac} \\
-        &=  - \omega_{\mu a b } - \omega_{\mu b a}\\
-        & = 0
-    \end{aligned}
-\end{equation}
-so in effect we have 
-\begin{equation} \label{antisymlat}
-    - \omega_{\mu a b }= \omega_{\mu b a}
-\end{equation}
  \section{lagrangian}
  By using the principle of least action and the variational principle we can see that
 \begin{align*}
