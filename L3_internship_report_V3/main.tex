@@ -93,11 +93,34 @@ For quick reference, we summarize here the index conventions used throughout thi
     \item For internal indices taking $E$ values, early Greek letters are used in the curved case $(\alpha, \beta ,\gamma , \dots)$ and Latin letters in the flat case $(a,b,c)$.
 \end{itemize}
 \addcontentsline{toc}{section}{Notation and abbreviations}
+\section*{Résumé}
+
+Ce stage a été effectué dans le groupe Théorie et Modèles du Laboratoire de Physique (UMR CNRS 5672) de l'ENS de Lyon, sous la direction du Dr Camille Eloy. 
+Il porte sur la réduction dimensionnelle en supergravité et sur l'apparition de symétries de dualité cachées. 
+On commence par poser le cadre de la théorie des champs lagrangienne et par introduire le formalisme du vielbein, qui est nécessaire pour bien traiter les indices plats et courbes. 
+On reprend ensuite la méthode de Scherk et Schwarz pour réduire l'action NS-NS de la supergravité, écrite en dimension $D+E$, jusqu'en dimension $D$, 
+en supposant qu'aucun champ ne dépend des coordonnées internes. La réduction du terme d'Einstein--Hilbert fait apparaître, en plus de la gravité usuelle en dimension $D$, 
+$E$ champs de jauge et une matrice de champs scalaires $h_{\alpha\beta}$ qui décrit la géométrie de l'espace interne. La réduction du dilaton mène à un dilaton décalé invariant, 
+et celle de la deux-forme fait apparaître un second champ de jauge ainsi qu'une deux-forme réduite. En regroupant $h_{\alpha\beta}$ et la deux-forme réduite dans une seule matrice $M$, 
+on montre que l'action complète est invariante sous un groupe $O(E,E)$ qui agit sur $M$ et sur les champs de jauge, une symétrie qu'on ne voit pas du tout dans la théorie non réduite.
+
+\section*{Summary}
+
+This internship was carried out in the Theory and Models group of the Laboratoire de Physique (UMR CNRS 5672) at ENS de Lyon, under the supervision of Dr Camille Eloy. It looks at dimensional reduction in supergravity and at the appearance of hidden duality symmetries. 
+We start by laying out Lagrangian field theory and introducing the vielbein formalism, which is needed to properly handle flat and curved indices. 
+We then follow the method of Scherk and Schwarz to reduce the NS-NS action of supergravity, written in $D+E$ dimensions, down to $D$ dimensions, assuming that no field depends on the internal coordinates. 
+Reducing the Einstein--Hilbert term gives, in addition to ordinary $D$-dimensional gravity, $E$ gauge fields and a scalar matrix $h_{\alpha\beta}$ that describes the geometry of the internal space. 
+Reducing the dilaton leads to an invariant shifted dilaton, and reducing the two-form gives a second gauge field along with a reduced two-form. By putting $h_{\alpha\beta}$ and the reduced two-form together into a single matrix $M$, we show that the complete action is invariant under an $O(E,E)$ group acting on $M$ and on the gauge fields, a symmetry that is completely hidden in the unreduced theory.
 \newpage
 
 \tableofcontents
 \clearpage
 \section{Introduction}
+\subsection{Context of the internship}
+This internship was carried out in the Theory and Models group of the physics laboratory of ENS Lyon. It was officially done under the supervision of Doctor Henning Samtleben, 
+however unofficially the internship was done under the supervision of Doctor Camille Eloy, 
+who has a postdoctoral position here. He was the one who chose the subject and the person who answered most of the questions I had during this internship.
+\subsection{Introduction to the subject}
 Since the 19th-century unification of electricity and magnetism,
 and the later development of classical and quantum field theory,
 physicists have been looking for a single mathematical framework that could describe all fundamental interactions at once.
@@ -113,58 +136,6 @@ Concretely, we begin by describing what a field theory is, in order to work out 
 but the NS-NS action of supergravity, which adds two new fields. We do this using the vielbein formalism, as it is useful for the description of fermions, even though here we only describe bosonic fields.
 We then show that, although in high dimensions only the $SL(E,E)$ symmetry is detectable without much work, an additional $O(E,E)$ symmetry appears once we go to low dimensions; this means that
 a number of theories that look distinct in $D+E$ dimensions are in fact equivalent.\\
-Throughout, we work in the simplest setting: we assume that none of the fields depend on the internal coordinates, so that for any field we have $\partial_\alpha A^{\hat \mu} = 0$.\\
-\section{Vielbein Formalism} \label{spinconnexionvielbeinandflatspace}
-Throughout this internship we will use the vielbein formalism, following the same notation as in \cite{scherk1979get} (summarized on page~\pageref{notation}): hatted Greek letters $(\hat \mu , \hat \nu , \hat \rho , \dots)$ denote curved indices and hatted Latin letters $(\hat p , \hat m , \hat n , \dots)$ denote flat indices; among these, the $D$ space-time directions are labelled by late Greek letters $(\mu, \nu, \rho, \dots)$ in the curved case and late Latin letters $(p, m, n)$ in the flat case, while the $E$ internal directions are labelled by early Greek letters $(\alpha, \beta, \gamma, \dots)$ in the curved case and early Latin letters $(a, b, c)$ in the flat case. The general coordinate $x^{\hat \mu}$ is therefore made up of a space-time coordinate $x^\mu$ and an internal coordinate $y^\alpha$. The flat Lorentz indices are precisely the ones on which the vielbein formalism, introduced below, lets us use the flat Minkowski metric $\eta_{ab}$ to raise and lower indices, in place of the curved metric $g_{\mu \nu}$.\\
-In general relativity we often encounter metrics that are difficult to handle, such as the Kerr--Newman metric. A useful idea is then to work in an orthonormal basis $\{e^a_\mu \}$, which satisfies
-\begin{equation} \label{vieldef}
-    g_{\mu \nu} V^{\mu}_{a}V^{\nu}_b = \eta_{ab},
-\end{equation}
-where $g$ is the original metric and $\eta$ is the Minkowski metric.\\
-We call this basis the vielbein. In this basis, indices are raised and lowered using the Minkowski metric.
-The dual basis, also called the inverse vielbein, is defined by
-\begin{equation} \label{inversviel}
-    V^{a}_{\nu}V^{\nu}_b = \delta^a_b.
-\end{equation}
-Consequently, the curved metric can be reconstructed from the vielbein:
-\begin{equation} \label{toflatmet}
-    g_{\mu \nu} = \eta_{ab}V^{a}_{\mu}V^{b}_\nu.
-\end{equation}
-
-The vielbein also allows us to transform vectors, covectors, and tensors between curved and flat indices:
-\begin{align} \label{changeofbasis}
-    T^a &= V^a_\mu T^\mu, \\
-    T_a &= V^\mu_a T_\mu, \\
-    T^a_b &= V^a_\mu V^\nu_b T^\mu_\nu.
-\end{align}
-The introduction of flat indices requires a corresponding modification of the usual transformation law. In particular, the Christoffel connection must be replaced by the spin connection, defined by
-\begin{equation} \label{spinconnexion}
-    \nabla_\mu X^a_b =
-    \partial_\mu X^a_b
-    + \omega_\mu{}^a{}_c X^c_b
-    - \omega_\mu{}^c{}_b X^a_c.
-\end{equation}
-The spin connection remains related to the Levi--Civita connection through
-\begin{align} \label{linkbetwinleviandlatin}
-    \Gamma_{\mu \lambda}^{\nu}
-    &= V^{\nu}_a \partial_\mu V^a_\lambda
-    + V^\nu_aV^b_\lambda \omega_\mu{}^a{}_b,\\
-    \omega_\mu{}^a{}_b
-    &= V^a_\nu V^\lambda_b \Gamma_{\mu \lambda}^{\nu}
-    - V^\lambda_b \partial_\mu V^a_\lambda.
-\end{align}
-With these relations we can prove the antisymmetry of the last two indices of the spin connection:
-\begin{equation}
-    \begin{aligned}
-        \nabla_\mu \eta_{ab} &= \partial_\mu X_{ab} - \omega_\mu{}^a{}_c \eta_{cb} - \omega_\mu{}^c{}_b \eta_{ac} \\
-        &=  - \omega_{\mu a b } - \omega_{\mu b a}\\
-        & = 0.
-    \end{aligned}
-\end{equation}
-So, in effect, we have
-\begin{equation} \label{antisymlat}
-    - \omega_{\mu a b }= \omega_{\mu b a}.
-\end{equation}
 \section{Lagrangian Field Theory}
 \subsection{Lagrangian Density}
 In this internship we are going to use Lagrangian field theory to describe the objects we will be working with. The main interest of this framework is that it lets us work with an infinite number of degrees of freedom.
@@ -302,11 +273,11 @@ the Lagrangian can be written as
 \begin{equation} \label{densitylagrandef}
     L = \iiint \mathcal{L}(\eta_{\rho},\pdv{\eta_{\rho}}{x^{\nu}}) \, dx^N.
 \end{equation}
-Now, using Einstein's convention, we can rewrite the action as
+Now, if we want to use General relativity we have to modify the mesure by adding a $\sqrt{g}$ so the action for exemple will be,
 \begin{equation} \label{actiondensitylag}
-    S = \int \mathcal{L} \, dx^\mu.
+    S = \int \sqrt{g} \mathcal{L} \, dx^{N+1}.
 \end{equation}
-As a final note, one can see that both the variational method and the Lagrange equation work in the same way as before the transformation.
+As a final note, one can see that both the variational method and the Lagrange e LDD3 Physique cursus Orquation work in the same way as before the transformation. \footnote{We establish the Lagrangian equation in appendix \ref{Euler-Lag}}
 \subsection{General Example for Scalar and Vector Fields, and Result for Two-Forms}
 In field theory, the Lagrangian has a classical form for any field (often the simplest case).
 For this work, only the scalar, vector, and two-form Lagrangians are needed, along with the metric, which is handled by Einstein's equations.\\
@@ -323,7 +294,7 @@ where, for the field $A$,
 \begin{equation*}
     F_{\mu \nu} = \partial_\mu A^ \nu - \partial_\nu A^ \mu.
 \end{equation*}
-The equation of motion is $\partial_\mu F^{\mu \nu} = 0$, which is exactly Maxwell's equations.
+The equation of motion is $\partial_\mu F^{\mu \nu} = 0$, which is exactly Maxwell's equations.Another thing to remark is that as $F_{\mu \nu}$ is antisymmetric with it's index that mean that the lagrangian is symmetric with its index.
 In vacuum, the Einstein equation gives us
 \begin{equation*} \label{einsteinaction}
     \boxed{\mathcal{L} = R,}
@@ -332,13 +303,14 @@ where $R$ is the Ricci scalar, and the equation of motion is exactly Einstein's 
 Finally, for the Lagrangian of a two-form field
 we look to \cite{maharana1993noncompact}, where it is given by
 \begin{equation} \label{Baction}
-    \boxed{\mathcal{L} = \frac{1}{12} g^{ \hat \mu  \mu'} g^{\nu \nu'} g^{\rho \rho'} H_{ \mu \nu \rho}H_{ \mu'\nu' \rho'},}
+    \boxed{\mathcal{L} = \frac{1}{12} H_{ \mu \nu \rho}H^{ \mu\nu \rho},}
 \end{equation}
-where, for the two-form $B_{\nu \rho}$, we have
+where, for the two-form $B_{\nu \rho}$ which is antisymmetric according to its index, we also have
 \begin{equation*}
     H_{ \mu \nu \rho} = \partial_ \mu B_{\nu \rho} + \text{cyclic permutations},
 \end{equation*}
-and the equation of motion is $\partial_\mu H^{\mu \nu\rho} = 0$.
+which mean that $H$ is antisymmetric to the exchange of two index no ùatter which, and it has cyclicity symmetry.
+and the equation of motion is $\partial_\mu H^{\mu \nu\rho} = 0$.\footnote{We are going to introduce a lot of field you can find a recap if them in appendix \ref{Fieldsum} }
 \subsection{NS-NS Action of Supergravity}
 With these objects we can construct the NS-NS action, which has the form
 \begin{equation} \label{NS-NSaction}
@@ -349,7 +321,7 @@ and where $\hat R$ is similar to the classical Hilbert--Einstein action but in $
 Finally, since no field depends on the internal coordinates, and given $\rho(E)$, we can simplify this integral.
 We will now separate this action into three parts, one for each field.
 Now that we have this action in $D+E$ dimensions, we need, as in \cite{scherk1979get}, to reduce it, which basically means looking at how a $D$-dimensional observer
-would perceive those extra dimensions.
+would perceive those extra dimensions. We will work in the simplest setting: we assume that none of the fields depend on the internal coordinates, so that for any field we have $\partial_\alpha A^{\hat \mu} = 0$.\\
 \subsection{Different Parts of the Action}
 We can separate the action into two main components: one being the gravitational part with the dilaton, and the other being the two-form part. So we have
 \begin{subequations}
@@ -358,8 +330,60 @@ We can separate the action into two main components: one being the gravitational
         &S_{\hat B} =  \int d x^D \sqrt{- \hat g } e^{-\hat \phi} \Big(- \frac{1}{12} H_{ \mu \nu \rho}H^{ \mu\nu \rho}\Big). \label{SB}
     \end{align}
 \end{subequations}
+\clearpage
 \section{Gravitational Action Reduction}
 We will begin with the gravitational part of the NS-NS action.
+\subsection{Vielbein Formalism} \label{spinconnexionvielbeinandflatspace}
+Throughout this  reduction we will use the vielbein formalism, following the same notation as in \cite{scherk1979get} (summarized on page~\pageref{notation}): hatted Greek letters $(\hat \mu , \hat \nu , \hat \rho , \dots)$ denote curved indices and hatted Latin letters $(\hat p , \hat m , \hat n , \dots)$ denote flat indices; among these, the $D$ space-time directions are labelled by late Greek letters $(\mu, \nu, \rho, \dots)$ in the curved case and late Latin letters $(p, m, n)$ in the flat case, while the $E$ internal directions are labelled by early Greek letters $(\alpha, \beta, \gamma, \dots)$ in the curved case and early Latin letters $(a, b, c)$ in the flat case. The general coordinate $x^{\hat \mu}$ is therefore made up of a space-time coordinate $x^\mu$ and an internal coordinate $y^\alpha$. The flat Lorentz indices are precisely the ones on which the vielbein formalism, introduced below, lets us use the flat Minkowski metric $\eta_{ab}$ to raise and lower indices, in place of the curved metric $g_{\mu \nu}$.\\
+In general relativity \footnote{We are going to present some reminder of general relativity in appendix \ref{RGreminder}} we often encounter metrics that are difficult to handle, such as the Kerr--Newman metric. A useful idea is then to work in an orthonormal basis $\{V^a_\mu \}$, which satisfies
+\begin{equation} \label{vieldef}
+    g_{\mu \nu} V^{\mu}_{a}V^{\nu}_b = \eta_{ab},
+\end{equation}
+where $g$ is the original metric and $\eta$ is the Minkowski metric.\\
+We call this basis the vielbein. In this basis, indices are raised and lowered using the Minkowski metric.
+The dual basis, also called the inverse vielbein, is defined by
+\begin{equation} \label{inversviel}
+    V^{a}_{\nu}V^{\nu}_b = \delta^a_b.
+\end{equation}
+Consequently, the curved metric can be reconstructed from the vielbein:
+\begin{equation} \label{toflatmet}
+    g_{\mu \nu} = \eta_{ab}V^{a}_{\mu}V^{b}_\nu.
+\end{equation}
+
+The vielbein also allows us to transform vectors, covectors, and tensors between curved and flat indices:
+\begin{align} \label{changeofbasis}
+    T^a &= V^a_\mu T^\mu, \\
+    T_a &= V^\mu_a T_\mu, \\
+    T^a_b &= V^a_\mu V^\nu_b T^\mu_\nu.
+\end{align}
+The introduction of flat indices requires a corresponding modification of the usual transformation law. In particular, the Christoffel connection must be replaced by the spin connection, defined by
+\begin{equation} \label{spinconnexion}
+    \nabla_\mu X^a_b =
+    \partial_\mu X^a_b
+    + \omega_\mu{}^a{}_c X^c_b
+    - \omega_\mu{}^c{}_b X^a_c.
+\end{equation}
+The spin connection remains related to the Levi--Civita connection through
+\begin{align} \label{linkbetwinleviandlatin}
+    \Gamma_{\mu \lambda}^{\nu}
+    &= V^{\nu}_a \partial_\mu V^a_\lambda
+    + V^\nu_aV^b_\lambda \omega_\mu{}^a{}_b,\\
+    \omega_\mu{}^a{}_b
+    &= V^a_\nu V^\lambda_b \Gamma_{\mu \lambda}^{\nu}
+    - V^\lambda_b \partial_\mu V^a_\lambda.
+\end{align}
+With these relations we can prove the antisymmetry of the last two indices of the spin connection:
+\begin{equation}
+    \begin{aligned}
+        \nabla_\mu \eta_{ab} &= \partial_\mu X_{ab} - \omega_\mu{}^a{}_c \eta_{cb} - \omega_\mu{}^c{}_b \eta_{ac} \\
+        &=  - \omega_{\mu a b } - \omega_{\mu b a}\\
+        & = 0.
+    \end{aligned}
+\end{equation}
+So, in effect, we have
+\begin{equation} \label{antisymlat}
+    - \omega_{\mu a b }= \omega_{\mu b a}.
+\end{equation}
 \subsection{Rewriting the Action}
 For this part we do not need the $\hat g^{\hat \mu \hat \nu}\partial_{\hat \mu}\hat \phi \partial^{\hat \nu}\hat \phi$ part of the action, so we will ignore it entirely.
 Now, using the fact that $\hat R$ can be written as
@@ -681,8 +705,10 @@ Doing the same for $B_{\mu \nu}$, we find the transformation
     \delta B_{\mu \nu} = \frac{1}{2}(\Lambda^{(1)\alpha}F^{(2)}_{\mu \nu \alpha} + \Lambda^{(2)}_{\alpha}F^{(1)\alpha}_{\mu \nu}),
 \end{equation}
 which is exactly the right term to compensate for the additional term in the transformation of $H_{\mu \nu \rho}$.
-\section{Complete Reduced Action}
-To summarize, the complete reduced action takes the form
+
+\section{Complete Reduced Action and observation of a New Symmetry}
+\subsection{Complete Reduced Action}
+To summarize, the complete reduced action that we obtained in the last section takes the form
 \begin{equation}
     S =  \int dx^D Ve^{-\phi} \mathcal{L},
 \end{equation}
@@ -696,7 +722,6 @@ where we decompose $S$ as $S =  S_1 + S_2 + S_3 +S_4$, with
         S_4 &=\int dx^D Ve^{-\phi}\Big(-\frac{1}{12}H_{\mu \nu \rho} H^{\mu \nu \rho}\Big).
     \end{aligned}}
 \end{equation}
-\section{Observation of a New Symmetry}
 \subsection{The O(E,E) Group}
 For this part we explore a very important topic in physics research today: symmetry. In the present context it will allow us to establish equivalences between multiple theories. 
 First, we note that we have an $SL(E,\mathbb{R})$ symmetry, given by every $E\times E$ matrix of determinant one. Another symmetry can be seen from the fact that,
@@ -751,7 +776,7 @@ Here $\mathcal{F}^i_{\mu \nu}$ is the $2E$-component vector of field strengths,
 \begin{equation}
     \mathcal{F}^i_{\mu \nu} = \begin{pmatrix} F^{(1)\alpha}_{\mu \nu} \\F^{(2)}_{\mu \nu \alpha} \end{pmatrix} = \partial_\mu \mathcal{A}^i_\nu - \partial_\nu \mathcal{A}^i_\mu.
 \end{equation}
-Finally, we turn to $S_4$: first, let us rewrite $H_{\mu \nu \rho}$,
+And $\mathcal{A}^i$ is the $2E$-component vector $\mathcal{A}^i_\mu = \begin{pmatrix} A^{(1)\alpha}_{\mu} \\A^{(2)}_{\mu \alpha} \end{pmatrix}$. Finally, we turn to $S_4$: first, let us rewrite $H_{\mu \nu \rho}$,
 \begin{equation}
     \begin{aligned}
     H_{\mu \nu \rho} &=\partial_\mu B_{\nu \rho} -\frac{1}{2}(A^{(1)\alpha}_\mu F^{(2)}_{\nu \rho \alpha} + A^{(2)}_{\mu \alpha }F^{(1)}_{\nu \rho}) 
@@ -809,14 +834,22 @@ Explicitly, for $S_3$ we have, using \eqref{O(E,E)action},
 \end{align}
 The same argument can be repeated for $S_4$, with the same result. We have thus proven that the whole action is $O(E,E)$-invariant. This demonstrates that the action hides a non-trivial symmetry, providing a useful framework for comparing equivalent theories.
 \section{Conclusion}
+\subsection{Conclusion of the work}
 In this internship we first developed a description of General Relativity through the vielbein formalism, then laid out the ground rules of classical field theory. Using these two frameworks
 we constructed the NS-NS action in $D+E$ dimensions and carried out its Kaluza--Klein reduction to $D$ dimensions, under the assumption that no field depends on the internal coordinates.
 This reduction produced a $D$-dimensional action containing the graviton, a dilaton, $E$ vector fields, a two-form, and the scalar matrix $h_{\alpha\beta}$ encoding the geometry of the internal space. Combining $h$ and the reduced two-form $B$ into the single matrix $M$, we showed that the reduced action is invariant under an $O(E,E)$ group acting on $M$ and on the vector fields, a symmetry that is not visible in the original $D+E$-dimensional theory.\\
 This hidden $O(E,E)$ symmetry means that theories which appear distinct before reduction differing, for instance, in the background values of $h$ and $B$ describe the same $D$-dimensional physics once reduced. Practically, this lets us treat such theories as equivalent, using whichever formulation is most convenient, rather than working them out independently.\\
 Two natural directions extend this work. The first is to relax the assumption of internal-coordinate independence and study the resulting field dependence explicitly. The second is to look for larger hidden symmetry groups, such as $O(E,E+n)$, which would extend the equivalences found here to a wider class of theories.\\
+\subsection{On a personal note}
+This internship was a pleasure to do as firstly Doctor Camille Eloy was always ready to answer my questions, 
+even the more boring ones, and every time I did not understand something he was very clear in his explanation, 
+so every obstacle could be dealt with swiftly. At the same time I had a huge freedom on how to organise myself for the internship, 
+so I was able to understand the difficulty of not being able to solve a problem right away while never completely being lost. 
+Furthermore the team and the environment were very sympathetic as everyone was very kind and ready to help whenever I had a question. 
+Therefore I can say that I was able to blossom here and my will to study quantum gravity or even just gravity in general has been confirmed.
  \printbibliography
  \appendix
-\section{General Relativity Background}
+\section{General Relativity Background} \label{RGreminder}
 \begin{definition}
 Let $V$ be an $\mathbb{R}$-vector space of dimension $N$. We define the tensor of order $(r,s) \in  \llbracket 0 ,1 \rrbracket^2$ on $V^{(r,s)} \overset{def}{=} V^{\otimes r} \otimes V^{\otimes s}$
 as a multilinear map from $ V^{\star r} \times V^{ s}$ to $\mathbb{R}$.
@@ -860,7 +893,7 @@ as a multilinear map from $ V^{\star r} \times V^{ s}$ to $\mathbb{R}$.
     It is this object, written $\hat R$ in $D+E$ dimensions, that appears in the Einstein--Hilbert term of \eqref{einsteinaction} and in the NS-NS action \eqref{NS-NSaction}; in the vielbein formalism used throughout this report, it is expressed via $\hat\omega$ rather than $\Gamma$, as derived in Section~\ref{spinconnexionvielbeinandflatspace} and Eq.~\eqref{Ricciexp}.
 \end{definition}
 
-\section{Euler--Lagrange Equation}
+\section{Euler--Lagrange Equation} \label{Euler-Lag}
 This is the general derivation underlying the field equations of motion used throughout the report, in particular \eqref{densitylagrandef} and \eqref{actiondensitylag}.\\
 By using the principle of least action and the variational principle, we can see that
 \begin{align*}
@@ -875,7 +908,7 @@ which gives the equation
 \end{equation}
 which is the equation of motion for the field, applied e.g. to obtain $\square\Phi=0$, $\partial_\mu F^{\mu\nu}=0$ and $\partial_\mu H^{\mu\nu\rho}=0$ from \eqref{scalafield}, \eqref{vectorialfield} and \eqref{Baction} respectively.
 
-\section{Summary of the Reduced Field Content}
+\section{Summary of the Reduced Field Content} \label{Fieldsum}
 Because the reduction in Sections 4--6 introduces a large number of new fields, this table collects them for reference: where each one comes from, and where it is first defined.
 
 \begin{center}
