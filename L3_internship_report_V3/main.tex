@@ -39,6 +39,7 @@
 
 
 \begin{document}
+\pagenumbering{gobble}
 \thispagestyle{empty}
 \begin{titlepage}
    \begin{center}
@@ -120,6 +121,7 @@ Reducing the dilaton leads to an invariant shifted dilaton, and reducing the two
 
 \tableofcontents
 \clearpage
+\pagenumbering{arabic} 
 \section{Introduction}
 \subsection{Context of the internship}
 This internship was carried out in the Theory and Models group of the physics laboratory of ENS Lyon. It was officially done under the supervision of  Henning Samtleben, 
@@ -133,7 +135,7 @@ A great deal of progress has been made for the electromagnetic,
 weak, and strong forces, which are now successfully unified in the Standard Model. Gravity, however,
 remains the main stumbling block: indeed, its description by General Relativity \cite{einstein1915allgemeinen}
 sits completely apart from the quantum field-theoretic language we use for every other force.
-One way to address this issue is to add a new symmetry to nature, supersymmetry, which suggest the existence of a symmetry of the freedom between between fermions and bosons. This symmetry is mainly used in two theories: the first is supergravity, which, as the name
+One way to address this issue is to add a new symmetry to nature, supersymmetry, which postulates a  symmetry mixing the degrees  of freedom of fermions and bosons. This symmetry is mainly used in two theories: the first is supergravity, which, as the name
 suggests, attempts to combine the principle of supersymmetry with general relativity. The other major theory is string theory, which, contrary to particle physics which focuses on point particles, describes the motion of one-dimensional objects called strings.
 Both theories describe the existence of extradimensions. We will focus here on the case of supergravity.\\
 The tool we use to make the role of these extra dimensions manifest is dimensional reduction, in the spirit of the original Kaluza--Klein idea: a theory living in $D+E$ dimensions can be reinterpreted, by a $D$-dimensional observer, as a theory in $D$ dimensions containing extra scalar and vector fields that encode the geometry of the $E$ hidden dimensions. Carrying this out consistently and identifying what those extra fields are is the main technical goal of this internship, and it is what ultimately allows us to uncover a hidden symmetry relating theories that look different in $D+E$ dimensions but turn out to be equivalent once reduced.\\
@@ -144,7 +146,7 @@ a number of theories that look distinct in $D+E$ dimensions are in fact equivale
 \section{Lagrangian Field Theory}
 \subsection{Lagrangian Density}
 In this internship we are going to use Lagrangian field theory to describe the objects we will be working with. The main interest of this framework is that it lets us work with an infinite number of degrees of freedom.
-To better understand what we are going to do, we are going to follow the same path as the \cite{goldstein1950classical} going from a simple case then generalizing. Let us start from a simple case in 1D, which we will then generalize to $N$-dimension. The "simple" example is going to be an infinitely long elastic rod undergoing small
+To better understand what we are going to do, we are going to follow the same path as \cite{goldstein1950classical} going from a simple case then generalizing. Let us start from a simple case in 1D, which we will then generalize to $N$-dimension. The "simple" example is going to be an infinitely long elastic rod undergoing small
 longitudinal vibrations. We can model this with a system of discrete points of equal mass, connected by springs of natural length $a$, as shown in Figure~\ref{fig:latticechain}. Point $i$ is displaced from its equilibrium position by a quantity $\eta_i$.
 \begin{figure}[H]
     \centering
@@ -248,7 +250,7 @@ which means that $ka$ is the Young's modulus of the continuous rod. As we go fro
 the particular mass point becomes the continuous position coordinate $x$. We now have $\eta(x)$ instead of $\eta_i$.
 Furthermore, as $a$ goes to zero, we have
 \begin{equation*}
-    \frac{\eta_{i+1} - \eta_i}{a} = \frac{\eta(x+a) - \eta(x)}{a} \rightarrow \dv{\eta}{x},
+    \frac{\eta_{i+1} - \eta_i}{a} = \frac{\eta(x+a) - \eta(x)}{a} \underset{a \rightarrow 0}\rightarrow \dv{\eta}{x},
 \end{equation*}
 since $a$ was playing the role of $dx$. As it approaches zero, the sum we had earlier turns into an integral over the length of the rod, and the Lagrangian
 becomes
@@ -257,7 +259,7 @@ becomes
 \end{equation}
 In the limit $a \rightarrow 0$ the last two terms of the equation of motion become
 \begin{equation*}
-    \lim_{a \rightarrow 0} - \frac{Y}{a} \Big[ \dv{\eta}{x}_x - \dv{\eta}{x}_{x-a} \Big],
+    \lim_{a \rightarrow 0} - \frac{Y}{a} \Big[ \left.\dv{\eta}{x} \right|_x - \left.\dv{\eta}{x}\right|_{x-a} \Big],
 \end{equation*}
 which is, in effect, a second derivative of $\eta$. Hence, the equation of motion for the continuous case is
 \begin{equation}
@@ -267,7 +269,7 @@ which is the wave equation in one dimension, with propagation velocity
 \begin{equation*}
     v = \sqrt{\frac{Y}{\mu}}.
 \end{equation*}
-And so we recover d'Alembert's equation.\\
+And so we recover d'Alembert's equation.
 Now we can see that, even though we have an infinite number of points, there is not an infinite number of Lagrange equations, but merely one.
 This also means that we can write the Lagrangian as
 \begin{equation*}
@@ -285,12 +287,12 @@ Now, if we want to use General relativity we have to modify the mesure by adding
 As a final note, one can see that both the variational method and the Lagrange work in the same way as before the transformation. \footnote{We establish the Lagrangian equation in appendix \ref{Euler-Lag}}
 \subsection{General example for scalar and vector fields, and Two-Forms fields}
 In field theory, the Lagrangian has a classical form for any field (often the simplest case).
-For this work, only the scalar, vector, and two-form Lagrangians are needed, along with the metric, which is handled by Einstein's equations,furthermore we will only consider free field\\
+For this work, only the scalar, vector, and two-form Lagrangians are needed, along with the metric, which is handled by Einstein's equations, furthermore we will only consider free field.
 So, for a scalar field we have
 \begin{equation} \label{scalafield}
     \boxed{\mathcal{L} = - \frac{1}{2} \partial_\mu \Phi \partial^ \mu \Phi,}
 \end{equation}
-which gives us $\square \Phi =0$ as the equation of motion.\\
+which gives us $\square \Phi =0$ as the equation of motion.
 And for a vector field we have
 \begin{equation}\label{vectorialfield}
     \boxed{\mathcal{L} = - \frac{1}{4}F_{\mu \nu}F^{\mu \nu},}
@@ -304,7 +306,7 @@ In vacuum, the Einstein equation gives us
 \begin{equation*} \label{einsteinaction}
     \boxed{\mathcal{L} = R,}
 \end{equation*}
-where $R$ is the Ricci scalar, and the equation of motion is exactly Einstein's equation.\\
+where $R$ is the Ricci scalar, and the equation of motion is exactly Einstein's equation.
 Finally, for the Lagrangian of a two-form field
 we have
 \begin{equation} \label{Baction}
@@ -321,12 +323,12 @@ With these objects we can construct the NS-NS action, which has the form
 \begin{equation} \label{NS-NSaction}
     \boxed{S = \int d x^D \int \frac{d y ^E}{\rho(E)}\sqrt{- \hat g } e^{\hat \phi} \Big(\hat R +  \hat g^{\hat \mu \hat \nu}\partial_{\hat \mu}\hat \phi \partial^{\hat \nu}\hat \phi - \frac{1}{12} g^{ \hat \mu  \mu'} g^{\nu \nu'} g^{\rho \rho'} H_{ \mu \nu \rho}H_{ \mu'\nu' \rho'}\Big),}
 \end{equation} 
-where $x^D$ represent the space-time coordinates, $y^E$ the internal space coordinates, and $\rho(E)$ is a normalization factor, corresponding in practice to the invariant volume of the internal space,\\
+where $x^D$ represent the space-time coordinates, $y^E$ the internal space coordinates, and $\rho(E)$ is a normalization factor ( i.e the volume of the internal space ), corresponding in practice to the invariant volume of the internal space,
 and where $\hat R$ is similar to the classical Hilbert--Einstein action but in $D+E$ dimensions, $\hat \phi$ is a scalar field named dilaton, and $- \frac{1}{12} H_{ \mu \nu \rho}H^{ \mu\nu \rho}$ is the action of a two-form.
 We will now separate this action into three parts, one for each field.
 Now that we have this action in $D+E$ dimensions, we need, as in \cite{scherk1979get}, to reduce it, which basically means looking at how a $D$-dimensional observer
 would perceive those extra dimensions. We will work in the simplest setting: we assume that none of the fields depend on the internal coordinates, so that for any field we have $\partial_\alpha A^{\hat \mu} = 0$.
-Finally, since no field depends on the internal coordinates, and given $\rho(E)$, we can simplify this integral.\\
+Finally, since no field depends on the internal coordinates, and given $\rho(E)$, we can simplify this integral.
 We can separate the action into two main components: one being the gravitational part with the dilaton, and the other being the two-form part. So we have
 \begin{subequations}
     \begin{align}
@@ -338,11 +340,11 @@ We can separate the action into two main components: one being the gravitational
 \section{Gravitational Action Reduction}
 We will begin with the gravitational part of the NS-NS action.
 \subsection{Vielbein Formalism} \label{spinconnexionvielbeinandflatspace}
-In general relativity \footnote{We are going to present some reminder of general relativity in appendix \ref{RGreminder}} we often encounter metrics that are difficult to handle, such as the Kerr--Newman metric. A useful idea is then to work in an orthonormal basis $\{V^a_\mu \}$, which satisfies
+In general relativity \footnote{We are going to present some reminder of general relativity in appendix \ref{RGreminder}.} we often encounter metrics that are difficult to handle, such as the Kerr--Newman metric. A useful idea is then to work in an orthonormal basis $\{V^a_\mu \}$, which satisfies
 \begin{equation} \label{vieldef}
     g_{\mu \nu} V^{\mu}_{a}V^{\nu}_b = \eta_{ab},
 \end{equation}
-where $g$ is the original metric and $\eta$ is the Minkowski metric.\\
+where $g$ is the original metric and $\eta$ is the Minkowski metric.
 We call this basis the vielbein. In this basis, indices are raised and lowered using the Minkowski metric.
 The dual basis, also called the inverse vielbein, is defined by
 \begin{equation} \label{inversviel}
@@ -393,7 +395,7 @@ the $D$ space-time directions are labelled by late Greek letters $(\mu, \nu, \rh
 while the $E$ internal directions are labelled by early Greek letters $(\alpha, \beta, \gamma, \dots)$ in the curved case and early Latin letters $(a, b, c)$ in the flat case. 
 The general coordinate $x^{\hat \mu}$ is therefore made up of a space-time coordinate $x^\mu$ and an internal coordinate $y^\alpha$. 
 The flat Lorentz indices are precisely the ones on which the vielbein formalism, 
-introduced below, lets us use the flat Minkowski metric $\eta_{ab}$ to raise and lower indices, in place of the curved metric $g_{\mu \nu}$.\\
+introduced below, lets us use the flat Minkowski metric $\eta_{ab}$ to raise and lower indices, in place of the curved metric $g_{\mu \nu}$.
 \subsection{Rewriting the Action}
 For this part we do not need the $\hat g^{\hat \mu \hat \nu}\partial_{\hat \mu}\hat \phi \partial^{\hat \nu}\hat \phi$ part of the action, so we will ignore it entirely.
 Now, using the fact that $\hat R$ can be written as
@@ -447,16 +449,16 @@ for the inverse vielbein, and
         g^{\mu \nu}  & - A^{ (1)\mu \beta} \\ - A^{(1)\nu \alpha} &-h^{\alpha \beta}+ A^{(1)\beta}_{\rho}A^{\rho \alpha}
     \end{pmatrix}
 \end{equation}
-for the metric.Here $h_{\alpha \beta}$ is the internal space metric and it's vielbein are the $\Phi^a_\alpha$. Which mean that $h_{\alpha \beta} = \Phi^a_\alpha \delta_{a b } \Phi^b_\beta $.\\
+for the metric.Here $h_{\alpha \beta}$ is the internal space metric and it's vielbein are the $\Phi^a_\alpha$. Which mean that $h_{\alpha \beta} = \Phi^a_\alpha \delta_{a b } \Phi^b_\beta $. We will denote $h$ its determinant.
 \subsection{Gauge Observation} \label{part:gaugeviel}
 Now that we have set up the ansatz, we would like to identify what each object is. To that end, we can use the classical gauge transformation $x'^\mu = x^\mu + \xi^\mu(x)$ and use the fact that it can easily be rewritten as a Lie derivative.
-Indeed, since we already know how different objects transform under a Lie derivative, we can easily identify what each object is.\\
+Indeed, since we already know how different objects transform under a Lie derivative, we can easily identify what each object is.
 So, firstly, let us list every known transformation:
  \begin{align} \label{xitransfo}
-    &\delta \phi(x) = \xi ^ \mu \partial _ \mu \Phi (x), \\
-    &\delta U ^ \mu  = \xi ^ \rho \partial _ \rho U ^ \mu - (\partial _ \rho \xi ^ \mu) U ^\rho, \\
-    &\delta  \omega _ \mu  = \xi ^ \rho \partial _ \rho \omega _\mu + (\partial _ \rho \xi ^ \mu) \omega _\rho, \\
-    &\delta T ^ \mu _ \nu  = \xi ^ \rho  \partial _ \rho T ^ \mu _ \nu -(\partial _ \rho \xi ^ \mu ) T ^ \rho _ \nu + (\partial _ \nu \xi ^ \rho)T ^ \mu _ \nu. 
+    &\delta \phi(x) =L_\xi \phi(x) = \xi ^ \mu \partial _ \mu \Phi (x), \\
+    &\delta U ^ \mu  =L_\xi U ^ \mu = \xi ^ \rho \partial _ \rho U ^ \mu - (\partial _ \rho \xi ^ \mu) U ^\rho, \\
+    &\delta  \omega _ \mu  =L_\xi \omega _ \mu  =  \xi ^ \rho \partial _ \rho \omega _\mu + (\partial _ \rho \xi ^ \mu) \omega _\rho, \\
+    &\delta T ^ \mu _ \nu  =L_\xi T ^ \mu _ \nu =\xi ^ \rho  \partial _ \rho T ^ \mu _ \nu -(\partial _ \rho \xi ^ \mu ) T ^ \rho _ \nu + (\partial _ \nu \xi ^ \rho)T ^ \mu _ \nu. 
 \end{align} 
 We now apply the transformation to each block of the vielbein, in order to see whether it corresponds to some familiar type of field, still using \eqref{xitransfo}. Let us start with the block $\hat V^r_\mu$:
 \begin{align*}
@@ -590,18 +592,18 @@ We can now conclude this section by carrying out the multiplication from equatio
 \begin{equation}
     \boxed{
     \begin{aligned}
-    S = &\int d x^D \int V \delta \Big( 
+    S = &\int d x^D  V \delta \Big( 
     \frac{-1}{4} g^{\rho \lambda} \partial_\lambda h_{\alpha \beta}\partial_\rho h^{\alpha \beta}
     +\frac{1}{4}F^{\mu \nu \alpha}F^{\beta}_{\mu  \nu}h_{\alpha \beta}+\\
     &+ R + \frac{1}{4} \partial_{\hat \mu} \log(h) \partial^{\hat \mu} \log(h) + \partial_{\hat \mu} \log(h) \partial^{\hat \mu} \hat \phi \Big).
 \end{aligned}}
 \end{equation}
-We can observe some interesting things. First, we recover the classical Einstein action, coupled to $E$ electromagnetic fields. So we can conclude that gravity in $D + E $dimensions, once reduced down to D dimensions, is equivalent to gravity in $D$ dimensions coupled E electromagnetic fields and scalars.
+We can observe some interesting things. First, we recover the classical Einstein action, coupled to $E$ electromagnetic fields. So we can conclude that gravity in $D + E $ dimensions, once reduced down to D dimensions, is equivalent to gravity in $D$ dimensions coupled E electromagnetic fields and scalars.
 \subsection{Adding the Dilaton Field Reduction}
 For this part we sum $S_{\hat g}$ and $S_{\hat \phi}$, which gives
     \begin{equation*}
     \begin{aligned}
-    S_{\hat g + \hat \phi} = &\int d x^D \int V \delta \Big( 
+    S_{\hat g + \hat \phi} = &\int d x^D V \delta \Big( 
     \frac{-1}{4} g^{\rho \lambda} \partial_\lambda h_{\alpha \beta}\partial_\rho h^{\alpha \beta}
     +\frac{1}{4}F^{\mu \nu \alpha}F^{\beta}_{\mu  \nu}h_{\alpha \beta}+\\
     &+ R + \frac{1}{4} \partial_{\hat \mu} \log(h) \partial^{\hat \mu} \log(h) + \partial_{\hat \mu} \log(h) \partial^{\hat \mu} \hat \phi + \partial_{\hat \mu} \hat \phi \partial^{\hat \mu} \hat \phi \Big).
@@ -623,7 +625,7 @@ which gives
 \end{equation} 
 \section{Two-Form Field Reduction}
 \subsection{The Reduction}
-For the two-form we will carry out the reduction separately from the other two fields; this causes no issue, as the action is linear in it.\\
+For the two-form we will carry out the reduction separately from the other two fields; this causes no issue, as the action is linear in it.
 We can rewrite \eqref{Baction} as
 \begin{align*}
     \mathcal{L}_{\hat B} &= \frac{-1}{12} \hat H_{ \hat \mu \hat \nu \hat \rho} \hat H^{ \hat \mu \hat \nu \hat \rho}\\
@@ -652,7 +654,7 @@ The absence of a hat is due to the fact that we define the reduced, lower-dimens
 \end{subequations}
 With that we obtain \eqref{Bactionexpa}.
 We now compute each component of the un-hatted $H$ as a function of the hatted $H$.
-Starting slowly, we have that $\hat B_{\alpha \beta} = B_{\alpha \beta}$, and using the $y$-independence we get $H_{\alpha \beta \gamma} = 0$.\\
+Starting slowly, we have that $\hat B_{\alpha \beta} = B_{\alpha \beta}$, and using the $y$-independence we get $H_{\alpha \beta \gamma} = 0$.
 We continue with $H_{\mu \alpha \beta}$:
 \begin{equation}
     \begin{aligned}
@@ -682,8 +684,8 @@ and
     A^{(2)}_{\mu \alpha} =\hat B_{\mu \alpha} + B_{\alpha \beta} A^{(1)\beta}_\mu.
 \end{equation*}
 Finally, for $H_{\mu \nu \rho}$ we use exactly the same technique as before, which gives
-\begin{equation}
-    \begin{aligned}
+\begin{equation}\label{Hmunurho}
+    \begin{aligned} 
         H_{\mu \nu \rho} &=V^r_\mu V^s_\nu V^t_\rho  \hat V^{\hat \mu}_r \hat V^{\hat \nu}_s \hat V^{\hat \rho}_t \hat H_{\hat \mu \hat \nu \hat \rho}\\
         &= \hat H_{\mu \nu \rho} - A^{(1)\alpha}_{\mu} \hat H_{\alpha \nu \rho } - A^{(1)\alpha}_{\nu} \hat H_{\alpha \rho \mu } - A^{(1)\alpha}_{\rho} \hat H_{\alpha \mu \nu } +A^{(1)\alpha}_{\mu}A^{(1)\beta}_{\nu}\hat H_{\alpha \beta \rho }+A^{(1)\alpha}_{\nu}A^{(1)\beta}_{\rho}\hat H_{\alpha \beta \mu } +A^{(1)\alpha}_{\rho}A^{(1)\beta}_{\mu}\hat H_{\alpha \beta \nu }\\
         &= \partial_\mu B_{\nu \rho} -\frac{1}{2}(A^{(1)\alpha}_\mu F^{(2)}_{\nu \rho \alpha} + A^{(2)}_{\mu \alpha }F^{(1)}_{\nu \rho}) 
@@ -697,7 +699,7 @@ where
 \end{equation}
 \subsection{Observation of Gauge} \label{part:Bgauge}
 Now, as in Section~\ref{part:gaugeviel}, we check the gauge transformations to make sure every object transforms as it should.
-Let us begin with $A^{(2)}$, which should transform under the Lie derivative and under the new transformation $B_{\mu \nu} \rightarrow B_{\mu \nu} + \partial_\mu \Lambda_\nu$. So let us begin
+Let us begin with $A^{(2)}$, which should transform under the Lie derivative and under the new transformation $B_{\mu \nu} \rightarrow B_{\mu \nu} + \partial_\mu \Lambda_\nu - \partial_\nu \Lambda_\mu$. So let us begin
 with $A^{(2)}_{\mu \alpha}$:
 \begin{equation} 
     \begin{aligned}
@@ -709,12 +711,12 @@ with $A^{(2)}_{\mu \alpha}$:
         &=\partial_\mu \Lambda^{(2)}_{\alpha} +L_\xi A^{(2)}_{\mu \alpha},
     \end{aligned}
 \end{equation}
-This confirm the tranformation given in \cite{maharana1993noncompact}, where the $L_{\xi}$ are defined here \eqref{xitransfo}.\\
+This confirm the tranformation given in \cite{maharana1993noncompact}, where the $L_{\xi}$ are defined here \eqref{xitransfo}.
 Doing the same for $B_{\mu \nu}$, we find the transformation
 \begin{equation}
-    \delta B_{\mu \nu} = \frac{1}{2}(\Lambda^{(1)\alpha}F^{(2)}_{\mu \nu \alpha} + \Lambda^{(2)}_{\alpha}F^{(1)\alpha}_{\mu \nu}),
+    \delta B_{\mu \nu} = \frac{1}{2}(\Lambda^{(1)\alpha}F^{(2)}_{\mu \nu \alpha} + \Lambda^{(2)}_{\alpha}F^{(1)\alpha}_{\mu \nu}) + L_\xi B_{\mu \nu},
 \end{equation}
-which is exactly the right term to compensate for the additional term in the transformation of $H_{\mu \nu \rho}$.
+which is what we need to be sure that $H_{\mu \nu \rho} H^{\mu \nu \rho}$ does not transform under this transformation, if you look at equation \eqref{Hmunurho}.
 
 \section{Complete Reduced Action and observation of a New Symmetry}
 \subsection{Complete Reduced Action}
