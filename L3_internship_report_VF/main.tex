@@ -321,7 +321,7 @@ and the equation of motion is $\partial_\mu H^{\mu \nu\rho} = 0$.
 \subsection{NS-NS Action of Supergravity}
 With these objects we can construct the NS-NS action, which has the form
 \begin{equation} \label{NS-NSaction}
-    \boxed{S = \int d x^D \int \frac{d y ^E}{\rho(E)}\sqrt{- \hat g } e^{\hat \phi} \Big(\hat R +  \hat g^{\hat \mu \hat \nu}\partial_{\hat \mu}\hat \phi \partial^{\hat \nu}\hat \phi - \frac{1}{12} g^{ \hat \mu  \mu'} g^{\nu \nu'} g^{\rho \rho'} H_{ \mu \nu \rho}H_{ \mu'\nu' \rho'}\Big),}
+    \boxed{S = \int d x^D \int \frac{d y ^E}{\rho(E)}\sqrt{- \hat g } e^{ - \hat \phi} \Big(\hat R +  \partial_{\hat \mu}\hat \phi \partial^{\hat \mu}\hat \phi - \frac{1}{12}  H_{ \mu \nu \rho}H^{ \mu\nu \rho}\Big),}
 \end{equation} 
 where $x^D$ represents the space-time coordinates, $y^E$ the internal space coordinates, and $\rho(E)$ is a normalization factor (i.e., the volume of the internal space), corresponding in practice to the invariant volume of the internal space,
 and where $\hat R$ is similar to the classical Einstein--Hilbert action but in $D+E$ dimensions, $\hat \phi$ is a scalar field named the dilaton, and $- \frac{1}{12} H_{ \mu \nu \rho}H^{ \mu\nu \rho}$ is the action of a two-form.
@@ -332,7 +332,7 @@ Finally, since no field depends on the internal coordinates, and given $\rho(E)$
 We can separate the action into two main components: one being the gravitational part with the dilaton, and the other being the two-form part. So we have
 \begin{subequations}
     \begin{align}
-        &S_{\hat g} = \int d x^D\sqrt{- \hat g } e^{-\hat \phi} \big[\hat R +\hat g^{\hat \mu \hat \nu}\partial_{\hat \mu}\hat \phi \partial^{\hat \nu}\hat \phi\big], \label{Sg}\\ 
+        &S_{\hat g} = \int d x^D\sqrt{- \hat g } e^{-\hat \phi} \big[\hat R +\partial_{\hat \mu}\hat \phi \partial^{\hat \mu}\hat \phi\big], \label{Sg}\\ 
         &S_{\hat B} =  \int d x^D \sqrt{- \hat g } e^{-\hat \phi} \Big(- \frac{1}{12} H_{ \mu \nu \rho}H^{ \mu\nu \rho}\Big). \label{SB}
     \end{align}
 \end{subequations}
@@ -436,7 +436,7 @@ except that we use the same parameter conventions as in \cite{maharana1993noncom
 \end{equation}
 Now, still using \eqref{inversviel}, we can compute the inverse vielbein and then the metric and inverse metric, which gives us
 \begin{equation} \label{expinverseviel}
-    \hat V^{\hat r}_{\hat \mu} = \begin{pmatrix} 
+    \hat V^{\hat \mu}_{\hat r} = \begin{pmatrix} 
          V^\mu_r &  - A^{(1)\alpha }_r \\ 0 & \Phi^\alpha_a
     \end{pmatrix}
 \end{equation}
@@ -451,34 +451,34 @@ for the inverse vielbein, and
 \end{equation}
 for the metric. Here $h_{\alpha \beta}$ is the internal space metric and its vielbein is $\Phi^a_\alpha$. This means that $h_{\alpha \beta} = \Phi^a_\alpha \delta_{a b } \Phi^b_\beta $. We will denote its determinant by $h$.
 \subsection{Gauge Observation} \label{part:gaugeviel}
-Now that we have set up the ansatz, we would like to identify what each object is. To that end, we can use the classical gauge transformation $x'^\mu = x^\mu + \xi^\mu(x)$ and use the fact that it can easily be rewritten as a Lie derivative.
+Now that we have set up the ansatz, we would like to identify what each object is. To that end, we can use the classical gauge transformation $x'^\mu = x^\mu + \Lambda^{(1)\mu}(x)$ and use the fact that it can easily be rewritten as a Lie derivative.
 Indeed, since we already know how different objects transform under a Lie derivative, we can easily identify what each object is.
 So, firstly, let us list every known transformation:
  \begin{align} \label{xitransfo}
-    &\delta \phi(x) =L_\xi \phi(x) = \xi ^ \mu \partial _ \mu \Phi (x), \\
-    &\delta U ^ \mu  =L_\xi U ^ \mu = \xi ^ \rho \partial _ \rho U ^ \mu - (\partial _ \rho \xi ^ \mu) U ^\rho, \\
-    &\delta  \omega _ \mu  =L_\xi \omega _ \mu  =  \xi ^ \rho \partial _ \rho \omega _\mu + (\partial _ \rho \xi ^ \mu) \omega _\rho, \\
-    &\delta T ^ \mu _ \nu  =L_\xi T ^ \mu _ \nu =\xi ^ \rho  \partial _ \rho T ^ \mu _ \nu -(\partial _ \rho \xi ^ \mu ) T ^ \rho _ \nu + (\partial _ \nu \xi ^ \rho)T ^ \mu _ \nu. 
+    &\delta \phi(x) =L_{\Lambda^{(1)}} \phi(x) = \Lambda^ {(1)\mu} \partial _ \mu \Phi (x), \\
+    &\delta U ^ \mu  =L_{\Lambda^{(1)}} U ^ \mu = \Lambda^{(1)\rho} \partial _ \rho U ^ \mu - (\partial _ \rho \Lambda^{(1)\mu}) U ^\rho, \\
+    &\delta  \omega _ \mu  =L_{\Lambda^{(1)}} \omega _ \mu  =  \Lambda^{(1)\rho} \partial _ \rho \omega _\mu + (\partial _ \rho \Lambda^{(1)\mu}) \omega _\rho, \\
+    &\delta T ^ \mu _ \nu  =L_{\Lambda^{(1)}} T ^ \mu _ \nu =\Lambda^{(1)\rho}  \partial _ \rho T ^ \mu _ \nu -(\partial _ \rho \Lambda^{(1)\mu} ) T ^ \rho _ \nu + (\partial _ \nu \Lambda^{(1)\rho})T ^ \mu _ \nu. 
 \end{align} 
 We now apply the transformation to each block of the vielbein, in order to see whether it corresponds to some familiar type of field, still using \eqref{xitransfo}. Let us start with the block $\hat V^r_\mu$:
 \begin{align*}
-    \delta \hat V^r_\mu &= \delta V^r_\mu=  \xi^{\hat \rho}  \partial_{\hat \rho} \hat V^{ r}_{ \mu} + \partial_{ \mu} \xi^{ \hat \rho} \hat V^{  r}_{\hat \rho} \\
-   &=  \xi^{\hat \rho}  \partial_{\hat \rho} \hat V^{ r}_{ \mu} + \partial_{ \mu} \xi^{ \hat \nu} \hat V^{  r}_{\hat \nu}\\
-   &=  \xi^{ \rho}  \partial_{ \rho}  V^{ r}_{ \mu} + \partial_{ \mu} \xi^{  \nu}  V^{  r}_{ \nu},\\
+    \delta \hat V^r_\mu &= \delta V^r_\mu=  \Lambda^{(1)\hat \rho}  \partial_{\hat \rho} \hat V^{ r}_{ \mu} + \partial_{ \mu} \Lambda^{(1) \hat \rho} \hat V^{  r}_{\hat \rho} \\
+   &=  \Lambda^{(1)\hat \rho}  \partial_{\hat \rho} \hat V^{ r}_{ \mu} + \partial_{ \mu} \Lambda^{(1) \hat \nu} \hat V^{  r}_{\hat \nu}\\
+   &=  \Lambda^{(1) \rho}  \partial_{ \rho}  V^{ r}_{ \mu} + \partial_{ \mu} \Lambda^{(1)  \nu}  V^{  r}_{ \nu},\\
 \end{align*}
 which is exactly the transformation law of a vector field under a Lie derivative \cite{freedman2012supergravity}. Applying the same method to the other blocks, we obtain, for $\Phi^a_\alpha$,
 \begin{equation*}
-    \delta \Phi^a_\alpha = \xi^\rho \partial_\rho \Phi^a_\alpha,
+    \delta \Phi^a_\alpha = \Lambda^{(1)\rho} \partial_\rho \Phi^a_\alpha,
 \end{equation*}
 which is exactly the transformation law of a scalar field. Finally, for $A^{(1)\alpha}_\mu$ we obtain
 \begin{equation*}
-    \delta A^{(1)\alpha}_\mu= \xi^\rho\partial_\rho A^{(1)\alpha}_\mu + \partial_\mu \xi^\rho A^{(1)\alpha}_\rho +\partial_\mu \xi^\alpha,
+    \delta A^{(1)\alpha}_\mu= \Lambda^{(1)\rho}\partial_\rho A^{(1)\alpha}_\mu + \partial_\mu \Lambda^{(1)\rho} A^{(1)\alpha}_\rho +\partial_\mu \Lambda^{(1)\alpha},
 \end{equation*}
 which corresponds to the transformation law of a vector field, up to an extra correction term. One may further note that, restricting to $\xi^\alpha$ only, we obtain
 \begin{subequations}
 \begin{align}
 &\delta V^r_\mu = \delta \Phi^a_\alpha = 0,\\
-&\delta A^{(1)\alpha}_\mu = \partial_\mu \xi^\alpha.
+&\delta A^{(1)\alpha}_\mu = \partial_\mu \Lambda^{(1)\alpha} .
 \end{align}
 \end{subequations}
 So, what remains of the $D$-dimensional diffeomorphisms, once restricted to $\xi^\alpha$ independent of the internal coordinates $y$, corresponds to a set of $E$ abelian gauge symmetries.
@@ -593,7 +593,7 @@ We can now conclude this section by carrying out the multiplication from equatio
 \begin{equation}
     \boxed{
     \begin{aligned}
-    S_{\hat g} = &\int d x^D  V \delta \Big( 
+    S_{\hat g} = &\int d x^D e^{-\hat \phi} V \delta \Big( 
     \frac{-1}{4} g^{\rho \lambda} \partial_\lambda h_{\alpha \beta}\partial_\rho h^{\alpha \beta}
     +\frac{1}{4}F^{\mu \nu \alpha}F^{\beta}_{\mu  \nu}h_{\alpha \beta}+\\
     &+ R + \frac{1}{4} \partial_{\hat \mu} \log(h) \partial^{\hat \mu} \log(h) + \partial_{\hat \mu} \log(h) \partial^{\hat \mu} \hat \phi \Big).
@@ -604,7 +604,7 @@ We can observe some interesting things. First, we recover the classical Einstein
 For this part we sum $S_{\hat g}$ and $S_{\hat \phi}$, which gives
     \begin{equation*}
     \begin{aligned}
-    S_{\hat g + \hat \phi} = &\int d x^D V \delta \Big( 
+    S_{\hat g + \hat \phi} = &\int d x^D e^{-\hat \phi}V \delta \Big( 
     \frac{-1}{4} g^{\rho \lambda} \partial_\lambda h_{\alpha \beta}\partial_\rho h^{\alpha \beta}
     +\frac{1}{4}F^{\mu \nu \alpha}F^{\beta}_{\mu  \nu}h_{\alpha \beta}+\\
     &+ R + \frac{1}{4} \partial_{\hat \mu} \log(h) \partial^{\hat \mu} \log(h) + \partial_{\hat \mu} \log(h) \partial^{\hat \mu} \hat \phi + \partial_{\hat \mu} \hat \phi \partial^{\hat \mu} \hat \phi \Big).
@@ -621,7 +621,7 @@ which gives
     S = &\int d x^D V e^{- \phi}\Big(
     R -\frac{1}{4}F^{\mu \nu \alpha}F^{\beta}_{\mu  \nu}h_{\alpha \beta}+\\
     &- g^{\rho \lambda} \partial_\lambda h_{\alpha \beta}\partial_\rho h^{\alpha \beta}
-    +\hat g^{\hat \mu  \hat \nu } \partial_{\hat \mu}\phi\partial_{\hat \nu}\phi\Big).
+    + \partial_{ \mu}\phi\partial^{ \mu}\phi\Big).
 \end{aligned}}
 \end{equation} 
 \section{Two-Form Field Reduction}
@@ -700,24 +700,24 @@ where
 \end{equation}
 \subsection{Observation of Gauge} \label{part:Bgauge}
 Now, as in Section~\ref{part:gaugeviel}, we check the gauge transformations to make sure every object transforms as it should.
-Let us begin with $A^{(2)}$, which should transform under the Lie derivative and under the new transformation $B_{\mu \nu} \rightarrow B_{\mu \nu} + \partial_\mu \Lambda_\nu - \partial_\nu \Lambda_\mu$. So let us begin
+Let us begin with $A^{(2)}$, which should transform under the Lie derivative and under the new transformation $\hat B_{\hat \mu \hat \nu} \rightarrow \hat B_{\hat \mu \hat \nu} + \partial_{\hat\mu} \Lambda^{(2)}_{\hat\nu} - \partial_{\hat\nu} \Lambda^{(2)}_{\hat\mu}$. So let us begin
 with $A^{(2)}_{\mu \alpha}$:
 \begin{equation} 
     \begin{aligned}
         \delta A^{(2)}_{\mu \alpha}&= \delta(\hat B_{\mu \alpha}+ B_{\alpha\beta}A^{(1)\beta}_\mu)\\
         &=\delta(\hat B_{\mu \alpha})+ \delta(B_{\alpha\beta}A^{(1)\beta}_\mu)\\
         &= \delta(\hat B_{\mu \alpha})+ \delta(B_{\alpha\beta})A^{(1)\beta}_\mu+ B_{\alpha\beta}\delta(A^{(1)\beta}_\mu)\\
-        &= L_{\xi} \hat B_{\mu \alpha} + \partial_\mu \Lambda^{(2)}_{\alpha}+A^{(1)\beta}_\mu L_{\xi} \hat B_{ \alpha \beta } +\hat B_{ \alpha \beta } \partial_\mu \Lambda^{(1)\alpha}\\
-        &= L_{\xi} \hat B_{\mu \alpha} + \partial_\mu \Lambda^{(2)}_{\alpha}+L_{\xi} (A^{(1)\beta}_\mu \hat B_{ \alpha \beta })\\
-        &=\partial_\mu \Lambda^{(2)}_{\alpha} +L_\xi A^{(2)}_{\mu \alpha},
+        &= L_{\Lambda^{(1)}} \hat B_{\mu \alpha} +\partial_{\mu}\Lambda^{(2)}_\alpha +  L_{\Lambda^{(1)}} \hat B_{\mu \alpha}A^{(1)\beta}_\mu + \hat B_{\mu \alpha} L_{\Lambda^{(1)}}A^{(1)\beta}_\mu \\
+        &= L_{\Lambda^{(1)}} \hat B_{\mu \alpha} + \partial_\mu \Lambda^{(2)}_{\alpha}+L_{\Lambda^{(1)}} (A^{(1)\beta}_\mu \hat B_{ \alpha \beta })\\
+        &=\partial_\mu \Lambda^{(2)}{\alpha} +L_{\Lambda^{(1)}} A^{(2)}_{\mu \alpha},
     \end{aligned}
 \end{equation}
-This confirms the transformation given in \cite{maharana1993noncompact}, where the $L_{\xi}$ are defined in \eqref{xitransfo}.
+This confirms the transformation given in \cite{maharana1993noncompact}, where the $L_{\Lambda^{(1)}}$ are defined in \eqref{xitransfo}.
 Doing the same for $B_{\mu \nu}$, we find the transformation
 \begin{equation}
-    \delta B_{\mu \nu} = \frac{1}{2}(\Lambda^{(1)\alpha}F^{(2)}_{\mu \nu \alpha} + \Lambda^{(2)}_{\alpha}F^{(1)\alpha}_{\mu \nu}) + L_\xi B_{\mu \nu},
+    \delta B_{\mu \nu} = \frac{1}{2}(\Lambda^{(1)\alpha}F^{(2)}_{\mu \nu \alpha} + \Lambda^{(2)}_{\alpha}F^{(1)\alpha}_{\mu \nu}) + L_{\Lambda^{(1)}} B_{\mu \nu},
 \end{equation}
-which is exactly what is needed to ensure that $H_{\mu \nu \rho} H^{\mu \nu \rho}$ is invariant under this transformation, as can be seen from equation \eqref{Hmunurho}.
+which is exactly what is needed to ensure that $H_{\mu \nu \rho} H^{\mu \nu \rho}$ is invariant under the gauge transformation, as can be seen from equation \eqref{Hmunurho}.
 
 \section{Complete Reduced Action and Observation of a New Symmetry}
 \subsection{Complete Reduced Action}
@@ -729,7 +729,7 @@ where we decompose $S$ as $S =  S_1 + S_2 + S_3 +S_4$, with
 \begin{equation} \label{eq:38}
     \boxed{
     \begin{aligned}
-        S_1 &=\int dx^D Ve^{-\phi}(R +g^{\mu \nu}\partial_{\mu }\phi \partial_{\nu} \phi),\\
+        S_1 &=\int dx^D Ve^{-\phi}(R +\partial_{\mu }\phi \partial^{\mu} \phi),\\
         S_2 &=\int dx^D Ve^{-\phi}\Big(\frac{1}{4}g^{\mu \nu }(\partial_\mu h_{\alpha \beta}\partial_\nu h^{\alpha \beta} - h^{\alpha \beta } h^{\gamma \delta}\partial_\mu B_{\alpha \gamma} \partial_\nu B_{\beta \delta})\Big),\\
         S_3 &= \int dx^DVe^{-\phi}\Big(-\frac{1}{4}g^{\mu \rho}g^{\nu \lambda}(h_{\alpha\beta}F^{(1)\alpha}_{\mu \nu}F^{(1)\beta}_{\rho \lambda}+h^{\alpha \beta}H_{\mu \nu \alpha}H_{\rho \lambda \beta })\Big),\\
         S_4 &=\int dx^D Ve^{-\phi}\Big(-\frac{1}{12}H_{\mu \nu \rho} H^{\mu \nu \rho}\Big).

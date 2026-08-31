@@ -35,7 +35,50 @@ What are we going to study
 Why are we studying that
 \end{frame}
 \section{Reduction of the Einstein action}
-\begin{frame}{}
-    
+\begin{frame}{Hilbert--Einstein action}
+\begin{block}{The Action}
+\begin{equation*}
+\begin{aligned}
+    S &= \int d x^D \int \frac{d y ^E}{\rho(E)} \sqrt{- \hat g} \hat R  \\
+    &=\int d x^D\hat V \{  \hat \omega^{\hat s}{}_{\hat s}{}^{\hat t}\omega^{\hat r}{}_{\hat r \hat t} + \hat \omega^{\hat s \hat t}{}_{ \hat r}\omega^{\hat r}{}_{  \hat s \hat t }+ 2\hat \omega_{\hat s}{}^{\hat r \hat s}\hat V^{\hat \mu}_{ \hat r}\partial_{\hat \mu}\hat \phi \}
+\end{aligned}
+\end{equation*}
+\end{block}
+\end{frame}
+\begin{frame}{Vielbein ansatz}
+   \[\hat \omega_{trs } = - \hat\Omega_{\hat t\hat r \hat s} +\hat\Omega_{\hat r\hat s \hat t } -\hat\Omega_{\hat s\hat t \hat r}\]
+   \[\hat\Omega_{\hat r\hat s \hat t } = \frac{1}{2}\big(\hat V^{\hat \mu}_{\hat r}\hat V^{\hat \nu}_{\hat s} -\hat V^{\hat \nu}_{\hat r} \hat V^{\hat \mu}_{\hat s}\big)\partial_{\hat \nu} \hat V_{\hat \mu \hat r} \]
+\begin{block}{Vielbein ansatz}
+    \[ \hat V^{\hat r}_{\hat \mu} =\begin{pmatrix}
+    V^{r}_{\mu} & A^{(1)\beta }_{\mu} \Phi^{a}_{\beta} \\ 0 & \Phi^{a}_\alpha
+    \end{pmatrix}.  \]
+\end{block}
+\end{frame}
+\begin{frame}{Result}
+    \begin{block}{Reduced action}
+    \begin{equation*}
+    \begin{aligned}
+    S = &\int d x^D  V \delta \Big( 
+    \frac{-1}{4} g^{\rho \lambda} \partial_\lambda h_{\alpha \beta}\partial_\rho h^{\alpha \beta}
+    +\frac{1}{4}F^{\mu \nu \alpha}F^{\beta}_{\mu  \nu}h_{\alpha \beta}+\\
+    &+ R + \frac{1}{4} \partial_{\hat \mu} \log(h) \partial^{\hat \mu} \log(h) \Big).
+\end{aligned}
+\end{equation*}
+\end{block}
+\end{frame}
+\section{Reduction of the NS-NS action and Symmetry Observation}
+\begin{frame}{NS-NS action}
+    \begin{block}{The action}
+        \begin{equation*}
+    S = \int d x^D  \sqrt{- \hat g } e^{- \hat \phi} \Big(\hat R +  \partial_{\hat \mu}\hat \phi \partial^{\hat \mu}\hat \phi - \frac{1}{12}  H_{ \mu \nu \rho}H^{ \mu\nu \rho}\Big),
+\end{equation*} 
+    \end{block}
+\end{frame}
+\begin{frame}{NS-NS action}
+    \begin{block}{The action}
+        \begin{equation*}
+    S = \int d x^D  \sqrt{- \hat g } e^{- \hat \phi} \Big(\hat R +  \partial_{\hat \mu}\hat \phi \partial^{\hat \mu}\hat \phi - \frac{1}{12}  H_{ \mu \nu \rho}H^{ \mu\nu \rho}\Big),
+\end{equation*} 
+    \end{block}
 \end{frame}
 \end{document}
