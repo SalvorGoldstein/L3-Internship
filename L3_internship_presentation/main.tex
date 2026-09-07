@@ -11,6 +11,8 @@
 \usepackage{siunitx}
 \usepackage{float}
 \usepackage{stmaryrd}
+\usepackage[backend=biber, style=authortitle, sorting=none]{biblatex}
+\addbibresource{references.bib}
 \usetheme{Berlin}
 \title{Dimensional Reduction in Supergravity and Duality Symmetries}
 \author{Adam Franchot--Fowler}
@@ -28,14 +30,18 @@
 \end{frame}
 
 \section{Introduction}
-\begin{frame}{Subject}
-What are we going to study
+\begin{frame}{The objectif}
+\begin{itemize}
+    \item How does a $4$ dimensional observer perceive an universe in $4+E$ dimension.
+    \item Finding equivalent theory.
+\end{itemize}
 \end{frame}
 \begin{frame}{justification}
-Why are we studying that
+Why are we studying that?
 \end{frame}
-\section{Reduction of the Einstein action}
+\section{Kaluza-klein reduction of the Einstein-Hilbert action}
 \begin{frame}{Hilbert--Einstein action}
+We are going to follow \cite{scherk1979get} paper for this part.
 \begin{block}{The Action}
 \begin{equation*}
 \begin{aligned}
@@ -44,11 +50,14 @@ Why are we studying that
 \end{aligned}
 \end{equation*}
 \end{block}
+hat $\rightarrow$ high dimension, Begining of an alphabet $\rightarrow$ internal space, end of an alphabet $\rightarrow$ space-time.
 \end{frame}
 \begin{frame}{Vielbein ansatz}
+    \begin{block}{definition}
    \[\hat \omega_{trs } = - \hat\Omega_{\hat t\hat r \hat s} +\hat\Omega_{\hat r\hat s \hat t } -\hat\Omega_{\hat s\hat t \hat r}\]
    \[\hat\Omega_{\hat r\hat s \hat t } = \frac{1}{2}\big(\hat V^{\hat \mu}_{\hat r}\hat V^{\hat \nu}_{\hat s} -\hat V^{\hat \nu}_{\hat r} \hat V^{\hat \mu}_{\hat s}\big)\partial_{\hat \nu} \hat V_{\hat \mu \hat r} \]
-\begin{block}{Vielbein ansatz}
+ \end{block}
+   \begin{block}{Vielbein ansatz}
     \[ \hat V^{\hat r}_{\hat \mu} =\begin{pmatrix}
     V^{r}_{\mu} & A^{(1)\beta }_{\mu} \Phi^{a}_{\beta} \\ 0 & \Phi^{a}_\alpha
     \end{pmatrix}.  \]
@@ -65,20 +74,86 @@ Why are we studying that
 \end{aligned}
 \end{equation*}
 \end{block}
+What do I spy with my little eyes?
 \end{frame}
-\section{Reduction of the NS-NS action and Symmetry Observation}
+\section{Reduction of the NS-NS action}
 \begin{frame}{NS-NS action}
+For the second goal, we are going to follow \cite{maharana1993noncompact}.
     \begin{block}{The action}
         \begin{equation*}
-    S = \int d x^D  \sqrt{- \hat g } e^{- \hat \phi} \Big(\hat R +  \partial_{\hat \mu}\hat \phi \partial^{\hat \mu}\hat \phi - \frac{1}{12}  H_{ \mu \nu \rho}H^{ \mu\nu \rho}\Big),
+    S = \int d x^D  \sqrt{- \hat g } e^{- \hat \phi} \Big(\hat R +  \partial_{\hat \mu}\hat \phi \partial^{\hat \mu}\hat \phi - \frac{1}{12}  H_{ \hat \mu \hat \nu \hat \rho}H^{ \hat\mu \hat \nu \hat \rho}\Big),
 \end{equation*} 
     \end{block}
 \end{frame}
-\begin{frame}{NS-NS action}
-    \begin{block}{The action}
-        \begin{equation*}
-    S = \int d x^D  \sqrt{- \hat g } e^{- \hat \phi} \Big(\hat R +  \partial_{\hat \mu}\hat \phi \partial^{\hat \mu}\hat \phi - \frac{1}{12}  H_{ \mu \nu \rho}H^{ \mu\nu \rho}\Big),
-\end{equation*} 
+\begin{frame}{Finalization}
+    \begin{block}{Reduced action}
+    \begin{equation*} 
+    \begin{aligned}
+        S&=\int dx^D Ve^{-\phi} \big[(R +\partial_{\mu }\phi \partial^{\mu} \phi)\\
+        &+\Big(\frac{1}{4}g^{\mu \nu }(\partial_\mu h_{\alpha \beta}\partial_\nu h^{\alpha \beta} - h^{\alpha \beta } h^{\gamma \delta}\partial_\mu B_{\alpha \gamma} \partial_\nu B_{\beta \delta})\Big)\\
+        &+\Big(-\frac{1}{4}g^{\mu \rho}g^{\nu \lambda}(h_{\alpha\beta}F^{(1)\alpha}_{\mu \nu}F^{(1)\beta}_{\rho \lambda}+h^{\alpha \beta}H_{\mu \nu \alpha}H_{\rho \lambda \beta })\Big)\\
+        &+\Big(-\frac{1}{12}H_{\mu \nu \rho} H^{\mu \nu \rho}\Big) \Big]
+    \end{aligned}
+\end{equation*}
     \end{block}
+\end{frame}
+\section{$O(E,E)$ symmetry}
+\begin{frame}{$O(E,E)$ group}
+    \begin{definition}
+        A matrix $M$ is in $O(E,E)$ if it is a square $E\times E$ matrix and, for the matrix
+    \begin{equation*}
+        \zeta = \begin{pmatrix}
+            0 & 1 \\ 1 &0
+        \end{pmatrix},
+    \end{equation*}
+    which can be used as a metric for the group $O(E,E)$, as it has $E$ negative eigenvalues and $E$ positive eigenvalues in a basis rotated from the one with diagonal metric,\\ 
+    the matrix $M$ satisfies
+    \begin{equation*}
+        \boxed{M^T \zeta M = \zeta. }
+    \end{equation*}
+    \end{definition}
+\end{frame}
+\begin{frame}
+    \begin{columns}
+        \column{0.5\textwidth}
+\begin{block}{$O(E,E)$ group action}
+ \begin{align*}
+    &A^i \rightarrow \Omega^i_j A^j, \\
+    &M_{ij} \rightarrow \Omega^l_i M_{lk}\Omega^k_j,
+\end{align*}
+\end{block}
+    \column{0.5\textwidth}
+    \begin{block}{Enter M}
+        \begin{equation*}
+    M = \begin{pmatrix}
+        h^{-1} & -h^{-1}B \\ Bh^{-1} & h-Bh^{-1}B
+    \end{pmatrix}
+\end{equation*}
+    \end{block}         
+    \end{columns}
+\end{frame}
+\begin{frame}{An action reformed}
+\begin{block}{The new action}
+    \begin{equation*}
+    \begin{aligned}
+    S = &\int dx^D Ve^{-\phi}\Big[R +g^{\mu \nu}\partial_{\mu }\phi \partial_{\nu} \phi \\&+ \frac{1}{8}\tr(\partial_\mu M^{-1}\partial^\mu M)
+    -\frac{1}{4} \mathcal{F}^i_{\mu \nu}(M^{-1})_{ij} \mathcal{F}^{\mu \nu j}  \\
+    &- \frac{1}{12}\Big(\partial_\mu B_{\nu \rho} -\frac{1}{2} \mathcal{A}^i_\mu \zeta_{ij} \mathcal{F}^j_{\nu \rho} + \text{(cyclic perms.)}\Big)\\ &\Big(\partial^\mu B^{\nu \rho} -\frac{1}{2} \mathcal{A}^{i\mu} \zeta_{ij} \mathcal{F}^{j\nu \rho} + \text{(cyclic perms.)}\Big)\Big].
+    \end{aligned}
+\end{equation*}
+\end{block}
+\end{frame}
+\begin{frame}{Invariance to $O(E,E)$}
+    \begin{alertblock}{What do we have here? A symmetry !}
+        \[S' = S\]
+    \end{alertblock}
+\end{frame}
+\section{Conclusion}
+\begin{frame}
+    \begin{itemize}
+        \item What did the R reduction showed us
+        \item $O(E,E)$ symmetry
+        \item What can we do next ?
+    \end{itemize}
 \end{frame}
 \end{document}
