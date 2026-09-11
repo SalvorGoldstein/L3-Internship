@@ -56,44 +56,6 @@
       \field{pages}{61\bibrangedash 88}
       \range{pages}{28}
     \endentry
-    \entry{maharana1993noncompact}{article}{}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=b86e55756a944ca5dbd96b300e8abbca}{%
-           family={Maharana},
-           familyi={M\bibinitperiod},
-           given={Jnanadeva},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=a21ee9458cd511176c2a40339112f381}{%
-           family={Schwarz},
-           familyi={S\bibinitperiod},
-           given={John\bibnamedelima H},
-           giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Elsevier}%
-      }
-      \strng{namehash}{88d0dccffb817ba92521ed1154874c83}
-      \strng{fullhash}{88d0dccffb817ba92521ed1154874c83}
-      \strng{fullhashraw}{88d0dccffb817ba92521ed1154874c83}
-      \strng{bibnamehash}{88d0dccffb817ba92521ed1154874c83}
-      \strng{authorbibnamehash}{88d0dccffb817ba92521ed1154874c83}
-      \strng{authornamehash}{88d0dccffb817ba92521ed1154874c83}
-      \strng{authorfullhash}{88d0dccffb817ba92521ed1154874c83}
-      \strng{authorfullhashraw}{88d0dccffb817ba92521ed1154874c83}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Nuclear Physics B}
-      \field{number}{1}
-      \field{title}{Noncompact symmetries in string theory}
-      \field{volume}{390}
-      \field{year}{1993}
-      \field{pages}{3\bibrangedash 32}
-      \range{pages}{30}
-    \endentry
   \enddatalist
 \endrefsection
 \endinput
