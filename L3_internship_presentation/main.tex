@@ -1,34 +1,31 @@
 \documentclass{beamer}
+\setbeamertemplate{date}{}
 \usepackage{graphicx} % Required for inserting images
 \usepackage{subcaption}
 \usepackage{booktabs}
 \usepackage{chngcntr} 
 \usepackage{comment}
 \usepackage{mathtools}
-\usepackage{color}
+\usepackage{xcolor}
 \usepackage{amssymb}
 \usepackage{physics}
 \usepackage{xurl}
 \usepackage{siunitx}
 \usepackage{float}
 \usepackage{stmaryrd}
+\usepackage{fontspec}
+\setsansfont{Rajdhani}
 \usepackage[backend=biber, style=authortitle, sorting=none]{biblatex}
 \addbibresource{references.bib}
 \usetheme{Berlin}
-\title{Dimensional Reduction in Supergravity and Duality Symmetries}
+\title{Dimensional Reduction in Supergravity and Duality Symmetrys}
 \author{Adam Franchot--Fowler}
 \institute{University Paris-Saclay and ENS Lyon}
-\usepackage{tcolorbox}
-\tcbuselibrary{skins}
-
-\usepackage{tcolorbox}
-\tcbuselibrary{skins}
-
-\newtcolorbox{eqbox}{
-    colback=structure!10,
-    colframe=structure,
-    arc=3mm,
-    boxrule=1pt,
+\AtBeginSection[]{
+  \begin{frame}[plain,c]
+    \centering
+    \Huge\insertsectionhead
+  \end{frame}
 }
 \begin{document}
 
@@ -44,47 +41,70 @@
 \section{Introduction}
 \begin{frame}
 \begin{columns}
+
 \column{0.5\textwidth}
-\centering\textbf{Other force}\\
-quantum field-theoretic language
-\vspace{20mm}\pause
-\column{0.5\textwidth}
-\centering\textbf{General relativity}\\
-Gravitational interaction due to space time deformation\\
+\centering\textbf{Gravity}\\
+General relativity describes gravity as a deformation of spacetime.
+Standard quantization methods fail on gravity, so we need to modify
+how we describe it.\\
 \centering\includegraphics[width=0.5\textwidth]{images.jpg}
-\end{columns}
-\vspace{(5mm)}\pause
-\centering{The classical quanfication method do not work on gravity. We need to modify the gravity description.}
-\end{frame}
-\begin{frame}
-    \centering\textbf{supersymmetry}\\
-    \centering{symmetry mixing the degrees of
-freedom of fermions and bosons.\\
-Used in :}
-\vspace{15mm}
+\column{0.5\textwidth} \pause
+\centering\textbf{Super symmetry}\\
+a symmetry mixing the degrees of freedom of fermions and bosons. It appears in \\
 \begin{columns}
     \column{0.5\textwidth}
     \centering\boxed{\textbf{Supergravity}}\\
     \centering\includegraphics[width=0.6\textwidth]{images2.jpg}
+    \vspace{1mm}
     \column{0.5\textwidth}
     \centering\boxed{\textbf{String Theory}}\\
     \centering\includegraphics[width=0.5\textwidth]{images3.jpg}
+
 \end{columns}
-\vspace{10mm}\pause
-\centering{!!\textbf{Both theories describe the existence of extra dimensions}!!}
+\centering{!!\textbf{Both theories predict extra dimensions}!!}
+\vspace{3mm}
+\end{columns}
+\vspace{5mm}
 \end{frame}
 \begin{frame}
-\centering{We need a way to describe how $4$ dimensions observer, see a $4+E$ dimensions universe.}\\
-\vspace{5mm}
-\centering\includegraphics[width=0.8\textwidth]{images4.png}
+We need a way to describe how a $4$-dimensional observer would see a $4+E$-dimensional universe.\\
+\centering\includegraphics[width=0.5\textwidth]{images4.png}\\
+\begin{equation*}S_{4+E}= \int dx^{4+E} \mathcal{L}_{4+E} \longrightarrow S_4= \int dx^{4} \mathcal{L}_{4} \end{equation*}
+This procedure is called \textbf{dimensional reduction}. Once we've reduced
+the action, we can also look for hidden symmetries it develops in its
+reduced form symmetries that were invisible in $4+E$ dimensions.
+
 \end{frame}
-\section{$D+E$ gravity description}
+\section{$4+E$ gravity description}
+\begin{frame}{A warm-up: electromagnetism}
+    \begin{columns}
+        \column{0.4\textwidth}
+        \centering{\textbf{Maxwell equations}}
+        \begin{itemize}
+            \item $\vec{\nabla} \cdot \vec{E} = \mu_0 c^2 \rho$,
+            \item $\vec{\nabla} \times \vec{B} = \mu_0 \vec{j} + \frac{1}{c^2} \pdv{\vec{E}}{t}$,
+            \item $\vec{\nabla} \times \vec{E} = - \pdv{\vec{B}}{t}$,
+            \item $\vec{\nabla} \cdot \vec{B} = 0$.
+        \end{itemize}
+        \column{0.6\textwidth}\pause
+        \centering{\textbf{Covariant formulation}}
+        \begin{itemize}
+        \item Four-current: $J^\mu = (c \rho , \vec{j})$, \\
+        \item Four-potential: $A^\mu = (V/c, \vec{A})$,
+        \item Field strength: $F_{\mu \nu} = \partial_\mu A_\nu - \partial_\nu A_\mu$.\\
+        \end{itemize}
+        \vspace{6mm}\pause
+    \end{columns}
+    \vspace{10mm}
+All four equations are packaged into a single action, the Maxwell action in vacuum:
+\begin{equation*}
+    \boxed{S_{F} = \int dx^4 \frac{1}{4} F_{\mu \nu}F^{\mu \nu}}
+\end{equation*}
+\end{frame}
+\begin{frame}{4-dimensional gravity}
 
-   
-
-\begin{frame}{$4$ dimension gravity}
     \begin{itemize}
-     \item We describe GR as a deformation of space-time describe in a metric:
+     \item General relativity encodes spacetime deformation in a metric:
     \begin{equation*}
         g_{\mu \nu} = \begin{pmatrix}
             g_{00} & g_{01} & g_{02} & g_{03} \\
@@ -93,137 +113,153 @@ Used in :}
             g_{03} & g_{13} & g_{23} & g_{33}  
         \end{pmatrix}
     \end{equation*} \pause
-    \item Einstein eqation: $R_{\mu \nu} \frac{1}{2}g_{\mu \nu}R = 0$.\pause \\
-   This give us the hilbert-Einstein action :
+    \item  the Hilbert--Einstein action:
     \begin{equation*}
-      \boxed{  S_{g} = \int dx^4 \sqrt{-g} R}
+      \boxed{  S_{g} = \int dx^4 \sqrt{-g}\, R}
     \end{equation*}
-\end{itemize}
+\end{itemize}\pause
+\centering{Einstein's equation: $R_{\mu \nu} +\frac{1}{2}g_{\mu \nu}R = 0$.}
 \end{frame}
-\begin{frame}{electromagnetic $4$ dimensions description}
-    \begin{columns}
-        \column{0.4\textwidth}
-        \centering{\textbf{Maxwell equations}}
-        \begin{itemize}
-            \item $\vec{\nabla} \cdot \vec{E} = \mu_0 c^2 \rho$,
-            \item $\vec{\nabla} \times \vec{B} = \mu_0 \vec{j} + \frac{1}{c^2} \pdv{\vec{E}}{t}$,
-            \item $\vec{ \nabla} \times - \pdv{\vec{B}}{t}$,
-            \item $\vec{\nabla} \cdot \vec{B} = 0$.
-        \end{itemize}
-        \column{0.6\textwidth}\pause
-        \centering{\textbf{Covariant formulation}}
-        \begin{itemize}
-        \item Four-current: $J^\mu = (c \rho , \vec{j})$, \\
-        \item Four-potential: $A^\mu = (V/c, \vec{A})$,
-        \item field strength: $F_{\mu \nu} = \partial_\mu A_\nu - \partial_\nu A_\mu$.\\
-        \end{itemize}
-        \vspace{6mm}\pause
-    \end{columns}
-    \vspace{10mm}
-This give us the electromagnetic action or Maxwell action in a vaccum:
-\begin{equation*}
-    \boxed{S_{F} = \int dx^4 \frac{1}{4} F_{\mu \nu}F^{\mu \nu}}
-\end{equation*}
-\end{frame}
-\begin{frame}{$D+E$ dimensions metric}
-    If we add new dimension the action have to be modified:\\
+\begin{frame}{Going to $4+E$ dimensions}
+    \begin{itemize}
+        \item We enlarge the metric:\\
     \begin{equation*}
-         S_{\hat g} =\int d x^{D} \int \frac{d y ^E}{\rho(E)} \sqrt{- \hat g} \hat  R
-    \end{equation*}\pause
-    and the action will have to be expended, for example in $5$ dimension we have:
-    \begin{equation*}
-           \hat g_{\mu \nu} = \begin{pmatrix}
-            g_{00} & g_{01} & g_{02} & g_{03}& g_{04} \\
-            g_{01} & g_{11} & g_{12} & g_{13} & g_{14}\\
-            g_{02} & g_{12} & g_{22} & g_{23}& g_{24}\\
-            g_{03} & g_{13} & g_{23} & g_{33}  & g_{34} \\
-            g_{04} & g_{14} & g_{24} & g_{34} & g_{44}
+           \hat g_{\hat\mu \hat\nu} = \begin{pmatrix}
+          4 \times 4  & 4 \times E  \\  E \times 4  & E \times E
         \end{pmatrix}
+    \quad \quad \quad \quad \text{ \fontsize{6}{7}\selectfont A little hat mean that we are in high dimension. \normalsize}
     \end{equation*}
+    
+        \item We assume no field depends on the internal coordinates.
+        \item The action is rewritten accordingly:
+        \begin{equation*}
+            S_{\hat g} = \int dx^4 \int \frac{dy^E}{\rho(E)} \sqrt{- \hat g} \, \hat R
+        \end{equation*}
+    \end{itemize}
 \end{frame}
 \begin{frame}{Reduction}
-    We are going to follow the reduction method of the \cite{scherk1979get}. Firstly let's do an anstaz of the metric we are going to use
+    We make an ansatz on the metric,
     \begin{equation*}
          \hat g_{\hat \mu \hat \nu} = \begin{pmatrix}
-        g_{\mu \nu} - A^{\gamma}_{\mu}A^{(1)}_{\nu \lambda} & - A^{(1)}_{\mu \beta} \\  A^{(1)}_{\nu \alpha} &-h_{\alpha \beta} \end{pmatrix}
+        g_{\mu \nu} - A^{(1)\gamma}_{\mu}A^{(1)}_{\nu \lambda} & - A^{(1)}_{\mu \beta} \\  -A^{(1)}_{\nu \alpha} &-h_{\alpha \beta} \end{pmatrix},
     \end{equation*}\pause
-    And once finished that gave us:
+    and after some calculation, the reduced action is:
    \begin{equation*}
     \boxed{
     \begin{aligned}
-    S_{\hat g} = &\int d x^D e^{-\hat \phi} V \delta \Big( 
-    \frac{-1}{4} g^{\rho \lambda} \partial_\lambda h_{\alpha \beta}\partial_\rho h^{\alpha \beta}
-    +\frac{1}{4}F^{\mu \nu \alpha}F^{\beta}_{\mu  \nu}h_{\alpha \beta}+\\
-    &+ R + \frac{1}{4} \partial_{\hat \mu} \log(h) \partial^{\hat \mu} \log(h) + \partial_{\hat \mu} \log(h) \partial^{\hat \mu} \hat \phi \Big).
+    S_{\hat g} = &\int d x^4\, \sqrt{-g}\Big( \textcolor{red}{R}
+    +\textcolor{violet}{\frac{1}{4}F^{\mu \nu \alpha}F_{ \alpha \mu  \nu}}\\
+    &-   \frac{1}{4} g^{\rho \lambda} \partial_\lambda h_{\alpha \beta}\partial_\rho h^{\alpha \beta}\Big).
 \end{aligned}}
 \end{equation*}
+\centering{ \textcolor{red}{Low dimension gravity},  \textcolor{violet}{$E$ electromagnetism field}}
 \end{frame}
 \section{$O(E,E)$ symmetry}
-\begin{frame}{The NS-NS action}
-    In string theory we do not use the Einstein Hilbert action but a variant of it the NS-NS action:
+\begin{frame}{Same idea, string theory version: the NS-NS action}
+    In string theory we don't use the pure Einstein--Hilbert action, but a variant of it, the NS-NS action:
     \begin{equation*} 
-    \boxed{S = \int d x^{D} \int \frac{d y^E}{\rho(E)}\sqrt{- \hat g } e^{ - \hat \phi} \Big(\hat R +  \partial_{\hat \mu}\hat \phi \partial^{\hat \mu}\hat \phi - \frac{1}{12}  H_{ \mu \nu \rho}H^{ \mu\nu \rho}\Big),}
+    \boxed{S = \int d x^4 \int \frac{d y^E}{\rho(E)}\sqrt{- \hat g } \, e^{ - \hat \phi} \Big(\hat R +  \partial_{\hat \mu}\hat \phi \, \partial^{\hat \mu}\hat \phi - \frac{1}{12}  H_{ \mu \nu \rho}H^{ \mu\nu \rho}\Big),}
 \end{equation*} \pause
-$\hat \phi$ is the dilaton, and $\hat H_{\hat \mu \hat \nu \hat \rho}$ is the srength field of the two form $ \hat B_{\mu \nu}$.We define the low components of  $ \hat B_{\mu \nu}$ with:
-\begin{subequations} 
-    \begin{align}
-        T^{\mu} &= V_r^\mu \hat V^r_{\hat \mu}\hat T^{\hat \mu}, \\ 
-        T^{\alpha} &= V_a^\alpha \hat V^a_{\hat \mu}\hat T^{\hat \mu}, \\ 
-        T_{\mu} &= V_\mu^r \hat V_r^{\hat \mu}\hat T_{\hat \mu},\\  
-        T_{\alpha} &= V_\alpha^a \hat V_a^{\hat \mu}\hat T_{\hat \mu}.  
-    \end{align}
-\end{subequations}
+\begin{columns}
+    \column{0.5\textwidth}
+    \centering{\textbf{The two-form $B_{\hat \mu \hat \nu}$}}:\\
+    \begin{itemize}
+        \item Field strength: $H_{ \mu \nu \rho} = \partial_ \mu B_{\nu \rho} + \text{cyclic perms.}$
+        \item Parametrized via the vielbein:
+    \begin{align*}
+        T^{\mu} &= V_r^\mu \hat V^r_{\hat \mu}\hat T^{\hat \mu},  \quad
+        T^{\alpha} = V_a^\alpha \hat V^a_{\hat \mu}\hat T^{\hat \mu}, \\ 
+        T_{\mu} &= V_\mu^r \hat V_r^{\hat \mu}\hat T_{\hat \mu}, \quad
+        T_{\alpha} = V_\alpha^a \hat V_a^{\hat \mu}\hat T_{\hat \mu}.
+    \end{align*}
+    \end{itemize}
+    \column{0.5\textwidth}
+    \centering{\textbf{The dilaton $\hat \phi$}}:\\
+    \begin{itemize}
+        \item Shifted dilaton: $\phi = \hat \phi -\frac{1}{2} \log{h}$
+        \item $\partial_\alpha \hat \phi = 0 $
+    \end{itemize}
+    \vspace{16mm}
+\end{columns}
 \end{frame}
-\begin{frame}{An action reformed}
-    We can now write the Reduced action :
+\begin{frame}{The reduced action}
+    Carrying out the reduction, we obtain:
     \begin{equation*}
         \boxed{
     \begin{aligned}
-    S = &\int dx^D Ve^{-\phi}\Big( R +\partial_{\mu }\phi \partial^{\mu} \phi + \frac{1}{8}\tr(\partial_\mu M^{-1}\partial^\mu M)\\ 
-    & -\frac{1}{4} \mathcal{F}^i_{\mu \nu}(M^{-1})_{ij} \mathcal{F}^{\mu \nu j}-\frac{1}{12}H_{\mu \nu \rho} H^{\mu \nu \rho} \Big).
+    S = &\int  dx^4\, Ve^{-\phi}\Big( \textcolor{red}{R} +\textcolor{blue}{\partial_{\mu }\phi \, \partial^{\mu} \phi }+ \frac{1}{8}\tr(\partial_\mu M^{-1}\partial^\mu M)\\ 
+    & \textcolor{violet}{-\frac{1}{4} \mathcal{F}^i_{\mu \nu}(M^{-1})_{ij} \mathcal{F}^{\mu \nu j}}\textcolor{green}{-\frac{1}{12}H_{\mu \nu \rho} H^{\mu \nu \rho}} \Big),
     \end{aligned}}
 \end{equation*}
-with M being:
+ \centering{ \textcolor{red}{Low dimension gravity},  \textcolor{violet}{$E$ modified electromagnetism field},   \textcolor{blue}{Shifted dilaton field}, \textcolor{green}{low dimension two form field}   }\\
+with $M$ built from the internal metric $h$ and the two-form $B$:
 \begin{equation*}
      M = \begin{pmatrix}
         h^{-1} & -h^{-1}B \\ Bh^{-1} & h-Bh^{-1}B
     \end{pmatrix}.
 \end{equation*}
+
 \end{frame}
 \begin{frame}{$O(E,E)$ invariance}
-    We define the action of the $O(E,E)$ group as being, 
+    We define the action of the $O(E,E)$ group as
     \begin{align*} 
     &A^i \rightarrow \Omega^i_j A^j, \\
-    &M_{ij} \rightarrow \Omega^l_i M_{lk}\Omega^k_j,
+    &M \rightarrow \Omega^T M \, \Omega,
 \end{align*}
 where $\Omega \in O(E,E)$. \\
-\centering{\textbf{The action is invariant under this transformation !!!!}}
+\vspace{4mm}
+\centering{\textbf{...the action is left completely invariant!}}
 \end{frame}
 \section{Conclusion}
-\begin{frame}{physical interpretation}
+\begin{frame}{Summary and outlook}
+    \begin{itemize}
+    \item \textbf{Physical interpretation:}
+    \begin{itemize}
+    \item Coupling between gravity and electromagnetism in low dimensions can emerge from pure gravity in higher dimensions.
+    \item The NS-NS action is $O(E,E)$ invariant a genuinely stringy symmetry known as T-duality.
+\end{itemize}
+\item \textbf{Prospects:}
 \begin{itemize}
-    \item coupling of gravity and elctrmagnetism in low dimension from gravity in high dimension
-    \item The NS-Ns action is $O(E,E)$ invariant.
+        \item searching for other hidden symmetries,
+        \item allowing the fields to depend on the internal coordinates.
+    \end{itemize}
 \end{itemize}
 \end{frame}
-\begin{frame}{prospect}
-    \begin{itemize}
-        \item searching other symmetry
-        \item considering an internal field dependence.
-    \end{itemize}
-\end{frame}
-\section{annex}
-\begin{frame}
-     A matrix $M$ is in $O(E,E)$ if it is a square $E\times E$ matrix and, for the matrix
+\section*{Annex}
+\begin{frame}{Definition of $O(E,E)$}
+     A square $E\times E$ matrix $M$ belongs to $O(E,E)$ if, for the matrix
     \begin{equation*}
         \zeta = \begin{pmatrix}
             0 & 1 \\ 1 &0
         \end{pmatrix},
     \end{equation*}
-    which can be used as a metric for the group $O(E,E)$, as it has $E$ negative eigenvalues and $E$ positive eigenvalues in a basis rotated from the one with diagonal metric,\\ 
-    the matrix $M$ satisfies
+    which can be used as a metric for the group $O(E,E)$ since $\zeta$ has $E$ negative and $E$ positive eigenvalues in a basis rotated from the diagonal one $M$ satisfies
     \begin{equation*}
         \boxed{M^T \zeta M = \zeta. }
     \end{equation*}
+\end{frame}
+\begin{frame}{Vielbein formalism}
+\begin{columns}
+    \column{0.5\textwidth}
+    \textbf{A new basis}
+\begin{equation*}
+    g_{\mu \nu} V^{\mu}_{a}V^{\nu}_b = \eta_{ab},
+\end{equation*}
+\centering\includegraphics[width=1\textwidth]{images5.png}
+\vspace{7mm}
+\column{0.5\textwidth}
+\textbf{Curvature in this basis}
+\begin{equation*} 
+    \hat R_{\hat \mu \hat \nu \hat r \hat s} =  \partial_{\hat \mu } \hat \omega_{\hat \nu \hat r \hat s}+ \hat \omega_{\hat\mu \hat r}{}^{\hat t}\omega_{\hat\nu \hat t \hat s} - (\mu \leftrightarrow \nu),
+\end{equation*}
+where the $\omega$'s are defined by
+\begin{equation*} 
+    \hat \omega_{trs } = - \hat\Omega_{\hat t\hat r \hat s} +\hat\Omega_{\hat r\hat s \hat t } -\hat\Omega_{\hat s\hat t \hat r},
+\end{equation*}
+and the $\Omega$'s in turn come from the vielbein:
+\begin{equation*}
+    \hat\Omega_{\hat r\hat s \hat t } = \frac{1}{2}\big(\hat V^{\hat \mu}_{\hat r}\hat V^{\hat \nu}_{\hat s} -\hat V^{\hat \nu}_{\hat r} \hat V^{\hat \mu}_{\hat s}\big)\partial_{\hat \nu} \hat V_{\hat \mu \hat r},
+\end{equation*}
+\end{columns}
 \end{frame}
 \end{document}

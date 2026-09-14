@@ -16,47 +16,5 @@
   {}
 \endgroup
 
-
-\refsection{0}
-  \datalist[entry]{none/global//global/global/global}
-    \entry{scherk1979get}{article}{}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=1d47a03255cbd272a6ff7d171dc16e7e}{%
-           family={Scherk},
-           familyi={S\bibinitperiod},
-           given={Joel},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=a21ee9458cd511176c2a40339112f381}{%
-           family={Schwarz},
-           familyi={S\bibinitperiod},
-           given={John\bibnamedelima H},
-           giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Elsevier}%
-      }
-      \strng{namehash}{863bbcf400700b666e96e847468a21ea}
-      \strng{fullhash}{863bbcf400700b666e96e847468a21ea}
-      \strng{fullhashraw}{863bbcf400700b666e96e847468a21ea}
-      \strng{bibnamehash}{863bbcf400700b666e96e847468a21ea}
-      \strng{authorbibnamehash}{863bbcf400700b666e96e847468a21ea}
-      \strng{authornamehash}{863bbcf400700b666e96e847468a21ea}
-      \strng{authorfullhash}{863bbcf400700b666e96e847468a21ea}
-      \strng{authorfullhashraw}{863bbcf400700b666e96e847468a21ea}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Nuclear Physics B}
-      \field{title}{How to get masses from extra dimensions}
-      \field{volume}{153}
-      \field{year}{1979}
-      \field{pages}{61\bibrangedash 88}
-      \range{pages}{28}
-    \endentry
-  \enddatalist
-\endrefsection
 \endinput
 
